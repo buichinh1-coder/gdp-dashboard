@@ -26,9 +26,7 @@ CL = json.loads((ROOT / "data/qaqc/checklists.json").read_text(encoding="utf-8")
 # Mục HĐ -> mẫu checklist gần nhất (cần người dùng xác nhận). Không có mẫu -> không xuất checklist.
 MAU = {
     "15": "XD|San lẮP", "16": "XD|đào đất", "04+05": "XD|đào đất",
-    "11": "XD|Ván khuôn dầm sàn", "12": "XD|Ván khuôn dầm sàn",
-    "13": "XD|Thép dầm sàn ", "09": "XD|Đổ bê tông ", "06": "XD|San lẮP", "07": "XD|San lẮP",
-    "14": "XD|khe lún",
+    "09": "XD|Đổ bê tông ", "06": "XD|San lẮP", "07": "XD|San lẮP",
 }
 GENERIC = {"VL": ["Có chứng chỉ xuất xưởng / CO-CQ", "Có kết quả thí nghiệm đầu vào", "Đúng chủng loại, quy cách theo thiết kế"],
            "CV": ["Có bản vẽ thi công được duyệt", "Vật liệu đã được nghiệm thu", "Đúng vị trí, kích thước, cao độ",
@@ -49,7 +47,7 @@ iso = lambda x: x.date().isoformat()
 
 # Thứ tự công nghệ để xếp các biên bản cùng ngày: đê quai, nạo vét, ép cọc, đào móng, vận chuyển, cắt đầu cọc,
 # ván khuôn lót, BT lót, thép, ván khuôn, khe lún, đổ BT, đắp hoàn trả, đá xô, biện pháp thi công
-TECH = ["15", "16", "02+03", "04+05", "10+08", "13", "11", "12", "14", "09", "06", "07", "17"]
+TECH = ["15", "16", "02+03", "04+05", "10+08", "13+11+12+14", "09", "06", "07", "17"]
 raw = []  # (ngay, thứ tự, rec); VL (thứ tự < 100) xếp trước công việc cùng ngày
 vl = [  # ngày VL do người lập chọn: cọc = ngày đầu tiên trước ép; thép = trước ngày bắt đầu thép; BT = ngày bắt đầu đổ
     ("Cọc bê tông BT300x300 M300 bền sunfat (tự sản xuất)", "Toàn tuyến cọc 88-126", "m", 3372, "2026-08-24"),
@@ -88,9 +86,18 @@ for pd_ in ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]:
         "type": "CV", "hang_muc": "Ván khuôn và đổ bê tông lót móng M100",
         "vi_tri": pd_, "dvt": "", "khoi_luong": 0, "ngay": ngay_, "mau_checklist": "XD|Ván khuôn dầm sàn", "mau_checklist_2": "XD|Bê tông lot",
         "muc_hd": "10+08", "cl_nhan": ["ván khuôn", "đổ bê tông lót"], "cl_suffix": ["_van_khuon", "_bt_lot"]}))
+# gộp cốt thép (13), ván khuôn cấu kiện (11), ván khuôn khóa đỉnh (12) và khe lún (14): cùng ngày nghiệm thu trước đổ bê tông
+for pd_ in ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]:
+    parts_ = [next(v for v in rows if str(v[1]) == m and v[3] == pd_) for m in ("13", "11", "12", "14")]
+    ngay_ = max(iso(v[8]) for v in parts_)
+    raw.append((ngay_, TECH.index("13+11+12+14") + 100, {
+        "type": "CV", "hang_muc": "Cốt thép, ván khuôn (cấu kiện, khóa đỉnh) và khe lún trước khi đổ bê tông M300",
+        "vi_tri": pd_, "dvt": "", "khoi_luong": 0, "ngay": ngay_, "mau_checklist": "XD|Thép dầm sàn ", "mau_checklist_2": "XD|Ván khuôn dầm sàn",
+        "mau_checklist_3": "XD|khe lún", "muc_hd": "13+11+12+14", "cl_nhan": ["cốt thép", "ván khuôn", "khe lún"],
+        "cl_suffix": ["_thep", "_van_khuon", "_khe_lun"]}))
 for v in rows:
     muc = str(v[1] or "")
-    if muc in ("01", "02", "03", "04", "05", "08", "10") or not muc:  # cung cấp cọc -> VL đầu vào 1 lần; hoàn thành/bàn giao -> form khác, chưa hỗ trợ
+    if muc in ("01", "02", "03", "04", "05", "08", "10", "11", "12", "13", "14") or not muc:  # cung cấp cọc -> VL đầu vào 1 lần; hoàn thành/bàn giao -> form khác, chưa hỗ trợ
         continue
     ngay, kh = iso(v[8]), None
     rec_ = {"type": "CV", "hang_muc": v[2], "vi_tri": v[3], "dvt": v[4], "khoi_luong": float(v[5] or 0),
@@ -119,6 +126,8 @@ for ngay, stt, rec in sorted(raw, key=lambda x: (x[0], x[1])):
     rec["checklist"] = checklist(rec["type"], rec["mau_checklist"])
     if rec.get("mau_checklist_2"):
         rec["checklist_2"] = checklist(rec["type"], rec["mau_checklist_2"])
+    if rec.get("mau_checklist_3"):
+        rec["checklist_3"] = checklist(rec["type"], rec["mau_checklist_3"])
     rec["ket_luan"] = "Chưa có kết luận"
     db["records"].append(rec)
 # --- số tham chiếu giữa các biểu mẫu ---
@@ -129,7 +138,7 @@ for i, r in enumerate(lm_src, 1):
 num = lambda r: r["so"].split()[-1]
 VLREF = {"07": lambda r: [x for x in vls if "Đá xô" in x["hang_muc"]],
          "02+03": lambda r: [x for x in vls if "Cọc bê tông" in x["hang_muc"]],
-         "13": lambda r: [x for x in vls if "Cốt thép" in x["hang_muc"]],
+         "13+11+12+14": lambda r: [x for x in vls if "Cốt thép" in x["hang_muc"]],
          }
 for r in db["records"]:
     r["tieu_chuan"] = tieu_chuan.tieu_chuan_vl(r["hang_muc"]) if r["type"] == "VL" else tieu_chuan.tieu_chuan_cv(r.get("muc_hd", ""))
@@ -140,7 +149,7 @@ for r in db["records"]:
     else:
         r["so_yc"] = f"{num(r)}/YC/CV"
         if r.get("mau_checklist_2"):
-            r["so_kt"] = f"{num(r)}/KT-1 ({r['cl_nhan'][0]}), {num(r)}/KT-2 ({r['cl_nhan'][1]})"
+            r["so_kt"] = ", ".join(f"{num(r)}/KT-{i} ({nh})" for i, nh in enumerate(r["cl_nhan"], 1))
         elif r["mau_checklist"]:
             r["so_kt"] = f"{num(r)}/KT"
         if r.get("lay_mau"):
@@ -180,6 +189,10 @@ for r in recs:
             r2 = dict(r, mau_checklist=r["mau_checklist_2"], checklist=r["checklist_2"])
             n2, b2 = qaqc_xlsx.build_checklist_xlsx(r2, proj, so_kt=f"{num(r)}/KT-2", suffix=r["cl_suffix"][1])
             (sub / n2).write_bytes(b2)
+            if r.get("mau_checklist_3"):
+                r3 = dict(r, mau_checklist=r["mau_checklist_3"], checklist=r["checklist_3"])
+                n3, b3 = qaqc_xlsx.build_checklist_xlsx(r3, proj, so_kt=f"{num(r)}/KT-3", suffix=r["cl_suffix"][2])
+                (sub / n3).write_bytes(b3)
         else:
             n, b = qaqc_xlsx.build_checklist_xlsx(r, proj)
             (sub / n).write_bytes(b)
@@ -274,7 +287,7 @@ for p_ in PD:
     r = row_of("09", p_)
     h("Bê tông M300", f"Phiếu giao hàng từng xe, đổ bê tông {p_.lower()} (ngày {D(r[6]):%d/%m} - {D(r[7]):%d/%m})", cv_of("09", p_)["so"], f"{fmt(D(r[6]))} - {fmt(D(r[7]))}")
 h("Đá xô", "Hồ sơ nguồn gốc, chủng loại, kích cỡ đá xô (nghiệm thu vật liệu đầu vào, không thí nghiệm)", so_vl("Đá xô"), f"Trước {fmt(dt.date.fromisoformat(next(r for r in recs if r['type'] == 'VL' and 'Đá xô' in r['hang_muc'])['ngay']))}")
-h("Khe lún", "Chứng chỉ ống thoát nước, chi tiết thoát nước và vật tư khe lún", cv_of("14", PD[0])["so"], f"Trước {fmt(D(row_of('14', PD[0])[6]))}")
+h("Khe lún", "Chứng chỉ ống thoát nước, chi tiết thoát nước và vật tư khe lún", cv_of("13+11+12+14", PD[0])["so"], f"Trước {fmt(D(row_of('14', PD[0])[6]))}")
 h("Ép cọc", "Giấy kiểm định thiết bị ép (đồng hồ áp lực, kích) còn hiệu lực", "Nghiệm thu cọc", f"Trước {fmt(D(row_of('02', PD[0])[6]))}")
 for p_ in PD:
     c = cv_of("02+03", p_)
@@ -361,7 +374,7 @@ with pd.ExcelWriter(OUT / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", engine=
 TY = {"VL": "Nghiệm thu vật liệu đầu vào", "CV": "Nghiệm thu công việc xây dựng", "GD": "Nghiệm thu giai đoạn"}
 dm = pd.DataFrame([{"Số": r["so"], "Loại": TY[r["type"]], "Ngày nghiệm thu": r["ngay"], "Hạng mục": r["hang_muc"], "Vị trí": r["vi_tri"],
                     "ĐVT": r["dvt"], "Khối lượng": r["khoi_luong"], "Mục HĐ": r.get("muc_hd", ""), "Ngày kế hoạch ban đầu": r.get("ngay_ke_hoach", ""),
-                    "Mẫu checklist": ("; ".join(CL[m]["doi_tuong"] for m in (r["mau_checklist"], r.get("mau_checklist_2")) if m) if r["mau_checklist"] else ("-" if r["type"] == "GD" else "(chưa có mẫu)")),
+                    "Mẫu checklist": ("; ".join(CL[m]["doi_tuong"] for m in (r["mau_checklist"], r.get("mau_checklist_2"), r.get("mau_checklist_3")) if m) if r["mau_checklist"] else ("-" if r["type"] == "GD" else "(chưa có mẫu)")),
                     "Kết luận": r["ket_luan"]} for r in recs])
 dm.to_excel(OUT / "00_Danh_muc_ho_so.xlsx", index=False)
 import shutil; shutil.copy(ROOT / "tools/ho_so_ghi_chu.md", OUT / "01_Ghi_chu_va_gia_dinh.md")

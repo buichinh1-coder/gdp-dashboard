@@ -10,8 +10,7 @@ TC_CONG_VIEC = {  # theo Mục HĐ của lịch nghiệm thu
     "04+05": ["TCVN 4447:2012", "TCVN 9361:2012"],  # đào móng + vận chuyển đất đào
     "10+08": BT,  # ván khuôn + đổ bê tông lót
     "02+03": ["TCVN 9394:2012", "TCVN 9361:2012"],  # nghiệm thu cọc: ép cọc + cắt đầu cọc
-    "11": BT, "12": BT, "14": BT,
-    "13": ["TCVN 4453:1995", "TCVN 1651-2:2018", "QCVN 07:2019/BKHCN"],
+    "13+11+12+14": ["TCVN 4453:1995", "TCVN 1651-2:2018", "QCVN 07:2019/BKHCN"],  # cốt thép + ván khuôn + khe lún trước đổ bê tông
     "09": ["TCVN 4453:1995", "TCVN 3105:2022", "TCVN 3118:2022", "TCVN 8828:2011"],
     "17": [],
 }

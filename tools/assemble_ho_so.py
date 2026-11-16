@@ -38,11 +38,12 @@ pdfmetrics.registerFont(TTFont("Serif", FD + "LiberationSerif-Regular.ttf"))
 pdfmetrics.registerFont(TTFont("SerifB", FD + "LiberationSerif-Bold.ttf"))
 pdfmetrics.registerFont(TTFont("SerifI", FD + "LiberationSerif-Italic.ttf"))
 PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
-SUFFIXES = ("", "_ep_coc", "_cat_dau_coc", "_van_khuon", "_bt_lot")
-SUF_LABEL = {"_ep_coc": " (ép cọc)", "_cat_dau_coc": " (cắt đầu cọc)", "_van_khuon": " (ván khuôn)", "_bt_lot": " (đổ bê tông lót)"}
+SUFFIXES = ("", "_ep_coc", "_cat_dau_coc", "_van_khuon", "_bt_lot", "_thep", "_khe_lun")
+SUF_LABEL = {"_ep_coc": " (ép cọc)", "_cat_dau_coc": " (cắt đầu cọc)", "_van_khuon": " (ván khuôn)", "_bt_lot": " (đổ bê tông lót)",
+             "_thep": " (cốt thép)", "_khe_lun": " (khe lún)"}
 SHORT = {"15": "Đắp đê quai, tạo sàn thi công (độ chặt K95)", "16": "Đào bùn, nạo vét lạch phía núi",
-         "04+05": "Đào móng, vận chuyển đất đào", "10+08": "Ván khuôn, đổ bê tông lót M100", "13": "Gia công, lắp dựng cốt thép",
-         "11": "Ván khuôn cấu kiện", "12": "Ván khuôn khóa đỉnh", "14": "Thi công khe lún", "09": "Đổ bê tông M300 bền sunfat, chống thấm",
+         "04+05": "Đào móng, vận chuyển đất đào", "10+08": "Ván khuôn, đổ bê tông lót M100",
+         "13+11+12+14": "Thép, ván khuôn (cấu kiện, khóa đỉnh), khe lún trước đổ bê tông", "09": "Đổ bê tông M300 bền sunfat, chống thấm",
          "06": "Đắp hoàn trả hố móng, lu nền (độ chặt K95)", "07": "Đắp đá xô chân tường chắn", "17": "Biện pháp thi công trọn gói",
          "02+03": "Nghiệm thu cọc: ép cọc, cắt đầu cọc"}
 dmy = lambda s: dt.date.fromisoformat(s).strftime("%d/%m/%Y")
