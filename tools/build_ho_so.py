@@ -46,7 +46,10 @@ rows = [[ws.cell(r, c).value for c in range(1, 15)] for r in range(1, ws.max_row
 rows = [v for v in rows if str(v[0]).isdigit()]
 iso = lambda x: x.date().isoformat()
 
-raw = []  # (ngay, stt, rec)
+# Thứ tự công nghệ để xếp các biên bản cùng ngày: đê quai, nạo vét, ép cọc, đào móng, vận chuyển, cắt đầu cọc,
+# ván khuôn lót, BT lót, thép, ván khuôn, khe lún, đổ BT, đắp hoàn trả, đá xô, biện pháp thi công
+TECH = ["15", "16", "02", "04", "05", "03", "10", "08", "13", "11", "12", "14", "09", "06", "07", "17"]
+raw = []  # (ngay, thứ tự, rec); VL (thứ tự < 100) xếp trước công việc cùng ngày
 vl = [  # ngày VL do người lập chọn: cọc = ngày đầu tiên trước ép; thép = trước ngày bắt đầu thép; BT = ngày bắt đầu đổ
     ("Cọc bê tông BT300x300 M300 bền sunfat (tự sản xuất)", "Toàn tuyến cọc 88-126", "m", 3372, "2026-08-24"),
     ("Cốt thép", "Toàn tuyến cọc 88-126", "tấn", 23.02, "2026-09-04"),
@@ -54,14 +57,23 @@ vl = [  # ngày VL do người lập chọn: cọc = ngày đầu tiên trước
 bt = {"Cọc 88-98": ("2026-09-11", 136.94), "Cọc 98-108": ("2026-09-16", 136.94), "Cọc 108-118": ("2026-09-21", 136.94), "Cọc 118-126": ("2026-09-26", 136.96)}
 for pd_, (d, q) in bt.items():
     vl.append(("Bê tông thương phẩm M300 bền sunfat, phụ gia chống thấm (cấp phối đã duyệt)", pd_, "m3", q, d))
+for v in rows:  # bê tông lót M100 (thương phẩm, cấp phối đã duyệt): nghiệm thu VL mỗi đợt, ngày = ngày đổ
+    if str(v[1]) == "08":
+        vl.append(("Bê tông thương phẩm M100 (cấp phối đã duyệt) - bê tông lót móng", v[3], "m3", float(v[5]), iso(v[6])))
 for k, (hm, vt, dv, kl, d) in enumerate(vl):
     raw.append((d, k, {"type": "VL", "hang_muc": hm, "vi_tri": vt, "dvt": dv, "khoi_luong": kl, "ngay": d, "mau_checklist": "", "lay_mau": True}))
 for v in rows:
     muc = str(v[1] or "")
     if muc == "01" or not muc:  # cung cấp cọc -> VL đầu vào 1 lần; hoàn thành/bàn giao -> form khác, chưa hỗ trợ
         continue
-    raw.append((iso(v[8]), int(v[0]), {"type": "CV", "hang_muc": v[2], "vi_tri": v[3], "dvt": v[4], "khoi_luong": float(v[5] or 0),
-                                         "ngay": iso(v[8]), "mau_checklist": MAU.get(muc, ""), "muc_hd": muc}))
+    ngay, kh = iso(v[8]), None
+    if muc == "09":  # phụ gia R7 đạt 100%: nghiệm thu kết cấu sau khi có kết quả nén R7, trước khi đắp đất lên tường chắn
+        ngay, kh = (v[7] + dt.timedelta(days=8)).date().isoformat(), iso(v[8])
+    rec_ = {"type": "CV", "hang_muc": v[2], "vi_tri": v[3], "dvt": v[4], "khoi_luong": float(v[5] or 0),
+            "ngay": ngay, "mau_checklist": MAU.get(muc, ""), "muc_hd": muc}
+    if kh:
+        rec_["ngay_ke_hoach"] = kh
+    raw.append((ngay, TECH.index(muc) + 100, rec_))
 db = {"project": {
     "ten_cong_trinh": "Khu đô thị tại khu 10B, phường Quang Hanh, thành phố Cẩm Phả, tỉnh Quảng Ninh",
     "so_hop_dong": "12.08/2026/HĐKT/ĐGC-GL", "chu_dau_tu": "Công ty TNHH Đỗ Gia Capital", "tu_van_giam_sat": "",
@@ -113,7 +125,9 @@ bt_rows = {v[3]: (D(v[6]), D(v[7])) for v in rows if str(v[1]) == "09"}
 dap_rows = {v[3]: D(v[6]) for v in rows if str(v[1]) == "06"}
 vl_so = {r["hang_muc"][:12] + r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL"}
 so_vl = lambda k: next(r["so"] for r in recs if r["type"] == "VL" and k in r["hang_muc"])
-so_bt = {r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL" and "Bê tông thương phẩm" in r["hang_muc"]}
+so_bt = {r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL" and "M300" in r["hang_muc"] and "Bê tông thương phẩm" in r["hang_muc"]}
+so_lot = {r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL" and "M100" in r["hang_muc"]}
+lot_start = {r["vi_tri"]: r["ngay"] for r in recs if r["type"] == "VL" and "M100" in r["hang_muc"]}
 LM_SO = {r["so"]: f"LM {i:03d}" for i, r in enumerate([r for r in recs if r["type"] == "VL"], 1)}
 TC = "Theo chỉ dẫn kỹ thuật của hợp đồng"
 tn = [
@@ -130,7 +144,11 @@ tn = [
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Đo độ sụt hiện trường", "TCVN 3106:2022", "Mỗi đợt đổ", ", ".join(so_bt.values())),
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Lấy mẫu và nén mẫu R7 (căn cứ đắp đất lên tường chắn)", "TCVN 3105:2022, TCVN 3118:2022", "R7 sau ngày lấy mẫu (xem sheet Moc_R7)", ", ".join(so_bt.values())),
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Nén mẫu R28 / thấm nước (nếu chỉ dẫn kỹ thuật hoặc CĐT yêu cầu)", "TCVN 3118:2022, TCVN 3116:2022", "Theo yêu cầu", ", ".join(so_bt.values())),
-    ("D. Đề xuất, cần xác nhận", "Bê tông lót M100: kết quả nén mẫu (nếu trộn hoặc mua riêng)", "TCVN 3118:2022", "Mỗi đợt đổ lót", "CV bê tông lót"),
+    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật liệu của nhà máy bê tông", TC, "Trước ngày đổ lót đợt đầu (04/09/2026)", ", ".join(so_lot.values())),
+    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Phiếu giao hàng từng xe (mác, độ sụt, giờ trộn)", "", "Mỗi đợt đổ lót", ", ".join(so_lot.values())),
+    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Đo độ sụt hiện trường", "TCVN 3106:2022", "Mỗi đợt đổ lót", ", ".join(so_lot.values())),
+    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Lấy mẫu và nén mẫu bê tông lót (nếu chỉ dẫn kỹ thuật yêu cầu)", "TCVN 3105:2022, TCVN 3118:2022", "Mỗi đợt đổ lót", ", ".join(so_lot.values())),
+    ("D. Đề xuất, cần xác nhận", "Ống thoát nước, chi tiết thoát nước khe lún: chứng chỉ chất lượng", TC, "Trước 08/09/2026", "CV khe lún"),
     ("D. Đề xuất, cần xác nhận", "Đất đắp hoàn trả (8.642 m3): thí nghiệm đầm nén tiêu chuẩn (dung trọng khô lớn nhất, độ ẩm tốt nhất)", TC, "Trước khi đắp phân đoạn 1 (21/09/2026)", "CV đắp hoàn trả"),
     ("D. Đề xuất, cần xác nhận", "Độ chặt K từng lớp đắp (hiện trường)", TC, "Từng lớp đắp", "CV đắp hoàn trả"),
     ("D. Đề xuất, cần xác nhận", "Đá xô chân tường chắn: thí nghiệm đá", TC, "Trước khi đắp đá xô (26/09/2026)", "CV đắp đá xô"),
@@ -148,8 +166,9 @@ for pd_ in PD:
     (b0, b1), dap = bt_rows[pd_], dap_rows[pd_]
     r7.append({"Phân đoạn": pd_, "Biên bản VL": so_bt[pd_], "Ngày đổ": f"{b0:%d/%m/%Y} - {b1:%d/%m/%Y}",
                "Ngày nén R7 (sớm nhất - muộn nhất)": f"{b0 + dt.timedelta(7):%d/%m/%Y} - {b1 + dt.timedelta(7):%d/%m/%Y}",
+               "Nghiệm thu kết cấu BT (R7 + 1 ngày)": f"{b1 + dt.timedelta(8):%d/%m/%Y}",
                "Ngày bắt đầu đắp hoàn trả": f"{dap:%d/%m/%Y}",
-               "Đắp sau khi đủ R7?": "Có" if dap >= b1 + dt.timedelta(7) else "KHÔNG - cần xử lý",
+               "Đắp sau khi nghiệm thu kết cấu?": "Có" if dap > b1 + dt.timedelta(8) else "KHÔNG - cần xử lý",
                "Ghi chú": "Cần kết quả nén mẫu R7 đạt yêu cầu trước khi đắp"})
 with pd.ExcelWriter(OUT / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", engine="openpyxl") as w:
     tn_df.to_excel(w, sheet_name="Danh_sach", index=False)
@@ -161,7 +180,7 @@ with pd.ExcelWriter(OUT / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", engine=
 # danh mục
 TY = {"VL": "Nghiệm thu vật liệu đầu vào", "CV": "Nghiệm thu công việc xây dựng"}
 dm = pd.DataFrame([{"Số": r["so"], "Loại": TY[r["type"]], "Ngày nghiệm thu": r["ngay"], "Hạng mục": r["hang_muc"], "Vị trí": r["vi_tri"],
-                    "ĐVT": r["dvt"], "Khối lượng": r["khoi_luong"], "Mục HĐ": r.get("muc_hd", ""),
+                    "ĐVT": r["dvt"], "Khối lượng": r["khoi_luong"], "Mục HĐ": r.get("muc_hd", ""), "Ngày kế hoạch ban đầu": r.get("ngay_ke_hoach", ""),
                     "Mẫu checklist": CL[r["mau_checklist"]]["doi_tuong"] if r["mau_checklist"] else "(chưa có mẫu)",
                     "Kết luận": r["ket_luan"]} for r in recs])
 dm.to_excel(OUT / "00_Danh_muc_ho_so.xlsx", index=False)

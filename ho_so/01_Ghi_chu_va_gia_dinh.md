@@ -21,8 +21,8 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
    - Cọc BT300x300: 1 lần cho cả 3.372 m (VL 001), ngày 24/08/2026, ngày trước khi ép cọc đầu tiên.
      Phải đủ toàn bộ cọc và đạt R7 trước ngày này. Nếu cọc phân đoạn 2–4 sản xuất sau thì cần tách thêm biên bản.
    - Thép: 1 lần cho 23,02 tấn, ngày 04/09/2026 (1 ngày trước ngày bắt đầu thép phân đoạn 1). Ngày này do người lập chọn, lịch không có.
-   - Bê tông thương phẩm M300: 1 biên bản cho mỗi đợt đổ (4 đợt), ngày = ngày bắt đầu đổ. Chưa có VL cho bê tông lót M100,
-     đá xô, vật liệu đắp, vật tư khe lún.
+   - Bê tông thương phẩm M300 và M100 (bê tông lót): mỗi loại 1 biên bản cho mỗi đợt đổ (4 đợt), ngày = ngày bắt đầu đổ.
+   - Chưa có VL cho đá xô, vật liệu đắp, vật tư khe lún và ống thoát nước.
 2. Các dòng "cung cấp cọc" theo phân đoạn trong lịch được gộp vào VL 001, nên không còn là biên bản công việc.
 3. Mẫu checklist là mẫu gần nhất trong file XD:
    - đắp đê quai, đắp hoàn trả, đá xô -> "San lấp";
@@ -33,6 +33,17 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
    - BT lót -> "Bê tông lót";
    - khe lún -> "Khe lún".
 4. Bê tông phụ gia R7 đạt 100% cường độ: cần kết quả nén mẫu R7 làm căn cứ khi đắp đất lên tường chắn.
+
+## Rà soát trình tự công việc (lần này)
+Đã áp dụng:
+1. Thêm 4 biên bản nghiệm thu vật liệu bê tông thương phẩm M100 (bê tông lót), mỗi phân đoạn một biên bản, ngày bằng ngày đổ lót.
+   Trước đây bộ hồ sơ chỉ có VL bê tông M300.
+2. Ngày nghiệm thu kết cấu bê tông M300 (CV đổ bê tông) chuyển từ mốc R28 của lịch sang **ngày nén R7 + 1 ngày**
+   (PĐ1 20/09, PĐ2 25/09, PĐ3 30/09, PĐ4 05/10). Lý do: theo xác nhận phụ gia R7 đạt 100%, và nghiệm thu kết cấu phải trước
+   khi đắp đất lên tường chắn (21/09, 26/09, 01/10, 06/10). Ngày kế hoạch cũ ghi ở cột "Ngày kế hoạch ban đầu" trong
+   `00_Danh_muc_ho_so.xlsx`. Nếu thực tế nghiệm thu theo R28 thì đổi lại.
+3. Các biên bản cùng ngày được đánh số theo trình tự công nghệ (ví dụ ép cọc trước đào móng, cắt đầu cọc sau).
+Còn để ngỏ: đào móng hoàn thành trước ngày bắt đầu ép cọc ở cả 4 phân đoạn, cần xác nhận trình tự thi công thực tế.
 
 ## Bổ sung lần này
 - Checklist **ép cọc** và **cắt đầu cọc** (8 file): file mẫu gốc không có hai checklist này, nên tôi soạn theo bố cục
