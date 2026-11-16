@@ -55,8 +55,12 @@ vl = [  # ngày VL do người lập chọn: cọc = ngày đầu tiên trước
     ("Cọc bê tông BT300x300 M300 bền sunfat (tự sản xuất)", "Toàn tuyến cọc 88-126", "m", 3372, "2026-08-24"),
     ("Cốt thép", "Toàn tuyến cọc 88-126", "tấn", 23.02, "2026-09-04"),
 ]
+# đá xô: chỉ nghiệm thu vật liệu đầu vào (1 lần, trước ngày đắp đá xô đầu tiên), không lấy mẫu thí nghiệm
+_xo = [v for v in rows if str(v[1]) == "07"]
+vl.append(("Đá xô đắp chân tường chắn", "Toàn tuyến cọc 88-126", "m3", round(sum(float(v[5]) for v in _xo), 2),
+           (min(v[6] for v in _xo) - dt.timedelta(days=1)).date().isoformat()))
 for k, (hm, vt, dv, kl, d) in enumerate(vl):
-    raw.append((d, k, {"type": "VL", "hang_muc": hm, "vi_tri": vt, "dvt": dv, "khoi_luong": kl, "ngay": d, "mau_checklist": "", "lay_mau": True}))
+    raw.append((d, k, {"type": "VL", "hang_muc": hm, "vi_tri": vt, "dvt": dv, "khoi_luong": kl, "ngay": d, "mau_checklist": "", "lay_mau": "Đá xô" not in hm}))
 # B: gộp ép cọc (02) và cắt đầu cọc (03) thành một biên bản "nghiệm thu cọc" cho mỗi phân đoạn
 for pd_ in ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]:
     ep = next(v for v in rows if str(v[1]) == "02" and v[3] == pd_)
@@ -105,13 +109,15 @@ lm_src = sorted([r for r in db["records"] if r.get("lay_mau")], key=lambda r: (r
 for i, r in enumerate(lm_src, 1):
     r["so_lm"] = f"LM {i:03d}"
 num = lambda r: r["so"].split()[-1]
-VLREF = {"02+03": lambda r: [x for x in vls if "Cọc bê tông" in x["hang_muc"]],
+VLREF = {"07": lambda r: [x for x in vls if "Đá xô" in x["hang_muc"]],
+         "02+03": lambda r: [x for x in vls if "Cọc bê tông" in x["hang_muc"]],
          "13": lambda r: [x for x in vls if "Cốt thép" in x["hang_muc"]],
          }
 for r in db["records"]:
     r["tieu_chuan"] = tieu_chuan.tieu_chuan_vl(r["hang_muc"]) if r["type"] == "VL" else tieu_chuan.tieu_chuan_cv(r.get("muc_hd", ""))
     if r["type"] == "VL":
-        r["lm_ref"] = [num(r_) + "/LM" for r_ in [r]] and [f"{r['so_lm'].split()[-1]}/LM"]
+        if r.get("lay_mau"):
+            r["lm_ref"] = [f"{r['so_lm'].split()[-1]}/LM"]
         r["so_yc"] = f"{num(r)}/YC/VL-TB"
     else:
         r["so_yc"] = f"{num(r)}/YC/CV"
@@ -241,8 +247,6 @@ for muc, ten in (("15", "Đắp đê quai"), ("06", "Đắp hoàn trả hố mó
         for d0 in days(D(r[6]), D(r[7])):
             add(DAT, "Độ chặt K95 các lớp đắp trong ngày (mỗi lớp K >= 0,95 mới đắp lớp tiếp theo)", f"{ten} {p_.lower()}, ngày {d0:%d/%m}", TC,
                 cv_of(muc, p_)["so"], fmt(d0), fmt(d0), "Cùng ngày đắp")
-add(DAX, "Thí nghiệm đá (cường độ, độ hút nước...) theo chỉ dẫn kỹ thuật", "Đá xô chân tường chắn", TC, cv_of("07", PD[0])["so"], "Lấy mẫu trước khi đắp",
-    f"Chậm nhất {fmt(D(row_of('07', PD[0])[6]) - dt.timedelta(1))}", "Trước ngày đắp đá xô đầu tiên; đề xuất, cần xác nhận")
 add(NT, "Thí nghiệm nén tĩnh cọc hoặc PDA (nếu thiết kế yêu cầu)", "Cọc thử theo thiết kế", "TCVN 9393:2012", "GD 001", "Theo thiết kế", "Chưa có ngày: cần thiết kế/CĐT quy định", "Chỉ làm nếu thiết kế yêu cầu")
 
 # hồ sơ kèm theo (không phải thí nghiệm): chứng chỉ, cấp phối, phiếu giao hàng, kiểm định, nhật ký...
@@ -255,6 +259,7 @@ h("Bê tông M300", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật li�
 for p_ in PD:
     r = row_of("09", p_)
     h("Bê tông M300", f"Phiếu giao hàng từng xe, đổ bê tông {p_.lower()} (ngày {D(r[6]):%d/%m} - {D(r[7]):%d/%m})", cv_of("09", p_)["so"], f"{fmt(D(r[6]))} - {fmt(D(r[7]))}")
+h("Đá xô", "Hồ sơ nguồn gốc, chủng loại, kích cỡ đá xô (nghiệm thu vật liệu đầu vào, không thí nghiệm)", so_vl("Đá xô"), f"Trước {fmt(dt.date.fromisoformat(next(r for r in recs if r['type'] == 'VL' and 'Đá xô' in r['hang_muc'])['ngay']))}")
 h("Khe lún", "Chứng chỉ ống thoát nước, chi tiết thoát nước và vật tư khe lún", cv_of("14", PD[0])["so"], f"Trước {fmt(D(row_of('14', PD[0])[6]))}")
 h("Ép cọc", "Giấy kiểm định thiết bị ép (đồng hồ áp lực, kích) còn hiệu lực", "Nghiệm thu cọc", f"Trước {fmt(D(row_of('02', PD[0])[6]))}")
 for p_ in PD:

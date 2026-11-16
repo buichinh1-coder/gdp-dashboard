@@ -45,7 +45,8 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
    - Bê tông thương phẩm M300: **không nghiệm thu vật liệu riêng**. Lấy mẫu và thí nghiệm R7, R28 nằm trong nghiệm thu công việc đổ bê tông M300
      (4 đợt đổ, mỗi đợt 1 biên bản lấy mẫu LM đi kèm biên bản đổ bê tông).
    - Bê tông lót M100: theo xác nhận, **không nghiệm thu vật liệu đầu vào, không lấy mẫu, không thí nghiệm**.
-   - Chưa có VL cho đá xô, vật liệu đắp, vật tư khe lún và ống thoát nước.
+   - Đá xô: nghiệm thu vật liệu đầu vào 1 lần (VL 003, ngày 25/09/2026, 1 ngày trước ngày đắp đá xô đầu tiên), không lấy mẫu, không thí nghiệm.
+   - Chưa có VL cho vật liệu đắp đất, vật tư khe lún và ống thoát nước.
 2. Các dòng "cung cấp cọc" theo phân đoạn trong lịch được gộp vào VL 001, nên không còn là biên bản công việc.
 3. Mẫu checklist là mẫu gần nhất trong file XD:
    - đắp đê quai, đắp hoàn trả, đá xô -> "San lấp";

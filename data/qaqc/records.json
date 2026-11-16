@@ -5026,6 +5026,43 @@
       "so_kt": "040/KT"
     },
     {
+      "type": "VL",
+      "hang_muc": "Đá xô đắp chân tường chắn",
+      "vi_tri": "Toàn tuyến cọc 88-126",
+      "dvt": "m3",
+      "khoi_luong": 3551.96,
+      "ngay": "2026-09-25",
+      "mau_checklist": "",
+      "lay_mau": false,
+      "so": "VL 003",
+      "checklist": [
+        {
+          "Nhóm": "",
+          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
+          "Phương pháp": "",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "",
+          "Nội dung": "Có kết quả thí nghiệm đầu vào",
+          "Phương pháp": "",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "",
+          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
+          "Phương pháp": "",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [],
+      "so_yc": "003/YC/VL-TB"
+    },
+    {
       "type": "CV",
       "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
       "vi_tri": "Cọc 118-126",
@@ -5843,7 +5880,11 @@
         "TCVN 4447:2012"
       ],
       "so_yc": "047/YC/CV",
-      "so_kt": "047/KT"
+      "so_kt": "047/KT",
+      "vl_ref": [
+        "003/CV/VL-TB"
+      ],
+      "lm_ref": []
     },
     {
       "type": "CV",
@@ -6145,7 +6186,11 @@
         "TCVN 4447:2012"
       ],
       "so_yc": "050/YC/CV",
-      "so_kt": "050/KT"
+      "so_kt": "050/KT",
+      "vl_ref": [
+        "003/CV/VL-TB"
+      ],
+      "lm_ref": []
     },
     {
       "type": "CV",
@@ -6447,7 +6492,11 @@
         "TCVN 4447:2012"
       ],
       "so_yc": "053/YC/CV",
-      "so_kt": "053/KT"
+      "so_kt": "053/KT",
+      "vl_ref": [
+        "003/CV/VL-TB"
+      ],
+      "lm_ref": []
     },
     {
       "type": "CV",
@@ -6802,7 +6851,11 @@
         "TCVN 4447:2012"
       ],
       "so_yc": "056/YC/CV",
-      "so_kt": "056/KT"
+      "so_kt": "056/KT",
+      "vl_ref": [
+        "003/CV/VL-TB"
+      ],
+      "lm_ref": []
     },
     {
       "type": "CV",

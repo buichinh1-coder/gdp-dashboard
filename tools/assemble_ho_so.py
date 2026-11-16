@@ -445,7 +445,7 @@ def main():
         for i, r in enumerate(vl, 1):
             rows.append(("item", (i, r["so"], r["hang_muc"] if "Bê tông" not in r["hang_muc"] else f"Bê tông thương phẩm M300 bền sunfat - {r['vi_tri'].lower()}",
                                   dmy(r["ngay"]), start_of["yc_vl"] + marks["yc_vl"][r["so"]], start_of["vl"] + marks["vl"][r["so"]],
-                                  f"LM tr. {start_of['lm'] + marks['lm'][r['so']]}")))
+                                  (f"LM tr. {start_of['lm'] + marks['lm'][r['so']]}" if r.get("lay_mau") else "-"))))
         rows.append(("sec", "PHẦN B - NGHIỆM THU CÔNG VIỆC XÂY DỰNG"))
         stt = 0
         for title, p, key in groups:
@@ -473,7 +473,7 @@ def main():
         tn = pd.read_excel(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", sheet_name="Danh_sach", header=3)
         rows.append(("item", (1, "-", "Bảng theo dõi kết quả thí nghiệm và hồ sơ cần có", "-", "-", "-", f"tr. {start_of['tn']}")))
         full = {"A": "Cọc BT300x300 (vật liệu đầu vào)", "B": "Cốt thép", "C": "Bê tông M300 theo từng ngày đổ (R7, R28)",
-                "D": "Đắp đất - độ chặt K95", "E": "Đá xô (đề xuất)", "F": "Nén tĩnh cọc (nếu thiết kế yêu cầu)"}
+                "D": "Đắp đất - độ chặt K95", "E": "Đá xô", "F": "Nén tĩnh cọc (nếu thiết kế yêu cầu)"}
         for j, (nhom, cnt) in enumerate(tn["Nhóm"].value_counts(sort=False).items(), 2):
             rows.append(("item", (j, "-", f"{nhom[0]}. {full[nhom[0]]} ({cnt} thí nghiệm)", "-", "-", "-", "Bổ sung")))
         hs = pd.read_excel(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", sheet_name="Ho_so_kem_theo", header=3)
