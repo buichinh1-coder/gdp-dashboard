@@ -113,7 +113,9 @@ Còn để ngỏ: đào móng hoàn thành trước ngày bắt đầu ép cọc
   Ngày nén tính theo ngày đổ trong lịch; nếu đổ lệch ngày thì tính lại.
 
 ## Checklist
-Mọi biên bản nghiệm thu công việc hiện đều có checklist (đào móng và vận chuyển đất đào dùng chung mẫu "Đào đất"; một số mẫu là mẫu gần nhất, xem phần giả định).
+- **Tích sẵn "Đạt" (cột L1) cho mọi mục kiểm tra theo yêu cầu của người lập hồ sơ.** Đây là bản khung: người kiểm tra thực tế phải rà từng mục,
+  bỏ tick nếu mục nào không đạt hoặc chưa kiểm tra. Dòng kết luận "Đồng ý chuyển công tác tiếp theo" và cột L2 (TVGS) vẫn để trống.
+- Mọi biên bản nghiệm thu công việc hiện đều có checklist (đào móng và vận chuyển đất đào dùng chung mẫu "Đào đất"; một số mẫu là mẫu gần nhất, xem phần giả định).
 
 ## Chưa lập (app chưa hỗ trợ form)
 Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, biên bản kiểm tra chế tạo cọc, trắc đạc cọc.

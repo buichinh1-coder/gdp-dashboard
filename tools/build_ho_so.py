@@ -28,6 +28,8 @@ MAU = {
     "15": "XD|San lẮP", "16": "XD|đào đất", "04+05": "XD|đào đất",
     "09": "XD|Đổ bê tông ", "06": "XD|San lẮP", "07": "XD|San lẮP",
 }
+# Theo yêu cầu của người lập hồ sơ: tích sẵn "Đạt" (L1) cho mọi mục checklist. Kết luận và cột L2 (TVGS) vẫn để trống.
+KQ_MAC_DINH = "Đạt"
 GENERIC = {"VL": ["Có chứng chỉ xuất xưởng / CO-CQ", "Có kết quả thí nghiệm đầu vào", "Đúng chủng loại, quy cách theo thiết kế"],
            "CV": ["Có bản vẽ thi công được duyệt", "Vật liệu đã được nghiệm thu", "Đúng vị trí, kích thước, cao độ",
                   "Biện pháp thi công / an toàn đã duyệt"]}
@@ -35,9 +37,9 @@ GENERIC = {"VL": ["Có chứng chỉ xuất xưởng / CO-CQ", "Có kết quả 
 
 def checklist(t, mau):
     if mau:
-        return [{"Nhóm": m["nhom"], "Nội dung": m["noi_dung"], "Phương pháp": m["phuong_phap"], "Kết quả": "Chưa kiểm tra", "Ghi chú": ""}
+        return [{"Nhóm": m["nhom"], "Nội dung": m["noi_dung"], "Phương pháp": m["phuong_phap"], "Kết quả": KQ_MAC_DINH, "Ghi chú": ""}
                 for m in CL[mau]["muc"]]
-    return [{"Nhóm": "", "Nội dung": x, "Phương pháp": "", "Kết quả": "Chưa kiểm tra", "Ghi chú": ""} for x in GENERIC[t]]
+    return [{"Nhóm": "", "Nội dung": x, "Phương pháp": "", "Kết quả": KQ_MAC_DINH, "Ghi chú": ""} for x in GENERIC[t]]
 
 
 ws = openpyxl.load_workbook(sys.argv[1], data_only=True)["Chi tiet nghiem thu"]

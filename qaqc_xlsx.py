@@ -64,6 +64,8 @@ def build_checklist_xlsx(rec, project, so_kt=None, suffix=""):
 
     # Dòng tiêu đề bảng kiểm tra.
     head = next(r for r in range(1, 40) if str(ws.cell(r, 2).value or "").strip().startswith("Công việc kiểm tra"))
+    # Cột "Đạt" của L1: mẫu XD "Bê tông lót", "Ván khuôn", "Đổ bê tông" lệch 1 cột so với các mẫu khác.
+    c0 = next((c.column for rr in (head, head + 1) for c in ws[rr] if str(c.value or "").strip() == "Đạt"), 5)
     results = {}
     for it in rec["checklist"]:
         results.setdefault(_norm(it["Nội dung"]), []).append(it)
@@ -81,14 +83,14 @@ def build_checklist_xlsx(rec, project, so_kt=None, suffix=""):
         if a.isdigit() and b.strip():
             lst = results.get(_norm(b))
             it = lst.pop(0) if lst else None
-            for col in (5, 6, 7, 8):
+            for col in range(c0, c0 + 4):
                 _put(ws, r, col, EMPTY)
             if it:
                 kq = it.get("Kết quả", "")
                 if kq == "Đạt":
-                    _put(ws, r, 5, TICK)
+                    _put(ws, r, c0, TICK)
                 elif kq.startswith("Không đạt"):
-                    _put(ws, r, 6, TICK)
+                    _put(ws, r, c0 + 1, TICK)
                 note = str(it.get("Ghi chú") or "").strip()
                 if note or kq == "Đạt có điều kiện":
                     ghi_chu.append(f"- {b.strip()}: {kq if kq == 'Đạt có điều kiện' else ''} {note}".rstrip(": ").strip())
@@ -127,7 +129,9 @@ def build_checklist_xlsx(rec, project, so_kt=None, suffix=""):
             ws.row_dimensions[r].height = 45
     logo = project.get("logo")
     if logo and (ROOT / "templates" / logo).exists():  # thay ô "LOGO NHÀ THẦU" (ảnh ở cột G, hàng 2)
-        old = next((i for i in ws._images if i.anchor._from.col == 6 and i.anchor._from.row == 1), None)
+        # ô "LOGO NHÀ THẦU" là ảnh ngoài cùng bên phải ở hàng 2 (cột G hoặc H tùy mẫu)
+        hang2 = [i for i in ws._images if i.anchor._from.row == 1]
+        old = max(hang2, key=lambda i: i.anchor._from.col) if hang2 else None
         if old is not None:
             new = Image(str(ROOT / "templates" / logo))
             new.anchor, new.width, new.height = old.anchor, old.width, old.height
