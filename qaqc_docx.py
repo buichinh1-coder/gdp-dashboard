@@ -116,17 +116,17 @@ def _ten_nguoi_ky(els, doc, t, project):
         head = tb.rows[0].cells[0].text.strip()
         if t == "LM" and head.startswith("Đại diện TVGS"):
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh, 4)
+                _name_in_cell(tb.rows[1].cells[0], anh, 6)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung, 4)
+                _name_in_cell(tb.rows[1].cells[1], tung, 6)
         elif t == "CV" and head.startswith("Đại diện TVGS"):
             c1 = tb.rows[0].cells[1]  # bớt 1 dòng trống đầu ô tiêu đề (khớp file mẫu bản chỉnh của người dùng)
             if len(c1.paragraphs) >= 7 and not c1.paragraphs[0].text.strip() and not c1.paragraphs[1].text.strip():
                 c1._tc.remove(c1.paragraphs[0]._p)
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh, 2)
+                _name_in_cell(tb.rows[1].cells[0], anh, 4)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung, 2)
+                _name_in_cell(tb.rows[1].cells[1], tung, 4)
         elif t in IS_YC and head.startswith("Đơn vị TVQLDA"):
             c0, c1 = tb.rows[1].cells
             if anh:
@@ -141,6 +141,8 @@ def _ten_nguoi_ky(els, doc, t, project):
                 cell = tb.rows[1].cells[0]
                 ps = cell.paragraphs
                 _r = ps[3].add_run()
+                _r.add_break()
+                _r.add_break()
                 _r.add_text(" " * 7 + anh + " " * 47 + tung)
                 _r.bold, _r.font.name = True, "Times New Roman"
 
