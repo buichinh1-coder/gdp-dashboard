@@ -1,12 +1,13 @@
 {
   "project": {
-    "ten_cong_trinh": "Kè bê tông phía núi, cọc 88–126",
+    "ten_cong_trinh": "Khu đô thị tại khu 10B, phường Quang Hanh, thành phố Cẩm Phả, tỉnh Quảng Ninh",
     "so_hop_dong": "12.08/2026/HĐKT/ĐGC-GL",
-    "chu_dau_tu": "",
+    "chu_dau_tu": "Công ty TNHH Đỗ Gia Capital",
     "tu_van_giam_sat": "",
-    "nha_thau": "",
-    "dia_diem": "",
-    "goi_thau": ""
+    "nha_thau": "Công ty TNHH Giang Long",
+    "dia_diem": "Khu đô thị tại khu 10B, phường Quang Hanh, thành phố Cẩm Phả, tỉnh Quảng Ninh",
+    "goi_thau": "Thi công kè chắn đất bê tông đổ tại chỗ tuyến 3 đoạn từ cọc 88 đến cọc 126",
+    "logo": "logo_giang_long.png"
   },
   "records": [
     {
@@ -206,6 +207,7 @@
       "khoi_luong": 3372,
       "ngay": "2026-08-24",
       "mau_checklist": "",
+      "lay_mau": true,
       "so": "VL 001",
       "checklist": [
         {
@@ -659,35 +661,105 @@
       "dvt": "m",
       "khoi_luong": 843.0,
       "ngay": "2026-08-31",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Ép cọc",
       "muc_hd": "02",
       "so": "CV 008",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, vị trí cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công ép cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "An toàn thiết bị ép, cẩu, nền kê máy",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Mặt bằng, sàn thi công ép cọc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Thiết bị ép: giấy kiểm định, đồng hồ áp lực, lực ép tối đa",
+          "Phương pháp": "Kiểm tra hồ sơ + bằng mắt",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cọc đã nghiệm thu đầu vào (chủng loại, ký hiệu, kích thước, ngoại quan)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí tim cọc trước khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng của cọc khi ép",
+          "Phương pháp": "Dây dọi / máy kinh vĩ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lực ép, chiều dài ép, điều kiện dừng ép theo thiết kế",
+          "Phương pháp": "Đối chiếu nhật ký ép cọc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Nhật ký ép cọc ghi đầy đủ, có xác nhận",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục, định vị tim cọc",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Vị trí cọc sau khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi ép",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -701,35 +773,105 @@
       "dvt": "cọc",
       "khoi_luong": 123.0,
       "ngay": "2026-08-31",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Cắt đầu cọc",
       "muc_hd": "03",
       "so": "CV 009",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, cao độ cắt đầu cọc theo thiết kế",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công cắt, đập đầu cọc",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Thiết bị cắt, đập và bảo hộ lao động",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Cọc đã ép xong và đã được nghiệm thu ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Hố móng đúng cao độ, khô ráo, thoát nước",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Mặt cắt đầu cọc phẳng, vuông góc trục, không nứt vỡ",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chiều dài thép chờ, thép lộ ra theo thiết kế (nếu có)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Số lượng cọc cắt đối chiếu bảng tổng hợp ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thu gom, bốc xúc, vận chuyển phế thải; vệ sinh hố móng",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị cọc trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -961,6 +1103,7 @@
       "khoi_luong": 23.02,
       "ngay": "2026-09-04",
       "mau_checklist": "",
+      "lay_mau": true,
       "so": "VL 002",
       "checklist": [
         {
@@ -1365,35 +1508,105 @@
       "dvt": "m",
       "khoi_luong": 843.0,
       "ngay": "2026-09-07",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Ép cọc",
       "muc_hd": "02",
       "so": "CV 016",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, vị trí cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công ép cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "An toàn thiết bị ép, cẩu, nền kê máy",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Mặt bằng, sàn thi công ép cọc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Thiết bị ép: giấy kiểm định, đồng hồ áp lực, lực ép tối đa",
+          "Phương pháp": "Kiểm tra hồ sơ + bằng mắt",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cọc đã nghiệm thu đầu vào (chủng loại, ký hiệu, kích thước, ngoại quan)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí tim cọc trước khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng của cọc khi ép",
+          "Phương pháp": "Dây dọi / máy kinh vĩ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lực ép, chiều dài ép, điều kiện dừng ép theo thiết kế",
+          "Phương pháp": "Đối chiếu nhật ký ép cọc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Nhật ký ép cọc ghi đầy đủ, có xác nhận",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục, định vị tim cọc",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Vị trí cọc sau khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi ép",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -1407,35 +1620,105 @@
       "dvt": "cọc",
       "khoi_luong": 124.0,
       "ngay": "2026-09-07",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Cắt đầu cọc",
       "muc_hd": "03",
       "so": "CV 017",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, cao độ cắt đầu cọc theo thiết kế",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công cắt, đập đầu cọc",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Thiết bị cắt, đập và bảo hộ lao động",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Cọc đã ép xong và đã được nghiệm thu ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Hố móng đúng cao độ, khô ráo, thoát nước",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Mặt cắt đầu cọc phẳng, vuông góc trục, không nứt vỡ",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chiều dài thép chờ, thép lộ ra theo thiết kế (nếu có)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Số lượng cọc cắt đối chiếu bảng tổng hợp ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thu gom, bốc xúc, vận chuyển phế thải; vệ sinh hố móng",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị cọc trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -2290,6 +2573,7 @@
       "khoi_luong": 136.94,
       "ngay": "2026-09-11",
       "mau_checklist": "",
+      "lay_mau": true,
       "so": "VL 003",
       "checklist": [
         {
@@ -2456,35 +2740,105 @@
       "dvt": "m",
       "khoi_luong": 843.0,
       "ngay": "2026-09-12",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Ép cọc",
       "muc_hd": "02",
       "so": "CV 027",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, vị trí cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công ép cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "An toàn thiết bị ép, cẩu, nền kê máy",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Mặt bằng, sàn thi công ép cọc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Thiết bị ép: giấy kiểm định, đồng hồ áp lực, lực ép tối đa",
+          "Phương pháp": "Kiểm tra hồ sơ + bằng mắt",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cọc đã nghiệm thu đầu vào (chủng loại, ký hiệu, kích thước, ngoại quan)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí tim cọc trước khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng của cọc khi ép",
+          "Phương pháp": "Dây dọi / máy kinh vĩ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lực ép, chiều dài ép, điều kiện dừng ép theo thiết kế",
+          "Phương pháp": "Đối chiếu nhật ký ép cọc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Nhật ký ép cọc ghi đầy đủ, có xác nhận",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục, định vị tim cọc",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Vị trí cọc sau khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi ép",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -2498,35 +2852,105 @@
       "dvt": "cọc",
       "khoi_luong": 123.0,
       "ngay": "2026-09-12",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Cắt đầu cọc",
       "muc_hd": "03",
       "so": "CV 028",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, cao độ cắt đầu cọc theo thiết kế",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công cắt, đập đầu cọc",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Thiết bị cắt, đập và bảo hộ lao động",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Cọc đã ép xong và đã được nghiệm thu ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Hố móng đúng cao độ, khô ráo, thoát nước",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Mặt cắt đầu cọc phẳng, vuông góc trục, không nứt vỡ",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chiều dài thép chờ, thép lộ ra theo thiết kế (nếu có)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Số lượng cọc cắt đối chiếu bảng tổng hợp ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thu gom, bốc xúc, vận chuyển phế thải; vệ sinh hố móng",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị cọc trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -3290,6 +3714,7 @@
       "khoi_luong": 136.94,
       "ngay": "2026-09-16",
       "mau_checklist": "",
+      "lay_mau": true,
       "so": "VL 004",
       "checklist": [
         {
@@ -3456,35 +3881,105 @@
       "dvt": "m",
       "khoi_luong": 843.0,
       "ngay": "2026-09-17",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Ép cọc",
       "muc_hd": "02",
       "so": "CV 037",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, vị trí cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công ép cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "An toàn thiết bị ép, cẩu, nền kê máy",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Mặt bằng, sàn thi công ép cọc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Thiết bị ép: giấy kiểm định, đồng hồ áp lực, lực ép tối đa",
+          "Phương pháp": "Kiểm tra hồ sơ + bằng mắt",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cọc đã nghiệm thu đầu vào (chủng loại, ký hiệu, kích thước, ngoại quan)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí tim cọc trước khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng của cọc khi ép",
+          "Phương pháp": "Dây dọi / máy kinh vĩ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lực ép, chiều dài ép, điều kiện dừng ép theo thiết kế",
+          "Phương pháp": "Đối chiếu nhật ký ép cọc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Nhật ký ép cọc ghi đầy đủ, có xác nhận",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục, định vị tim cọc",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Vị trí cọc sau khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi ép",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -3498,35 +3993,105 @@
       "dvt": "cọc",
       "khoi_luong": 124.0,
       "ngay": "2026-09-17",
-      "mau_checklist": "",
+      "mau_checklist": "XD|Cắt đầu cọc",
       "muc_hd": "03",
       "so": "CV 038",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, cao độ cắt đầu cọc theo thiết kế",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công cắt, đập đầu cọc",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Thiết bị cắt, đập và bảo hộ lao động",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Cọc đã ép xong và đã được nghiệm thu ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Hố móng đúng cao độ, khô ráo, thoát nước",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Mặt cắt đầu cọc phẳng, vuông góc trục, không nứt vỡ",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chiều dài thép chờ, thép lộ ra theo thiết kế (nếu có)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Số lượng cọc cắt đối chiếu bảng tổng hợp ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thu gom, bốc xúc, vận chuyển phế thải; vệ sinh hố móng",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị cọc trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -4290,6 +4855,7 @@
       "khoi_luong": 136.94,
       "ngay": "2026-09-21",
       "mau_checklist": "",
+      "lay_mau": true,
       "so": "VL 005",
       "checklist": [
         {
@@ -4905,6 +5471,7 @@
       "khoi_luong": 136.96,
       "ngay": "2026-09-26",
       "mau_checklist": "",
+      "lay_mau": true,
       "so": "VL 006",
       "checklist": [
         {

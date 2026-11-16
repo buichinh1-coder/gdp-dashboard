@@ -96,6 +96,7 @@ with tab_new:
             cl = pd.DataFrame({"Nhóm": "", "Nội dung": DEFAULT_CHECKLIST[t], "Phương pháp": "", "Kết quả": "Chưa kiểm tra", "Ghi chú": ""})
         cl = st.data_editor(cl, num_rows="dynamic", use_container_width=True,
                             column_config={"Kết quả": st.column_config.SelectboxColumn(options=STATUS)})
+        lay_mau = st.checkbox("Cần lấy mẫu thí nghiệm (tạo biên bản lấy mẫu LM)") if t == "VL" else False
         kl_chung = st.selectbox("Kết luận chung", ["Chưa có kết luận"] + STATUS[1:])
         if st.form_submit_button("Tạo biên bản"):
             if any(r["so"] == so for r in db["records"]):
@@ -103,7 +104,7 @@ with tab_new:
             else:
                 db["records"].append({"type": t, "so": so, "ngay": str(ngay), "vi_tri": vitri, "hang_muc": hangmuc,
                                       "dvt": dvt, "khoi_luong": kl, "checklist": cl.fillna("").to_dict("records"),
-                                      "ket_luan": kl_chung, "mau_checklist": mau})
+                                      "ket_luan": kl_chung, "mau_checklist": mau, "lay_mau": lay_mau})
                 save(db)
                 st.success(f"Đã tạo {so}")
 
@@ -153,16 +154,18 @@ with tab_exp:
         recs = [r for r in db["records"] if r["type"] != "NK"]
         with pd.ExcelWriter(buf, engine="openpyxl") as w:
             pd.DataFrame([{"Số": r["so"], "Loại": TYPES[r["type"]], "Ngày": r["ngay"], "Hạng mục": r["hang_muc"], "Vị trí": r["vi_tri"],
-                           "ĐVT": r["dvt"], "Khối lượng": r["khoi_luong"], "Kết luận": r["ket_luan"]} for r in recs]).to_excel(w, "Danh muc", index=False)
-            pd.DataFrame([{"Số": r["so"], **i} for r in recs for i in r["checklist"]]).to_excel(w, "Checklist", index=False)
-            pd.DataFrame([r for r in db["records"] if r["type"] == "NK"]).to_excel(w, "Nhat ky", index=False)
+                           "ĐVT": r["dvt"], "Khối lượng": r["khoi_luong"], "Kết luận": r["ket_luan"]} for r in recs]).to_excel(w, sheet_name="Danh muc", index=False)
+            pd.DataFrame([{"Số": r["so"], **i} for r in recs for i in r["checklist"]]).to_excel(w, sheet_name="Checklist", index=False)
+            pd.DataFrame([r for r in db["records"] if r["type"] == "NK"]).to_excel(w, sheet_name="Nhat ky", index=False)
         st.download_button("Tải Danh_muc_ho_so.xlsx", buf.getvalue(), "Danh_muc_ho_so.xlsx",
                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         st.markdown("---")
         st.markdown("**Xuất biên bản Word** theo form mẫu của TVGS (chỉ điền dữ liệu đã nhập; chỗ chưa có giữ dấu chấm để điền tay).")
         sel = st.multiselect("Chọn biên bản", [r["so"] for r in recs if r["type"] in qaqc_docx.FORMS])
         if sel:
-            chon = sorted([r for r in recs if r["so"] in sel], key=lambda r: (r["ngay"], r["so"]))
+            kinds = st.multiselect("Loại biểu mẫu", ["bb", "yc", "lm"], default=["bb"],
+                                   format_func=lambda k: {"bb": "Biên bản nghiệm thu", "yc": "Phiếu yêu cầu nghiệm thu", "lm": "Biên bản lấy mẫu (VL có đánh dấu lấy mẫu)"}[k])
+            chon = qaqc_docx.expand([r for r in recs if r["so"] in sel], kinds)
             st.download_button("Tải Bien_ban_nghiem_thu.docx", qaqc_docx.build_docx(chon, db["project"]), "Bien_ban_nghiem_thu.docx",
                                "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
         st.caption("Hiện hỗ trợ form VL (/CV/VL-TB) và CV (/CV).")

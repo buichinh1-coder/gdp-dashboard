@@ -12,6 +12,7 @@ from datetime import date
 from pathlib import Path
 
 import openpyxl
+from openpyxl.drawing.image import Image
 from openpyxl.styles import Alignment
 from openpyxl.worksheet.properties import PageSetupProperties
 
@@ -115,8 +116,16 @@ def build_checklist_xlsx(rec, project):
             f.name = "Times New Roman"
             c.font = f
 
+    logo = project.get("logo")
+    if logo and (ROOT / "templates" / logo).exists():  # thay ô "LOGO NHÀ THẦU" (ảnh ở cột G, hàng 2)
+        old = next((i for i in ws._images if i.anchor._from.col == 6 and i.anchor._from.row == 1), None)
+        if old is not None:
+            new = Image(str(ROOT / "templates" / logo))
+            new.anchor, new.width, new.height = old.anchor, old.width, old.height
+            ws._images.remove(old)
+            ws.add_image(new)
     ws.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
-    ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, 0
+    ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, (1 if info["nhom_file"] == "XD" else 0)
     buf = io.BytesIO()
     wb.save(buf)
     return f"Checklist_{rec['so'].replace(' ', '_')}.xlsx", buf.getvalue()

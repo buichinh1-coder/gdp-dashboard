@@ -1,13 +1,17 @@
-# Ghi chú bộ hồ sơ nghiệm thu – Kè bê tông phía núi, cọc 88–126
+# Ghi chú bộ hồ sơ nghiệm thu – Thi công kè chắn đất, cọc 88–126
 
 Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là bản khung cần hoàn thiện.**
 
 ## Đã điền / để trống
 - Đã điền: số biên bản, hạng mục, vị trí, khối lượng, ngày nghiệm thu.
 - **Ngày nghiệm thu** lấy theo ngày kế hoạch, theo xác nhận của người lập hồ sơ rằng đó là ngày thực tế.
-- Để trống: kết quả kiểm tra (mọi mục "Chưa kiểm tra"), kết luận, tên và chữ ký, số bản vẽ, số hợp đồng trong form,
-  nhà thầu, gói thầu, địa điểm. Cột L2 (TVGS) trong checklist để trống.
-- Giữ từ form mẫu: tên CĐT (Đỗ Gia Capital) và TVGS (Apave), logo trong checklist (chưa có logo nhà thầu).
+- Thông tin dự án (theo hợp đồng 12.08/2026/HĐKT/ĐGC-GL): CĐT Công ty TNHH Đỗ Gia Capital; nhà thầu Công ty TNHH Giang Long;
+  gói thầu "Thi công kè chắn đất bê tông đổ tại chỗ tuyến 3 đoạn từ cọc 88 đến cọc 126"; địa điểm Khu đô thị tại khu 10B,
+  phường Quang Hanh, TP Cẩm Phả, Quảng Ninh.
+- Để trống: kết quả kiểm tra (mọi mục "Chưa kiểm tra"), kết luận, tên và chữ ký, số bản vẽ, số phiếu yêu cầu.
+  Cột L2 (TVGS) trong checklist để trống.
+- Giữ từ form mẫu: tên TVGS (Apave) và logo CĐT/TVGS trong checklist.
+- Logo nhà thầu trong checklist là logo tự tạo (`data/qaqc/templates/logo_giang_long.png`); thay bằng logo chính thức nếu có.
 
 ## Giả định cần xác nhận
 1. Nghiệm thu vật liệu đầu vào (VL):
@@ -27,11 +31,24 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
    - khe lún -> "Khe lún".
 4. Bê tông phụ gia R7 đạt 100% cường độ: cần kết quả nén mẫu R7 làm căn cứ khi đắp đất lên tường chắn.
 
-## Chưa có checklist (13 biên bản)
-Ép cọc, cắt đầu cọc, vận chuyển đất, biện pháp thi công (file mẫu chưa có checklist cho các công việc này).
+## Bổ sung lần này
+- Checklist **ép cọc** và **cắt đầu cọc** (8 file): file mẫu gốc không có hai checklist này, nên tôi soạn theo bố cục
+  form "Thép cột" (cùng khung, logo, cột L1/L2). Nội dung chỉ liệt kê hạng mục cần kiểm tra, không ghi dung sai bằng số.
+  Cần TVGS và kỹ sư rà lại với chỉ dẫn kỹ thuật và TCVN 9394:2012.
+- `05_Phieu_yeu_cau_nghiem_thu/`: phiếu yêu cầu nghiệm thu (YC/VL-TB cho vật liệu, YC/CV cho công việc), cùng số với biên bản.
+  **Ngày lập phiếu để trống**; ô "Thời gian nghiệm thu" đã điền ngày nghiệm thu.
+- `06_Bien_ban_lay_mau.docx`: 6 biên bản lấy mẫu thí nghiệm (cọc, thép, 4 đợt bê tông M300). Tiêu chuẩn áp dụng, khối lượng và
+  quy cách lấy mẫu, thành phần tham gia để trống cho người lấy mẫu điền.
+  Ngày lấy mẫu tạm lấy bằng ngày nghiệm thu vật liệu (cọc 24/08, thép 04/09, bê tông = ngày bắt đầu đổ); cần sửa theo ngày lấy mẫu thực tế.
+- `07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx`: danh sách kết quả thí nghiệm và hồ sơ cần có (cột trạng thái "Cần bổ sung"),
+  kèm sheet mốc nén R7 từng đợt đổ so với ngày bắt đầu đắp. Tiêu chuẩn ghi để tham khảo, cần đối chiếu chỉ dẫn kỹ thuật.
+  Nhóm D là đề xuất, chưa được xác nhận.
+
+## Chưa có checklist (5 biên bản)
+Vận chuyển đất (4 biên bản) và biện pháp thi công (1 biên bản): file mẫu chưa có checklist cho các công việc này.
 
 ## Chưa lập (app chưa hỗ trợ form)
-Biên bản lấy mẫu (LM), nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, phiếu yêu cầu (YC), nhật ký thi công.
+Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, biên bản kiểm tra chế tạo cọc, trắc đạc cọc.
 
 ## Cần rà lại trong lịch
 - Cắt đầu cọc 123–124 cọc/ngày.

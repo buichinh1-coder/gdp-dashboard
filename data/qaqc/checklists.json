@@ -8645,5 +8645,163 @@
     "phuong_phap": "Bằng mắt thường"
    }
   ]
+ },
+ "XD|Ép cọc": {
+  "nhom_file": "XD",
+  "sheet": "Ép cọc",
+  "tieu_de": "BIÊN BẢN KIỂM TRA CÔNG TÁC ÉP CỌC BÊ TÔNG CỐT THÉP",
+  "doi_tuong": "Ép cọc",
+  "tu_soan": true,
+  "muc": [
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Bản vẽ thi công, vị trí cọc được duyệt",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Biện pháp thi công ép cọc được duyệt",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "An toàn thiết bị ép, cẩu, nền kê máy",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Mặt bằng, sàn thi công ép cọc",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Thiết bị ép: giấy kiểm định, đồng hồ áp lực, lực ép tối đa",
+    "phuong_phap": "Kiểm tra hồ sơ + bằng mắt"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Cọc đã nghiệm thu đầu vào (chủng loại, ký hiệu, kích thước, ngoại quan)",
+    "phuong_phap": "Bằng mắt thường + thước thép"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Vị trí tim cọc trước khi ép",
+    "phuong_phap": "Bằng máy toàn đạc"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Độ thẳng đứng của cọc khi ép",
+    "phuong_phap": "Dây dọi / máy kinh vĩ"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Lực ép, chiều dài ép, điều kiện dừng ép theo thiết kế",
+    "phuong_phap": "Đối chiếu nhật ký ép cọc"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Nhật ký ép cọc ghi đầy đủ, có xác nhận",
+    "phuong_phap": "Kiểm tra hồ sơ"
+   },
+   {
+    "nhom": "Trắc đạc",
+    "noi_dung": "Gởi trục, định vị tim cọc",
+    "phuong_phap": "Bằng máy toàn đạc"
+   },
+   {
+    "nhom": "Trắc đạc",
+    "noi_dung": "Vị trí cọc sau khi ép",
+    "phuong_phap": "Bằng máy toàn đạc"
+   },
+   {
+    "nhom": "Trắc đạc",
+    "noi_dung": "Cao độ đầu cọc sau khi ép",
+    "phuong_phap": "Bằng máy thủy bình"
+   }
+  ]
+ },
+ "XD|Cắt đầu cọc": {
+  "nhom_file": "XD",
+  "sheet": "Cắt đầu cọc",
+  "tieu_de": "BIÊN BẢN KIỂM TRA CÔNG TÁC CẮT, ĐẬP ĐẦU CỌC",
+  "doi_tuong": "Cắt đầu cọc",
+  "tu_soan": true,
+  "muc": [
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Bản vẽ thi công, cao độ cắt đầu cọc theo thiết kế",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Biện pháp thi công cắt, đập đầu cọc",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "Thiết bị cắt, đập và bảo hộ lao động",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Cọc đã ép xong và đã được nghiệm thu ép cọc",
+    "phuong_phap": "Kiểm tra hồ sơ"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Hố móng đúng cao độ, khô ráo, thoát nước",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Cao độ đầu cọc sau khi cắt",
+    "phuong_phap": "Bằng máy thủy bình"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Mặt cắt đầu cọc phẳng, vuông góc trục, không nứt vỡ",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Chiều dài thép chờ, thép lộ ra theo thiết kế (nếu có)",
+    "phuong_phap": "Bằng mắt thường + thước thép"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Số lượng cọc cắt đối chiếu bảng tổng hợp ép cọc",
+    "phuong_phap": "Kiểm tra hồ sơ"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Thu gom, bốc xúc, vận chuyển phế thải; vệ sinh hố móng",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Trắc đạc",
+    "noi_dung": "Gởi trục kiểm tra",
+    "phuong_phap": "Bằng máy toàn đạc"
+   },
+   {
+    "nhom": "Trắc đạc",
+    "noi_dung": "Định vị cọc trên mặt bằng",
+    "phuong_phap": "Bằng máy toàn đạc"
+   },
+   {
+    "nhom": "Trắc đạc",
+    "noi_dung": "Cao độ đầu cọc sau khi cắt",
+    "phuong_phap": "Bằng máy thủy bình"
+   }
+  ]
  }
 }

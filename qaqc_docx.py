@@ -1,10 +1,16 @@
-"""Xuất biên bản nghiệm thu (.docx) bằng cách nhân bản form mẫu của TVGS.
+"""Xuất biểu mẫu nghiệm thu (.docx) bằng cách nhân bản form mẫu của TVGS.
 
 Chỉ điền dữ liệu người dùng đã nhập; chỗ chưa có dữ liệu giữ nguyên dấu chấm
 để điền tay. Không tự điền kết luận "Đạt".
+
+Loại biểu mẫu:
+  VL   Biên bản nghiệm thu vật liệu (/CV/VL-TB)     CV   Biên bản nghiệm thu công việc (/CV)
+  LM   Biên bản lấy mẫu thí nghiệm (/LM)            YCVL Phiếu yêu cầu nghiệm thu vật liệu (/YC/VL-TB)
+  YCCV Phiếu yêu cầu nghiệm thu công việc (/YC/CV)
 """
 import copy
 import io
+import re
 from datetime import date
 from pathlib import Path
 
@@ -16,10 +22,14 @@ TEMPLATE = Path(__file__).parent / "data" / "qaqc" / "templates" / "mau_bien_ban
 
 # Khoảng phần tử body trong file mẫu (chỉ số bắt đầu, kết thúc) của từng form.
 FORMS = {
-    "VL": (108, 156),  # Biên bản /CV/VL-TB
-    "CV": (184, 234),  # Biên bản /CV
+    "LM": (43, 81),
+    "YCVL": (82, 107),
+    "VL": (108, 156),
+    "YCCV": (158, 183),
+    "CV": (184, 234),
 }
-SUFFIX = {"VL": "CV/VL-TB", "CV": "CV"}
+SUFFIX = {"VL": "CV/VL-TB", "CV": "CV", "LM": "LM", "YCVL": "YC/VL-TB", "YCCV": "YC/CV"}
+IS_YC = ("YCVL", "YCCV")
 
 
 def _set_text(p_el, text):
@@ -46,8 +56,16 @@ def _d(iso):
     return d.day, d.month, d.year
 
 
+def _doi_tuong(rec):
+    vitri = f" - {rec['vi_tri']}" if rec.get("vi_tri") else ""
+    kl = ""
+    if rec["type"] in ("CV", "YCCV", "YCVL") and rec.get("khoi_luong"):
+        kl = f" - khối lượng: {rec['khoi_luong']:g} {rec.get('dvt', '')}".rstrip()
+    return f"{rec['hang_muc']}{vitri}{kl}"
+
+
 def build_docx(records, project):
-    """records: list biên bản loại VL/CV. Trả về bytes của file .docx."""
+    """records: list biên bản (type thuộc FORMS). Trả về bytes của file .docx."""
     doc = docx.Document(str(TEMPLATE))
     body = doc.element.body
     src = list(body)
@@ -55,67 +73,94 @@ def build_docx(records, project):
     for el in src[:-1]:
         body.remove(el)
 
-    for n, rec in enumerate(records):
-        lo, hi = FORMS[rec["type"]]
+    for rec in records:
+        t = rec["type"]
+        lo, hi = FORMS[t]
         els = [copy.deepcopy(src[i]) for i in range(lo, hi + 1)]
         for el in els:
             sect.addprevious(el)
-        P = lambda i: els[i - lo]
         dd, mm, yy = _d(rec["ngay"])
         ngay = f"ngày {dd:02d} tháng {mm:02d} năm {yy}"
-        if n > 0 or True:  # mỗi biên bản bắt đầu trang mới
-            first = els[0]
-            ppr = first.find(qn('w:pPr'))
-            if ppr is None:
-                ppr = first.makeelement(qn('w:pPr'), {})
-                first.insert(0, ppr)
-            ppr.append(ppr.makeelement(qn('w:pageBreakBefore'), {}))
+        first = els[0]  # mỗi biểu mẫu bắt đầu trang mới
+        ppr = first.find(qn('w:pPr'))
+        if ppr is None:
+            ppr = first.makeelement(qn('w:pPr'), {})
+            first.insert(0, ppr)
+        ppr.append(ppr.makeelement(qn('w:pageBreakBefore'), {}))
 
-        # Các đoạn dùng chung: ngày, số, dự án, địa điểm, gói thầu.
-        for i in range(lo, hi + 1):
-            s = _text(els[i - lo]).strip()
-            if s.startswith(("Quảng Ninh, ngày", "Biên bản số")):
-                if s.startswith("Biên bản số"):
-                    _set_text(els[i - lo], f"Biên bản số {_num(rec)}/{SUFFIX[rec['type']]}")
-                else:
-                    _set_text(els[i - lo], f"Quảng Ninh, {ngay}")
+        prefix = "Phiếu yêu cầu số" if t in IS_YC else "Biên bản số"
+        n = len(els)
+        for k in range(n):
+            s = _text(els[k]).strip()
+            nxt = els[k + 1] if k + 1 < n else None
+            if s.startswith("Quảng Ninh, ngày"):
+                if t not in IS_YC:  # phiếu yêu cầu: ngày lập phiếu để trống cho người lập điền
+                    _set_text(els[k], f"Quảng Ninh, {ngay}")
+            elif s.startswith(("Biên bản số", "Phiếu yêu cầu số")):
+                _set_text(els[k], f"{prefix} {_num(rec)}/{SUFFIX[t]}")
             elif s.startswith("Dự án:") and project.get("ten_cong_trinh"):
-                _set_text(els[i - lo], f"Dự án: {project['ten_cong_trinh']}")
+                _set_text(els[k], f"Dự án: {project['ten_cong_trinh']}")
             elif s.startswith("Địa điểm"):  # không giữ địa điểm của dự án mẫu
-                _set_text(els[i - lo], f"Địa điểm       :  {project.get('dia_diem') or '……………………………………………'}")
+                _set_text(els[k], f"Địa điểm       :  {project.get('dia_diem') or '……………………………………………'}")
             elif s.startswith("Gói thầu:") and project.get("goi_thau"):
-                _set_text(els[i - lo], f"Gói thầu: {project['goi_thau']}")
-            elif s.startswith("1. Đối tượng nghiệm thu") and rec.get("hang_muc"):
-                vitri = f" - {rec['vi_tri']}" if rec.get("vi_tri") else ""
-                kl = f" - khối lượng: {rec['khoi_luong']:g} {rec.get('dvt', '')}".rstrip() if rec["type"] == "CV" and rec.get("khoi_luong") else ""
-                _set_text(els[i - lo], f"1. Đối tượng nghiệm thu : {rec['hang_muc']}{vitri}{kl}")
-            elif s.startswith("Đại diện nhà thầu thi công xây dựng công trình") and project.get("nha_thau"):
-                _set_text(els[i - lo], f"Đại diện nhà thầu thi công xây dựng công trình: {project['nha_thau']}")
+                _set_text(els[k], f"Gói thầu: {project['goi_thau']}")
+            elif s.startswith(("Đại diện nhà thầu thi công xây dựng công trình", "Nhà thầu thi công xây dựng công trình")) \
+                    and project.get("nha_thau"):
+                _set_text(els[k], f"{s.split(':')[0]}: {project['nha_thau']}")
+            elif s.startswith("Nhà thầu thi công ....") and project.get("nha_thau"):
+                _set_text(els[k], re.sub(r"\.{5,}", project["nha_thau"], s, count=1))
+            elif s.startswith("1. Tên công việc nghiệm thu") and nxt is not None:
+                _set_text(nxt, rec.get("cong_viec") or f"Nghiệm thu {rec['hang_muc']}")
+            elif s.startswith("2. Đối tượng kiểm tra"):
+                _set_text(els[k], f"2. Đối tượng kiểm tra : {_doi_tuong(rec)}")
+            elif s.startswith("1. Đối tượng nghiệm thu"):
+                if s.rstrip().endswith(":") and nxt is not None:  # phiếu yêu cầu: nội dung ở đoạn kế
+                    _set_text(nxt, _doi_tuong(rec))
+                else:
+                    _set_text(els[k], f"1. Đối tượng nghiệm thu : {_doi_tuong(rec)}")
             elif s.startswith(("Bắt đầu", "Kết thúc")):
                 label = "Bắt đầu  :" if s.startswith("Bắt đầu") else "Kết thúc :"
-                _set_text(els[i - lo], f"{label}   {ngay}")
-            elif s.startswith("5. Kết luận") or s.startswith("b. Đánh giá"):
-                pass
+                _set_text(els[k], f"{label}   {ngay}")
 
         # Kết luận: chỉ điền khi người kiểm tra đã nhập.
         kl = rec.get("ket_luan", "")
-        if kl and kl != "Chưa có kết luận":
-            for i in range(lo, hi + 1):
-                if _text(els[i - lo]).strip().startswith("5. Kết luận"):
-                    _set_text(els[i + 1 - lo], kl)
+        if t in ("VL", "CV") and kl and kl != "Chưa có kết luận":
+            for k in range(n - 1):
+                if _text(els[k]).strip().startswith("5. Kết luận"):
+                    _set_text(els[k + 1], kl)
 
         # Bảng khối lượng của form VL.
-        if rec["type"] == "VL":
+        if t == "VL":
             for el in els:
                 if el.tag == qn('w:tbl'):
-                    t = Table(el, doc)
-                    if t.rows[0].cells[0].text.strip() == "STT" and len(t.rows) > 1:
+                    tb = Table(el, doc)
+                    if tb.rows[0].cells[0].text.strip() == "STT" and len(tb.rows) > 1:
                         vals = ["1", rec.get("hang_muc", ""), "", rec.get("dvt", ""),
                                 f"{rec.get('khoi_luong', 0):g}" if rec.get("khoi_luong") else ""]
-                        for c, v in zip(t.rows[1].cells, vals):
+                        for c, v in zip(tb.rows[1].cells, vals):
                             if v:
                                 c.paragraphs[0].add_run(v)
 
     buf = io.BytesIO()
     doc.save(buf)
     return buf.getvalue()
+
+
+def expand(records, kinds=("bb",)):
+    """Từ biên bản VL/CV sinh danh sách biểu mẫu cần xuất.
+
+    kinds: "bb" biên bản nghiệm thu, "yc" phiếu yêu cầu nghiệm thu, "lm" biên bản lấy mẫu (chỉ VL có lay_mau).
+    Phiếu yêu cầu dùng cùng số với biên bản; biên bản lấy mẫu đánh số riêng theo thứ tự.
+    """
+    out, lm_no = [], 0
+    for r in sorted(records, key=lambda r: (r["ngay"], r["so"])):
+        if r["type"] not in ("VL", "CV"):
+            continue
+        if "yc" in kinds:
+            out.append(dict(r, type="YCVL" if r["type"] == "VL" else "YCCV"))
+        if "lm" in kinds and r["type"] == "VL" and r.get("lay_mau"):
+            lm_no += 1
+            out.append(dict(r, type="LM", so=f"LM {lm_no:03d}", cong_viec=f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}"))
+        if "bb" in kinds:
+            out.append(r)
+    return out
