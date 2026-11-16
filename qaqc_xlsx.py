@@ -116,6 +116,13 @@ def build_checklist_xlsx(rec, project):
             f.name = "Times New Roman"
             c.font = f
 
+    # Họ tên người ký ở hai dòng cuối: nhà thầu = chỉ huy trưởng, TVGS = cán bộ kỹ thuật (chữ ký để trống)
+    for r in range(head, ws.max_row + 1):
+        a = str(ws.cell(r, 1).value or "").strip()
+        if a.startswith("Nhà thầu thi công") and project.get("chi_huy_truong"):
+            _put(ws, r, 3, project["chi_huy_truong"])
+        elif a.startswith("Tư vấn giám sát") and project.get("can_bo_tvgs"):
+            _put(ws, r, 3, project["can_bo_tvgs"])
     logo = project.get("logo")
     if logo and (ROOT / "templates" / logo).exists():  # thay ô "LOGO NHÀ THẦU" (ảnh ở cột G, hàng 2)
         old = next((i for i in ws._images if i.anchor._from.col == 6 and i.anchor._from.row == 1), None)

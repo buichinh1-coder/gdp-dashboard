@@ -8,6 +8,9 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 - Thông tin dự án (theo hợp đồng 12.08/2026/HĐKT/ĐGC-GL): CĐT Công ty TNHH Đỗ Gia Capital; nhà thầu Công ty TNHH Giang Long;
   gói thầu "Thi công kè chắn đất bê tông đổ tại chỗ tuyến 3 đoạn từ cọc 88 đến cọc 126"; địa điểm Khu đô thị tại khu 10B,
   phường Quang Hanh, TP Cẩm Phả, Quảng Ninh.
+- Người ký hồ sơ: Chỉ huy trưởng Giang Long Nguyễn Mạnh Tùng và cán bộ kỹ thuật Apave Nguyễn Thế Anh. Tên in sẵn ở mục
+  thành phần tham gia, khối chữ ký của biên bản, phiếu yêu cầu, biên bản lấy mẫu và cột "Họ tên" của checklist.
+  Giám sát trưởng Nguyễn Huy Hà chỉ có tên ở mục thành phần tham gia (không in ở ô ký). Chữ ký để trống.
 - Để trống: kết quả kiểm tra (mọi mục "Chưa kiểm tra"), kết luận, tên và chữ ký, số bản vẽ, số phiếu yêu cầu.
   Cột L2 (TVGS) trong checklist để trống.
 - Giữ từ form mẫu: tên TVGS (Apave) và logo CĐT/TVGS trong checklist.

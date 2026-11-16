@@ -64,6 +64,52 @@ def _doi_tuong(rec):
     return f"{rec['hang_muc']}{vitri}{kl}"
 
 
+def _name_in_cell(cell, name, blanks=3):
+    """Thêm tên in dưới ô ký (chừa chỗ ký phía trên)."""
+    p = cell.paragraphs[0]
+    r = p.add_run()
+    for _ in range(blanks):
+        r.add_break()
+    r.add_text(name)
+    r.bold = True
+    r.font.name = "Times New Roman"
+    p.alignment = 1
+
+
+def _ten_nguoi_ky(els, doc, t, project):
+    tung, anh = project.get("chi_huy_truong"), project.get("can_bo_tvgs")
+    for el in els:
+        if el.tag != qn('w:tbl'):
+            continue
+        tb = Table(el, doc)
+        head = tb.rows[0].cells[0].text.strip()
+        if t == "LM" and head.startswith("Đại diện TVGS"):
+            if anh:
+                _name_in_cell(tb.rows[1].cells[0], anh)
+            if tung:
+                _name_in_cell(tb.rows[1].cells[1], tung)
+        elif t == "CV" and head.startswith("Đại diện TVGS"):
+            if anh:
+                _name_in_cell(tb.rows[1].cells[0], anh)
+            if tung:
+                _name_in_cell(tb.rows[1].cells[1], tung)
+        elif t in IS_YC and head.startswith("Đơn vị TVQLDA"):
+            c0, c1 = tb.rows[1].cells
+            if anh:
+                for p in c0.paragraphs[1:]:
+                    for tt in p._p.findall('.//' + qn('w:t')):
+                        tt.text = ''
+                _set_text(c0.paragraphs[0]._p, f"Người nhận: {anh}")
+            if tung:
+                _set_text(c1.paragraphs[-1]._p, tung)
+        elif t == "VL" and head.startswith("Đại diện TVQLDA"):
+            if anh and tung:
+                cell = tb.rows[1].cells[0]
+                ps = cell.paragraphs
+                _r = ps[3].add_run(" " * 7 + anh + " " * 47 + tung)
+                _r.bold, _r.font.name = True, "Times New Roman"
+
+
 def build_docx(records, project):
     """records: list biên bản (type thuộc FORMS). Trả về bytes của file .docx."""
     doc = docx.Document(str(TEMPLATE))
@@ -90,9 +136,25 @@ def build_docx(records, project):
 
         prefix = "Phiếu yêu cầu số" if t in IS_YC else "Biên bản số"
         n = len(els)
+        people = {"tv": [(project.get("giam_sat_truong"), "Giám sát trưởng"), (project.get("can_bo_tvgs"), "Cán bộ kỹ thuật")],
+                  "nt": [(project.get("chi_huy_truong"), "Chỉ huy trưởng")], "lab": []}
+        grp, gi = None, 0
         for k in range(n):
             s = _text(els[k]).strip()
             nxt = els[k + 1] if k + 1 < n else None
+            if s.startswith(("Đại diện TVQLDA", "Đại diện TVGS")):
+                grp, gi = "tv", 0
+            elif s.startswith(("Đại diện nhà thầu thi công", "Nhà thầu thi công xây dựng")):
+                grp, gi = "nt", 0
+            elif s.startswith(("Phòng thí nghiệm", "3. Thời gian", "4. Thời gian")):
+                grp = None
+            elif grp and re.match(r"^(- ?)?Ông", s):
+                pl = people[grp]
+                if gi < len(pl) and pl[gi][0]:
+                    pre = "- " if s.startswith("-") else ""
+                    _set_text(els[k], f"{pre}Ông : {pl[gi][0]}          Chức vụ : {pl[gi][1]}")
+                gi += 1
+                continue
             if s.startswith("Quảng Ninh, ngày"):
                 if t not in IS_YC:  # phiếu yêu cầu: ngày lập phiếu để trống cho người lập điền
                     _set_text(els[k], f"Quảng Ninh, {ngay}")
@@ -128,6 +190,8 @@ def build_docx(records, project):
             for k in range(n - 1):
                 if _text(els[k]).strip().startswith("5. Kết luận"):
                     _set_text(els[k + 1], kl)
+
+        _ten_nguoi_ky(els, doc, t, project)
 
         # Bảng khối lượng của form VL.
         if t == "VL":

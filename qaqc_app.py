@@ -37,7 +37,7 @@ DEFAULT_CHECKLIST = {
 def load():
     if DATA_FILE.exists():
         return json.loads(DATA_FILE.read_text(encoding="utf-8"))
-    return {"project": {"ten_cong_trinh": "", "so_hop_dong": "", "chu_dau_tu": "", "tu_van_giam_sat": "", "nha_thau": "", "dia_diem": "", "goi_thau": ""}, "records": []}
+    return {"project": {"ten_cong_trinh": "", "so_hop_dong": "", "chu_dau_tu": "", "tu_van_giam_sat": "", "nha_thau": "", "dia_diem": "", "goi_thau": "", "chi_huy_truong": "", "can_bo_tvgs": "", "giam_sat_truong": ""}, "records": []}
 
 
 @st.cache_data
@@ -63,7 +63,9 @@ st.caption("Hồ sơ pháp lý: chỉ ghi số liệu, kết quả và chữ ký
 with st.sidebar:
     st.header("Thông tin dự án")
     for k, label in [("ten_cong_trinh", "Tên công trình"), ("so_hop_dong", "Số hợp đồng"), ("chu_dau_tu", "Chủ đầu tư"),
-                     ("tu_van_giam_sat", "Tư vấn giám sát"), ("nha_thau", "Nhà thầu"), ("dia_diem", "Địa điểm"), ("goi_thau", "Gói thầu")]:
+                     ("tu_van_giam_sat", "Tư vấn giám sát"), ("nha_thau", "Nhà thầu"), ("dia_diem", "Địa điểm"), ("goi_thau", "Gói thầu"),
+                     ("chi_huy_truong", "Chỉ huy trưởng nhà thầu (người ký)"), ("can_bo_tvgs", "Cán bộ kỹ thuật TVGS (người ký)"),
+                     ("giam_sat_truong", "Giám sát trưởng TVGS")]:
         db["project"][k] = st.text_input(label, db["project"].get(k, ""))
     if st.button("Lưu thông tin dự án"):
         save(db)

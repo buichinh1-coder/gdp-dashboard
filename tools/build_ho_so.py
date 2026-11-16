@@ -68,6 +68,7 @@ db = {"project": {
     "nha_thau": "Công ty TNHH Giang Long",
     "dia_diem": "Khu đô thị tại khu 10B, phường Quang Hanh, thành phố Cẩm Phả, tỉnh Quảng Ninh",
     "goi_thau": "Thi công kè chắn đất bê tông đổ tại chỗ tuyến 3 đoạn từ cọc 88 đến cọc 126",
+    "chi_huy_truong": "Nguyễn Mạnh Tùng", "can_bo_tvgs": "Nguyễn Thế Anh", "giam_sat_truong": "Nguyễn Huy Hà",
     "logo": "logo_giang_long.png"}, "records": []}
 cnt = {"VL": 0, "CV": 0}
 for ngay, stt, rec in sorted(raw, key=lambda x: (x[0], x[1])):
