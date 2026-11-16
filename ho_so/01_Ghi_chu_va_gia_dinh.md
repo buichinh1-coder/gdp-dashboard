@@ -65,6 +65,12 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
    - khe lún -> "Khe lún".
 4. Bê tông phụ gia R7 đạt 100% cường độ: cần kết quả nén mẫu R7 làm căn cứ khi đắp đất lên tường chắn.
 
+## Gộp biên bản cho gọn
+- Đào móng và vận chuyển đất đào: 1 biên bản cho mỗi phân đoạn (4 biên bản thay cho 8), 1 checklist đào đất.
+- Ván khuôn bê tông lót và đổ bê tông lót: 1 biên bản cho mỗi phân đoạn (4 thay cho 8), ngày nghiệm thu lấy theo ngày đổ bê tông lót,
+  kèm 2 checklist `/KT-1` (ván khuôn) và `/KT-2` (đổ bê tông lót).
+- Nghiệm thu cọc gộp ép cọc và cắt đầu cọc như đã nêu bên dưới. Tổng số biên bản nghiệm thu công việc giảm từ 61 xuống 53.
+
 ## Nghiệm thu cọc (gộp theo phân đoạn + giai đoạn toàn tuyến)
 - Mỗi phân đoạn có **1 biên bản nghiệm thu cọc** gộp ép cọc và cắt đầu cọc (4 biên bản thay cho 8), kèm 2 checklist `/KT-1` (ép cọc)
   và `/KT-2` (cắt đầu cọc).

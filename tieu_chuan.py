@@ -6,10 +6,11 @@ xác minh được nằm ở danh sách TC_CAN_XAC_NHAN, không tự đưa vào 
 DAT = ["TCVN 4447:2012"]
 BT = ["TCVN 4453:1995"]
 TC_CONG_VIEC = {  # theo Mục HĐ của lịch nghiệm thu
-    "15": DAT, "16": DAT, "05": DAT, "06": DAT, "07": DAT,
-    "04": ["TCVN 4447:2012", "TCVN 9361:2012"],
+    "15": DAT, "16": DAT, "06": DAT, "07": DAT,
+    "04+05": ["TCVN 4447:2012", "TCVN 9361:2012"],  # đào móng + vận chuyển đất đào
+    "10+08": BT,  # ván khuôn + đổ bê tông lót
     "02+03": ["TCVN 9394:2012", "TCVN 9361:2012"],  # nghiệm thu cọc: ép cọc + cắt đầu cọc
-    "08": BT, "10": BT, "11": BT, "12": BT, "14": BT,
+    "11": BT, "12": BT, "14": BT,
     "13": ["TCVN 4453:1995", "TCVN 1651-2:2018", "QCVN 07:2019/BKHCN"],
     "09": ["TCVN 4453:1995", "TCVN 3105:2022", "TCVN 3118:2022", "TCVN 8828:2011"],
     "17": [],

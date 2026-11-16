@@ -672,6 +672,14 @@
       "so_coc": 123,
       "ep_tu": "2026-08-25",
       "ep_den": "2026-08-29",
+      "cl_nhan": [
+        "ép cọc",
+        "cắt đầu cọc"
+      ],
+      "cl_suffix": [
+        "_ep_coc",
+        "_cat_dau_coc"
+      ],
       "so": "CV 007",
       "checklist": [
         {
@@ -889,13 +897,13 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt",
+      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt; vận chuyển, quăng tải đất đào trong phạm vi 30 m",
       "vi_tri": "Cọc 88-98",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
+      "dvt": "",
+      "khoi_luong": 0,
       "ngay": "2026-08-31",
       "mau_checklist": "XD|đào đất",
-      "muc_hd": "04",
+      "muc_hd": "04+05",
       "so": "CV 008",
       "checklist": [
         {
@@ -985,61 +993,68 @@
       "so_kt": "008/KT"
     },
     {
-      "type": "CV",
-      "hang_muc": "Vận chuyển/đào xúc, quăng tải đất đào trong phạm vi30m",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
-      "ngay": "2026-08-31",
+      "type": "VL",
+      "hang_muc": "Cốt thép",
+      "vi_tri": "Toàn tuyến cọc 88-126",
+      "dvt": "tấn",
+      "khoi_luong": 23.02,
+      "ngay": "2026-09-04",
       "mau_checklist": "",
-      "muc_hd": "05",
-      "so": "CV 009",
+      "lay_mau": true,
+      "so": "VL 002",
       "checklist": [
         {
           "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
+          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
           "Phương pháp": "",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
+          "Nội dung": "Có kết quả thí nghiệm đầu vào",
           "Phương pháp": "",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
+          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
           "Phương pháp": "",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 002",
       "tieu_chuan": [
-        "TCVN 4447:2012"
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
       ],
-      "so_yc": "009/YC/CV"
+      "lm_ref": [
+        "002/LM"
+      ],
+      "so_yc": "002/YC/VL-TB"
     },
     {
       "type": "CV",
-      "hang_muc": "Ván khuôn bê tông lót",
+      "hang_muc": "Ván khuôn và đổ bê tông lót móng M100",
       "vi_tri": "Cọc 88-98",
-      "dvt": "m2",
-      "khoi_luong": 24.25,
-      "ngay": "2026-09-03",
+      "dvt": "",
+      "khoi_luong": 0,
+      "ngay": "2026-09-04",
       "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "10",
-      "so": "CV 010",
+      "mau_checklist_2": "XD|Bê tông lot",
+      "muc_hd": "10+08",
+      "cl_nhan": [
+        "ván khuôn",
+        "đổ bê tông lót"
+      ],
+      "cl_suffix": [
+        "_van_khuon",
+        "_bt_lot"
+      ],
+      "so": "CV 009",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -1154,68 +1169,7 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995"
-      ],
-      "so_yc": "010/YC/CV",
-      "so_kt": "010/KT"
-    },
-    {
-      "type": "VL",
-      "hang_muc": "Cốt thép",
-      "vi_tri": "Toàn tuyến cọc 88-126",
-      "dvt": "tấn",
-      "khoi_luong": 23.02,
-      "ngay": "2026-09-04",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 002",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 002",
-      "tieu_chuan": [
-        "TCVN 1651-2:2018",
-        "QCVN 07:2019/BKHCN"
-      ],
-      "lm_ref": [
-        "002/LM"
-      ],
-      "so_yc": "002/YC/VL-TB"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đổ bê tông lót móng M100",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m3",
-      "khoi_luong": 21.34,
-      "ngay": "2026-09-04",
-      "mau_checklist": "XD|Bê tông lot",
-      "muc_hd": "08",
-      "so": "CV 011",
-      "checklist": [
+      "checklist_2": [
         {
           "Nhóm": "Công tác chuẩn bị",
           "Nội dung": "Bản vẽ triển khai thi công",
@@ -1347,8 +1301,8 @@
       "tieu_chuan": [
         "TCVN 4453:1995"
       ],
-      "so_yc": "011/YC/CV",
-      "so_kt": "011/KT"
+      "so_yc": "009/YC/CV",
+      "so_kt": "009/KT-1 (ván khuôn), 009/KT-2 (đổ bê tông lót)"
     },
     {
       "type": "CV",
@@ -1359,7 +1313,7 @@
       "ngay": "2026-09-05",
       "mau_checklist": "XD|San lẮP",
       "muc_hd": "15",
-      "so": "CV 012",
+      "so": "CV 010",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -1450,8 +1404,8 @@
       "tieu_chuan": [
         "TCVN 4447:2012"
       ],
-      "so_yc": "012/YC/CV",
-      "so_kt": "012/KT"
+      "so_yc": "010/YC/CV",
+      "so_kt": "010/KT"
     },
     {
       "type": "CV",
@@ -1462,7 +1416,7 @@
       "ngay": "2026-09-07",
       "mau_checklist": "XD|đào đất",
       "muc_hd": "16",
-      "so": "CV 013",
+      "so": "CV 011",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -1546,8 +1500,8 @@
       "tieu_chuan": [
         "TCVN 4447:2012"
       ],
-      "so_yc": "013/YC/CV",
-      "so_kt": "013/KT"
+      "so_yc": "011/YC/CV",
+      "so_kt": "011/KT"
     },
     {
       "type": "CV",
@@ -1563,7 +1517,15 @@
       "so_coc": 124,
       "ep_tu": "2026-08-30",
       "ep_den": "2026-09-05",
-      "so": "CV 014",
+      "cl_nhan": [
+        "ép cọc",
+        "cắt đầu cọc"
+      ],
+      "cl_suffix": [
+        "_ep_coc",
+        "_cat_dau_coc"
+      ],
+      "so": "CV 012",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -1769,8 +1731,8 @@
         "TCVN 9394:2012",
         "TCVN 9361:2012"
       ],
-      "so_yc": "014/YC/CV",
-      "so_kt": "014/KT-1 (ép cọc), 014/KT-2 (cắt đầu cọc)",
+      "so_yc": "012/YC/CV",
+      "so_kt": "012/KT-1 (ép cọc), 012/KT-2 (cắt đầu cọc)",
       "vl_ref": [
         "001/CV/VL-TB"
       ],
@@ -1780,14 +1742,14 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt",
+      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt; vận chuyển, quăng tải đất đào trong phạm vi 30 m",
       "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
+      "dvt": "",
+      "khoi_luong": 0,
       "ngay": "2026-09-07",
       "mau_checklist": "XD|đào đất",
-      "muc_hd": "04",
-      "so": "CV 015",
+      "muc_hd": "04+05",
+      "so": "CV 013",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -1872,64 +1834,556 @@
         "TCVN 4447:2012",
         "TCVN 9361:2012"
       ],
-      "so_yc": "015/YC/CV",
-      "so_kt": "015/KT"
+      "so_yc": "013/YC/CV",
+      "so_kt": "013/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Vận chuyển/đào xúc, quăng tải đất đào trong phạm vi30m",
+      "hang_muc": "Ván khuôn và đổ bê tông lót móng M100",
       "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
-      "ngay": "2026-09-07",
-      "mau_checklist": "",
-      "muc_hd": "05",
-      "so": "CV 016",
+      "dvt": "",
+      "khoi_luong": 0,
+      "ngay": "2026-09-09",
+      "mau_checklist": "XD|Ván khuôn dầm sàn",
+      "mau_checklist_2": "XD|Bê tông lot",
+      "muc_hd": "10+08",
+      "cl_nhan": [
+        "ván khuôn",
+        "đổ bê tông lót"
+      ],
+      "cl_suffix": [
+        "_van_khuon",
+        "_bt_lot"
+      ],
+      "so": "CV 014",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí ván khuôn",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ kín khít ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "checklist_2": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công , thời tiết thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công , tình trạng máy móc thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Đường di chuyển, bãi tập kết bơm, máy",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trước khi đổ",
+          "Nội dung": "Công tác bề mặt nền đất.",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trước khi đổ",
+          "Nội dung": "Cao độ mặt nền đất",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trong khi đổ",
+          "Nội dung": "Quá trình đổ bê tông (Kỹ thuật đổ, mạch ngừng).",
+          "Phương pháp": "Bằng thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trong khi đổ",
+          "Nội dung": "Vị trí, kích thước, cao độ cấu kiện",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Chiều dày, cao độ cấu kiện bê tông",
+          "Phương pháp": "Bằng thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Vị trí hình dạng sau khi đổ bê tông",
+          "Phương pháp": "Bằng thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Dọn dẹp, vệ sinh mặt bằng, thiết bị",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Bảo dưỡng bê tông",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Mực cốt định vị trên kết cấu trước",
+          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4447:2012"
+        "TCVN 4453:1995"
       ],
-      "so_yc": "016/YC/CV"
+      "so_yc": "014/YC/CV",
+      "so_kt": "014/KT-1 (ván khuôn), 014/KT-2 (đổ bê tông lót)"
     },
     {
       "type": "CV",
-      "hang_muc": "Ván khuôn bê tông lót",
-      "vi_tri": "Cọc 98-108",
+      "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
+      "vi_tri": "Cọc 88-98",
+      "dvt": "tấn",
+      "khoi_luong": 5.76,
+      "ngay": "2026-09-10",
+      "mau_checklist": "XD|Thép dầm sàn ",
+      "muc_hd": "13",
+      "so": "CV 015",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp trên",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp dưới",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép đai",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép chuyển tiếp",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí các thanh thép",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí, chiều dài các mối nối",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh cốt thép",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Mực cốt định vị trên kết cấu trước",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
+      ],
+      "so_yc": "015/YC/CV",
+      "so_kt": "015/KT",
+      "vl_ref": [
+        "002/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "002/LM"
+      ]
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Ván khuôn cấu kiện móng/thân kè theo từng đợt đổ",
+      "vi_tri": "Cọc 88-98",
       "dvt": "m2",
-      "khoi_luong": 24.25,
-      "ngay": "2026-09-08",
+      "khoi_luong": 419.5,
+      "ngay": "2026-09-10",
       "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "10",
+      "muc_hd": "11",
+      "so": "CV 016",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí ván khuôn",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ kín khít ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
+      "so_yc": "016/YC/CV",
+      "so_kt": "016/KT"
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Ván khuôn khóa đỉnh kè",
+      "vi_tri": "Cọc 88-98",
+      "dvt": "m2",
+      "khoi_luong": 56.5,
+      "ngay": "2026-09-10",
+      "mau_checklist": "XD|Ván khuôn dầm sàn",
+      "muc_hd": "12",
       "so": "CV 017",
       "checklist": [
         {
@@ -2054,552 +2508,6 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đổ bê tông lót móng M100",
-      "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 21.34,
-      "ngay": "2026-09-09",
-      "mau_checklist": "XD|Bê tông lot",
-      "muc_hd": "08",
-      "so": "CV 018",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công , thời tiết thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công , tình trạng máy móc thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Đường di chuyển, bãi tập kết bơm, máy",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra trước khi đổ",
-          "Nội dung": "Công tác bề mặt nền đất.",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra trước khi đổ",
-          "Nội dung": "Cao độ mặt nền đất",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra trong khi đổ",
-          "Nội dung": "Quá trình đổ bê tông (Kỹ thuật đổ, mạch ngừng).",
-          "Phương pháp": "Bằng thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra trong khi đổ",
-          "Nội dung": "Vị trí, kích thước, cao độ cấu kiện",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Chiều dày, cao độ cấu kiện bê tông",
-          "Phương pháp": "Bằng thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Vị trí hình dạng sau khi đổ bê tông",
-          "Phương pháp": "Bằng thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Dọn dẹp, vệ sinh mặt bằng, thiết bị",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Bảo dưỡng bê tông",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Mực cốt định vị trên kết cấu trước",
-          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995"
-      ],
-      "so_yc": "018/YC/CV",
-      "so_kt": "018/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "tấn",
-      "khoi_luong": 5.76,
-      "ngay": "2026-09-10",
-      "mau_checklist": "XD|Thép dầm sàn ",
-      "muc_hd": "13",
-      "so": "CV 019",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp trên",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp dưới",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép đai",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép chuyển tiếp",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí các thanh thép",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí, chiều dài các mối nối",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh cốt thép",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Mực cốt định vị trên kết cấu trước",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995",
-        "TCVN 1651-2:2018",
-        "QCVN 07:2019/BKHCN"
-      ],
-      "so_yc": "019/YC/CV",
-      "so_kt": "019/KT",
-      "vl_ref": [
-        "002/CV/VL-TB"
-      ],
-      "lm_ref": [
-        "002/LM"
-      ]
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Ván khuôn cấu kiện móng/thân kè theo từng đợt đổ",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m2",
-      "khoi_luong": 419.5,
-      "ngay": "2026-09-10",
-      "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "11",
-      "so": "CV 020",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí ván khuôn",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ chắc chắn ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ kín khít ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995"
-      ],
-      "so_yc": "020/YC/CV",
-      "so_kt": "020/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Ván khuôn khóa đỉnh kè",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m2",
-      "khoi_luong": 56.5,
-      "ngay": "2026-09-10",
-      "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "12",
-      "so": "CV 021",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí ván khuôn",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ chắc chắn ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ kín khít ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995"
-      ],
-      "so_yc": "021/YC/CV",
-      "so_kt": "021/KT"
-    },
-    {
-      "type": "CV",
       "hang_muc": "Thi công khe lún và lắp chi tiết thoát nước theo bản vẽ",
       "vi_tri": "Cọc 88-98",
       "dvt": "m2",
@@ -2607,7 +2515,7 @@
       "ngay": "2026-09-10",
       "mau_checklist": "XD|khe lún",
       "muc_hd": "14",
-      "so": "CV 022",
+      "so": "CV 018",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -2705,8 +2613,8 @@
       "tieu_chuan": [
         "TCVN 4453:1995"
       ],
-      "so_yc": "022/YC/CV",
-      "so_kt": "022/KT"
+      "so_yc": "018/YC/CV",
+      "so_kt": "018/KT"
     },
     {
       "type": "CV",
@@ -2722,7 +2630,15 @@
       "so_coc": 123,
       "ep_tu": "2026-09-06",
       "ep_den": "2026-09-10",
-      "so": "CV 023",
+      "cl_nhan": [
+        "ép cọc",
+        "cắt đầu cọc"
+      ],
+      "cl_suffix": [
+        "_ep_coc",
+        "_cat_dau_coc"
+      ],
+      "so": "CV 019",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -2928,8 +2844,8 @@
         "TCVN 9394:2012",
         "TCVN 9361:2012"
       ],
-      "so_yc": "023/YC/CV",
-      "so_kt": "023/KT-1 (ép cọc), 023/KT-2 (cắt đầu cọc)",
+      "so_yc": "019/YC/CV",
+      "so_kt": "019/KT-1 (ép cọc), 019/KT-2 (cắt đầu cọc)",
       "vl_ref": [
         "001/CV/VL-TB"
       ],
@@ -2939,14 +2855,14 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt",
+      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt; vận chuyển, quăng tải đất đào trong phạm vi 30 m",
       "vi_tri": "Cọc 108-118",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
+      "dvt": "",
+      "khoi_luong": 0,
       "ngay": "2026-09-12",
       "mau_checklist": "XD|đào đất",
-      "muc_hd": "04",
-      "so": "CV 024",
+      "muc_hd": "04+05",
+      "so": "CV 020",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -3031,65 +2947,28 @@
         "TCVN 4447:2012",
         "TCVN 9361:2012"
       ],
-      "so_yc": "024/YC/CV",
-      "so_kt": "024/KT"
+      "so_yc": "020/YC/CV",
+      "so_kt": "020/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Vận chuyển/đào xúc, quăng tải đất đào trong phạm vi30m",
+      "hang_muc": "Ván khuôn và đổ bê tông lót móng M100",
       "vi_tri": "Cọc 108-118",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
-      "ngay": "2026-09-12",
-      "mau_checklist": "",
-      "muc_hd": "05",
-      "so": "CV 025",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "025/YC/CV"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Ván khuôn bê tông lót",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m2",
-      "khoi_luong": 24.25,
-      "ngay": "2026-09-13",
+      "dvt": "",
+      "khoi_luong": 0,
+      "ngay": "2026-09-14",
       "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "10",
-      "so": "CV 026",
+      "mau_checklist_2": "XD|Bê tông lot",
+      "muc_hd": "10+08",
+      "cl_nhan": [
+        "ván khuôn",
+        "đổ bê tông lót"
+      ],
+      "cl_suffix": [
+        "_van_khuon",
+        "_bt_lot"
+      ],
+      "so": "CV 021",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -3204,24 +3083,7 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995"
-      ],
-      "so_yc": "026/YC/CV",
-      "so_kt": "026/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đổ bê tông lót móng M100",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m3",
-      "khoi_luong": 21.34,
-      "ngay": "2026-09-14",
-      "mau_checklist": "XD|Bê tông lot",
-      "muc_hd": "08",
-      "so": "CV 027",
-      "checklist": [
+      "checklist_2": [
         {
           "Nhóm": "Công tác chuẩn bị",
           "Nội dung": "Bản vẽ triển khai thi công",
@@ -3353,8 +3215,8 @@
       "tieu_chuan": [
         "TCVN 4453:1995"
       ],
-      "so_yc": "027/YC/CV",
-      "so_kt": "027/KT"
+      "so_yc": "021/YC/CV",
+      "so_kt": "021/KT-1 (ván khuôn), 021/KT-2 (đổ bê tông lót)"
     },
     {
       "type": "CV",
@@ -3365,7 +3227,7 @@
       "ngay": "2026-09-15",
       "mau_checklist": "XD|Thép dầm sàn ",
       "muc_hd": "13",
-      "so": "CV 028",
+      "so": "CV 022",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -3486,8 +3348,8 @@
         "TCVN 1651-2:2018",
         "QCVN 07:2019/BKHCN"
       ],
-      "so_yc": "028/YC/CV",
-      "so_kt": "028/KT",
+      "so_yc": "022/YC/CV",
+      "so_kt": "022/KT",
       "vl_ref": [
         "002/CV/VL-TB"
       ],
@@ -3504,7 +3366,7 @@
       "ngay": "2026-09-15",
       "mau_checklist": "XD|Ván khuôn dầm sàn",
       "muc_hd": "11",
-      "so": "CV 029",
+      "so": "CV 023",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -3623,8 +3485,8 @@
       "tieu_chuan": [
         "TCVN 4453:1995"
       ],
-      "so_yc": "029/YC/CV",
-      "so_kt": "029/KT"
+      "so_yc": "023/YC/CV",
+      "so_kt": "023/KT"
     },
     {
       "type": "CV",
@@ -3635,6 +3497,988 @@
       "ngay": "2026-09-15",
       "mau_checklist": "XD|Ván khuôn dầm sàn",
       "muc_hd": "12",
+      "so": "CV 024",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí ván khuôn",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ kín khít ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
+      "so_yc": "024/YC/CV",
+      "so_kt": "024/KT"
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Thi công khe lún và lắp chi tiết thoát nước theo bản vẽ",
+      "vi_tri": "Cọc 98-108",
+      "dvt": "m2",
+      "khoi_luong": 13.28,
+      "ngay": "2026-09-15",
+      "mau_checklist": "XD|khe lún",
+      "muc_hd": "14",
+      "so": "CV 025",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống, giàn giáo thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Số lượng cấu kiện",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại vật liệu được phê duyệt",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt hệ thống giàn giáo thi công an toàn",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí, cao độ lắp đặt cấu kiện",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Kiểm tra thanh T nhôm sau khi lắp đặt",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Kiểm tra tôn che khe lún sau khi lắp đặt",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh, hoàn thiện cấu kiện sau lắp đặt",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
+      "so_yc": "025/YC/CV",
+      "so_kt": "025/KT"
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Ép cọc BT300x300 (kiểm soát lực ép, nhật ký ép); cắt, đập đầu cọc, thu gom và vận chuyển",
+      "vi_tri": "Cọc 118-126",
+      "dvt": "",
+      "khoi_luong": 0,
+      "ngay": "2026-09-17",
+      "mau_checklist": "XD|Ép cọc",
+      "mau_checklist_2": "XD|Cắt đầu cọc",
+      "muc_hd": "02+03",
+      "kl_ep": 843.0,
+      "so_coc": 124,
+      "ep_tu": "2026-09-11",
+      "ep_den": "2026-09-15",
+      "cl_nhan": [
+        "ép cọc",
+        "cắt đầu cọc"
+      ],
+      "cl_suffix": [
+        "_ep_coc",
+        "_cat_dau_coc"
+      ],
+      "so": "CV 026",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, vị trí cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công ép cọc được duyệt",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "An toàn thiết bị ép, cẩu, nền kê máy",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Mặt bằng, sàn thi công ép cọc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Thiết bị ép: giấy kiểm định, đồng hồ áp lực, lực ép tối đa",
+          "Phương pháp": "Kiểm tra hồ sơ + bằng mắt",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cọc đã nghiệm thu đầu vào (chủng loại, ký hiệu, kích thước, ngoại quan)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí tim cọc trước khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng của cọc khi ép",
+          "Phương pháp": "Dây dọi / máy kinh vĩ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lực ép, chiều dài ép, điều kiện dừng ép theo thiết kế",
+          "Phương pháp": "Đối chiếu nhật ký ép cọc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Nhật ký ép cọc ghi đầy đủ, có xác nhận",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục, định vị tim cọc",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Vị trí cọc sau khi ép",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi ép",
+          "Phương pháp": "Bằng máy thủy bình",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "checklist_2": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ thi công, cao độ cắt đầu cọc theo thiết kế",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công cắt, đập đầu cọc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Thiết bị cắt, đập và bảo hộ lao động",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Cọc đã ép xong và đã được nghiệm thu ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Hố móng đúng cao độ, khô ráo, thoát nước",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Mặt cắt đầu cọc phẳng, vuông góc trục, không nứt vỡ",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chiều dài thép chờ, thép lộ ra theo thiết kế (nếu có)",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Số lượng cọc cắt đối chiếu bảng tổng hợp ép cọc",
+          "Phương pháp": "Kiểm tra hồ sơ",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thu gom, bốc xúc, vận chuyển phế thải; vệ sinh hố móng",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị cọc trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Cao độ đầu cọc sau khi cắt",
+          "Phương pháp": "Bằng máy thủy bình",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012",
+        "TCVN 9361:2012"
+      ],
+      "so_yc": "026/YC/CV",
+      "so_kt": "026/KT-1 (ép cọc), 026/KT-2 (cắt đầu cọc)",
+      "vl_ref": [
+        "001/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "001/LM"
+      ]
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt; vận chuyển, quăng tải đất đào trong phạm vi 30 m",
+      "vi_tri": "Cọc 118-126",
+      "dvt": "",
+      "khoi_luong": 0,
+      "ngay": "2026-09-17",
+      "mau_checklist": "XD|đào đất",
+      "muc_hd": "04+05",
+      "so": "CV 027",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ trước khi đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ sau khi đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Taluy hố đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Kích thước hố đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Trắc đạc",
+          "Phương pháp": "Bằng máy thủy bình + toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012",
+        "TCVN 9361:2012"
+      ],
+      "so_yc": "027/YC/CV",
+      "so_kt": "027/KT"
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Ván khuôn và đổ bê tông lót móng M100",
+      "vi_tri": "Cọc 118-126",
+      "dvt": "",
+      "khoi_luong": 0,
+      "ngay": "2026-09-19",
+      "mau_checklist": "XD|Ván khuôn dầm sàn",
+      "mau_checklist_2": "XD|Bê tông lot",
+      "muc_hd": "10+08",
+      "cl_nhan": [
+        "ván khuôn",
+        "đổ bê tông lót"
+      ],
+      "cl_suffix": [
+        "_van_khuon",
+        "_bt_lot"
+      ],
+      "so": "CV 028",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí ván khuôn",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ kín khít ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "checklist_2": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công , thời tiết thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công , tình trạng máy móc thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Đường di chuyển, bãi tập kết bơm, máy",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trước khi đổ",
+          "Nội dung": "Công tác bề mặt nền đất.",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trước khi đổ",
+          "Nội dung": "Cao độ mặt nền đất",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trong khi đổ",
+          "Nội dung": "Quá trình đổ bê tông (Kỹ thuật đổ, mạch ngừng).",
+          "Phương pháp": "Bằng thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra trong khi đổ",
+          "Nội dung": "Vị trí, kích thước, cao độ cấu kiện",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Chiều dày, cao độ cấu kiện bê tông",
+          "Phương pháp": "Bằng thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Vị trí hình dạng sau khi đổ bê tông",
+          "Phương pháp": "Bằng thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Dọn dẹp, vệ sinh mặt bằng, thiết bị",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Kiểm tra sau khi đổ",
+          "Nội dung": "Bảo dưỡng bê tông",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Mực cốt định vị trên kết cấu trước",
+          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
+      "so_yc": "028/YC/CV",
+      "so_kt": "028/KT-1 (ván khuôn), 028/KT-2 (đổ bê tông lót)"
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
+      "vi_tri": "Cọc 108-118",
+      "dvt": "tấn",
+      "khoi_luong": 5.76,
+      "ngay": "2026-09-20",
+      "mau_checklist": "XD|Thép dầm sàn ",
+      "muc_hd": "13",
+      "so": "CV 029",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp trên",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp dưới",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép đai",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép chuyển tiếp",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí các thanh thép",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí, chiều dài các mối nối",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh cốt thép",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Mực cốt định vị trên kết cấu trước",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
+      ],
+      "so_yc": "029/YC/CV",
+      "so_kt": "029/KT",
+      "vl_ref": [
+        "002/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "002/LM"
+      ]
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Ván khuôn cấu kiện móng/thân kè theo từng đợt đổ",
+      "vi_tri": "Cọc 108-118",
+      "dvt": "m2",
+      "khoi_luong": 419.5,
+      "ngay": "2026-09-20",
+      "mau_checklist": "XD|Ván khuôn dầm sàn",
+      "muc_hd": "11",
       "so": "CV 030",
       "checklist": [
         {
@@ -3759,14 +4603,145 @@
     },
     {
       "type": "CV",
+      "hang_muc": "Ván khuôn khóa đỉnh kè",
+      "vi_tri": "Cọc 108-118",
+      "dvt": "m2",
+      "khoi_luong": 56.5,
+      "ngay": "2026-09-20",
+      "mau_checklist": "XD|Ván khuôn dầm sàn",
+      "muc_hd": "12",
+      "so": "CV 031",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí ván khuôn",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ kín khít ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
+      "so_yc": "031/YC/CV",
+      "so_kt": "031/KT"
+    },
+    {
+      "type": "CV",
       "hang_muc": "Thi công khe lún và lắp chi tiết thoát nước theo bản vẽ",
-      "vi_tri": "Cọc 98-108",
+      "vi_tri": "Cọc 108-118",
       "dvt": "m2",
       "khoi_luong": 13.28,
-      "ngay": "2026-09-15",
+      "ngay": "2026-09-20",
       "mau_checklist": "XD|khe lún",
       "muc_hd": "14",
-      "so": "CV 031",
+      "so": "CV 032",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -3864,247 +4839,55 @@
       "tieu_chuan": [
         "TCVN 4453:1995"
       ],
-      "so_yc": "031/YC/CV",
-      "so_kt": "031/KT"
+      "so_yc": "032/YC/CV",
+      "so_kt": "032/KT"
     },
     {
-      "type": "CV",
-      "hang_muc": "Ép cọc BT300x300 (kiểm soát lực ép, nhật ký ép); cắt, đập đầu cọc, thu gom và vận chuyển",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "",
-      "khoi_luong": 0,
-      "ngay": "2026-09-17",
-      "mau_checklist": "XD|Ép cọc",
-      "mau_checklist_2": "XD|Cắt đầu cọc",
-      "muc_hd": "02+03",
-      "kl_ep": 843.0,
-      "so_coc": 124,
-      "ep_tu": "2026-09-11",
-      "ep_den": "2026-09-15",
-      "so": "CV 032",
+      "type": "VL",
+      "hang_muc": "Đá xô đắp chân tường chắn",
+      "vi_tri": "Toàn tuyến cọc 88-126",
+      "dvt": "m3",
+      "khoi_luong": 3551.96,
+      "ngay": "2026-09-25",
+      "mau_checklist": "",
+      "lay_mau": false,
+      "so": "VL 003",
       "checklist": [
         {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ thi công, vị trí cọc được duyệt",
-          "Phương pháp": "Bằng mắt thường",
+          "Nhóm": "",
+          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
+          "Phương pháp": "",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công ép cọc được duyệt",
-          "Phương pháp": "Bằng mắt thường",
+          "Nhóm": "",
+          "Nội dung": "Có kết quả thí nghiệm đầu vào",
+          "Phương pháp": "",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "An toàn thiết bị ép, cẩu, nền kê máy",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Mặt bằng, sàn thi công ép cọc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Thiết bị ép: giấy kiểm định, đồng hồ áp lực, lực ép tối đa",
-          "Phương pháp": "Kiểm tra hồ sơ + bằng mắt",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cọc đã nghiệm thu đầu vào (chủng loại, ký hiệu, kích thước, ngoại quan)",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí tim cọc trước khi ép",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ thẳng đứng của cọc khi ép",
-          "Phương pháp": "Dây dọi / máy kinh vĩ",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lực ép, chiều dài ép, điều kiện dừng ép theo thiết kế",
-          "Phương pháp": "Đối chiếu nhật ký ép cọc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Nhật ký ép cọc ghi đầy đủ, có xác nhận",
-          "Phương pháp": "Kiểm tra hồ sơ",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục, định vị tim cọc",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Vị trí cọc sau khi ép",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Cao độ đầu cọc sau khi ép",
-          "Phương pháp": "Bằng máy thủy bình",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "checklist_2": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ thi công, cao độ cắt đầu cọc theo thiết kế",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công cắt, đập đầu cọc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Thiết bị cắt, đập và bảo hộ lao động",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Cọc đã ép xong và đã được nghiệm thu ép cọc",
-          "Phương pháp": "Kiểm tra hồ sơ",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Hố móng đúng cao độ, khô ráo, thoát nước",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ đầu cọc sau khi cắt",
-          "Phương pháp": "Bằng máy thủy bình",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Mặt cắt đầu cọc phẳng, vuông góc trục, không nứt vỡ",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chiều dài thép chờ, thép lộ ra theo thiết kế (nếu có)",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Số lượng cọc cắt đối chiếu bảng tổng hợp ép cọc",
-          "Phương pháp": "Kiểm tra hồ sơ",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Thu gom, bốc xúc, vận chuyển phế thải; vệ sinh hố móng",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị cọc trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Cao độ đầu cọc sau khi cắt",
-          "Phương pháp": "Bằng máy thủy bình",
+          "Nhóm": "",
+          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
+          "Phương pháp": "",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 9394:2012",
-        "TCVN 9361:2012"
-      ],
-      "so_yc": "032/YC/CV",
-      "so_kt": "032/KT-1 (ép cọc), 032/KT-2 (cắt đầu cọc)",
-      "vl_ref": [
-        "001/CV/VL-TB"
-      ],
-      "lm_ref": [
-        "001/LM"
-      ]
+      "tieu_chuan": [],
+      "so_yc": "003/YC/VL-TB"
     },
     {
       "type": "CV",
-      "hang_muc": "Đào móng bằng máy, đất cấp II theo từng đốt",
+      "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
       "vi_tri": "Cọc 118-126",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
-      "ngay": "2026-09-17",
-      "mau_checklist": "XD|đào đất",
-      "muc_hd": "04",
+      "dvt": "tấn",
+      "khoi_luong": 5.74,
+      "ngay": "2026-09-25",
+      "mau_checklist": "XD|Thép dầm sàn ",
+      "muc_hd": "13",
       "so": "CV 033",
       "checklist": [
         {
@@ -4130,14 +4913,14 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
+          "Nội dung": "Khu vực thi công",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -4151,103 +4934,230 @@
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ trước khi đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp trên",
+          "Phương pháp": "Bằng mắt thường + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ sau khi đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp dưới",
+          "Phương pháp": "Bằng mắt thường + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Taluy hố đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép đai",
+          "Phương pháp": "Bằng mắt thường + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Kích thước hố đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép chuyển tiếp",
+          "Phương pháp": "Bằng mắt thường + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Trắc đạc",
-          "Phương pháp": "Bằng máy thủy bình + toàn đạc",
+          "Nội dung": "Vị trí các thanh thép",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí, chiều dài các mối nối",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh cốt thép",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Mực cốt định vị trên kết cấu trước",
+          "Phương pháp": "Bằng máy toàn đạc",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4447:2012",
-        "TCVN 9361:2012"
+        "TCVN 4453:1995",
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
       ],
       "so_yc": "033/YC/CV",
-      "so_kt": "033/KT"
+      "so_kt": "033/KT",
+      "vl_ref": [
+        "002/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "002/LM"
+      ]
     },
     {
       "type": "CV",
-      "hang_muc": "Vận chuyển/đào xúc, quăng tải đất đào trong phạm vi30m",
+      "hang_muc": "Ván khuôn cấu kiện móng/thân kè theo từng đợt đổ",
       "vi_tri": "Cọc 118-126",
-      "dvt": "m3",
-      "khoi_luong": 4581.25,
-      "ngay": "2026-09-17",
-      "mau_checklist": "",
-      "muc_hd": "05",
+      "dvt": "m2",
+      "khoi_luong": 419.5,
+      "ngay": "2026-09-25",
+      "mau_checklist": "XD|Ván khuôn dầm sàn",
+      "muc_hd": "11",
       "so": "CV 034",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có bản vẽ thi công được duyệt",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Vật liệu đã được nghiệm thu",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng vị trí, kích thước, cao độ",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Biện pháp thi công / an toàn đã duyệt",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Khu vực thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Các điều kiện khác",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí ván khuôn",
+          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ kín khít ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
+          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh ván khuôn.",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Gởi trục kiểm tra",
+          "Phương pháp": "Bằng máy toàn đạc",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Trắc đạc",
+          "Nội dung": "Định vị trên mặt bằng",
+          "Phương pháp": "Bằng máy toàn đạc",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4447:2012"
+        "TCVN 4453:1995"
       ],
-      "so_yc": "034/YC/CV"
+      "so_yc": "034/YC/CV",
+      "so_kt": "034/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Ván khuôn bê tông lót",
+      "hang_muc": "Ván khuôn khóa đỉnh kè",
       "vi_tri": "Cọc 118-126",
       "dvt": "m2",
-      "khoi_luong": 24.25,
-      "ngay": "2026-09-18",
+      "khoi_luong": 56.5,
+      "ngay": "2026-09-25",
       "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "10",
+      "muc_hd": "12",
       "so": "CV 035",
       "checklist": [
         {
@@ -4372,13 +5282,13 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đổ bê tông lót móng M100",
+      "hang_muc": "Thi công khe lún và lắp chi tiết thoát nước theo bản vẽ",
       "vi_tri": "Cọc 118-126",
-      "dvt": "m3",
-      "khoi_luong": 21.32,
-      "ngay": "2026-09-19",
-      "mau_checklist": "XD|Bê tông lot",
-      "muc_hd": "08",
+      "dvt": "m2",
+      "khoi_luong": 13.29,
+      "ngay": "2026-09-25",
+      "mau_checklist": "XD|khe lún",
+      "muc_hd": "14",
       "so": "CV 036",
       "checklist": [
         {
@@ -4397,7 +5307,7 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống, giàn giáo thi công",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -4411,99 +5321,64 @@
         },
         {
           "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công , thời tiết thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công , tình trạng máy móc thi công",
+          "Nội dung": "Nguồn điện nước thi công",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Đường di chuyển, bãi tập kết bơm, máy",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Số lượng cấu kiện",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Kiểm tra trước khi đổ",
-          "Nội dung": "Công tác bề mặt nền đất.",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Chủng loại vật liệu được phê duyệt",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Lắp đặt hệ thống giàn giáo thi công an toàn",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vị trí, cao độ lắp đặt cấu kiện",
           "Phương pháp": "Bằng máy thủy bình + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Kiểm tra trước khi đổ",
-          "Nội dung": "Cao độ mặt nền đất",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra trong khi đổ",
-          "Nội dung": "Quá trình đổ bê tông (Kỹ thuật đổ, mạch ngừng).",
-          "Phương pháp": "Bằng thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra trong khi đổ",
-          "Nội dung": "Vị trí, kích thước, cao độ cấu kiện",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Chiều dày, cao độ cấu kiện bê tông",
-          "Phương pháp": "Bằng thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Vị trí hình dạng sau khi đổ bê tông",
-          "Phương pháp": "Bằng thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Dọn dẹp, vệ sinh mặt bằng, thiết bị",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Kiểm tra thanh T nhôm sau khi lắp đặt",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Kiểm tra sau khi đổ",
-          "Nội dung": "Bảo dưỡng bê tông",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Kiểm tra tôn che khe lún sau khi lắp đặt",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Mực cốt định vị trên kết cấu trước",
-          "Phương pháp": "Bằng máy thuỷ bình + toàn đạc",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vệ sinh, hoàn thiện cấu kiện sau lắp đặt",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
@@ -4517,13 +5392,13 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "tấn",
-      "khoi_luong": 5.76,
-      "ngay": "2026-09-20",
-      "mau_checklist": "XD|Thép dầm sàn ",
-      "muc_hd": "13",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
+      "vi_tri": "Cọc 88-98",
+      "dvt": "m3",
+      "khoi_luong": 2160.5,
+      "ngay": "2026-09-25",
+      "mau_checklist": "XD|San lẮP",
+      "muc_hd": "06",
       "so": "CV 037",
       "checklist": [
         {
@@ -4549,14 +5424,14 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -4570,99 +5445,63 @@
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp trên",
-          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Nội dung": "Cao độ hiện trạng trước khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp dưới",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép đai",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép chuyển tiếp",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí các thanh thép",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí, chiều dài các mối nối",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh cốt thép",
+          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vật liệu, chiều dày san nền",
+          "Phương pháp": "Bằng mắt thường+ Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Mực cốt định vị trên kết cấu trước",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt sau khi san nền",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
+          "Phương pháp": "Thí nghiệm",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4453:1995",
-        "TCVN 1651-2:2018",
-        "QCVN 07:2019/BKHCN"
+        "TCVN 4447:2012"
       ],
       "so_yc": "037/YC/CV",
-      "so_kt": "037/KT",
-      "vl_ref": [
-        "002/CV/VL-TB"
-      ],
-      "lm_ref": [
-        "002/LM"
-      ]
+      "so_kt": "037/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Ván khuôn cấu kiện móng/thân kè theo từng đợt đổ",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m2",
-      "khoi_luong": 419.5,
-      "ngay": "2026-09-20",
-      "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "11",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
+      "vi_tri": "Cọc 98-108",
+      "dvt": "m3",
+      "khoi_luong": 2160.5,
+      "ngay": "2026-09-30",
+      "mau_checklist": "XD|San lẮP",
+      "muc_hd": "06",
       "so": "CV 038",
       "checklist": [
         {
@@ -4688,14 +5527,14 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Các điều kiện khác",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -4708,92 +5547,64 @@
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Các điều kiện khác",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ hiện trạng trước khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Nội dung": "Vật liệu, chiều dày san nền",
+          "Phương pháp": "Bằng mắt thường+ Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí ván khuôn",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Nội dung": "Bề mặt sau khi san nền",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ kín khít ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
+          "Phương pháp": "Thí nghiệm",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4453:1995"
+        "TCVN 4447:2012"
       ],
       "so_yc": "038/YC/CV",
       "so_kt": "038/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Ván khuôn khóa đỉnh kè",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m2",
-      "khoi_luong": 56.5,
-      "ngay": "2026-09-20",
-      "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "12",
+      "hang_muc": "Đắp đá xô chân tường chắn phía ngoài kè",
+      "vi_tri": "Cọc 88-98",
+      "dvt": "m3",
+      "khoi_luong": 887.99,
+      "ngay": "2026-09-30",
+      "mau_checklist": "XD|San lẮP",
+      "muc_hd": "07",
       "so": "CV 039",
       "checklist": [
         {
@@ -4819,138 +5630,7 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí ván khuôn",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ chắc chắn ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ kín khít ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995"
-      ],
-      "so_yc": "039/YC/CV",
-      "so_kt": "039/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Thi công khe lún và lắp chi tiết thoát nước theo bản vẽ",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m2",
-      "khoi_luong": 13.28,
-      "ngay": "2026-09-20",
-      "mau_checklist": "XD|khe lún",
-      "muc_hd": "14",
-      "so": "CV 040",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống, giàn giáo thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -4971,107 +5651,163 @@
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Số lượng cấu kiện",
+          "Nội dung": "Cao độ hiện trạng trước khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại vật liệu được phê duyệt",
+          "Nội dung": "Vật liệu, chiều dày san nền",
+          "Phương pháp": "Bằng mắt thường+ Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt sau khi san nền",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt hệ thống giàn giáo thi công an toàn",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí, cao độ lắp đặt cấu kiện",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Kiểm tra thanh T nhôm sau khi lắp đặt",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Kiểm tra tôn che khe lún sau khi lắp đặt",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh, hoàn thiện cấu kiện sau lắp đặt",
-          "Phương pháp": "Bằng mắt thường",
+          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
+          "Phương pháp": "Thí nghiệm",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4453:1995"
+        "TCVN 4447:2012"
       ],
-      "so_yc": "040/YC/CV",
-      "so_kt": "040/KT"
+      "so_yc": "039/YC/CV",
+      "so_kt": "039/KT",
+      "vl_ref": [
+        "003/CV/VL-TB"
+      ],
+      "lm_ref": []
     },
     {
-      "type": "VL",
-      "hang_muc": "Đá xô đắp chân tường chắn",
-      "vi_tri": "Toàn tuyến cọc 88-126",
+      "type": "CV",
+      "hang_muc": "Hoàn thiện nạo vét lạch phía núi - 30% KL còn lại",
+      "vi_tri": "Cọc 88-98",
       "dvt": "m3",
-      "khoi_luong": 3551.96,
-      "ngay": "2026-09-25",
-      "mau_checklist": "",
-      "lay_mau": false,
-      "so": "VL 003",
+      "khoi_luong": 665.33,
+      "ngay": "2026-10-04",
+      "mau_checklist": "XD|đào đất",
+      "muc_hd": "16",
+      "so": "CV 040",
       "checklist": [
         {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ trước khi đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ sau khi đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Taluy hố đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Kích thước hố đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Trắc đạc",
+          "Phương pháp": "Bằng máy thủy bình + toàn đạc",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [],
-      "so_yc": "003/YC/VL-TB"
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
+      "so_yc": "040/YC/CV",
+      "so_kt": "040/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "tấn",
-      "khoi_luong": 5.74,
-      "ngay": "2026-09-25",
-      "mau_checklist": "XD|Thép dầm sàn ",
-      "muc_hd": "13",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
+      "vi_tri": "Cọc 108-118",
+      "dvt": "m3",
+      "khoi_luong": 2160.5,
+      "ngay": "2026-10-05",
+      "mau_checklist": "XD|San lẮP",
+      "muc_hd": "06",
       "so": "CV 041",
       "checklist": [
         {
@@ -5097,14 +5833,14 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -5118,99 +5854,63 @@
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp trên",
-          "Phương pháp": "Bằng mắt thường + thước thép",
+          "Nội dung": "Cao độ hiện trạng trước khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại , đường kính chiều dài, số lượng thép lớp dưới",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép đai",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại, đường kính, chiều dài, số lượng thép chuyển tiếp",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí các thanh thép",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí, chiều dài các mối nối",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh cốt thép",
+          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vật liệu, chiều dày san nền",
+          "Phương pháp": "Bằng mắt thường+ Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Mực cốt định vị trên kết cấu trước",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt sau khi san nền",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
+          "Phương pháp": "Thí nghiệm",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4453:1995",
-        "TCVN 1651-2:2018",
-        "QCVN 07:2019/BKHCN"
+        "TCVN 4447:2012"
       ],
       "so_yc": "041/YC/CV",
-      "so_kt": "041/KT",
-      "vl_ref": [
-        "002/CV/VL-TB"
-      ],
-      "lm_ref": [
-        "002/LM"
-      ]
+      "so_kt": "041/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Ván khuôn cấu kiện móng/thân kè theo từng đợt đổ",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "m2",
-      "khoi_luong": 419.5,
-      "ngay": "2026-09-25",
-      "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "11",
+      "hang_muc": "Đắp đá xô chân tường chắn phía ngoài kè",
+      "vi_tri": "Cọc 98-108",
+      "dvt": "m3",
+      "khoi_luong": 887.99,
+      "ngay": "2026-10-05",
+      "mau_checklist": "XD|San lẮP",
+      "muc_hd": "07",
       "so": "CV 042",
       "checklist": [
         {
@@ -5236,14 +5936,14 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Các điều kiện khác",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -5256,92 +5956,68 @@
           "Ghi chú": ""
         },
         {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Các điều kiện khác",
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ hiện trạng trước khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Nội dung": "Vật liệu, chiều dày san nền",
+          "Phương pháp": "Bằng mắt thường+ Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí ván khuôn",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
+          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ chắc chắn ván khuôn.",
+          "Nội dung": "Bề mặt sau khi san nền",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ kín khít ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
+          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
+          "Phương pháp": "Thí nghiệm",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4453:1995"
+        "TCVN 4447:2012"
       ],
       "so_yc": "042/YC/CV",
-      "so_kt": "042/KT"
+      "so_kt": "042/KT",
+      "vl_ref": [
+        "003/CV/VL-TB"
+      ],
+      "lm_ref": []
     },
     {
       "type": "CV",
-      "hang_muc": "Ván khuôn khóa đỉnh kè",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "m2",
-      "khoi_luong": 56.5,
-      "ngay": "2026-09-25",
-      "mau_checklist": "XD|Ván khuôn dầm sàn",
-      "muc_hd": "12",
+      "hang_muc": "Hoàn thiện nạo vét lạch phía núi - 30% KL còn lại",
+      "vi_tri": "Cọc 98-108",
+      "dvt": "m3",
+      "khoi_luong": 665.33,
+      "ngay": "2026-10-09",
+      "mau_checklist": "XD|đào đất",
+      "muc_hd": "16",
       "so": "CV 043",
       "checklist": [
         {
@@ -5367,138 +6043,7 @@
         },
         {
           "Nhóm": "An toàn lao động",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Khu vực thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Các điều kiện khác",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt ván khuôn, hệ thống chống đở",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí ván khuôn",
-          "Phương pháp": "Bằng máy thủy bình + thước thép + mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ chắc chắn ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt ván khuôn (Sạch, phẳng, không bám dính)",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ kín khít ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Độ thẳng đứng thành ván khuôn.",
-          "Phương pháp": "Bằng mắt thường + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh ván khuôn.",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Gởi trục kiểm tra",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Trắc đạc",
-          "Nội dung": "Định vị trên mặt bằng",
-          "Phương pháp": "Bằng máy toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4453:1995"
-      ],
-      "so_yc": "043/YC/CV",
-      "so_kt": "043/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Thi công khe lún và lắp chi tiết thoát nước theo bản vẽ",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "m2",
-      "khoi_luong": 13.29,
-      "ngay": "2026-09-25",
-      "mau_checklist": "XD|khe lún",
-      "muc_hd": "14",
-      "so": "CV 044",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống, giàn giáo thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
           "Phương pháp": "Bằng mắt thường",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
@@ -5519,70 +6064,159 @@
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Số lượng cấu kiện",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Chủng loại vật liệu được phê duyệt",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Lắp đặt hệ thống giàn giáo thi công an toàn",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vị trí, cao độ lắp đặt cấu kiện",
+          "Nội dung": "Cao độ trước khi đào",
           "Phương pháp": "Bằng máy thủy bình + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Kiểm tra thanh T nhôm sau khi lắp đặt",
-          "Phương pháp": "Bằng mắt thường",
+          "Nội dung": "Cao độ sau khi đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Kiểm tra tôn che khe lún sau khi lắp đặt",
-          "Phương pháp": "Bằng mắt thường",
+          "Nội dung": "Taluy hố đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         },
         {
           "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vệ sinh, hoàn thiện cấu kiện sau lắp đặt",
-          "Phương pháp": "Bằng mắt thường",
+          "Nội dung": "Kích thước hố đào",
+          "Phương pháp": "Bằng máy thủy bình + thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Trắc đạc",
+          "Phương pháp": "Bằng máy thủy bình + toàn đạc",
           "Kết quả": "Chưa kiểm tra",
           "Ghi chú": ""
         }
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [
-        "TCVN 4453:1995"
+        "TCVN 4447:2012"
+      ],
+      "so_yc": "043/YC/CV",
+      "so_kt": "043/KT"
+    },
+    {
+      "type": "CV",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
+      "vi_tri": "Cọc 118-126",
+      "dvt": "m3",
+      "khoi_luong": 2160.5,
+      "ngay": "2026-10-10",
+      "mau_checklist": "XD|San lẮP",
+      "muc_hd": "06",
+      "so": "CV 044",
+      "checklist": [
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Bản vẽ triển khai thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Công tác chuẩn bị",
+          "Nội dung": "Biện pháp thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "An toàn lao động",
+          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Điều kiện thi công",
+          "Nội dung": "Nguồn điện nước thi công",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ hiện trạng trước khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Vật liệu, chiều dày san nền",
+          "Phương pháp": "Bằng mắt thường+ Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
+          "Phương pháp": "Bằng máy thủy bình + Thước thép",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Bề mặt sau khi san nền",
+          "Phương pháp": "Bằng mắt thường",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        },
+        {
+          "Nhóm": "Nghiệm thu",
+          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
+          "Phương pháp": "Thí nghiệm",
+          "Kết quả": "Chưa kiểm tra",
+          "Ghi chú": ""
+        }
+      ],
+      "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
       ],
       "so_yc": "044/YC/CV",
       "so_kt": "044/KT"
     },
     {
       "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
-      "vi_tri": "Cọc 88-98",
+      "hang_muc": "Đắp đá xô chân tường chắn phía ngoài kè",
+      "vi_tri": "Cọc 108-118",
       "dvt": "m3",
-      "khoi_luong": 2160.5,
-      "ngay": "2026-09-25",
+      "khoi_luong": 887.99,
+      "ngay": "2026-10-10",
       "mau_checklist": "XD|San lẮP",
-      "muc_hd": "06",
+      "muc_hd": "07",
       "so": "CV 045",
       "checklist": [
         {
@@ -5675,825 +6309,7 @@
         "TCVN 4447:2012"
       ],
       "so_yc": "045/YC/CV",
-      "so_kt": "045/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
-      "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 2160.5,
-      "ngay": "2026-09-30",
-      "mau_checklist": "XD|San lẮP",
-      "muc_hd": "06",
-      "so": "CV 046",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hiện trạng trước khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vật liệu, chiều dày san nền",
-          "Phương pháp": "Bằng mắt thường+ Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt sau khi san nền",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
-          "Phương pháp": "Thí nghiệm",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "046/YC/CV",
-      "so_kt": "046/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đắp đá xô chân tường chắn phía ngoài kè",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m3",
-      "khoi_luong": 887.99,
-      "ngay": "2026-09-30",
-      "mau_checklist": "XD|San lẮP",
-      "muc_hd": "07",
-      "so": "CV 047",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hiện trạng trước khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vật liệu, chiều dày san nền",
-          "Phương pháp": "Bằng mắt thường+ Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt sau khi san nền",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
-          "Phương pháp": "Thí nghiệm",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "047/YC/CV",
-      "so_kt": "047/KT",
-      "vl_ref": [
-        "003/CV/VL-TB"
-      ],
-      "lm_ref": []
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Hoàn thiện nạo vét lạch phía núi - 30% KL còn lại",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m3",
-      "khoi_luong": 665.33,
-      "ngay": "2026-10-04",
-      "mau_checklist": "XD|đào đất",
-      "muc_hd": "16",
-      "so": "CV 048",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ trước khi đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ sau khi đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Taluy hố đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Kích thước hố đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Trắc đạc",
-          "Phương pháp": "Bằng máy thủy bình + toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "048/YC/CV",
-      "so_kt": "048/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m3",
-      "khoi_luong": 2160.5,
-      "ngay": "2026-10-05",
-      "mau_checklist": "XD|San lẮP",
-      "muc_hd": "06",
-      "so": "CV 049",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hiện trạng trước khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vật liệu, chiều dày san nền",
-          "Phương pháp": "Bằng mắt thường+ Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt sau khi san nền",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
-          "Phương pháp": "Thí nghiệm",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "049/YC/CV",
-      "so_kt": "049/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đắp đá xô chân tường chắn phía ngoài kè",
-      "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 887.99,
-      "ngay": "2026-10-05",
-      "mau_checklist": "XD|San lẮP",
-      "muc_hd": "07",
-      "so": "CV 050",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hiện trạng trước khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vật liệu, chiều dày san nền",
-          "Phương pháp": "Bằng mắt thường+ Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt sau khi san nền",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
-          "Phương pháp": "Thí nghiệm",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "050/YC/CV",
-      "so_kt": "050/KT",
-      "vl_ref": [
-        "003/CV/VL-TB"
-      ],
-      "lm_ref": []
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Hoàn thiện nạo vét lạch phía núi - 30% KL còn lại",
-      "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 665.33,
-      "ngay": "2026-10-09",
-      "mau_checklist": "XD|đào đất",
-      "muc_hd": "16",
-      "so": "CV 051",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ trước khi đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ sau khi đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Taluy hố đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Kích thước hố đào",
-          "Phương pháp": "Bằng máy thủy bình + thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Trắc đạc",
-          "Phương pháp": "Bằng máy thủy bình + toàn đạc",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "051/YC/CV",
-      "so_kt": "051/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "m3",
-      "khoi_luong": 2160.5,
-      "ngay": "2026-10-10",
-      "mau_checklist": "XD|San lẮP",
-      "muc_hd": "06",
-      "so": "CV 052",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hiện trạng trước khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vật liệu, chiều dày san nền",
-          "Phương pháp": "Bằng mắt thường+ Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt sau khi san nền",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
-          "Phương pháp": "Thí nghiệm",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "052/YC/CV",
-      "so_kt": "052/KT"
-    },
-    {
-      "type": "CV",
-      "hang_muc": "Đắp đá xô chân tường chắn phía ngoài kè",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m3",
-      "khoi_luong": 887.99,
-      "ngay": "2026-10-10",
-      "mau_checklist": "XD|San lẮP",
-      "muc_hd": "07",
-      "so": "CV 053",
-      "checklist": [
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Bản vẽ triển khai thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Công tác chuẩn bị",
-          "Nội dung": "Biện pháp thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dây ngăn, bảng hiệu, lối lên xuống",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "An toàn lao động",
-          "Nội dung": "Dọn dẹp, vệ sinh khu vực sau khi đào",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Bãi tập kết vật tư, thiết bị, máy móc",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Điều kiện thi công",
-          "Nội dung": "Nguồn điện nước thi công",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hiện trạng trước khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vận hành thử thiết bị san ủi, đầm nén",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Vật liệu, chiều dày san nền",
-          "Phương pháp": "Bằng mắt thường+ Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Cao độ hoàn thiện sau khi san nền",
-          "Phương pháp": "Bằng máy thủy bình + Thước thép",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Bề mặt sau khi san nền",
-          "Phương pháp": "Bằng mắt thường",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "Nghiệm thu",
-          "Nội dung": "Thử nghiệm, kết quả kiểm tra độ chặt",
-          "Phương pháp": "Thí nghiệm",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "tieu_chuan": [
-        "TCVN 4447:2012"
-      ],
-      "so_yc": "053/YC/CV",
-      "so_kt": "053/KT",
+      "so_kt": "045/KT",
       "vl_ref": [
         "003/CV/VL-TB"
       ],
@@ -6511,7 +6327,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-11",
       "ngay_lay_mau_den": "2026-09-12",
-      "so": "CV 054",
+      "so": "CV 046",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -6648,8 +6464,8 @@
         "TCVN 3118:2022",
         "TCVN 8828:2011"
       ],
-      "so_yc": "054/YC/CV",
-      "so_kt": "054/KT",
+      "so_yc": "046/YC/CV",
+      "so_kt": "046/KT",
       "lm_ref": [
         "003/LM"
       ]
@@ -6663,7 +6479,7 @@
       "ngay": "2026-10-14",
       "mau_checklist": "XD|đào đất",
       "muc_hd": "16",
-      "so": "CV 055",
+      "so": "CV 047",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -6747,8 +6563,8 @@
       "tieu_chuan": [
         "TCVN 4447:2012"
       ],
-      "so_yc": "055/YC/CV",
-      "so_kt": "055/KT"
+      "so_yc": "047/YC/CV",
+      "so_kt": "047/KT"
     },
     {
       "type": "CV",
@@ -6759,7 +6575,7 @@
       "ngay": "2026-10-15",
       "mau_checklist": "XD|San lẮP",
       "muc_hd": "07",
-      "so": "CV 056",
+      "so": "CV 048",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -6850,8 +6666,8 @@
       "tieu_chuan": [
         "TCVN 4447:2012"
       ],
-      "so_yc": "056/YC/CV",
-      "so_kt": "056/KT",
+      "so_yc": "048/YC/CV",
+      "so_kt": "048/KT",
       "vl_ref": [
         "003/CV/VL-TB"
       ],
@@ -6869,7 +6685,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-16",
       "ngay_lay_mau_den": "2026-09-17",
-      "so": "CV 057",
+      "so": "CV 049",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -7006,8 +6822,8 @@
         "TCVN 3118:2022",
         "TCVN 8828:2011"
       ],
-      "so_yc": "057/YC/CV",
-      "so_kt": "057/KT",
+      "so_yc": "049/YC/CV",
+      "so_kt": "049/KT",
       "lm_ref": [
         "004/LM"
       ]
@@ -7021,7 +6837,7 @@
       "ngay": "2026-10-19",
       "mau_checklist": "XD|đào đất",
       "muc_hd": "16",
-      "so": "CV 058",
+      "so": "CV 050",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -7105,8 +6921,8 @@
       "tieu_chuan": [
         "TCVN 4447:2012"
       ],
-      "so_yc": "058/YC/CV",
-      "so_kt": "058/KT"
+      "so_yc": "050/YC/CV",
+      "so_kt": "050/KT"
     },
     {
       "type": "CV",
@@ -7120,7 +6936,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-21",
       "ngay_lay_mau_den": "2026-09-22",
-      "so": "CV 059",
+      "so": "CV 051",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -7257,8 +7073,8 @@
         "TCVN 3118:2022",
         "TCVN 8828:2011"
       ],
-      "so_yc": "059/YC/CV",
-      "so_kt": "059/KT",
+      "so_yc": "051/YC/CV",
+      "so_kt": "051/KT",
       "lm_ref": [
         "005/LM"
       ]
@@ -7275,7 +7091,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-26",
       "ngay_lay_mau_den": "2026-09-27",
-      "so": "CV 060",
+      "so": "CV 052",
       "checklist": [
         {
           "Nhóm": "Công tác chuẩn bị",
@@ -7412,8 +7228,8 @@
         "TCVN 3118:2022",
         "TCVN 8828:2011"
       ],
-      "so_yc": "060/YC/CV",
-      "so_kt": "060/KT",
+      "so_yc": "052/YC/CV",
+      "so_kt": "052/KT",
       "lm_ref": [
         "006/LM"
       ]
@@ -7427,7 +7243,7 @@
       "ngay": "2026-10-27",
       "mau_checklist": "",
       "muc_hd": "17",
-      "so": "CV 061",
+      "so": "CV 053",
       "checklist": [
         {
           "Nhóm": "",
@@ -7460,7 +7276,7 @@
       ],
       "ket_luan": "Chưa có kết luận",
       "tieu_chuan": [],
-      "so_yc": "061/YC/CV"
+      "so_yc": "053/YC/CV"
     },
     {
       "type": "GD",
@@ -7476,9 +7292,9 @@
       "so_yc": "001/YC/GĐ",
       "cv_ref": [
         "007/CV",
-        "014/CV",
-        "023/CV",
-        "032/CV"
+        "012/CV",
+        "019/CV",
+        "026/CV"
       ],
       "vl_ref": [
         "001/CV/VL-TB"

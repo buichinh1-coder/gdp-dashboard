@@ -38,8 +38,10 @@ pdfmetrics.registerFont(TTFont("Serif", FD + "LiberationSerif-Regular.ttf"))
 pdfmetrics.registerFont(TTFont("SerifB", FD + "LiberationSerif-Bold.ttf"))
 pdfmetrics.registerFont(TTFont("SerifI", FD + "LiberationSerif-Italic.ttf"))
 PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
-SHORT = {"15": "Đắp đê quai, tạo sàn thi công (độ chặt K95)", "16": "Đào bùn, nạo vét lạch phía núi", "04": "Đào móng bằng máy",
-         "05": "Vận chuyển đất đào", "10": "Ván khuôn bê tông lót", "08": "Đổ bê tông lót M100", "13": "Gia công, lắp dựng cốt thép",
+SUFFIXES = ("", "_ep_coc", "_cat_dau_coc", "_van_khuon", "_bt_lot")
+SUF_LABEL = {"_ep_coc": " (ép cọc)", "_cat_dau_coc": " (cắt đầu cọc)", "_van_khuon": " (ván khuôn)", "_bt_lot": " (đổ bê tông lót)"}
+SHORT = {"15": "Đắp đê quai, tạo sàn thi công (độ chặt K95)", "16": "Đào bùn, nạo vét lạch phía núi",
+         "04+05": "Đào móng, vận chuyển đất đào", "10+08": "Ván khuôn, đổ bê tông lót M100", "13": "Gia công, lắp dựng cốt thép",
          "11": "Ván khuôn cấu kiện", "12": "Ván khuôn khóa đỉnh", "14": "Thi công khe lún", "09": "Đổ bê tông M300 bền sunfat, chống thấm",
          "06": "Đắp hoàn trả hố móng, lu nền (độ chặt K95)", "07": "Đắp đá xô chân tường chắn", "17": "Biện pháp thi công trọn gói",
          "02+03": "Nghiệm thu cọc: ép cọc, cắt đầu cọc"}
@@ -423,10 +425,10 @@ def main():
         plan.append(("pdf", (f"{title} - Phiếu yêu cầu nghiệm thu", P[f"yc{key}"], f"yc{key}")))
         plan.append(("pdf", (f"{title} - Biên bản nghiệm thu công việc", P[f"cv{key}"], f"cv{key}")))
         for r in cv_of[key]:
-            for suf in ("", "_ep_coc", "_cat_dau_coc"):
+            for suf in SUFFIXES:
                 stem = f"Checklist_{r['so'].replace(' ', '_')}{suf}"
                 if stem in CL:
-                    plan.append(("pdf", (f"Checklist {r['so']} - {SHORT[r['muc_hd']]}" + (" (ép cọc)" if suf == "_ep_coc" else " (cắt đầu cọc)" if suf == "_cat_dau_coc" else ""), CL[stem], stem)))
+                    plan.append(("pdf", (f"Checklist {r['so']} - {SHORT[r['muc_hd']]}" + SUF_LABEL.get(suf, ""), CL[stem], stem)))
     plan.append(("div", "C"))
     plan += [("pdf", ("Phiếu yêu cầu nghiệm thu giai đoạn cọc", P["yc_gd"], "yc_gd")), ("pdf", ("Biên bản nghiệm thu giai đoạn cọc", P["gd"], "gd")),
              ("pdf", ("Bảng tổng hợp công tác thi công cọc", P["th"], "th"))]
@@ -454,7 +456,7 @@ def main():
             bbm = find_pages(P[f"cv{key}"], lambda r: rf"Biên bản số {num(r)}/CV(?!/)", cv_of[key])
             for r in cv_of[key]:
                 stt += 1
-                cks = [start_of.get(f"Checklist_{r['so'].replace(' ', '_')}{s}") for s in ("", "_ep_coc", "_cat_dau_coc")]
+                cks = [start_of.get(f"Checklist_{r['so'].replace(' ', '_')}{s}") for s in SUFFIXES]
                 cks = [c for c in cks if c]
                 ck = f"tr. {cks[0]}" if cks else "-"
                 if len(cks) == 2:
