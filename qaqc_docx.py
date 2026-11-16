@@ -264,6 +264,8 @@ def build_docx(records, project):
             elif s2.startswith("Phiếu yêu cầu nghiệm thu của nhà thầu"):
                 so_yc = rec.get("so_yc") or f"{_num(rec)}/{SUFFIX.get('YC' + t, 'YC/CV') if t in ('VL', 'CV', 'GD') else 'YC/CV'}"
                 _set_text(els[k], f"- Phiếu yêu cầu nghiệm thu của nhà thầu thi công xây dựng số: {so_yc}")
+            elif s.startswith("Phòng thí nghiệm") and project.get("phong_thi_nghiem"):
+                _set_text(els[k], f"Phòng thí nghiệm: {project['phong_thi_nghiem']}")
             elif s2.startswith("Biên bản nghiệm thu công việc xây dựng liên quan") and rec.get("cv_ref"):
                 _set_text(els[k], "- Biên bản nghiệm thu công việc xây dựng liên quan số: " + ", ".join(rec["cv_ref"]))
             elif s2.startswith("Bảng tính chi tiết khối lượng") and rec.get("bang_kl"):

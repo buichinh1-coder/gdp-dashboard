@@ -37,6 +37,12 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 - Biên bản lấy mẫu bê tông M300 lấy ngày đổ bê tông (bắt đầu - kết thúc đổ của từng đợt) làm ngày lấy mẫu.
 - Khối chữ ký: tên in sát dưới ô ký (2-4 dòng), hai ô căn giữa đối xứng.
 
+## Thí nghiệm đã chốt (theo yêu cầu)
+- Phòng thí nghiệm LAS-XD 1191 (điền vào biên bản lấy mẫu và danh sách thí nghiệm). Ngày phiếu kết quả chốt bằng ngày thực hiện
+  thí nghiệm; số phiếu và kết quả để trống.
+- Thép chỉ thí nghiệm kéo (không uốn). Bê tông M300 chỉ nén R7 và R28 (không độ sụt, không thấm nước vì chỉ dẫn kỹ thuật không yêu cầu).
+- Bỏ thí nghiệm đầm nén tiêu chuẩn và nén tĩnh cọc (hiểu "đã" là "đầm"; cần xác nhận). Độ chặt K95 vẫn làm tại hiện trường theo từng ngày đắp.
+
 ## Giả định cần xác nhận
 1. Nghiệm thu vật liệu đầu vào (VL):
    - Cọc BT300x300: 1 lần cho cả 3.372 m (VL 001), ngày 24/08/2026, ngày trước khi ép cọc đầu tiên.
