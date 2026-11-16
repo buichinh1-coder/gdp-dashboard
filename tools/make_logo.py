@@ -1,4 +1,4 @@
-"""Tạo logo tự thiết kế cho nhà thầu (Công ty TNHH Giang Long) dùng trong checklist."""
+"""Ô logo nhà thầu trong checklist: chỉ ghi tên công ty (không dùng hình logo)."""
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -9,19 +9,15 @@ im = Image.new("RGBA", (W, H), (255, 255, 255, 0))
 d = ImageDraw.Draw(im)
 bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 F = lambda n: ImageFont.truetype(bold, n * S)
-navy, gold = (18, 62, 112), (214, 150, 20)
-cx, cy, r = W // 2, 46 * S, 36 * S
-d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=navy)
-d.ellipse([cx - r + 4 * S, cy - r + 4 * S, cx + r - 4 * S, cy + r - 4 * S], outline=gold, width=2 * S)
-# hình kè chắn đất: tường bậc + sóng nước
-d.polygon([(cx - 22 * S, cy + 16 * S), (cx - 22 * S, cy - 2 * S), (cx - 8 * S, cy - 2 * S), (cx - 8 * S, cy - 14 * S),
-           (cx + 6 * S, cy - 14 * S), (cx + 6 * S, cy - 24 * S), (cx + 22 * S, cy - 24 * S), (cx + 22 * S, cy + 16 * S)], fill=(240, 240, 240))
-for i, dx in enumerate(range(-22, 22, 11)):
-    d.arc([cx + dx * S, cy + 8 * S, cx + (dx + 11) * S, cy + 20 * S], 180, 360, fill=gold, width=2 * S)
-for text, y, n, col in [("GIANG LONG", 88, 15, navy), ("CÔNG TY TNHH", 108, 9, gold)]:
+navy = (18, 62, 112)
+lines = [("CÔNG TY TNHH", 13), ("GIANG LONG", 19)]
+gap = 8 * S
+heights = [n * S for _, n in lines]
+y = (H - (sum(heights) + gap * (len(lines) - 1))) // 2
+for (text, n), h in zip(lines, heights):
     w = d.textlength(text, font=F(n))
-    d.text(((W - w) / 2, y * S - n * S // 2), text, font=F(n), fill=col)
+    d.text(((W - w) / 2, y), text, font=F(n), fill=navy)
+    y += h + gap
 out = Path(__file__).parent.parent / "data/qaqc/templates/logo_giang_long.png"
 im.resize((136, 121), Image.LANCZOS).save(out)
-im.resize((136 * 3, 121 * 3), Image.LANCZOS).save(out.with_name("logo_giang_long_lg.png"))
 print(out)

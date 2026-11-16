@@ -133,9 +133,7 @@ def make_bia(total_pages, out):
     s = _a4(doc, 2.2, 2.0, 2.5, 2.0)
     _page_border(s)
     doc.styles["Normal"].font.name = "Times New Roman"
-    p = _para(doc, after=6)
-    p.add_run().add_picture(str(ROOT / "data/qaqc/templates/logo_giang_long_lg.png"), width=Cm(3.8))
-    _para(doc, PRJ["nha_thau"].upper(), 17, True, color=NAVY, after=4)
+    _para(doc, PRJ["nha_thau"].upper(), 22, True, color=NAVY, before=14, after=4)  # chỉ ghi tên công ty, không dùng hình logo
     _border_bottom(_para(doc, after=14))
     _para(doc, "HỒ SƠ QUẢN LÝ CHẤT LƯỢNG", 30, True, color=NAVY, before=18, after=6)
     _para(doc, "NGHIỆM THU VẬT LIỆU, CÔNG VIỆC VÀ GIAI ĐOẠN", 14, True, after=0)

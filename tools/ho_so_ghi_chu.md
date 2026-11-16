@@ -21,7 +21,7 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 - Để trống: kết quả kiểm tra (mọi mục "Chưa kiểm tra"), kết luận, tên và chữ ký, số bản vẽ, số phiếu yêu cầu.
   Cột L2 (TVGS) trong checklist để trống.
 - Giữ từ form mẫu: tên TVGS (Apave) và logo CĐT/TVGS trong checklist.
-- Logo nhà thầu trong checklist là logo tự tạo (`data/qaqc/templates/logo_giang_long.png`); thay bằng logo chính thức nếu có.
+- Ô logo nhà thầu trong checklist và bìa chỉ ghi tên "CÔNG TY TNHH GIANG LONG" (chữ, không dùng hình logo), theo yêu cầu.
 
 ## Tiêu chuẩn áp dụng (đã tra cứu trực tuyến)
 - Dòng "Tiêu chuẩn, quy phạm xây dựng được áp dụng" của biên bản nghiệm thu và mục 5 của biên bản lấy mẫu đã điền theo từng
