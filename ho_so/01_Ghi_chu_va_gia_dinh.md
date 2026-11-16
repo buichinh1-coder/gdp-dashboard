@@ -42,18 +42,26 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
    - khe lún -> "Khe lún".
 4. Bê tông phụ gia R7 đạt 100% cường độ: cần kết quả nén mẫu R7 làm căn cứ khi đắp đất lên tường chắn.
 
+## Nghiệm thu cọc (gộp theo phân đoạn + giai đoạn toàn tuyến)
+- Mỗi phân đoạn có **1 biên bản nghiệm thu cọc** gộp ép cọc và cắt đầu cọc (4 biên bản thay cho 8), kèm 2 checklist `/KT-1` (ép cọc)
+  và `/KT-2` (cắt đầu cọc).
+- Thêm **1 biên bản nghiệm thu giai đoạn cọc toàn tuyến** `GD 001` (ngày 17/09/2026, ngày nghiệm thu cọc phân đoạn cuối) kèm phiếu yêu cầu
+  `001/YC/GĐ` và `03_Bang_tong_hop_thi_cong_coc.xlsx`. Bảng tổng hợp mới có số cọc, khối lượng và ngày ép theo từng phân đoạn;
+  chiều dài, cao độ, tọa độ, lực ép từng cọc điền từ nhật ký ép cọc.
+- Nghiệm thu cọc theo phân đoạn vẫn giữ vì các phân đoạn đầu đã làm bê tông lót, thép, ván khuôn trước khi phân đoạn cuối ép xong.
+  Cần Apave chấp thuận cách gộp này.
+
 ## Rà soát trình tự công việc (lần này)
 Đã áp dụng:
 1. Bê tông lót M100: bỏ qua nghiệm thu vật liệu, lấy mẫu và thí nghiệm (theo xác nhận). Bộ hồ sơ chỉ có VL bê tông M300.
-2. Ngày nghiệm thu kết cấu bê tông M300 (CV đổ bê tông) chuyển từ mốc R28 của lịch sang **ngày nén R7 + 1 ngày**
-   (PĐ1 20/09, PĐ2 25/09, PĐ3 30/09, PĐ4 05/10). Lý do: theo xác nhận phụ gia R7 đạt 100%, và nghiệm thu kết cấu phải trước
-   khi đắp đất lên tường chắn (21/09, 26/09, 01/10, 06/10). Ngày kế hoạch cũ ghi ở cột "Ngày kế hoạch ban đầu" trong
-   `00_Danh_muc_ho_so.xlsx`. Nếu thực tế nghiệm thu theo R28 thì đổi lại.
+2. Thí nghiệm bê tông M300 làm **theo từng đợt đổ** (4 đợt), nén cả R7 và R28. Ngày nghiệm thu kết cấu bê tông giữ theo mốc R28 của lịch
+   (11/10, 16/10, 21/10, 26/10). Việc đắp hoàn trả hố móng và đá xô bắt đầu trước mốc này (lúc bê tông 9 ngày tuổi), nên chỉ được
+   đắp khi kết quả nén R7 đạt (theo xác nhận phụ gia R7 đạt 100%) và có chấp thuận của TVGS. Xem sheet `Moc_R7_R28` trong file 07.
 3. Các biên bản cùng ngày được đánh số theo trình tự công nghệ (ví dụ ép cọc trước đào móng, cắt đầu cọc sau).
 Còn để ngỏ: đào móng hoàn thành trước ngày bắt đầu ép cọc ở cả 4 phân đoạn, cần xác nhận trình tự thi công thực tế.
 
 ## Bổ sung lần này
-- Checklist **ép cọc** và **cắt đầu cọc** (8 file): file mẫu gốc không có hai checklist này, nên tôi soạn theo bố cục
+- Checklist **ép cọc** và **cắt đầu cọc** (mỗi phân đoạn 2 file `_ep_coc`, `_cat_dau_coc`): file mẫu gốc không có hai checklist này, nên tôi soạn theo bố cục
   form "Thép cột" (cùng khung, logo, cột L1/L2). Nội dung chỉ liệt kê hạng mục cần kiểm tra, không ghi dung sai bằng số.
   Cần TVGS và kỹ sư rà lại với chỉ dẫn kỹ thuật và TCVN 9394:2012.
 - `05_Phieu_yeu_cau_nghiem_thu/`: phiếu yêu cầu nghiệm thu (YC/VL-TB cho vật liệu, YC/CV cho công việc), cùng số với biên bản.

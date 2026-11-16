@@ -28,9 +28,11 @@ FORMS = {
     "VL": (108, 156),
     "YCCV": (158, 183),
     "CV": (184, 234),
+    "YCGD": (497, 520),  # phiếu yêu cầu nghiệm thu giai đoạn
+    "GD": (521, 579),    # biên bản nghiệm thu giai đoạn
 }
-SUFFIX = {"VL": "CV/VL-TB", "CV": "CV", "LM": "LM", "YCVL": "YC/VL-TB", "YCCV": "YC/CV"}
-IS_YC = ("YCVL", "YCCV")
+SUFFIX = {"VL": "CV/VL-TB", "CV": "CV", "LM": "LM", "YCVL": "YC/VL-TB", "YCCV": "YC/CV", "GD": "CV/GĐ", "YCGD": "YC/GĐ"}
+IS_YC = ("YCVL", "YCCV", "YCGD")
 
 
 def _set_text(p_el, text):
@@ -136,6 +138,18 @@ def _ten_nguoi_ky(els, doc, t, project):
                 _set_text(c0.paragraphs[0]._p, f"Người nhận: {anh}")
             if tung:
                 _set_text(c1.paragraphs[-1]._p, tung)
+        elif t == "GD" and head.startswith("Đại diện TVQLDA"):
+            if anh:
+                _name_in_cell(tb.rows[0].cells[0], anh, 5)
+            if tung:
+                _name_in_cell(tb.rows[0].cells[1], tung, 5)
+        elif t == "YCGD" and head.startswith("Chủ đầu tư"):
+            if anh:
+                c1 = tb.rows[1].cells[1]
+                for p in c1.paragraphs[1:]:
+                    for tt in p._p.findall('.//' + qn('w:t')):
+                        tt.text = ''
+                _set_text(c1.paragraphs[0]._p, f"Người nhận: {anh}")
         elif t == "VL" and head.startswith("Đại diện TVQLDA"):
             if anh and tung:
                 cell = tb.rows[1].cells[0]
@@ -188,6 +202,9 @@ def build_docx(records, project):
                             tr.insert(0, trpr)
                         trpr.append(trpr.makeelement(qn('w:cantSplit'), {}))
         for el in els:
+            for br in list(el.iter(qn('w:br'))):
+                if br.get(qn('w:type')) == 'page':
+                    br.getparent().remove(br)
             sect.addprevious(el)
         dd, mm, yy = _d(rec["ngay"])
         ngay = f"ngày {dd:02d} tháng {mm:02d} năm {yy}"
@@ -210,7 +227,7 @@ def build_docx(records, project):
                 grp, gi = "tv", 0
             elif s.startswith(("Đại diện nhà thầu thi công", "Nhà thầu thi công xây dựng")):
                 grp, gi = "nt", 0
-            elif s.startswith(("Phòng thí nghiệm", "3. Thời gian", "4. Thời gian")):
+            elif s.startswith(("Phòng thí nghiệm", "3. Thời gian", "4. Thời gian", "Đại diện chủ đầu tư")):
                 grp = None
             elif grp and re.match(r"^(- ?)?Ông", s):
                 pl = people[grp]
@@ -223,8 +240,12 @@ def build_docx(records, project):
             if s.startswith("Quảng Ninh, ngày"):
                 _set_text(els[k], f"Quảng Ninh, {ngay}")  # phiếu yêu cầu: tạm lấy ngày nghiệm thu, người lập sửa nếu lập trước
             elif s2.startswith("Phiếu yêu cầu nghiệm thu của nhà thầu"):
-                so_yc = rec.get("so_yc") or f"{_num(rec)}/{'YC/VL-TB' if t == 'VL' else 'YC/CV'}"
+                so_yc = rec.get("so_yc") or f"{_num(rec)}/{SUFFIX.get('YC' + t, 'YC/CV') if t in ('VL', 'CV', 'GD') else 'YC/CV'}"
                 _set_text(els[k], f"- Phiếu yêu cầu nghiệm thu của nhà thầu thi công xây dựng số: {so_yc}")
+            elif s2.startswith("Biên bản nghiệm thu công việc xây dựng liên quan") and rec.get("cv_ref"):
+                _set_text(els[k], "- Biên bản nghiệm thu công việc xây dựng liên quan số: " + ", ".join(rec["cv_ref"]))
+            elif s2.startswith("Bảng tính chi tiết khối lượng") and rec.get("bang_kl"):
+                _set_text(els[k], f"- Bảng tính chi tiết khối lượng công việc thực hiện: {rec['bang_kl']}")
             elif s2.startswith("Tiêu chuẩn, quy phạm xây dựng") and rec.get("tieu_chuan"):
                 _set_text(els[k], "- Tiêu chuẩn, quy phạm xây dựng được áp dụng: " + "; ".join(rec["tieu_chuan"]) + "; hồ sơ thiết kế, chỉ dẫn kỹ thuật của hợp đồng")
             elif s.startswith("5. Tiêu chuẩn kỹ thuật áp dụng") and nxt is not None and rec.get("tieu_chuan"):
@@ -305,10 +326,10 @@ def expand(records, kinds=("bb",)):
     """
     out, lm_no = [], 0
     for r in sorted(records, key=lambda r: (r["ngay"], r["so"])):
-        if r["type"] not in ("VL", "CV"):
+        if r["type"] not in ("VL", "CV", "GD"):
             continue
         if "yc" in kinds:
-            out.append(dict(r, type="YCVL" if r["type"] == "VL" else "YCCV"))
+            out.append(dict(r, type={"VL": "YCVL", "CV": "YCCV", "GD": "YCGD"}[r["type"]]))
         if "lm" in kinds and r["type"] == "VL" and r.get("lay_mau"):
             lm_no += 1
             out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", cong_viec=f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}"))

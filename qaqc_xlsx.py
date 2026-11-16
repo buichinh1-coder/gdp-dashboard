@@ -31,7 +31,7 @@ def _put(ws, r, c, v):
         cell.value = v
 
 
-def build_checklist_xlsx(rec, project):
+def build_checklist_xlsx(rec, project, so_kt=None, suffix=""):
     """Trả về (tên_file, bytes) cho một biên bản có mau_checklist."""
     cls = json.loads((ROOT / "checklists.json").read_text(encoding="utf-8"))
     info = cls[rec["mau_checklist"]]
@@ -54,7 +54,7 @@ def build_checklist_xlsx(rec, project):
             elif v.startswith("Địa điểm") and project.get("dia_diem"):
                 c.value = f"Địa điểm: {project['dia_diem']}"
             elif v.startswith("Số:"):
-                c.value = f"Số: {rec['so'].split(' ', 1)[-1]}/KT"
+                c.value = f"Số: {so_kt or rec['so'].split(' ', 1)[-1] + '/KT'}"
             elif v.startswith("Ngày"):
                 c.value = f"Ngày: {ngay}"
             elif v.startswith("Đối tượng kiểm tra") and rec.get("hang_muc"):
@@ -137,7 +137,7 @@ def build_checklist_xlsx(rec, project):
     ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, (1 if info["nhom_file"] == "XD" else 0)
     buf = io.BytesIO()
     wb.save(buf)
-    return f"Checklist_{rec['so'].replace(' ', '_')}.xlsx", buf.getvalue()
+    return f"Checklist_{rec['so'].replace(' ', '_')}{suffix}.xlsx", buf.getvalue()
 
 
 def build_checklists_zip(records, project):
