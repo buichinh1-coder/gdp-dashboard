@@ -67,8 +67,13 @@ for k, (hm, vt, dv, kl, d) in enumerate(vl):
                        "lm_cong_viec": "Lấy mẫu bê tông cọc để thí nghiệm cường độ nén (R7), phục vụ nghiệm thu vật liệu đầu vào cọc",
                        "lm_doi_tuong": f"Mẫu bê tông cọc BT300x300 M300 bền sunfat (tự sản xuất) - {vt}",
                        "lm_tieu_chuan": ["TCVN 3105:2022", "TCVN 3118:2022"],
-                       "lm_quy_cach": "Mẫu bê tông đúc cùng các lô cọc, tổ mẫu 3 viên lập phương 150x150x150 mm (TCVN 3105:2022), nén R7. "
-                                      "Số lượng tổ mẫu theo từng lô cọc: ……………………"})
+                       "lm_quy_cach": (lambda vol: f"Khối lượng bê tông cọc {f'{vol:.2f}'.replace('.', ',')} m3 (3.372 m cọc 300x300). "
+                                       f"Tần suất 1 tổ mẫu cho mỗi 20 m3 (TCVN 4453:1995): {int(-(-vol // 20))} tổ mẫu nén R7, "
+                                       f"mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022); tổng {3 * int(-(-vol // 20))} viên, "
+                                       f"lấy phân bổ đều theo các lô đúc cọc.")(kl * 0.3 * 0.3)})
+    if "Cốt thép" in hm:  # lô thép dưới 50 tấn: mỗi đường kính, mỗi mác 1 lô, mỗi lô 1 tổ 3 mẫu thử kéo
+        vl_rec["lm_quy_cach"] = (f"Khối lượng cốt thép {f'{kl:g}'.replace('.', ',')} tấn (dưới 50 tấn mỗi lô). Mỗi đường kính, mỗi mác thép lấy 1 tổ "
+                                 "gồm 3 mẫu thử kéo (TCVN 1651-2:2018); số tổ bằng số đường kính thép sử dụng.")
     raw.append((d, k, vl_rec))
 # B: gộp ép cọc (02) và cắt đầu cọc (03) thành một biên bản "nghiệm thu cọc" cho mỗi phân đoạn
 for pd_ in ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]:

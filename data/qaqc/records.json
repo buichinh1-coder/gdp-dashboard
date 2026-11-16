@@ -31,7 +31,7 @@
         "TCVN 3105:2022",
         "TCVN 3118:2022"
       ],
-      "lm_quy_cach": "Mẫu bê tông đúc cùng các lô cọc, tổ mẫu 3 viên lập phương 150x150x150 mm (TCVN 3105:2022), nén R7. Số lượng tổ mẫu theo từng lô cọc: ……………………",
+      "lm_quy_cach": "Khối lượng bê tông cọc 303,48 m3 (3.372 m cọc 300x300). Tần suất 1 tổ mẫu cho mỗi 20 m3 (TCVN 4453:1995): 16 tổ mẫu nén R7, mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022); tổng 48 viên, lấy phân bổ đều theo các lô đúc cọc.",
       "so": "VL 001",
       "checklist": [
         {
@@ -79,6 +79,7 @@
       "ngay": "2026-09-04",
       "mau_checklist": "",
       "lay_mau": true,
+      "lm_quy_cach": "Khối lượng cốt thép 23,02 tấn (dưới 50 tấn mỗi lô). Mỗi đường kính, mỗi mác thép lấy 1 tổ gồm 3 mẫu thử kéo (TCVN 1651-2:2018); số tổ bằng số đường kính thép sử dụng.",
       "so": "VL 002",
       "checklist": [
         {

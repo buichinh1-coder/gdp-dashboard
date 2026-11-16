@@ -167,24 +167,36 @@ def _ten_nguoi_ky(els, doc, t, project):
             for c in tb.rows[0].cells:
                 _gon_o(c)
             if anh and tung:
-                cell = tb.rows[1].cells[0]
-                ps = cell.paragraphs
-                for p in ps[:4]:
-                    p.alignment = 0
-                    p.paragraph_format.left_indent = 0
-                    p.paragraph_format.first_line_indent = 0
-                    # tâm tab = tâm hai cột tiêu đề của bảng mẫu (cột 1: 7,94 cm; cột 2: 9,15 cm; trừ lề ô 0,19 cm)
-                    w0, w1 = tb.columns[0].width.cm, tb.columns[1].width.cm
-                    p.paragraph_format.tab_stops.add_tab_stop(Cm(w0 / 2 - 0.19), WD_TAB_ALIGNMENT.CENTER)
-                    p.paragraph_format.tab_stops.add_tab_stop(Cm(w0 + w1 / 2 - 0.19), WD_TAB_ALIGNMENT.CENTER)
-                    for r in list(p.runs):
+                # Không dùng điểm dừng tab (Word và LibreOffice xử lý khác nhau). Thêm một hàng 2 ô ngay dưới tiêu đề,
+                # mỗi ô căn giữa: tên người ký, bên dưới tên nhà thầu là chức danh (theo mẫu).
+                import copy
+                tr0 = tb.rows[0]._tr
+                new_tr = copy.deepcopy(tr0)
+                for h in new_tr.findall('.//' + qn('w:trHeight')):
+                    h.getparent().remove(h)
+                tr0.addnext(new_tr)
+                row = tb.rows[1]
+                for cell, name, role in ((row.cells[0], anh, None), (row.cells[1], tung, "Chỉ huy trưởng công trường")):
+                    for p in cell.paragraphs[1:]:
+                        p._p.getparent().remove(p._p)
+                    p0 = cell.paragraphs[0]
+                    for r in list(p0.runs):
                         r._r.getparent().remove(r._r)
-                # ps[0..2]: chừa chỗ ký; ps[3]: họ tên người ký, bên dưới tên nhà thầu là chức danh (theo mẫu bạn gửi)
-                r3 = ps[3].add_run(f"\t{anh}\t{tung}")
-                r3.bold, r3.font.name = True, "Times New Roman"
-                r3.add_break()
-                r4 = ps[3].add_run("\t\tChỉ huy trưởng công trường")
-                r4.italic, r4.font.name = True, "Times New Roman"
+                    p0.alignment = 1
+                    p0.paragraph_format.left_indent = 0
+                    p0.paragraph_format.first_line_indent = 0
+                    rn = p0.add_run()
+                    for _ in range(3):  # chỗ ký
+                        rn.add_break()
+                    rn.add_text(name)
+                    rn.bold, rn.font.name = True, "Times New Roman"
+                    if role:
+                        rn.add_break()
+                        rr = p0.add_run(role)
+                        rr.italic, rr.font.name = True, "Times New Roman"
+                # ô gộp phía dưới: bỏ 4 đoạn đầu (dòng chức danh cũ và 3 dòng trống), đã thay bằng hàng chữ ký ở trên
+                for p in tb.rows[2].cells[0].paragraphs[:4]:
+                    p._p.getparent().remove(p._p)
 
 
 def build_docx(records, project):

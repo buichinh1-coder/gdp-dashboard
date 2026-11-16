@@ -47,7 +47,10 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 ## Khối lượng và quy cách lấy mẫu bê tông (biên bản lấy mẫu)
 - Bê tông M300 mỗi đợt đổ: tần suất **1 tổ mẫu cho mỗi 20 m³** (TCVN 4453:1995, nhóm kết cấu khung, cột, dầm, sàn; làm tròn lên) = **7 lần lấy mẫu**
   cho mỗi đợt 136,94 m³; mỗi lần đúc 2 tổ (1 tổ nén R7, 1 tổ nén R28), mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022): 14 tổ, 42 viên mỗi đợt.
-- Bê tông cọc (VL 001): lấy mẫu trong thời gian đúc cọc (14/08 - 24/08/2026), tổ 3 viên, nén R7; số tổ theo từng lô cọc để trống vì lịch không có số lô.
+- Bê tông cọc (VL 001): khối lượng 3.372 m cọc 300x300 = 303,48 m³; tần suất 1 tổ/20 m³ → **16 tổ nén R7 (48 viên)**, lấy trong thời gian đúc cọc (14/08 - 24/08/2026).
+  Tần suất cho cọc đúc sẵn lấy theo cách tính bê tông thông thường vì không tìm được quy định riêng cho cọc đúc sẵn.
+- Cốt thép (VL 002): 23,02 tấn, dưới 50 tấn mỗi lô; mỗi đường kính, mỗi mác 1 tổ gồm 3 mẫu thử kéo (TCVN 1651-2:2018). Số tổ bằng số đường kính thép dùng,
+  lịch không có nên ghi theo quy tắc, chưa ghi con số.
 - **Cần xác nhận:** không mở được toàn văn TCVN 4453:1995 và TCVN 3105:2022 (mạng của phiên làm việc không truy cập được các trang tiêu chuẩn), nên tần suất và kích thước viên mẫu
   lấy qua tra cứu nguồn thứ cấp. Một số nguồn ghi móng lớn 100 m³/tổ; viên mẫu theo TCVN 3105:2022 phụ thuộc cỡ hạt cốt liệu. Đối chiếu chỉ dẫn kỹ thuật và Apave.
 
