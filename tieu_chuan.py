@@ -17,7 +17,6 @@ TC_CONG_VIEC = {  # theo Mục HĐ của lịch nghiệm thu
 TC_VAT_LIEU = {
     "Cọc bê tông": ["TCVN 9394:2012", "TCVN 3118:2022", "TCVN 7570:2006", "TCVN 4506:2012", "TCVN 1651-2:2018"],
     "Cốt thép": ["TCVN 1651-2:2018", "QCVN 07:2019/BKHCN"],
-    "M300": ["TCVN 4453:1995", "TCVN 3105:2022", "TCVN 3106:2022", "TCVN 3118:2022", "TCVN 3116:2022", "TCVN 8828:2011"],
 }
 CHUNG = "Hồ sơ thiết kế, chỉ dẫn kỹ thuật của hợp đồng"
 

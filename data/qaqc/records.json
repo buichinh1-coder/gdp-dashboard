@@ -659,7 +659,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Ép cọc BT300x300, kiểm soát lực ép và nhật ký ép (843 m); cắt, đập đầu cọc, thu gom và vận chuyển (123 cọc)",
+      "hang_muc": "Ép cọc BT300x300 (kiểm soát lực ép, nhật ký ép); cắt, đập đầu cọc, thu gom và vận chuyển",
       "vi_tri": "Cọc 88-98",
       "dvt": "",
       "khoi_luong": 0,
@@ -1550,7 +1550,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Ép cọc BT300x300, kiểm soát lực ép và nhật ký ép (843 m); cắt, đập đầu cọc, thu gom và vận chuyển (124 cọc)",
+      "hang_muc": "Ép cọc BT300x300 (kiểm soát lực ép, nhật ký ép); cắt, đập đầu cọc, thu gom và vận chuyển",
       "vi_tri": "Cọc 98-108",
       "dvt": "",
       "khoi_luong": 0,
@@ -2708,56 +2708,8 @@
       "so_kt": "022/KT"
     },
     {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M300 bền sunfat, phụ gia chống thấm (cấp phối đã duyệt)",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m3",
-      "khoi_luong": 136.94,
-      "ngay": "2026-09-11",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 003",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 003",
-      "tieu_chuan": [
-        "TCVN 4453:1995",
-        "TCVN 3105:2022",
-        "TCVN 3106:2022",
-        "TCVN 3118:2022",
-        "TCVN 3116:2022",
-        "TCVN 8828:2011"
-      ],
-      "lm_ref": [
-        "003/LM"
-      ],
-      "so_yc": "003/YC/VL-TB"
-    },
-    {
       "type": "CV",
-      "hang_muc": "Ép cọc BT300x300, kiểm soát lực ép và nhật ký ép (843 m); cắt, đập đầu cọc, thu gom và vận chuyển (123 cọc)",
+      "hang_muc": "Ép cọc BT300x300 (kiểm soát lực ép, nhật ký ép); cắt, đập đầu cọc, thu gom và vận chuyển",
       "vi_tri": "Cọc 108-118",
       "dvt": "",
       "khoi_luong": 0,
@@ -3915,56 +3867,8 @@
       "so_kt": "031/KT"
     },
     {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M300 bền sunfat, phụ gia chống thấm (cấp phối đã duyệt)",
-      "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 136.94,
-      "ngay": "2026-09-16",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 004",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 004",
-      "tieu_chuan": [
-        "TCVN 4453:1995",
-        "TCVN 3105:2022",
-        "TCVN 3106:2022",
-        "TCVN 3118:2022",
-        "TCVN 3116:2022",
-        "TCVN 8828:2011"
-      ],
-      "lm_ref": [
-        "004/LM"
-      ],
-      "so_yc": "004/YC/VL-TB"
-    },
-    {
       "type": "CV",
-      "hang_muc": "Ép cọc BT300x300, kiểm soát lực ép và nhật ký ép (843 m); cắt, đập đầu cọc, thu gom và vận chuyển (124 cọc)",
+      "hang_muc": "Ép cọc BT300x300 (kiểm soát lực ép, nhật ký ép); cắt, đập đầu cọc, thu gom và vận chuyển",
       "vi_tri": "Cọc 118-126",
       "dvt": "",
       "khoi_luong": 0,
@@ -5122,54 +5026,6 @@
       "so_kt": "040/KT"
     },
     {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M300 bền sunfat, phụ gia chống thấm (cấp phối đã duyệt)",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m3",
-      "khoi_luong": 136.94,
-      "ngay": "2026-09-21",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 005",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 005",
-      "tieu_chuan": [
-        "TCVN 4453:1995",
-        "TCVN 3105:2022",
-        "TCVN 3106:2022",
-        "TCVN 3118:2022",
-        "TCVN 3116:2022",
-        "TCVN 8828:2011"
-      ],
-      "lm_ref": [
-        "005/LM"
-      ],
-      "so_yc": "005/YC/VL-TB"
-    },
-    {
       "type": "CV",
       "hang_muc": "Gia công/lắp đặt thép móng,thân và khóa đỉnh theo đốt",
       "vi_tri": "Cọc 118-126",
@@ -5682,7 +5538,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
       "vi_tri": "Cọc 88-98",
       "dvt": "m3",
       "khoi_luong": 2160.5,
@@ -5784,56 +5640,8 @@
       "so_kt": "045/KT"
     },
     {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M300 bền sunfat, phụ gia chống thấm (cấp phối đã duyệt)",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "m3",
-      "khoi_luong": 136.96,
-      "ngay": "2026-09-26",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 006",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 006",
-      "tieu_chuan": [
-        "TCVN 4453:1995",
-        "TCVN 3105:2022",
-        "TCVN 3106:2022",
-        "TCVN 3118:2022",
-        "TCVN 3116:2022",
-        "TCVN 8828:2011"
-      ],
-      "lm_ref": [
-        "006/LM"
-      ],
-      "so_yc": "006/YC/VL-TB"
-    },
-    {
       "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
       "vi_tri": "Cọc 98-108",
       "dvt": "m3",
       "khoi_luong": 2160.5,
@@ -6135,7 +5943,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
       "vi_tri": "Cọc 108-118",
       "dvt": "m3",
       "khoi_luong": 2160.5,
@@ -6437,7 +6245,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp",
+      "hang_muc": "Đắp hoàn trả hố móng,lu nền phía trong kè theo lớp (độ chặt K95)",
       "vi_tri": "Cọc 118-126",
       "dvt": "m3",
       "khoi_luong": 2160.5,
@@ -6650,6 +6458,8 @@
       "ngay": "2026-10-11",
       "mau_checklist": "XD|Đổ bê tông ",
       "muc_hd": "09",
+      "lay_mau": true,
+      "ngay_lay_mau": "2026-09-11",
       "so": "CV 054",
       "checklist": [
         {
@@ -6780,6 +6590,7 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 003",
       "tieu_chuan": [
         "TCVN 4453:1995",
         "TCVN 3105:2022",
@@ -6789,9 +6600,6 @@
       ],
       "so_yc": "054/YC/CV",
       "so_kt": "054/KT",
-      "vl_ref": [
-        "003/CV/VL-TB"
-      ],
       "lm_ref": [
         "003/LM"
       ]
@@ -7004,6 +6812,8 @@
       "ngay": "2026-10-16",
       "mau_checklist": "XD|Đổ bê tông ",
       "muc_hd": "09",
+      "lay_mau": true,
+      "ngay_lay_mau": "2026-09-16",
       "so": "CV 057",
       "checklist": [
         {
@@ -7134,6 +6944,7 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 004",
       "tieu_chuan": [
         "TCVN 4453:1995",
         "TCVN 3105:2022",
@@ -7143,9 +6954,6 @@
       ],
       "so_yc": "057/YC/CV",
       "so_kt": "057/KT",
-      "vl_ref": [
-        "004/CV/VL-TB"
-      ],
       "lm_ref": [
         "004/LM"
       ]
@@ -7255,6 +7063,8 @@
       "ngay": "2026-10-21",
       "mau_checklist": "XD|Đổ bê tông ",
       "muc_hd": "09",
+      "lay_mau": true,
+      "ngay_lay_mau": "2026-09-21",
       "so": "CV 059",
       "checklist": [
         {
@@ -7385,6 +7195,7 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 005",
       "tieu_chuan": [
         "TCVN 4453:1995",
         "TCVN 3105:2022",
@@ -7394,9 +7205,6 @@
       ],
       "so_yc": "059/YC/CV",
       "so_kt": "059/KT",
-      "vl_ref": [
-        "005/CV/VL-TB"
-      ],
       "lm_ref": [
         "005/LM"
       ]
@@ -7410,6 +7218,8 @@
       "ngay": "2026-10-26",
       "mau_checklist": "XD|Đổ bê tông ",
       "muc_hd": "09",
+      "lay_mau": true,
+      "ngay_lay_mau": "2026-09-26",
       "so": "CV 060",
       "checklist": [
         {
@@ -7540,6 +7350,7 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 006",
       "tieu_chuan": [
         "TCVN 4453:1995",
         "TCVN 3105:2022",
@@ -7549,9 +7360,6 @@
       ],
       "so_yc": "060/YC/CV",
       "so_kt": "060/KT",
-      "vl_ref": [
-        "006/CV/VL-TB"
-      ],
       "lm_ref": [
         "006/LM"
       ]
@@ -7607,7 +7415,7 @@
       "vi_tri": "Toàn tuyến cọc 88-126",
       "dvt": "",
       "khoi_luong": 0,
-      "hang_muc": "Thi công cọc BT300x300 toàn tuyến (4 phân đoạn): ép cọc 3372 m, cắt đập đầu cọc 494 cọc",
+      "hang_muc": "Thi công cọc BT300x300 toàn tuyến (4 phân đoạn): ép cọc, cắt, đập đầu cọc",
       "mau_checklist": "",
       "ket_luan": "Chưa có kết luận",
       "checklist": [],

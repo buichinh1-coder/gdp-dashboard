@@ -66,7 +66,7 @@ def _kl(x):
 def _doi_tuong(rec):
     vitri = f" - {rec['vi_tri']}" if rec.get("vi_tri") else ""
     kl = ""
-    if rec["type"] in ("CV", "YCCV", "YCVL") and rec.get("khoi_luong"):
+    if rec["type"] in ("VL", "YCVL") and rec.get("khoi_luong"):  # chỉ vật liệu đầu vào mới ghi khối lượng
         kl = f" - khối lượng: {_kl(rec['khoi_luong'])} {rec.get('dvt', '')}".rstrip()
     return f"{rec['hang_muc']}{vitri}{kl}"
 
@@ -109,7 +109,19 @@ def _name_in_cell(cell, name, blanks=3):
     p.alignment = 1
 
 
+def _gon_o(cell):
+    """Giữ các đoạn có chữ, bỏ đoạn trống; căn giữa để hai ô ký đối xứng."""
+    ps = cell.paragraphs
+    keep = [p for p in ps if p.text.strip()] or ps[:1]
+    for p in ps:
+        if p not in keep and len(cell.paragraphs) > 1:
+            p._p.getparent().remove(p._p)
+    for p in cell.paragraphs:
+        p.alignment = 1
+
+
 def _ten_nguoi_ky(els, doc, t, project):
+    from docx.enum.text import WD_TAB_ALIGNMENT
     tung, anh = project.get("chi_huy_truong"), project.get("can_bo_tvgs")
     for el in els:
         if el.tag != qn('w:tbl'):
@@ -117,48 +129,58 @@ def _ten_nguoi_ky(els, doc, t, project):
         tb = Table(el, doc)
         head = tb.rows[0].cells[0].text.strip()
         if t == "LM" and head.startswith("Đại diện TVGS"):
+            for c in tb.rows[0].cells:
+                _gon_o(c)
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh, 6)
+                _name_in_cell(tb.rows[1].cells[0], anh, 3)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung, 6)
+                _name_in_cell(tb.rows[1].cells[1], tung, 3)
         elif t == "CV" and head.startswith("Đại diện TVGS"):
-            c1 = tb.rows[0].cells[1]  # bớt 1 dòng trống đầu ô tiêu đề (khớp file mẫu bản chỉnh của người dùng)
-            if len(c1.paragraphs) >= 7 and not c1.paragraphs[0].text.strip() and not c1.paragraphs[1].text.strip():
-                c1._tc.remove(c1.paragraphs[0]._p)
+            for c in tb.rows[0].cells:
+                _gon_o(c)
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh, 4)
+                _name_in_cell(tb.rows[1].cells[0], anh, 2)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung, 4)
-        elif t in IS_YC and head.startswith("Đơn vị TVQLDA"):
-            c0, c1 = tb.rows[1].cells
-            if anh:
-                for p in c0.paragraphs[1:]:
-                    for tt in p._p.findall('.//' + qn('w:t')):
-                        tt.text = ''
-                _set_text(c0.paragraphs[0]._p, f"Người nhận: {anh}")
-            if tung:
-                _set_text(c1.paragraphs[-1]._p, tung)
+                _name_in_cell(tb.rows[1].cells[1], tung, 2)
+        elif t in IS_YC and head.startswith(("Đơn vị TVQLDA", "Chủ đầu tư")):
+            cells = tb.rows[1].cells
+            pairs = [(cells[-2], anh, "Người nhận:"), (cells[-1], tung, None)] if t == "YCGD" else [(cells[0], anh, "Người nhận:"), (cells[1], tung, None)]
+            if t == "YCGD":
+                pairs = [(cells[1], anh, "Người nhận:")]
+            for c, name, label in pairs:
+                if not name:
+                    continue
+                first = c.paragraphs[0]
+                for p in c.paragraphs[1:]:
+                    p._p.getparent().remove(p._p)
+                if label:
+                    _set_text(first._p, label)
+                _name_in_cell(c, name, 3)
         elif t == "GD" and head.startswith("Đại diện TVQLDA"):
+            for c in tb.rows[0].cells:
+                _gon_o(c)
             if anh:
-                _name_in_cell(tb.rows[0].cells[0], anh, 5)
+                _name_in_cell(tb.rows[0].cells[0], anh, 4)
             if tung:
-                _name_in_cell(tb.rows[0].cells[1], tung, 5)
-        elif t == "YCGD" and head.startswith("Chủ đầu tư"):
-            if anh:
-                c1 = tb.rows[1].cells[1]
-                for p in c1.paragraphs[1:]:
-                    for tt in p._p.findall('.//' + qn('w:t')):
-                        tt.text = ''
-                _set_text(c1.paragraphs[0]._p, f"Người nhận: {anh}")
+                _name_in_cell(tb.rows[0].cells[1], tung, 4)
         elif t == "VL" and head.startswith("Đại diện TVQLDA"):
+            for c in tb.rows[0].cells:
+                _gon_o(c)
             if anh and tung:
                 cell = tb.rows[1].cells[0]
                 ps = cell.paragraphs
-                _r = ps[3].add_run()
-                _r.add_break()
-                _r.add_break()
-                _r.add_text(" " * 7 + anh + " " * 47 + tung)
-                _r.bold, _r.font.name = True, "Times New Roman"
+                for p in ps[:4]:
+                    p.alignment = 0
+                    p.paragraph_format.left_indent = 0
+                    p.paragraph_format.first_line_indent = 0
+                    p.paragraph_format.tab_stops.add_tab_stop(Cm(4.25), WD_TAB_ALIGNMENT.CENTER)
+                    p.paragraph_format.tab_stops.add_tab_stop(Cm(12.75), WD_TAB_ALIGNMENT.CENTER)
+                    for r in list(p.runs):
+                        r._r.getparent().remove(r._r)
+                r0 = ps[0].add_run("\t\tChỉ huy trưởng công trường")
+                r0.italic, r0.font.name = True, "Times New Roman"
+                r3 = ps[3].add_run(f"\t{anh}\t{tung}")
+                r3.bold, r3.font.name = True, "Times New Roman"
 
 
 def build_docx(records, project):
@@ -330,9 +352,13 @@ def expand(records, kinds=("bb",)):
             continue
         if "yc" in kinds:
             out.append(dict(r, type={"VL": "YCVL", "CV": "YCCV", "GD": "YCGD"}[r["type"]]))
-        if "lm" in kinds and r["type"] == "VL" and r.get("lay_mau"):
+        if "lm" in kinds and r.get("lay_mau") and r["type"] in ("VL", "CV"):
             lm_no += 1
-            out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", cong_viec=f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}"))
+            cv_ = (f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}" if r["type"] == "VL"
+                   else f"Lấy mẫu bê tông thí nghiệm R7, R28 phục vụ nghiệm thu công việc: {r['hang_muc']}")
+            out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", ngay=r.get("ngay_lay_mau") or r["ngay"], cong_viec=cv_))
         if "bb" in kinds:
             out.append(r)
+    if set(kinds) == {"lm"}:
+        out.sort(key=lambda r: r["so"])
     return out

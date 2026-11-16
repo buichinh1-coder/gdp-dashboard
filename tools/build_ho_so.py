@@ -55,9 +55,6 @@ vl = [  # ngày VL do người lập chọn: cọc = ngày đầu tiên trước
     ("Cọc bê tông BT300x300 M300 bền sunfat (tự sản xuất)", "Toàn tuyến cọc 88-126", "m", 3372, "2026-08-24"),
     ("Cốt thép", "Toàn tuyến cọc 88-126", "tấn", 23.02, "2026-09-04"),
 ]
-bt = {"Cọc 88-98": ("2026-09-11", 136.94), "Cọc 98-108": ("2026-09-16", 136.94), "Cọc 108-118": ("2026-09-21", 136.94), "Cọc 118-126": ("2026-09-26", 136.96)}
-for pd_, (d, q) in bt.items():
-    vl.append(("Bê tông thương phẩm M300 bền sunfat, phụ gia chống thấm (cấp phối đã duyệt)", pd_, "m3", q, d))
 for k, (hm, vt, dv, kl, d) in enumerate(vl):
     raw.append((d, k, {"type": "VL", "hang_muc": hm, "vi_tri": vt, "dvt": dv, "khoi_luong": kl, "ngay": d, "mau_checklist": "", "lay_mau": True}))
 # B: gộp ép cọc (02) và cắt đầu cọc (03) thành một biên bản "nghiệm thu cọc" cho mỗi phân đoạn
@@ -66,7 +63,7 @@ for pd_ in ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]:
     cat = next(v for v in rows if str(v[1]) == "03" and v[3] == pd_)
     ngay_ = max(iso(ep[8]), iso(cat[8]))
     raw.append((ngay_, TECH.index("02+03") + 100, {
-        "type": "CV", "hang_muc": f"Ép cọc BT300x300, kiểm soát lực ép và nhật ký ép ({float(ep[5]):g} m); cắt, đập đầu cọc, thu gom và vận chuyển ({float(cat[5]):g} cọc)".replace(".", ","),
+        "type": "CV", "hang_muc": "Ép cọc BT300x300 (kiểm soát lực ép, nhật ký ép); cắt, đập đầu cọc, thu gom và vận chuyển",
         "vi_tri": pd_, "dvt": "", "khoi_luong": 0, "ngay": ngay_, "mau_checklist": "XD|Ép cọc", "mau_checklist_2": "XD|Cắt đầu cọc",
         "muc_hd": "02+03", "kl_ep": float(ep[5]), "so_coc": int(float(cat[5])), "ep_tu": iso(ep[6]), "ep_den": iso(ep[7])}))
 for v in rows:
@@ -76,6 +73,11 @@ for v in rows:
     ngay, kh = iso(v[8]), None
     rec_ = {"type": "CV", "hang_muc": v[2], "vi_tri": v[3], "dvt": v[4], "khoi_luong": float(v[5] or 0),
             "ngay": ngay, "mau_checklist": MAU.get(muc, ""), "muc_hd": muc}
+    if muc == "09":  # lấy mẫu bê tông theo từng đợt đổ, thí nghiệm R7 và R28 nằm trong nghiệm thu công việc đổ bê tông
+        rec_["lay_mau"] = True
+        rec_["ngay_lay_mau"] = iso(v[6])
+    if muc == "06" and "K95" not in rec_["hang_muc"]:
+        rec_["hang_muc"] = rec_["hang_muc"].rstrip() + " (độ chặt K95)"
     if kh:
         rec_["ngay_ke_hoach"] = kh
     raw.append((ngay, TECH.index(muc) + 100, rec_))
@@ -98,12 +100,13 @@ for ngay, stt, rec in sorted(raw, key=lambda x: (x[0], x[1])):
     db["records"].append(rec)
 # --- số tham chiếu giữa các biểu mẫu ---
 vls = sorted([r for r in db["records"] if r["type"] == "VL"], key=lambda r: (r["ngay"], r["so"]))
-for i, r in enumerate(vls, 1):
+lm_src = sorted([r for r in db["records"] if r.get("lay_mau")], key=lambda r: (r.get("ngay_lay_mau") or r["ngay"], r["so"]))
+for i, r in enumerate(lm_src, 1):
     r["so_lm"] = f"LM {i:03d}"
 num = lambda r: r["so"].split()[-1]
 VLREF = {"02+03": lambda r: [x for x in vls if "Cọc bê tông" in x["hang_muc"]],
          "13": lambda r: [x for x in vls if "Cốt thép" in x["hang_muc"]],
-         "09": lambda r: [x for x in vls if "M300" in x["hang_muc"] and x["vi_tri"] == r["vi_tri"]]}
+         }
 for r in db["records"]:
     r["tieu_chuan"] = tieu_chuan.tieu_chuan_vl(r["hang_muc"]) if r["type"] == "VL" else tieu_chuan.tieu_chuan_cv(r.get("muc_hd", ""))
     if r["type"] == "VL":
@@ -115,6 +118,8 @@ for r in db["records"]:
             r["so_kt"] = f"{num(r)}/KT-1 (ép cọc), {num(r)}/KT-2 (cắt đầu cọc)"
         elif r["mau_checklist"]:
             r["so_kt"] = f"{num(r)}/KT"
+        if r.get("lay_mau"):
+            r["lm_ref"] = [f"{r['so_lm'].split()[-1]}/LM"]
         refs = VLREF.get(r["muc_hd"], lambda r: [])(r)
         if refs:
             r["vl_ref"] = [f"{num(x)}/CV/VL-TB" for x in refs]
@@ -122,7 +127,7 @@ for r in db["records"]:
 coc = [r for r in db["records"] if r["type"] == "CV" and r.get("muc_hd") == "02+03"]
 vl_coc = next(x for x in vls if "Cọc bê tông" in x["hang_muc"])
 gd = {"type": "GD", "so": "GD 001", "ngay": max(r["ngay"] for r in coc), "vi_tri": "Toàn tuyến cọc 88-126", "dvt": "", "khoi_luong": 0,
-      "hang_muc": f"Thi công cọc BT300x300 toàn tuyến (4 phân đoạn): ép cọc {sum(r['kl_ep'] for r in coc):g} m, cắt đập đầu cọc {sum(r['so_coc'] for r in coc)} cọc".replace(".", ","),
+      "hang_muc": "Thi công cọc BT300x300 toàn tuyến (4 phân đoạn): ép cọc, cắt, đập đầu cọc",
       "mau_checklist": "", "ket_luan": "Chưa có kết luận", "checklist": [], "so_yc": "001/YC/GĐ",
       "cv_ref": [f"{num(r)}/CV" for r in coc], "vl_ref": [f"{num(vl_coc)}/CV/VL-TB"], "lm_ref": [f"{vl_coc['so_lm'].split()[-1]}/LM"],
       "tieu_chuan": tieu_chuan.tieu_chuan_cv("02+03"), "bang_kl": "Bảng tổng hợp công tác thi công cọc (đính kèm)"}
@@ -188,7 +193,7 @@ for i, p in enumerate(PD, 1):
 sel = qaqc_docx.expand([r for r in recs if r["type"] == "CV" and r["vi_tri"] not in PD], ("yc",))
 (OUT / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_cong_viec_toan_tuyen.docx").write_bytes(qaqc_docx.build_docx(sel, proj))
 (OUT / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_giai_doan_coc.docx").write_bytes(qaqc_docx.build_docx(qaqc_docx.expand([gd], ("yc",)), proj))
-(OUT / "06_Bien_ban_lay_mau.docx").write_bytes(qaqc_docx.build_docx(qaqc_docx.expand([r for r in recs if r["type"] == "VL"], ("lm",)), proj))
+(OUT / "06_Bien_ban_lay_mau.docx").write_bytes(qaqc_docx.build_docx(qaqc_docx.expand([r for r in recs if r.get("lay_mau")], ("lm",)), proj))
 
 # --- danh sách kết quả thí nghiệm / hồ sơ cần có ---
 D = lambda x: x.date()
@@ -196,7 +201,8 @@ bt_rows = {v[3]: (D(v[6]), D(v[7])) for v in rows if str(v[1]) == "09"}
 dap_rows = {v[3]: D(v[6]) for v in rows if str(v[1]) == "06"}
 vl_so = {r["hang_muc"][:12] + r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL"}
 so_vl = lambda k: next(r["so"] for r in recs if r["type"] == "VL" and k in r["hang_muc"])
-so_bt = {r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL" and "M300" in r["hang_muc"] and "Bê tông thương phẩm" in r["hang_muc"]}
+so_bt = {r["vi_tri"]: r["so"] for r in recs if r["type"] == "CV" and r.get("muc_hd") == "09"}
+BT_REF = ", ".join(f"{r['so']} + {r['so_lm']}" for r in recs if r["type"] == "CV" and r.get("muc_hd") == "09")
 LM_SO = {r["so"]: f"LM {i:03d}" for i, r in enumerate([r for r in recs if r["type"] == "VL"], 1)}
 TC = "Theo chỉ dẫn kỹ thuật của hợp đồng"
 COC_REF = ", ".join(r["so"] for r in recs if r.get("muc_hd") == "02+03") + ", GD 001"
@@ -209,20 +215,20 @@ tn = [
     ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Biên bản kiểm tra chế tạo cọc: kích thước, độ thẳng, mũi cọc, vết nứt", TC, "Trước 24/08/2026", so_vl("Cọc")),
     ("B. Cốt thép", "CO/CQ và chứng chỉ xuất xưởng từng lô thép", "TCVN 1651-2:2018", "Trước 04/09/2026", so_vl("Cốt thép")),
     ("B. Cốt thép", "Thí nghiệm kéo (giới hạn chảy, bền, độ giãn dài) và uốn nguội theo lô, đường kính", "TCVN 1651-2:2018, QCVN 07:2019/BKHCN", "Trước 04/09/2026 (nghiệm thu VL 1 lần)", so_vl("Cốt thép")),
-    ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật liệu của nhà máy bê tông", TC, "Trước ngày đổ đợt đầu (11/09/2026)", ", ".join(so_bt.values())),
-    ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Phiếu giao hàng từng xe (mác, độ sụt, giờ trộn)", "", "Mỗi đợt đổ", ", ".join(so_bt.values())),
-    ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Đo độ sụt hiện trường", "TCVN 3106:2022", "Mỗi đợt đổ", ", ".join(so_bt.values())),
-    ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Lấy mẫu theo TỪNG ĐỢT ĐỔ; nén mẫu R7 (căn cứ sớm để đắp đất lên tường chắn)", "TCVN 3105:2022, TCVN 3118:2022", "R7 sau ngày lấy mẫu (xem sheet Moc_R7_R28)", ", ".join(so_bt.values())),
-    ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Nén mẫu R28 theo TỪNG ĐỢT ĐỔ (căn cứ nghiệm thu kết cấu); mẫu thấm nước (bê tông chống thấm)", "TCVN 3118:2022, TCVN 3116:2022", "R28 sau ngày lấy mẫu (xem sheet Moc_R7_R28)", ", ".join(so_bt.values())),
-    ("D. Đề xuất, cần xác nhận", "Ống thoát nước, chi tiết thoát nước khe lún: chứng chỉ chất lượng", TC, "Trước 08/09/2026", "CV khe lún"),
-    ("D. Đề xuất, cần xác nhận", "Đất đắp hoàn trả (8.642 m3): thí nghiệm đầm nén tiêu chuẩn (dung trọng khô lớn nhất, độ ẩm tốt nhất)", TC, "Trước khi đắp phân đoạn 1 (21/09/2026)", "CV đắp hoàn trả"),
-    ("D. Đề xuất, cần xác nhận", "Độ chặt K từng lớp đắp (hiện trường)", TC, "Từng lớp đắp", "CV đắp hoàn trả"),
-    ("D. Đề xuất, cần xác nhận", "Đá xô chân tường chắn: thí nghiệm đá", TC, "Trước khi đắp đá xô (26/09/2026)", "CV đắp đá xô"),
-    ("D. Đề xuất, cần xác nhận", "Vật tư khe lún: chứng chỉ, mẫu vật liệu", TC, "Trước 08/09/2026", "CV khe lún"),
-    ("E. Ép cọc", "Giấy kiểm định thiết bị ép (đồng hồ áp lực, kích) còn hiệu lực", "", "Trước 25/08/2026", COC_REF),
-    ("E. Ép cọc", "Nhật ký ép từng cọc và bảng tổng hợp công tác ép cọc", "TCVN 9394:2012", "Sau mỗi phân đoạn ép", COC_REF),
-    ("E. Ép cọc", "Thí nghiệm nén tĩnh cọc hoặc PDA (nếu thiết kế yêu cầu)", "TCVN 9393:2012", "Theo thiết kế", COC_REF),
-    ("F. Trắc đạc, hoàn công", "Biên bản trắc đạc cọc, cao độ đầu cọc sau cắt, bản vẽ hoàn công, bảng khối lượng", "", "Trước nghiệm thu hoàn thành (27/10/2026)", COC_REF + ", nghiệm thu hoàn thành"),
+    ("C. Bê tông thương phẩm M300 - trong nghiệm thu công việc đổ bê tông (mỗi đợt đổ)", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật liệu của nhà máy bê tông", TC, "Trước ngày đổ đợt đầu (11/09/2026)", BT_REF),
+    ("C. Bê tông thương phẩm M300 - trong nghiệm thu công việc đổ bê tông (mỗi đợt đổ)", "Phiếu giao hàng từng xe (mác, độ sụt, giờ trộn)", "", "Mỗi đợt đổ", BT_REF),
+    ("C. Bê tông thương phẩm M300 - trong nghiệm thu công việc đổ bê tông (mỗi đợt đổ)", "Đo độ sụt hiện trường", "TCVN 3106:2022", "Mỗi đợt đổ", BT_REF),
+    ("C. Bê tông thương phẩm M300 - trong nghiệm thu công việc đổ bê tông (mỗi đợt đổ)", "Lấy mẫu theo TỪNG ĐỢT ĐỔ; nén mẫu R7 (căn cứ sớm để đắp đất lên tường chắn)", "TCVN 3105:2022, TCVN 3118:2022", "R7 sau ngày lấy mẫu (xem sheet Moc_R7_R28)", BT_REF),
+    ("C. Bê tông thương phẩm M300 - trong nghiệm thu công việc đổ bê tông (mỗi đợt đổ)", "Nén mẫu R28 theo TỪNG ĐỢT ĐỔ (căn cứ nghiệm thu kết cấu); mẫu thấm nước (bê tông chống thấm)", "TCVN 3118:2022, TCVN 3116:2022", "R28 sau ngày lấy mẫu (xem sheet Moc_R7_R28)", BT_REF),
+    ("D. Đất đắp hoàn trả hố móng - độ chặt K95", "Thí nghiệm đầm nén tiêu chuẩn: dung trọng khô lớn nhất, độ ẩm tốt nhất của đất đắp", TC, "Trước khi đắp phân đoạn 1 (21/09/2026)", "CV đắp hoàn trả"),
+    ("D. Đất đắp hoàn trả hố móng - độ chặt K95", "Độ chặt K95 từng lớp đắp (thí nghiệm hiện trường), mỗi lớp đạt K >= 0,95 mới đắp lớp tiếp theo", TC, "Từng lớp đắp", "CV đắp hoàn trả"),
+    ("E. Đề xuất, cần xác nhận", "Ống thoát nước, chi tiết thoát nước khe lún: chứng chỉ chất lượng", TC, "Trước 08/09/2026", "CV khe lún"),
+    ("E. Đề xuất, cần xác nhận", "Đá xô chân tường chắn: thí nghiệm đá", TC, "Trước khi đắp đá xô (26/09/2026)", "CV đắp đá xô"),
+    ("E. Đề xuất, cần xác nhận", "Vật tư khe lún: chứng chỉ, mẫu vật liệu", TC, "Trước 08/09/2026", "CV khe lún"),
+    ("F. Ép cọc, nghiệm thu cọc", "Giấy kiểm định thiết bị ép (đồng hồ áp lực, kích) còn hiệu lực", "", "Trước 25/08/2026", COC_REF),
+    ("F. Ép cọc, nghiệm thu cọc", "Nhật ký ép từng cọc và bảng tổng hợp công tác ép cọc", "TCVN 9394:2012", "Sau mỗi phân đoạn ép", COC_REF),
+    ("F. Ép cọc, nghiệm thu cọc", "Thí nghiệm nén tĩnh cọc hoặc PDA (nếu thiết kế yêu cầu)", "TCVN 9393:2012", "Theo thiết kế", COC_REF),
+    ("G. Trắc đạc, hoàn công", "Biên bản trắc đạc cọc, cao độ đầu cọc sau cắt, bản vẽ hoàn công, bảng khối lượng", "", "Trước nghiệm thu hoàn thành (27/10/2026)", COC_REF + ", nghiệm thu hoàn thành"),
 ]
 tn_df = pd.DataFrame([{"STT": i, "Nhóm": a, "Nội dung kết quả / hồ sơ cần có": b, "Tiêu chuẩn (tham khảo)": c, "Thời điểm cần có": d,
                        "Liên quan biên bản": e, "Trạng thái": "Cần bổ sung", "Số hiệu / ngày kết quả": "", "Ghi chú": ""}
@@ -232,7 +238,7 @@ nt_bt = {r["vi_tri"]: r["ngay"] for r in recs if r["type"] == "CV" and r.get("mu
 for pd_ in PD:
     (b0, b1), dap = bt_rows[pd_], dap_rows[pd_]
     nt = dt.date.fromisoformat(nt_bt[pd_])
-    r7.append({"Phân đoạn": pd_, "Biên bản VL": so_bt[pd_], "Ngày đổ (lấy mẫu)": f"{b0:%d/%m/%Y} - {b1:%d/%m/%Y}",
+    r7.append({"Phân đoạn": pd_, "Biên bản (CV đổ BT / LM)": [r["so"] + " / " + r["so_lm"] for r in recs if r["type"] == "CV" and r.get("muc_hd") == "09" and r["vi_tri"] == pd_][0], "Ngày đổ (lấy mẫu)": f"{b0:%d/%m/%Y} - {b1:%d/%m/%Y}",
                "Ngày nén R7": f"{b0 + dt.timedelta(7):%d/%m/%Y} - {b1 + dt.timedelta(7):%d/%m/%Y}",
                "Ngày nén R28": f"{b0 + dt.timedelta(28):%d/%m/%Y} - {b1 + dt.timedelta(28):%d/%m/%Y}",
                "Nghiệm thu kết cấu BT (theo lịch)": f"{nt:%d/%m/%Y}",

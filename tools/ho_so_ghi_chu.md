@@ -30,12 +30,19 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
   tiêu chuẩn bê tông thương phẩm (TCVN 9340:2012 hay TCVN 14586:2025), xi măng bền sunfat, tiêu chuẩn sản xuất cọc BTCT 300x300,
   và nghị định quản lý chất lượng hiện hành (có thông tin về Nghị định 207/2026/NĐ-CP).
 
+## Quy ước trình bày (theo yêu cầu)
+- Khối lượng chỉ ghi ở biên bản nghiệm thu vật liệu đầu vào, biên bản lấy mẫu và bảng tổng hợp cọc; biên bản/phiếu yêu cầu nghiệm thu công việc không ghi khối lượng.
+- Đất đắp hoàn trả hố móng: độ chặt **K95** (ghi trong tên công việc và danh sách thí nghiệm). Giả định K95 chỉ áp dụng cho đắp hoàn trả hố móng,
+  không áp dụng cho đê quai và đá xô; cần xác nhận với chỉ dẫn kỹ thuật.
+- Khối chữ ký: tên in sát dưới ô ký (2-4 dòng), hai ô căn giữa đối xứng.
+
 ## Giả định cần xác nhận
 1. Nghiệm thu vật liệu đầu vào (VL):
    - Cọc BT300x300: 1 lần cho cả 3.372 m (VL 001), ngày 24/08/2026, ngày trước khi ép cọc đầu tiên.
      Phải đủ toàn bộ cọc và đạt R7 trước ngày này. Nếu cọc phân đoạn 2–4 sản xuất sau thì cần tách thêm biên bản.
    - Thép: 1 lần cho 23,02 tấn, ngày 04/09/2026 (1 ngày trước ngày bắt đầu thép phân đoạn 1). Ngày này do người lập chọn, lịch không có.
-   - Bê tông thương phẩm M300: 1 biên bản cho mỗi đợt đổ (4 đợt), ngày = ngày bắt đầu đổ.
+   - Bê tông thương phẩm M300: **không nghiệm thu vật liệu riêng**. Lấy mẫu và thí nghiệm R7, R28 nằm trong nghiệm thu công việc đổ bê tông M300
+     (4 đợt đổ, mỗi đợt 1 biên bản lấy mẫu LM đi kèm biên bản đổ bê tông).
    - Bê tông lót M100: theo xác nhận, **không nghiệm thu vật liệu đầu vào, không lấy mẫu, không thí nghiệm**.
    - Chưa có VL cho đá xô, vật liệu đắp, vật tư khe lún và ống thoát nước.
 2. Các dòng "cung cấp cọc" theo phân đoạn trong lịch được gộp vào VL 001, nên không còn là biên bản công việc.

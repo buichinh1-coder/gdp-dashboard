@@ -41,7 +41,7 @@ PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
 SHORT = {"15": "Đắp đê quai, tạo sàn thi công", "16": "Đào bùn, nạo vét lạch phía núi", "04": "Đào móng bằng máy",
          "05": "Vận chuyển đất đào", "10": "Ván khuôn bê tông lót", "08": "Đổ bê tông lót M100", "13": "Gia công, lắp dựng cốt thép",
          "11": "Ván khuôn cấu kiện", "12": "Ván khuôn khóa đỉnh", "14": "Thi công khe lún", "09": "Đổ bê tông M300 bền sunfat, chống thấm",
-         "06": "Đắp hoàn trả hố móng, lu nền", "07": "Đắp đá xô chân tường chắn", "17": "Biện pháp thi công trọn gói",
+         "06": "Đắp hoàn trả hố móng, lu nền (độ chặt K95)", "07": "Đắp đá xô chân tường chắn", "17": "Biện pháp thi công trọn gói",
          "02+03": "Nghiệm thu cọc: ép cọc, cắt đầu cọc"}
 dmy = lambda s: dt.date.fromisoformat(s).strftime("%d/%m/%Y")
 num = lambda r: r["so"].split()[-1]
@@ -432,7 +432,7 @@ def main():
         rows = []
         rows.append(("sec", "PHẦN A - NGHIỆM THU VẬT LIỆU ĐẦU VÀO"))
         marks = {"yc_vl": find_pages(P["yc_vl"], lambda r: rf"Phiếu yêu cầu số {num(r)}/YC/VL-TB", vl),
-                 "lm": find_pages(P["lm"], lambda r: rf"Biên bản số {r['so_lm'].split()[-1]}/LM", vl),
+                 "lm": find_pages(P["lm"], lambda r: rf"Biên bản số {r['so_lm'].split()[-1]}/LM", [x for x in RECS if x.get("lay_mau")]),
                  "vl": find_pages(P["vl"], lambda r: rf"Biên bản số {num(r)}/CV/VL-TB", vl)}
         for i, r in enumerate(vl, 1):
             rows.append(("item", (i, r["so"], r["hang_muc"] if "Bê tông" not in r["hang_muc"] else f"Bê tông thương phẩm M300 bền sunfat - {r['vi_tri'].lower()}",
@@ -448,9 +448,12 @@ def main():
                 stt += 1
                 cks = [start_of.get(f"Checklist_{r['so'].replace(' ', '_')}{s}") for s in ("", "_ep_coc", "_cat_dau_coc")]
                 cks = [c for c in cks if c]
-                ck = f"tr. {cks[0]}" + (f" - {cks[0] + 1}" if len(cks) > 1 else "") if cks else "-"
+                ck = f"tr. {cks[0]}" if cks else "-"
                 if len(cks) == 2:
                     ck = f"tr. {cks[0]}, {cks[1]}"
+                if r.get("lay_mau"):  # đổ bê tông: kèm biên bản lấy mẫu (thí nghiệm R7, R28)
+                    lm_p = start_of["lm"] + marks["lm"][r["so"]]
+                    ck = f"LM tr. {lm_p}" + (f"; CL {ck[3:]}" if cks else "")
                 rows.append(("item", (stt, r["so"], SHORT[r["muc_hd"]] + (f" - {r['vi_tri']}" if not p else ""), dmy(r["ngay"]),
                                       start_of[f"yc{key}"] + ycm[r["so"]], start_of[f"cv{key}"] + bbm[r["so"]], ck)))
         rows.append(("sec", "PHẦN C - NGHIỆM THU GIAI ĐOẠN THI CÔNG CỌC"))
