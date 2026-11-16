@@ -24,6 +24,12 @@ def _norm(s):
     return " ".join(str(s or "").split()).lower()
 
 
+def _put(ws, r, c, v):
+    cell = ws.cell(r, c)
+    if type(cell).__name__ != "MergedCell":
+        cell.value = v
+
+
 def build_checklist_xlsx(rec, project):
     """Trả về (tên_file, bytes) cho một biên bản có mau_checklist."""
     cls = json.loads((ROOT / "checklists.json").read_text(encoding="utf-8"))
@@ -70,18 +76,18 @@ def build_checklist_xlsx(rec, project):
                 break
             continue
         if re.fullmatch(r"\.{0,}\s*/\s*\.{0,}\s*/.*", str(ws.cell(r, 3).value or "").replace("…", ".")) or "/..." in str(ws.cell(r, 3).value or ""):
-            ws.cell(r, 3).value = ngay
+            _put(ws, r, 3, ngay)
         if a.isdigit() and b.strip():
             lst = results.get(_norm(b))
             it = lst.pop(0) if lst else None
             for col in (5, 6, 7, 8):
-                ws.cell(r, col).value = EMPTY
+                _put(ws, r, col, EMPTY)
             if it:
                 kq = it.get("Kết quả", "")
                 if kq == "Đạt":
-                    ws.cell(r, 5).value = TICK
+                    _put(ws, r, 5, TICK)
                 elif kq.startswith("Không đạt"):
-                    ws.cell(r, 6).value = TICK
+                    _put(ws, r, 6, TICK)
                 note = str(it.get("Ghi chú") or "").strip()
                 if note or kq == "Đạt có điều kiện":
                     ghi_chu.append(f"- {b.strip()}: {kq if kq == 'Đạt có điều kiện' else ''} {note}".rstrip(": ").strip())

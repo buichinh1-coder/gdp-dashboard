@@ -81,13 +81,14 @@ def build_docx(records, project):
                     _set_text(els[i - lo], f"Quảng Ninh, {ngay}")
             elif s.startswith("Dự án:") and project.get("ten_cong_trinh"):
                 _set_text(els[i - lo], f"Dự án: {project['ten_cong_trinh']}")
-            elif s.startswith("Địa điểm") and project.get("dia_diem"):
-                _set_text(els[i - lo], f"Địa điểm       :  {project['dia_diem']}")
+            elif s.startswith("Địa điểm"):  # không giữ địa điểm của dự án mẫu
+                _set_text(els[i - lo], f"Địa điểm       :  {project.get('dia_diem') or '……………………………………………'}")
             elif s.startswith("Gói thầu:") and project.get("goi_thau"):
                 _set_text(els[i - lo], f"Gói thầu: {project['goi_thau']}")
             elif s.startswith("1. Đối tượng nghiệm thu") and rec.get("hang_muc"):
                 vitri = f" - {rec['vi_tri']}" if rec.get("vi_tri") else ""
-                _set_text(els[i - lo], f"1. Đối tượng nghiệm thu : {rec['hang_muc']}{vitri}")
+                kl = f" - khối lượng: {rec['khoi_luong']:g} {rec.get('dvt', '')}".rstrip() if rec["type"] == "CV" and rec.get("khoi_luong") else ""
+                _set_text(els[i - lo], f"1. Đối tượng nghiệm thu : {rec['hang_muc']}{vitri}{kl}")
             elif s.startswith("Đại diện nhà thầu thi công xây dựng công trình") and project.get("nha_thau"):
                 _set_text(els[i - lo], f"Đại diện nhà thầu thi công xây dựng công trình: {project['nha_thau']}")
             elif s.startswith(("Bắt đầu", "Kết thúc")):
