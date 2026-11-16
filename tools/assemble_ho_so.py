@@ -38,7 +38,7 @@ pdfmetrics.registerFont(TTFont("Serif", FD + "LiberationSerif-Regular.ttf"))
 pdfmetrics.registerFont(TTFont("SerifB", FD + "LiberationSerif-Bold.ttf"))
 pdfmetrics.registerFont(TTFont("SerifI", FD + "LiberationSerif-Italic.ttf"))
 PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
-SHORT = {"15": "Đắp đê quai, tạo sàn thi công", "16": "Đào bùn, nạo vét lạch phía núi", "04": "Đào móng bằng máy",
+SHORT = {"15": "Đắp đê quai, tạo sàn thi công (độ chặt K95)", "16": "Đào bùn, nạo vét lạch phía núi", "04": "Đào móng bằng máy",
          "05": "Vận chuyển đất đào", "10": "Ván khuôn bê tông lót", "08": "Đổ bê tông lót M100", "13": "Gia công, lắp dựng cốt thép",
          "11": "Ván khuôn cấu kiện", "12": "Ván khuôn khóa đỉnh", "14": "Thi công khe lún", "09": "Đổ bê tông M300 bền sunfat, chống thấm",
          "06": "Đắp hoàn trả hố móng, lu nền (độ chặt K95)", "07": "Đắp đá xô chân tường chắn", "17": "Biện pháp thi công trọn gói",
@@ -389,6 +389,13 @@ def main():
         docs[f"yc{i}"] = next((HS / "05_Phieu_yeu_cau_nghiem_thu").glob(f"YC_nghiem_thu_cong_viec_PD{i}_*.docx"))
     docs["cv0"] = HS / "03_Nghiem_thu_cong_viec_toan_tuyen.docx"
     docs["yc0"] = HS / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_cong_viec_toan_tuyen.docx"
+    import openpyxl
+    wb_tn = openpyxl.load_workbook(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx")
+    for n_ in wb_tn.sheetnames[1:]:
+        del wb_tn[n_]
+    tn_print = tmp / "07_Bang_theo_doi_ket_qua_thi_nghiem.xlsx"
+    wb_tn.save(tn_print)
+    docs["tn"] = tn_print
     cl_files = sorted((HS / "04_Checklist").rglob("*.xlsx"))
     to_pdf(list(docs.values()) + cl_files, pdfd)
     P = {k: pdfd / (v.stem + ".pdf") for k, v in docs.items()}
@@ -424,6 +431,7 @@ def main():
     plan += [("pdf", ("Phiếu yêu cầu nghiệm thu giai đoạn cọc", P["yc_gd"], "yc_gd")), ("pdf", ("Biên bản nghiệm thu giai đoạn cọc", P["gd"], "gd")),
              ("pdf", ("Bảng tổng hợp công tác thi công cọc", P["th"], "th"))]
     plan.append(("div", "D"))
+    plan.append(("pdf", ("Bảng theo dõi kết quả thí nghiệm cần có", P["tn"], "tn")))
 
     # --- số trang
     def build_rows(start_of, n_front):
@@ -462,9 +470,12 @@ def main():
         rows.append(("item", (1, gd["so"], "Nghiệm thu hoàn thành giai đoạn thi công cọc toàn tuyến", dmy(gd["ngay"]), start_of["yc_gd"] + ycg[gd["so"]],
                               start_of["gd"] + bbg[gd["so"]], f"Bảng tổng hợp tr. {start_of['th']}")))
         rows.append(("sec", "PHẦN D - TÀI LIỆU KÈM THEO (BỔ SUNG)"))
-        tn = pd.read_excel(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", sheet_name="Danh_sach")
-        for _, x in tn.iterrows():
-            rows.append(("item", (int(x["STT"]), "-", x["Nội dung kết quả / hồ sơ cần có"], "-", "-", "-", "Bổ sung")))
+        tn = pd.read_excel(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", sheet_name="Danh_sach", header=3)
+        rows.append(("item", (1, "-", "Bảng theo dõi kết quả thí nghiệm và hồ sơ cần có", "-", "-", "-", f"tr. {start_of['tn']}")))
+        full = {"A": "Cọc BT300x300 (vật liệu đầu vào)", "B": "Cốt thép", "C": "Bê tông M300 theo từng đợt đổ (R7, R28)",
+                "D": "Đắp đất - độ chặt K95", "E": "Đề xuất, cần xác nhận", "F": "Ép cọc, nghiệm thu cọc", "G": "Trắc đạc, hoàn công"}
+        for j, (nhom, cnt) in enumerate(tn["Nhóm"].value_counts(sort=False).items(), 2):
+            rows.append(("item", (j, "-", f"{nhom[0]}. {full[nhom[0]]} ({cnt} mục)", "-", "-", "-", "Bổ sung")))
         return rows
 
     # lượt 1: số trang giả để biết số trang mục lục
@@ -507,7 +518,7 @@ def main():
             items = {"A": ["Phiếu yêu cầu nghiệm thu vật liệu", "Biên bản lấy mẫu thí nghiệm", "Biên bản nghiệm thu vật liệu đầu vào"],
                      "B": ["Phân đoạn 1 - 4 và toàn tuyến", "Phiếu yêu cầu, biên bản nghiệm thu công việc, checklist"],
                      "C": ["Phiếu yêu cầu nghiệm thu giai đoạn", "Biên bản nghiệm thu giai đoạn", "Bảng tổng hợp thi công cọc"],
-                     "D": ["Đặt tại đây: chứng chỉ vật liệu, kết quả thí nghiệm, bản vẽ hoàn công, nhật ký thi công", "theo thứ tự trong phần D của danh mục hồ sơ"]}[letter]
+                     "D": ["Bảng theo dõi kết quả thí nghiệm cần có (trang sau)", "Đặt tại đây theo thứ tự bảng: chứng chỉ vật liệu, phiếu kết quả", "thí nghiệm, bản vẽ hoàn công, nhật ký thi công"]}[letter]
             w.add_page(divider(title, sub, items, f"PHẦN {letter}"))
             cur_parent = w.add_outline_item(f"Phần {letter} - {' '.join(title).title() if False else ' '.join(title)}", len(w.pages) - 1)
         else:

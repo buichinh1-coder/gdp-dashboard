@@ -308,7 +308,11 @@ def build_docx(records, project):
                     _set_text(els[k], f"1. Đối tượng nghiệm thu : {_doi_tuong(rec)}")
             elif s.startswith(("Bắt đầu", "Kết thúc")):
                 label = "Bắt đầu  :" if s.startswith("Bắt đầu") else "Kết thúc :"
-                _set_text(els[k], f"{label}   {ngay}")
+                ngay_ = ngay
+                if s.startswith("Kết thúc") and rec.get("ngay_den"):  # lấy mẫu bê tông kéo dài theo ngày đổ
+                    d2, m2, y2 = _d(rec["ngay_den"])
+                    ngay_ = f"ngày {d2:02d} tháng {m2:02d} năm {y2}"
+                _set_text(els[k], f"{label}   {ngay_}")
 
         # Kết luận: chỉ điền khi người kiểm tra đã nhập.
         kl = rec.get("ket_luan", "")
@@ -356,7 +360,7 @@ def expand(records, kinds=("bb",)):
             lm_no += 1
             cv_ = (f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}" if r["type"] == "VL"
                    else f"Lấy mẫu bê tông thí nghiệm R7, R28 phục vụ nghiệm thu công việc: {r['hang_muc']}")
-            out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", ngay=r.get("ngay_lay_mau") or r["ngay"], cong_viec=cv_))
+            out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", ngay=r.get("ngay_lay_mau") or r["ngay"], ngay_den=r.get("ngay_lay_mau_den"), cong_viec=cv_))
         if "bb" in kinds:
             out.append(r)
     if set(kinds) == {"lm"}:

@@ -15,7 +15,7 @@
   "records": [
     {
       "type": "CV",
-      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm",
+      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm (độ chặt K95)",
       "vi_tri": "Cọc 88-98",
       "dvt": "m3",
       "khoi_luong": 1212.5,
@@ -261,7 +261,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm",
+      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm (độ chặt K95)",
       "vi_tri": "Cọc 98-108",
       "dvt": "m3",
       "khoi_luong": 1212.5,
@@ -460,7 +460,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm",
+      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm (độ chặt K95)",
       "vi_tri": "Cọc 108-118",
       "dvt": "m3",
       "khoi_luong": 1212.5,
@@ -1351,7 +1351,7 @@
     },
     {
       "type": "CV",
-      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm",
+      "hang_muc": "Đắp đê quai, tạo sàn thi công và tuyến thoát nước tạm (độ chặt K95)",
       "vi_tri": "Cọc 118-126",
       "dvt": "m3",
       "khoi_luong": 1212.5,
@@ -6460,6 +6460,7 @@
       "muc_hd": "09",
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-11",
+      "ngay_lay_mau_den": "2026-09-12",
       "so": "CV 054",
       "checklist": [
         {
@@ -6814,6 +6815,7 @@
       "muc_hd": "09",
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-16",
+      "ngay_lay_mau_den": "2026-09-17",
       "so": "CV 057",
       "checklist": [
         {
@@ -7065,6 +7067,7 @@
       "muc_hd": "09",
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-21",
+      "ngay_lay_mau_den": "2026-09-22",
       "so": "CV 059",
       "checklist": [
         {
@@ -7220,6 +7223,7 @@
       "muc_hd": "09",
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-26",
+      "ngay_lay_mau_den": "2026-09-27",
       "so": "CV 060",
       "checklist": [
         {

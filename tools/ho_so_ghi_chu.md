@@ -32,8 +32,9 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 
 ## Quy ước trình bày (theo yêu cầu)
 - Khối lượng chỉ ghi ở biên bản nghiệm thu vật liệu đầu vào, biên bản lấy mẫu và bảng tổng hợp cọc; biên bản/phiếu yêu cầu nghiệm thu công việc không ghi khối lượng.
-- Đất đắp hoàn trả hố móng: độ chặt **K95** (ghi trong tên công việc và danh sách thí nghiệm). Giả định K95 chỉ áp dụng cho đắp hoàn trả hố móng,
-  không áp dụng cho đê quai và đá xô; cần xác nhận với chỉ dẫn kỹ thuật.
+- Độ chặt **K95** chỉ áp dụng công tác đắp đất: đắp đê quai và đắp hoàn trả hố móng (ghi trong tên công việc và danh sách thí nghiệm).
+  Không áp dụng cho đá xô, đào, nạo vét. Giả định đê quai là đất đắp; cần xác nhận.
+- Biên bản lấy mẫu bê tông M300 lấy ngày đổ bê tông (bắt đầu - kết thúc đổ của từng đợt) làm ngày lấy mẫu.
 - Khối chữ ký: tên in sát dưới ô ký (2-4 dòng), hai ô căn giữa đối xứng.
 
 ## Giả định cần xác nhận
@@ -83,7 +84,7 @@ Còn để ngỏ: đào móng hoàn thành trước ngày bắt đầu ép cọc
 - `06_Bien_ban_lay_mau.docx`: 6 biên bản lấy mẫu thí nghiệm (cọc, thép, 4 đợt bê tông M300). Tiêu chuẩn áp dụng, khối lượng và
   quy cách lấy mẫu, thành phần tham gia để trống cho người lấy mẫu điền.
   Ngày lấy mẫu tạm lấy bằng ngày nghiệm thu vật liệu (cọc 24/08, thép 04/09, bê tông = ngày bắt đầu đổ); cần sửa theo ngày lấy mẫu thực tế.
-- `07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx`: danh sách kết quả thí nghiệm và hồ sơ cần có (cột trạng thái "Cần bổ sung"),
+- `07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx`: danh sách kết quả thí nghiệm và hồ sơ cần có (57 mục theo từng đợt đổ, từng phân đoạn, kèm ngày cần có kết quả và các cột trống để điền kết quả thực tế),
   kèm sheet mốc nén R7 từng đợt đổ so với ngày bắt đầu đắp. Tiêu chuẩn ghi để tham khảo, cần đối chiếu chỉ dẫn kỹ thuật.
   Nhóm D là đề xuất, chưa được xác nhận.
 
