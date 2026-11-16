@@ -261,6 +261,9 @@ def build_docx(records, project):
                 gi += 1
                 continue
             s2 = s.lstrip("- ").strip()
+            if "(ghi rõ tên biên bản kiểm tra)" in s:  # bỏ chữ gợi ý của form, thay bằng dấu chấm
+                _set_text(els[k], s.replace("(ghi rõ tên biên bản kiểm tra)", "……………"))
+                continue
             if s.startswith("Quảng Ninh, ngày"):
                 _set_text(els[k], f"Quảng Ninh, {ngay}")  # phiếu yêu cầu: tạm lấy ngày nghiệm thu, người lập sửa nếu lập trước
             elif s2.startswith("Phiếu yêu cầu nghiệm thu của nhà thầu"):
@@ -274,6 +277,8 @@ def build_docx(records, project):
                 _set_text(els[k], f"- Bảng tính chi tiết khối lượng công việc thực hiện: {rec['bang_kl']}")
             elif s2.startswith("Tiêu chuẩn, quy phạm xây dựng") and rec.get("tieu_chuan"):
                 _set_text(els[k], "- Tiêu chuẩn, quy phạm xây dựng được áp dụng: " + "; ".join(rec["tieu_chuan"]) + "; hồ sơ thiết kế, chỉ dẫn kỹ thuật của hợp đồng")
+            elif s2.startswith("Tiêu chuẩn, quy phạm xây dựng"):  # chưa có tiêu chuẩn: bỏ chữ gợi ý, để dấu chấm
+                _set_text(els[k], "- Tiêu chuẩn, quy phạm xây dựng được áp dụng: ………………………………………………………")
             elif s.startswith("5. Tiêu chuẩn kỹ thuật áp dụng") and nxt is not None and rec.get("tieu_chuan"):
                 _set_text(nxt, "; ".join(rec["tieu_chuan"]))
             elif s2.startswith("Hồ sơ mời thầu") and project.get("so_hop_dong"):
