@@ -11,6 +11,8 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+import qaqc_docx
+
 st.set_page_config(page_title="Hồ sơ chất lượng xây dựng", page_icon=":building_construction:", layout="wide")
 
 DATA_DIR = Path(__file__).parent / "data" / "qaqc"
@@ -34,7 +36,7 @@ DEFAULT_CHECKLIST = {
 def load():
     if DATA_FILE.exists():
         return json.loads(DATA_FILE.read_text(encoding="utf-8"))
-    return {"project": {"ten_cong_trinh": "", "so_hop_dong": "", "chu_dau_tu": "", "tu_van_giam_sat": "", "nha_thau": "", "dia_diem": ""}, "records": []}
+    return {"project": {"ten_cong_trinh": "", "so_hop_dong": "", "chu_dau_tu": "", "tu_van_giam_sat": "", "nha_thau": "", "dia_diem": "", "goi_thau": ""}, "records": []}
 
 
 def save(db):
@@ -54,13 +56,13 @@ st.caption("Hồ sơ pháp lý: chỉ ghi số liệu, kết quả và chữ ký
 with st.sidebar:
     st.header("Thông tin dự án")
     for k, label in [("ten_cong_trinh", "Tên công trình"), ("so_hop_dong", "Số hợp đồng"), ("chu_dau_tu", "Chủ đầu tư"),
-                     ("tu_van_giam_sat", "Tư vấn giám sát"), ("nha_thau", "Nhà thầu"), ("dia_diem", "Địa điểm")]:
+                     ("tu_van_giam_sat", "Tư vấn giám sát"), ("nha_thau", "Nhà thầu"), ("dia_diem", "Địa điểm"), ("goi_thau", "Gói thầu")]:
         db["project"][k] = st.text_input(label, db["project"].get(k, ""))
     if st.button("Lưu thông tin dự án"):
         save(db)
         st.success("Đã lưu")
 
-tab_new, tab_list, tab_log, tab_exp = st.tabs(["Lập biên bản", "Danh mục hồ sơ", "Nhật ký thi công", "Xuất Excel"])
+tab_new, tab_list, tab_log, tab_exp = st.tabs(["Lập biên bản", "Danh mục hồ sơ", "Nhật ký thi công", "Xuất hồ sơ"])
 
 with tab_new:
     t = st.selectbox("Loại biên bản", [k for k in TYPES if k != "NK"], format_func=lambda k: f"{k} - {TYPES[k]}")
@@ -139,5 +141,13 @@ with tab_exp:
             pd.DataFrame([r for r in db["records"] if r["type"] == "NK"]).to_excel(w, "Nhat ky", index=False)
         st.download_button("Tải Danh_muc_ho_so.xlsx", buf.getvalue(), "Danh_muc_ho_so.xlsx",
                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        st.markdown("---")
+        st.markdown("**Xuất biên bản Word** theo form mẫu của TVGS (chỉ điền dữ liệu đã nhập; chỗ chưa có giữ dấu chấm để điền tay).")
+        sel = st.multiselect("Chọn biên bản", [r["so"] for r in recs if r["type"] in qaqc_docx.FORMS])
+        if sel:
+            chon = sorted([r for r in recs if r["so"] in sel], key=lambda r: (r["ngay"], r["so"]))
+            st.download_button("Tải Bien_ban_nghiem_thu.docx", qaqc_docx.build_docx(chon, db["project"]), "Bien_ban_nghiem_thu.docx",
+                               "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+        st.caption("Hiện hỗ trợ form VL (/CV/VL-TB) và CV (/CV).")
     else:
         st.info("Chưa có dữ liệu.")
