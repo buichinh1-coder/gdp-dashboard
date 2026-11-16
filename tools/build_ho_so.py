@@ -89,6 +89,27 @@ for ngay, stt, rec in sorted(raw, key=lambda x: (x[0], x[1])):
     rec["checklist"] = checklist(rec["type"], rec["mau_checklist"])
     rec["ket_luan"] = "Chưa có kết luận"
     db["records"].append(rec)
+# --- số tham chiếu giữa các biểu mẫu ---
+vls = sorted([r for r in db["records"] if r["type"] == "VL"], key=lambda r: (r["ngay"], r["so"]))
+for i, r in enumerate(vls, 1):
+    r["so_lm"] = f"LM {i:03d}"
+num = lambda r: r["so"].split()[-1]
+VLREF = {"02": lambda r: [x for x in vls if "Cọc bê tông" in x["hang_muc"]],
+         "13": lambda r: [x for x in vls if "Cốt thép" in x["hang_muc"]],
+         "08": lambda r: [x for x in vls if "M100" in x["hang_muc"] and x["vi_tri"] == r["vi_tri"]],
+         "09": lambda r: [x for x in vls if "M300" in x["hang_muc"] and x["vi_tri"] == r["vi_tri"]]}
+for r in db["records"]:
+    if r["type"] == "VL":
+        r["lm_ref"] = [num(r_) + "/LM" for r_ in [r]] and [f"{r['so_lm'].split()[-1]}/LM"]
+        r["so_yc"] = f"{num(r)}/YC/VL-TB"
+    else:
+        r["so_yc"] = f"{num(r)}/YC/CV"
+        if r["mau_checklist"]:
+            r["so_kt"] = f"{num(r)}/KT"
+        refs = VLREF.get(r["muc_hd"], lambda r: [])(r)
+        if refs:
+            r["vl_ref"] = [f"{num(x)}/CV/VL-TB" for x in refs]
+            r["lm_ref"] = [f"{x['so_lm'].split()[-1]}/LM" for x in refs if x.get("lay_mau")]
 (ROOT / "data/qaqc/records.json").write_text(json.dumps(db, ensure_ascii=False, indent=2), encoding="utf-8")
 
 # --- xuất file ---

@@ -57,11 +57,15 @@ def _d(iso):
     return d.day, d.month, d.year
 
 
+def _kl(x):
+    return f"{x:g}".replace(".", ",")
+
+
 def _doi_tuong(rec):
     vitri = f" - {rec['vi_tri']}" if rec.get("vi_tri") else ""
     kl = ""
     if rec["type"] in ("CV", "YCCV", "YCVL") and rec.get("khoi_luong"):
-        kl = f" - khối lượng: {rec['khoi_luong']:g} {rec.get('dvt', '')}".rstrip()
+        kl = f" - khối lượng: {_kl(rec['khoi_luong'])} {rec.get('dvt', '')}".rstrip()
     return f"{rec['hang_muc']}{vitri}{kl}"
 
 
@@ -112,14 +116,17 @@ def _ten_nguoi_ky(els, doc, t, project):
         head = tb.rows[0].cells[0].text.strip()
         if t == "LM" and head.startswith("Đại diện TVGS"):
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh, 7)
+                _name_in_cell(tb.rows[1].cells[0], anh, 4)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung, 7)
+                _name_in_cell(tb.rows[1].cells[1], tung, 4)
         elif t == "CV" and head.startswith("Đại diện TVGS"):
+            c1 = tb.rows[0].cells[1]  # bớt 1 dòng trống đầu ô tiêu đề (khớp file mẫu bản chỉnh của người dùng)
+            if len(c1.paragraphs) >= 7 and not c1.paragraphs[0].text.strip() and not c1.paragraphs[1].text.strip():
+                c1._tc.remove(c1.paragraphs[0]._p)
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh, 5)
+                _name_in_cell(tb.rows[1].cells[0], anh, 2)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung, 5)
+                _name_in_cell(tb.rows[1].cells[1], tung, 2)
         elif t in IS_YC and head.startswith("Đơn vị TVQLDA"):
             c0, c1 = tb.rows[1].cells
             if anh:
@@ -134,8 +141,6 @@ def _ten_nguoi_ky(els, doc, t, project):
                 cell = tb.rows[1].cells[0]
                 ps = cell.paragraphs
                 _r = ps[3].add_run()
-                _r.add_break()
-                _r.add_break()
                 _r.add_text(" " * 7 + anh + " " * 47 + tung)
                 _r.bold, _r.font.name = True, "Times New Roman"
 
@@ -212,9 +217,24 @@ def build_docx(records, project):
                     _set_text(els[k], f"{pre}Ông : {pl[gi][0]}          Chức vụ : {pl[gi][1]}")
                 gi += 1
                 continue
+            s2 = s.lstrip("- ").strip()
             if s.startswith("Quảng Ninh, ngày"):
-                if t not in IS_YC:  # phiếu yêu cầu: ngày lập phiếu để trống cho người lập điền
-                    _set_text(els[k], f"Quảng Ninh, {ngay}")
+                _set_text(els[k], f"Quảng Ninh, {ngay}")  # phiếu yêu cầu: tạm lấy ngày nghiệm thu, người lập sửa nếu lập trước
+            elif s2.startswith("Phiếu yêu cầu nghiệm thu của nhà thầu"):
+                so_yc = rec.get("so_yc") or f"{_num(rec)}/{'YC/VL-TB' if t == 'VL' else 'YC/CV'}"
+                _set_text(els[k], f"- Phiếu yêu cầu nghiệm thu của nhà thầu thi công xây dựng số: {so_yc}")
+            elif s2.startswith("Hồ sơ mời thầu") and project.get("so_hop_dong"):
+                _set_text(els[k], f"- Hồ sơ mời thầu, hồ sơ trúng thầu và hợp đồng xây dựng số: {project['so_hop_dong']}")
+            elif s2.startswith("Biên bản lấy mẫu, giao nhận mẫu") and rec.get("lm_ref"):
+                _set_text(els[k], f"- Biên bản lấy mẫu, giao nhận mẫu thí nghiệm số: {', '.join(rec['lm_ref'])}")
+            elif s2.startswith("Biên bản nghiệm thu vật liệu, thiết bị") and rec.get("vl_ref"):
+                _set_text(els[k], f"- Biên bản nghiệm thu vật liệu, thiết bị, sản phẩm chế tạo sẵn trước khi sử dụng số: {', '.join(rec['vl_ref'])}")
+            elif s2.startswith("Biên bản kiểm tra công tác") and rec.get("so_kt"):
+                _set_text(els[k], f"- Biên bản kiểm tra công tác: Checklist kiểm tra, số {rec['so_kt']}")
+            elif re.match(r"^Tại\s*(dự án)?\s*:?\s*(Dự án)?\s*[….]*$", s) and project.get("ten_cong_trinh") and t != "LM":
+                _set_text(els[k], f"Tại dự án: {project['ten_cong_trinh']}")
+            elif s.startswith("6. Khối lượng, quy cách lấy mẫu") and nxt is not None and rec.get("khoi_luong"):
+                _set_text(nxt, f"Lô vật liệu khối lượng {_kl(rec['khoi_luong'])} {rec.get('dvt', '')}. Số lượng, quy cách mẫu: ……………………")
             elif s.startswith(("Biên bản số", "Phiếu yêu cầu số")):
                 _set_text(els[k], f"{prefix} {_num(rec)}/{SUFFIX[t]}")
             elif s.startswith("Dự án:") and project.get("ten_cong_trinh"):
@@ -259,7 +279,7 @@ def build_docx(records, project):
                     tb = Table(el, doc)
                     if tb.rows[0].cells[0].text.strip() == "STT" and len(tb.rows) > 1:
                         vals = ["1", rec.get("hang_muc", ""), "", rec.get("dvt", ""),
-                                f"{rec.get('khoi_luong', 0):g}" if rec.get("khoi_luong") else ""]
+                                _kl(rec["khoi_luong"]) if rec.get("khoi_luong") else ""]
                         for c, v in zip(tb.rows[1].cells, vals):
                             if v:
                                 c.paragraphs[0].add_run(v)
@@ -285,7 +305,7 @@ def expand(records, kinds=("bb",)):
             out.append(dict(r, type="YCVL" if r["type"] == "VL" else "YCCV"))
         if "lm" in kinds and r["type"] == "VL" and r.get("lay_mau"):
             lm_no += 1
-            out.append(dict(r, type="LM", so=f"LM {lm_no:03d}", cong_viec=f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}"))
+            out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", cong_viec=f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}"))
         if "bb" in kinds:
             out.append(r)
     return out
