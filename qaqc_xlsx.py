@@ -121,8 +121,10 @@ def build_checklist_xlsx(rec, project):
         a = str(ws.cell(r, 1).value or "").strip()
         if a.startswith("Nhà thầu thi công") and project.get("chi_huy_truong"):
             _put(ws, r, 3, project["chi_huy_truong"])
+            ws.row_dimensions[r].height = 45  # rộng chỗ để ký
         elif a.startswith("Tư vấn giám sát") and project.get("can_bo_tvgs"):
             _put(ws, r, 3, project["can_bo_tvgs"])
+            ws.row_dimensions[r].height = 45
     logo = project.get("logo")
     if logo and (ROOT / "templates" / logo).exists():  # thay ô "LOGO NHÀ THẦU" (ảnh ở cột G, hàng 2)
         old = next((i for i in ws._images if i.anchor._from.col == 6 and i.anchor._from.row == 1), None)

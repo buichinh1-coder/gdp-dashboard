@@ -112,14 +112,14 @@ def _ten_nguoi_ky(els, doc, t, project):
         head = tb.rows[0].cells[0].text.strip()
         if t == "LM" and head.startswith("Đại diện TVGS"):
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh, 2)
+                _name_in_cell(tb.rows[1].cells[0], anh, 7)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung, 2)
+                _name_in_cell(tb.rows[1].cells[1], tung, 7)
         elif t == "CV" and head.startswith("Đại diện TVGS"):
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh)
+                _name_in_cell(tb.rows[1].cells[0], anh, 5)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung)
+                _name_in_cell(tb.rows[1].cells[1], tung, 5)
         elif t in IS_YC and head.startswith("Đơn vị TVQLDA"):
             c0, c1 = tb.rows[1].cells
             if anh:
@@ -133,7 +133,10 @@ def _ten_nguoi_ky(els, doc, t, project):
             if anh and tung:
                 cell = tb.rows[1].cells[0]
                 ps = cell.paragraphs
-                _r = ps[3].add_run(" " * 7 + anh + " " * 47 + tung)
+                _r = ps[3].add_run()
+                _r.add_break()
+                _r.add_break()
+                _r.add_text(" " * 7 + anh + " " * 47 + tung)
                 _r.bold, _r.font.name = True, "Times New Roman"
 
 
@@ -146,7 +149,9 @@ def build_docx(records, project):
     for el in src[:-1]:
         body.remove(el)
     sec = doc.sections[-1]
+    sec.page_width, sec.page_height = Cm(21.0), Cm(29.7)  # A4 dọc
     sec.top_margin, sec.bottom_margin = Cm(1.5), Cm(1.5)
+    sec.left_margin, sec.right_margin = Cm(2.5), Cm(1.5)
     sec.header_distance = sec.footer_distance = Cm(0.7)
 
     for rec in records:
@@ -155,10 +160,18 @@ def build_docx(records, project):
         els = [copy.deepcopy(src[i]) for i in range(lo, hi + 1)]
         if t == "LM":  # gọn trong 1 trang A4: bỏ dòng trống, giãn dòng vừa phải, không tách hàng ký
             els = [e for e in els if e.tag != qn('w:p') or _text(e).strip() or e.findall('.//' + qn('w:drawing'))]
-            for e in els:
-                sp = e.find(qn('w:pPr') + '/' + qn('w:spacing'))
-                if sp is not None and sp.get(qn('w:line')) and int(sp.get(qn('w:line'))) > 300:
-                    sp.set(qn('w:line'), '276')
+            for e in els:  # giãn dòng đơn (không đổi cỡ chữ) để dành chỗ cho khoảng ký
+                for pp in ([e] if e.tag == qn('w:p') else []):
+                    ppr = pp.find(qn('w:pPr'))
+                    if ppr is None:
+                        ppr = pp.makeelement(qn('w:pPr'), {})
+                        pp.insert(0, ppr)
+                    sp = ppr.find(qn('w:spacing'))
+                    if sp is None:
+                        sp = ppr.makeelement(qn('w:spacing'), {})
+                        ppr.append(sp)
+                    sp.set(qn('w:line'), '240')
+                    sp.set(qn('w:lineRule'), 'auto')
             for e in els:
                 if e.tag == qn('w:tbl'):
                     for tr in e.iter(qn('w:tr')):
