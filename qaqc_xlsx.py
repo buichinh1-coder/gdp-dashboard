@@ -1,0 +1,125 @@
+"""Xuất checklist kiểm tra công tác (.xlsx) đúng form gốc của file mẫu XD / MEP.
+
+Mỗi biên bản -> một file chỉ chứa sheet mẫu đã chọn. Ô đánh giá L1 được tick theo
+kết quả người kiểm tra đã nhập; mục "Chưa kiểm tra" để ô trống. Cột L2 (TVGS) luôn để trống.
+"""
+import copy
+import io
+import json
+import re
+import zipfile
+from datetime import date
+from pathlib import Path
+
+import openpyxl
+from openpyxl.styles import Alignment
+from openpyxl.worksheet.properties import PageSetupProperties
+
+ROOT = Path(__file__).parent / "data" / "qaqc"
+TICK, EMPTY = "þ", "o"          # Wingdings: ô đã chọn / ô trống
+UTICK, UEMPTY = "☑", "☐"        # dùng cho dòng kết luận (chữ Times New Roman)
+
+
+def _norm(s):
+    return " ".join(str(s or "").split()).lower()
+
+
+def build_checklist_xlsx(rec, project):
+    """Trả về (tên_file, bytes) cho một biên bản có mau_checklist."""
+    cls = json.loads((ROOT / "checklists.json").read_text(encoding="utf-8"))
+    info = cls[rec["mau_checklist"]]
+    wb = openpyxl.load_workbook(ROOT / "templates" / f"checklist_{info['nhom_file']}.xlsx")
+    for n in list(wb.sheetnames):
+        if n != info["sheet"]:
+            del wb[n]
+    ws = wb[info["sheet"]]
+    d = date.fromisoformat(rec["ngay"])
+    ngay = f"{d.day:02d}/{d.month:02d}/{d.year}"
+
+    # Tiêu đề: giữ nhãn của mẫu, thay phần giá trị.
+    for row in ws.iter_rows(min_row=1, max_row=8):
+        for c in row:
+            v = str(c.value or "").strip()
+            if v.startswith("Công trình") and project.get("ten_cong_trinh"):
+                c.value = f"Công trình: {project['ten_cong_trinh']}"
+            elif v.startswith("Gói thầu") and project.get("goi_thau"):
+                c.value = f"Gói thầu: {project['goi_thau']}"
+            elif v.startswith("Địa điểm") and project.get("dia_diem"):
+                c.value = f"Địa điểm: {project['dia_diem']}"
+            elif v.startswith("Số:"):
+                c.value = f"Số: {rec['so'].split(' ', 1)[-1]}/KT"
+            elif v.startswith("Ngày"):
+                c.value = f"Ngày: {ngay}"
+            elif v.startswith("Đối tượng kiểm tra") and rec.get("hang_muc"):
+                c.value = f"Đối tượng kiểm tra: {rec['hang_muc']}"
+            elif v.upper().startswith(("TÊN, VỊ TRÍ", "TÊN, VỊ TRÍ CẤU KIỆN")) and rec.get("vi_tri") and c.column > 1:
+                c.value = f"{v.rstrip(': ')}: {rec['vi_tri']}"
+
+    # Dòng tiêu đề bảng kiểm tra.
+    head = next(r for r in range(1, 40) if str(ws.cell(r, 2).value or "").strip().startswith("Công việc kiểm tra"))
+    results = {}
+    for it in rec["checklist"]:
+        results.setdefault(_norm(it["Nội dung"]), []).append(it)
+    ghi_chu = []
+    for r in range(head + 2, ws.max_row + 1):
+        a = str(ws.cell(r, 1).value or "").strip()
+        b = str(ws.cell(r, 2).value or "")
+        if a.startswith(("Ý kiến", "KẾT LUẬN")):
+            ykien_row = r if a.startswith("Ý kiến") else None
+            if ykien_row:
+                break
+            continue
+        if re.fullmatch(r"\.{0,}\s*/\s*\.{0,}\s*/.*", str(ws.cell(r, 3).value or "").replace("…", ".")) or "/..." in str(ws.cell(r, 3).value or ""):
+            ws.cell(r, 3).value = ngay
+        if a.isdigit() and b.strip():
+            lst = results.get(_norm(b))
+            it = lst.pop(0) if lst else None
+            for col in (5, 6, 7, 8):
+                ws.cell(r, col).value = EMPTY
+            if it:
+                kq = it.get("Kết quả", "")
+                if kq == "Đạt":
+                    ws.cell(r, 5).value = TICK
+                elif kq.startswith("Không đạt"):
+                    ws.cell(r, 6).value = TICK
+                note = str(it.get("Ghi chú") or "").strip()
+                if note or kq == "Đạt có điều kiện":
+                    ghi_chu.append(f"- {b.strip()}: {kq if kq == 'Đạt có điều kiện' else ''} {note}".rstrip(": ").strip())
+    # Ý kiến khác: chỉ ghi những gì người kiểm tra đã nhập.
+    for r in range(head, ws.max_row + 1):
+        if str(ws.cell(r, 1).value or "").startswith("Ý kiến") and ghi_chu:
+            ws.cell(r, 1).value = str(ws.cell(r, 1).value).rstrip() + "\n" + "\n".join(ghi_chu)
+            if not any(r in range(m.min_row, m.max_row + 1) and m.min_col == 1 for m in ws.merged_cells.ranges):
+                ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=8)
+            ws.cell(r, 1).alignment = Alignment(wrap_text=True, vertical="top")
+            ws.row_dimensions[r].height = 16 * (1 + len(ghi_chu))
+            break
+
+    # Kết luận: chỉ tick khi người dùng đã chọn kết luận.
+    kl = rec.get("ket_luan", "")
+    for r in range(head, ws.max_row + 1):
+        c = ws.cell(r, 2)
+        v = str(c.value or "")
+        m = re.match(r"^\s*\S\s+(Đồng ý|Không đồng ý) chuyển công tác tiếp theo", v)
+        if m:
+            tick = (m.group(1) == "Đồng ý" and kl in ("Đạt", "Đạt có điều kiện")) or \
+                   (m.group(1) == "Không đồng ý" and kl.startswith("Không đạt"))
+            c.value = f"{UTICK if tick else UEMPTY} {m.group(1)} chuyển công tác tiếp theo"
+            f = copy.copy(c.font)
+            f.name = "Times New Roman"
+            c.font = f
+
+    ws.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
+    ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, 0
+    buf = io.BytesIO()
+    wb.save(buf)
+    return f"Checklist_{rec['so'].replace(' ', '_')}.xlsx", buf.getvalue()
+
+
+def build_checklists_zip(records, project):
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for rec in records:
+            name, data = build_checklist_xlsx(rec, project)
+            z.writestr(name, data)
+    return buf.getvalue()

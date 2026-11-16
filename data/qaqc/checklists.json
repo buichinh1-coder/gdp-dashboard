@@ -694,9 +694,9 @@
    }
   ]
  },
- "XD|Thép dầm sàn": {
+ "XD|Thép dầm sàn ": {
   "nhom_file": "XD",
-  "sheet": "Thép dầm sàn",
+  "sheet": "Thép dầm sàn ",
   "tieu_de": "BIÊN BẢN KIỂM TRA CÔNG TÁC GIA CÔNG, LẮP DỰNG CỐT THÉP",
   "doi_tuong": "Thép dầm sàn",
   "muc": [
@@ -1056,9 +1056,9 @@
    }
   ]
  },
- "XD|Đổ bê tông": {
+ "XD|Đổ bê tông ": {
   "nhom_file": "XD",
-  "sheet": "Đổ bê tông",
+  "sheet": "Đổ bê tông ",
   "tieu_de": "BIÊN BẢN KIỂM TRA CÔNG TÁC ĐỔ BÊ TÔNG",
   "doi_tuong": "",
   "muc": [
@@ -1252,11 +1252,11 @@
    }
   ]
  },
- "XD|KTHH bê tông": {
+ "XD|KTHH bê tông ": {
   "nhom_file": "XD",
-  "sheet": "KTHH bê tông",
+  "sheet": "KTHH bê tông ",
   "tieu_de": "BIÊN BẢN KIỂM TRA KÍCH THƯỚC HÌNH HỌC, BỀ MẶT BÊ TÔNG",
-  "doi_tuong": "NHÀ DOM C1",
+  "doi_tuong": "Kích thước hình học, bề mặt bê tông",
   "muc": [
    {
     "nhom": "Công tác chuẩn bị",
@@ -2143,6 +2143,79 @@
    }
   ]
  },
+ "XD|KTHH bê tông": {
+  "nhom_file": "XD",
+  "sheet": "KTHH bê tông",
+  "tieu_de": "BIÊN BẢN KIỂM TRA KÍCH THƯỚC HÌNH HỌC, BỀ MẶT BÊ TÔNG",
+  "doi_tuong": "NHÀ DOM C1",
+  "muc": [
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Bản vẽ triển khai thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Biện pháp thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "Dây ngăn, bảng hiệu, lối lên xuống",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "Các điều kiện khác",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Khu vực thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Nguồn điện nước thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Kiểm tra tim trục",
+    "noi_dung": "Gởi trục kiểm tra",
+    "phuong_phap": "Bằng máy toàn đạc"
+   },
+   {
+    "nhom": "Kiểm tra tim trục",
+    "noi_dung": "Định vị tim trên mặt bằng",
+    "phuong_phap": "Bằng máy toàn đạc"
+   },
+   {
+    "nhom": "Kiểm tra tim trục",
+    "noi_dung": "Khoảng cách",
+    "phuong_phap": "Bằng máy thước thép"
+   },
+   {
+    "nhom": "Kiểm tra tim trục",
+    "noi_dung": "Vệ sinh nền",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Kiểm tra kích thước hình học",
+    "noi_dung": "Kích thước và cao độ hoàn thiện",
+    "phuong_phap": "Bằng máy thuỷ bình + thước thép"
+   },
+   {
+    "nhom": "Kiểm tra kích thước hình học",
+    "noi_dung": "Chất lượng công tác bảo dưỡng bê tông",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Kiểm tra kích thước hình học",
+    "noi_dung": "Chất lượng bề mặt bê tông",
+    "phuong_phap": "Bằng mắt thường"
+   }
+  ]
+ },
  "XD|BỂ TỰ HOẠI": {
   "nhom_file": "XD",
   "sheet": "BỂ TỰ HOẠI",
@@ -2357,11 +2430,11 @@
    }
   ]
  },
- "XD|TƯỜNG XÂY": {
+ "XD|TƯỜNG XÂY ": {
   "nhom_file": "XD",
-  "sheet": "TƯỜNG XÂY",
-  "tieu_de": "Công trình:",
-  "doi_tuong": "Ngày ...../...../",
+  "sheet": "TƯỜNG XÂY ",
+  "tieu_de": "Công trình: Tổ hợp Phân hiệu Trường ĐH FPT tại Cần Thơ và Công viên phần mềm FPT Cần Thơ - Giai đoạn 1",
+  "doi_tuong": "#REF!",
   "muc": [
    {
     "nhom": "Công tác chuẩn bị",
@@ -2375,7 +2448,7 @@
    },
    {
     "nhom": "An toàn lao động",
-    "noi_dung": "Dây ngăn, bảng hiệu, lối lên xuống, giàn giáo thi công",
+    "noi_dung": "Dây ngăn, bảng hiệu, lối lên xuống",
     "phuong_phap": "Bằng mắt thường"
    },
    {
@@ -2405,7 +2478,7 @@
    },
    {
     "nhom": "Nghiệm thu",
-    "noi_dung": "La thép râu tường, lớp hồ dầu tiếp giáp bê tông",
+    "noi_dung": "La thép liên kết, lớp hồ dầu tiếp giáp bê tông",
     "phuong_phap": "Bằng mắt thường"
    },
    {
@@ -2415,8 +2488,8 @@
    },
    {
     "nhom": "Nghiệm thu",
-    "noi_dung": "Chủng loại vật liệu, cấu tạo tường xây gạch đặc, gạch thẻ 2 lỗ, gạch ống 4 lỗ (theo bản vẽ shopdrawing phê duyệt)",
-    "phuong_phap": "Bằng mắt thường + phiếu phê duyệt VL"
+    "noi_dung": "Loại gạch xây được sử dụng cho từng vị trí",
+    "phuong_phap": "Thước thép + thước nhôm"
    },
    {
     "nhom": "Nghiệm thu",
@@ -2425,17 +2498,22 @@
    },
    {
     "nhom": "Nghiệm thu",
-    "noi_dung": "Vị trí, kích thước khối xây (chiều dày, chiều rộng, chiều cao), lỗ chờ, lỗ mở: cửa đi, cửa sổ,v.v. (theo bản vẽ shopdrawing phê duyệt)",
-    "phuong_phap": "Thước thép + Bản vẽ shop phê duyệt"
+    "noi_dung": "Công tác thi công bổ trụ, giằng tường, lanh tô",
+    "phuong_phap": "Mắt thường + thước thép"
    },
    {
     "nhom": "Nghiệm thu",
-    "noi_dung": "Gạch chờ cho tường tiếp giáp",
+    "noi_dung": "Vị trí, kích thước lỗ chờ, lỗ mở: cửa đi, cửa sổ,v.v.",
+    "phuong_phap": "Thước thép + thước nhôm"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Bảo dưỡng",
     "phuong_phap": "Bằng mắt thường"
    },
    {
     "nhom": "Nghiệm thu",
-    "noi_dung": "Bảo dưỡng, vệ sinh bề mặt khối xây",
+    "noi_dung": "Vệ sinh bề mặt khối xây",
     "phuong_phap": "Bằng mắt thường"
    }
   ]
@@ -2543,9 +2621,9 @@
    }
   ]
  },
- "XD|ỐP ĐÁ": {
+ "XD|ỐP ĐÁ ": {
   "nhom_file": "XD",
-  "sheet": "ỐP ĐÁ",
+  "sheet": "ỐP ĐÁ ",
   "tieu_de": "Công trình:",
   "doi_tuong": "Ngày ...../...../",
   "muc": [
@@ -2894,6 +2972,89 @@
    {
     "nhom": "Nghiệm thu",
     "noi_dung": "Dọn dẹp, vệ sinh mặt bằng sau khi thi công",
+    "phuong_phap": "Bằng mắt thường"
+   }
+  ]
+ },
+ "XD|TƯỜNG XÂY": {
+  "nhom_file": "XD",
+  "sheet": "TƯỜNG XÂY",
+  "tieu_de": "Công trình:",
+  "doi_tuong": "Ngày ...../...../",
+  "muc": [
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Bản vẽ triển khai thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Công tác chuẩn bị",
+    "noi_dung": "Biện pháp thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "Dây ngăn, bảng hiệu, lối lên xuống, giàn giáo thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "An toàn lao động",
+    "noi_dung": "Các điều kiện khác",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Khu vực thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Điều kiện thi công",
+    "noi_dung": "Nguồn điện nước thi công",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Vị trí tường xây, tim trục",
+    "phuong_phap": "Máy toàn đạc/máy laser, thước thép"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Dây lèo, dây gióng",
+    "phuong_phap": "Máy toàn đạc/máy laser, thước thép"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "La thép râu tường, lớp hồ dầu tiếp giáp bê tông",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Cấp phối vữa xây, chiều dày và độ chặt mạch vữa",
+    "phuong_phap": "Mắt thường, thước thép, Bảng TKCP"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Chủng loại vật liệu, cấu tạo tường xây gạch đặc, gạch thẻ 2 lỗ, gạch ống 4 lỗ (theo bản vẽ shopdrawing phê duyệt)",
+    "phuong_phap": "Bằng mắt thường + phiếu phê duyệt VL"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Quy cách xây, độ thẳng đứng, vuông góc khối xây (theo Bản vẽ Shopdrawing được duyệt)",
+    "phuong_phap": "Thước thép + thước nhôm + nivo"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Vị trí, kích thước khối xây (chiều dày, chiều rộng, chiều cao), lỗ chờ, lỗ mở: cửa đi, cửa sổ,v.v. (theo bản vẽ shopdrawing phê duyệt)",
+    "phuong_phap": "Thước thép + Bản vẽ shop phê duyệt"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Gạch chờ cho tường tiếp giáp",
+    "phuong_phap": "Bằng mắt thường"
+   },
+   {
+    "nhom": "Nghiệm thu",
+    "noi_dung": "Bảo dưỡng, vệ sinh bề mặt khối xây",
     "phuong_phap": "Bằng mắt thường"
    }
   ]

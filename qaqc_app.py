@@ -12,6 +12,7 @@ import pandas as pd
 import streamlit as st
 
 import qaqc_docx
+import qaqc_xlsx
 
 st.set_page_config(page_title="Hồ sơ chất lượng xây dựng", page_icon=":building_construction:", layout="wide")
 
@@ -165,5 +166,15 @@ with tab_exp:
             st.download_button("Tải Bien_ban_nghiem_thu.docx", qaqc_docx.build_docx(chon, db["project"]), "Bien_ban_nghiem_thu.docx",
                                "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
         st.caption("Hiện hỗ trợ form VL (/CV/VL-TB) và CV (/CV).")
+        st.markdown("**Xuất checklist Excel** đúng form gốc (chỉ cho biên bản đã chọn mẫu checklist). Mục 'Chưa kiểm tra' để ô trống; cột L2 của TVGS luôn để trống.")
+        co_mau = [r for r in recs if r.get("mau_checklist")]
+        sel2 = st.multiselect("Chọn biên bản xuất checklist", [r["so"] for r in co_mau])
+        if sel2:
+            chon2 = sorted([r for r in co_mau if r["so"] in sel2], key=lambda r: (r["ngay"], r["so"]))
+            if len(chon2) == 1:
+                fn, data = qaqc_xlsx.build_checklist_xlsx(chon2[0], db["project"])
+                st.download_button(f"Tải {fn}", data, fn, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+            else:
+                st.download_button("Tải Checklist.zip", qaqc_xlsx.build_checklists_zip(chon2, db["project"]), "Checklist.zip", "application/zip")
     else:
         st.info("Chưa có dữ liệu.")

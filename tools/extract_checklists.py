@@ -34,7 +34,7 @@ for group, path in SRC.items():
             elif a:
                 section = b
         if items:
-            out[f"{group}|{ws.title.strip()}"] = {"nhom_file": group, "sheet": ws.title.strip(), "tieu_de": title,
+            out[f"{group}|{ws.title}"] = {"nhom_file": group, "sheet": ws.title, "tieu_de": title,
                                                   "doi_tuong": doi_tuong, "muc": items}
 Path(__file__).parent.parent.joinpath("data/qaqc/checklists.json").write_text(
     json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
