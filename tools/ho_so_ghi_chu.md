@@ -84,9 +84,11 @@ Còn để ngỏ: đào móng hoàn thành trước ngày bắt đầu ép cọc
 - `06_Bien_ban_lay_mau.docx`: 6 biên bản lấy mẫu thí nghiệm (cọc, thép, 4 đợt bê tông M300). Tiêu chuẩn áp dụng, khối lượng và
   quy cách lấy mẫu, thành phần tham gia để trống cho người lấy mẫu điền.
   Ngày lấy mẫu tạm lấy bằng ngày nghiệm thu vật liệu (cọc 24/08, thép 04/09, bê tông = ngày bắt đầu đổ); cần sửa theo ngày lấy mẫu thực tế.
-- `07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx`: danh sách kết quả thí nghiệm và hồ sơ cần có (57 mục theo từng đợt đổ, từng phân đoạn, kèm ngày cần có kết quả và các cột trống để điền kết quả thực tế),
-  kèm sheet mốc nén R7 từng đợt đổ so với ngày bắt đầu đắp. Tiêu chuẩn ghi để tham khảo, cần đối chiếu chỉ dẫn kỹ thuật.
-  Nhóm D là đề xuất, chưa được xác nhận.
+- `07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx`: sheet `Danh_sach` liệt kê 70 thí nghiệm cần có, mỗi dòng một thí nghiệm với ngày lấy mẫu/hiện trường
+  và **ngày thực hiện thí nghiệm** cụ thể (bê tông: độ sụt cùng ngày đổ, nén R7 = ngày đổ + 7, nén R28 = ngày đổ + 28, thấm nước = ngày đổ + 28,
+  tính theo từng ngày đổ; độ chặt K95 theo từng ngày đắp; cọc, thép, đầm nén, đá xô ghi hạn "chậm nhất"). Sheet `Ho_so_kem_theo` là các hồ sơ
+  không phải thí nghiệm (cấp phối, phiếu giao hàng, kiểm định, nhật ký ép, trắc đạc, hoàn công). Các cột Phòng thí nghiệm đến Đạt/Không đạt để trống.
+  Ngày nén tính theo ngày đổ trong lịch; nếu đổ lệch ngày thì tính lại.
 
 ## Chưa có checklist (5 biên bản)
 Vận chuyển đất (4 biên bản) và biện pháp thi công (1 biên bản): file mẫu chưa có checklist cho các công việc này.

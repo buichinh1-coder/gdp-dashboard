@@ -196,72 +196,79 @@ sel = qaqc_docx.expand([r for r in recs if r["type"] == "CV" and r["vi_tri"] not
 (OUT / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_giai_doan_coc.docx").write_bytes(qaqc_docx.build_docx(qaqc_docx.expand([gd], ("yc",)), proj))
 (OUT / "06_Bien_ban_lay_mau.docx").write_bytes(qaqc_docx.build_docx(qaqc_docx.expand([r for r in recs if r.get("lay_mau")], ("lm",)), proj))
 
-# --- danh sách kết quả thí nghiệm / hồ sơ cần có (bảng theo dõi) ---
+# --- danh sách kết quả thí nghiệm cần có: mỗi dòng một thí nghiệm, ngày thực hiện rõ ràng ---
 D = lambda x: x.date()
 fmt = lambda d: d.strftime("%d/%m/%Y")
-rng = lambda a_, b_: fmt(a_) if a_ == b_ else f"{fmt(a_)} - {fmt(b_)}"
 row_of = lambda muc, pd_: next(v for v in rows if str(v[1]) == muc and v[3] == pd_)
-so_vl = lambda k: next(r["so"] for r in recs if r["type"] == "VL" and k in r["hang_muc"])
 cv_of = lambda muc, pd_: next(r for r in recs if r["type"] == "CV" and r.get("muc_hd") == muc and r["vi_tri"] == pd_)
-TC = "Theo chỉ dẫn kỹ thuật của hợp đồng"
-T = []  # (nhóm, đối tượng, nội dung, tiêu chuẩn, biên bản liên quan, ngày thực hiện / lấy mẫu, ngày cần có kết quả)
+so_vl = lambda k: next(r["so"] for r in recs if r["type"] == "VL" and k in r["hang_muc"])
+days = lambda a_, b_: [a_ + dt.timedelta(i) for i in range((b_ - a_).days + 1)]
+TC = "Theo chỉ dẫn kỹ thuật"
+T = []  # (nhóm, thí nghiệm, đối tượng, tiêu chuẩn, biên bản, ngày lấy mẫu/hiện trường, ngày thực hiện thí nghiệm, căn cứ ngày)
 
 
-def add(nhom, dt_, nd, tc, bb, ngay, kq):
-    T.append((nhom, dt_, nd, tc, bb, ngay, kq))
+def add(*a_):
+    T.append(a_)
 
 
-GA, GB = "A. Cọc BT300x300", "B. Cốt thép"
-for nd, tc in [("Phiếu duyệt cấp phối / trialmix bê tông cọc", TC), ("Chứng chỉ và kết quả thí nghiệm xi măng (bền sunfat), phụ gia", TC),
-               ("Thí nghiệm cát, đá, nước trộn bê tông", "TCVN 7570:2006, TCVN 4506:2012"),
-               ("Thí nghiệm kéo, uốn thép chế tạo cọc (nếu cọc có cốt thép)", "TCVN 1651-2:2018, QCVN 07:2019/BKHCN"),
-               ("Nén mẫu bê tông cọc R7 (căn cứ cho phép ép; đủ cho toàn bộ cọc)", "TCVN 3118:2022"),
-               ("Biên bản kiểm tra chế tạo cọc: kích thước, độ thẳng, mũi cọc, vết nứt", TC)]:
-    add(GA, "Cọc toàn tuyến", nd, tc, f"{so_vl('Cọc')} / LM 001", "Trước ép cọc", "Trước 24/08/2026")
-for nd, tc in [("CO/CQ và chứng chỉ xuất xưởng từng lô thép", "TCVN 1651-2:2018"),
-               ("Thí nghiệm kéo (giới hạn chảy, bền, độ giãn dài) và uốn nguội theo lô, đường kính", "TCVN 1651-2:2018, QCVN 07:2019/BKHCN")]:
-    add(GB, "Thép toàn tuyến", nd, tc, f"{so_vl('Cốt thép')} / LM 002", "Trước lắp dựng", "Trước 04/09/2026")
-GC = "C. Bê tông M300 (từng đợt đổ)"
-first_pour = min(D(row_of("09", p_)[6]) for p_ in PD)
-add(GC, "Toàn bộ các đợt", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật liệu của nhà máy bê tông", TC, "-", "Trước đợt đổ đầu", f"Trước {fmt(first_pour)}")
+COC, THEP, BTG, DAT, DAX, NT = "A. Cọc BT300x300", "B. Cốt thép", "C. Bê tông M300", "D. Đắp đất K95", "E. Đá xô (đề xuất)", "F. Nén tĩnh cọc"
+d_coc, d_thep = dt.date(2026, 8, 24), dt.date(2026, 9, 4)
+d_bd = D(next(v for v in rows if str(v[1]) == "01" and v[3] == PD[0])[6])  # bắt đầu cung cấp cọc
+VLC, VLT = f"{so_vl('Cọc')} / LM 001", f"{so_vl('Cốt thép')} / LM 002"
+add(COC, "Nén mẫu bê tông cọc R7 (đủ cho phép ép cọc)", "Toàn bộ lô cọc BT300x300 (3.372 m)", "TCVN 3118:2022", VLC, "Ngày đúc cọc", f"Chậm nhất {fmt(d_coc)}", "Hạn nghiệm thu VL cọc (1 lần), trước ép cọc")
+add(COC, "Thí nghiệm cát, đá (cốt liệu bê tông cọc)", "Cát, đá sản xuất cọc", "TCVN 7570:2006", VLC, "Trước khi đúc cọc", f"Chậm nhất {fmt(d_bd)}", "Trước ngày bắt đầu cung cấp cọc")
+add(COC, "Thí nghiệm nước trộn bê tông cọc", "Nước trộn", "TCVN 4506:2012", VLC, "Trước khi đúc cọc", f"Chậm nhất {fmt(d_bd)}", "Trước ngày bắt đầu cung cấp cọc")
+add(COC, "Thí nghiệm xi măng bền sunfat (hoặc chứng chỉ chất lượng)", "Xi măng sản xuất cọc", TC, VLC, "Trước khi đúc cọc", f"Chậm nhất {fmt(d_bd)}", "Trước ngày bắt đầu cung cấp cọc")
+add(THEP, "Thí nghiệm kéo: giới hạn chảy, giới hạn bền, độ giãn dài", "Cốt thép (23,02 tấn), theo lô và đường kính", "TCVN 1651-2:2018; QCVN 07:2019/BKHCN", VLT, "Lấy mẫu khi nhập thép", f"Chậm nhất {fmt(d_thep)}", "Hạn nghiệm thu VL thép (1 lần), trước lắp dựng")
+add(THEP, "Thí nghiệm uốn nguội", "Cốt thép, theo lô và đường kính", "TCVN 1651-2:2018; QCVN 07:2019/BKHCN", VLT, "Lấy mẫu khi nhập thép", f"Chậm nhất {fmt(d_thep)}", "Hạn nghiệm thu VL thép (1 lần), trước lắp dựng")
 for p_ in PD:
     r = row_of("09", p_)
-    b0, b1 = D(r[6]), D(r[7])
     c = cv_of("09", p_)
     ref = f"{c['so']} / {c['so_lm']}"
-    dd = f"Đợt đổ {p_.lower()}"
-    add(GC, dd, "Phiếu giao hàng từng xe (mác, độ sụt, giờ trộn)", "-", ref, rng(b0, b1), rng(b0, b1))
-    add(GC, dd, "Độ sụt hiện trường", "TCVN 3106:2022", ref, rng(b0, b1), rng(b0, b1))
-    add(GC, dd, "Lấy mẫu bê tông tại hiện trường (biên bản lấy mẫu)", "TCVN 3105:2022", ref, rng(b0, b1), rng(b0, b1))
-    add(GC, dd, "Nén mẫu R7 (căn cứ sớm để đắp đất lên tường chắn)", "TCVN 3118:2022", ref, rng(b0, b1), rng(b0 + dt.timedelta(7), b1 + dt.timedelta(7)))
-    add(GC, dd, "Nén mẫu R28 (căn cứ nghiệm thu kết cấu)", "TCVN 3118:2022", ref, rng(b0, b1), rng(b0 + dt.timedelta(28), b1 + dt.timedelta(28)))
-    add(GC, dd, "Thấm nước (bê tông chống thấm), nếu chỉ dẫn kỹ thuật yêu cầu", "TCVN 3116:2022", ref, rng(b0, b1), rng(b0 + dt.timedelta(28), b1 + dt.timedelta(28)))
-GD_ = "D. Đắp đất - độ chặt K95"
-add(GD_, "Đất đắp đê quai", "Thí nghiệm đầm nén tiêu chuẩn: dung trọng khô lớn nhất, độ ẩm tốt nhất", TC, cv_of("15", PD[0])["so"], "Trước khi đắp", fmt(D(row_of("15", PD[0])[6])))
-add(GD_, "Đất đắp hoàn trả hố móng", "Thí nghiệm đầm nén tiêu chuẩn: dung trọng khô lớn nhất, độ ẩm tốt nhất", TC, cv_of("06", PD[0])["so"], "Trước khi đắp", fmt(D(row_of("06", PD[0])[6])))
+    for d0 in days(D(r[6]), D(r[7])):
+        dd = f"Đổ bê tông {p_.lower()}, ngày {d0:%d/%m}"
+        add(BTG, "Độ sụt hiện trường", dd, "TCVN 3106:2022", ref, fmt(d0), fmt(d0), "Cùng ngày đổ")
+        add(BTG, "Nén mẫu R7", dd, "TCVN 3118:2022", ref, fmt(d0), fmt(d0 + dt.timedelta(7)), "Ngày đổ + 7 ngày (căn cứ đắp đất lên tường chắn)")
+        add(BTG, "Nén mẫu R28", dd, "TCVN 3118:2022", ref, fmt(d0), fmt(d0 + dt.timedelta(28)), "Ngày đổ + 28 ngày (căn cứ nghiệm thu kết cấu)")
+        add(BTG, "Thấm nước (nếu chỉ dẫn yêu cầu bê tông chống thấm)", dd, "TCVN 3116:2022", ref, fmt(d0), fmt(d0 + dt.timedelta(28)), "Ngày đổ + 28 ngày")
+add(DAT, "Đầm nén tiêu chuẩn: dung trọng khô lớn nhất, độ ẩm tốt nhất", "Đất đắp đê quai", TC, cv_of("15", PD[0])["so"], "Lấy mẫu trước khi đắp",
+    f"Chậm nhất {fmt(D(row_of('15', PD[0])[6]) - dt.timedelta(1))}", "Trước ngày đắp đê quai đầu tiên")
+add(DAT, "Đầm nén tiêu chuẩn: dung trọng khô lớn nhất, độ ẩm tốt nhất", "Đất đắp hoàn trả hố móng", TC, cv_of("06", PD[0])["so"], "Lấy mẫu trước khi đắp",
+    f"Chậm nhất {fmt(D(row_of('06', PD[0])[6]) - dt.timedelta(1))}", "Trước ngày đắp hoàn trả đầu tiên")
 for muc, ten in (("15", "Đắp đê quai"), ("06", "Đắp hoàn trả hố móng")):
     for p_ in PD:
         r = row_of(muc, p_)
-        add(GD_, f"{ten} - {p_.lower()}", "Độ chặt K95 từng lớp đắp (thí nghiệm hiện trường): mỗi lớp đạt K >= 0,95 mới đắp lớp tiếp theo", TC,
-            cv_of(muc, p_)["so"], rng(D(r[6]), D(r[7])), "Từng lớp đắp")
-GE = "E. Đề xuất (xác nhận)"
-add(GE, "Khe lún", "Ống thoát nước, chi tiết thoát nước khe lún: chứng chỉ chất lượng", TC, cv_of("14", PD[0])["so"], "Trước lắp", fmt(D(row_of("14", PD[0])[6])))
-add(GE, "Khe lún", "Vật tư khe lún: chứng chỉ, mẫu vật liệu", TC, cv_of("14", PD[0])["so"], "Trước lắp", fmt(D(row_of("14", PD[0])[6])))
-add(GE, "Đá xô chân tường chắn", "Thí nghiệm đá", TC, cv_of("07", PD[0])["so"], "Trước khi đắp đá xô", fmt(D(row_of("07", PD[0])[6])))
-GF = "F. Ép cọc"
-add(GF, "Thiết bị ép cọc", "Giấy kiểm định thiết bị ép (đồng hồ áp lực, kích) còn hiệu lực", "-", "-", "Trước ép cọc", "Trước 25/08/2026")
+        for d0 in days(D(r[6]), D(r[7])):
+            add(DAT, "Độ chặt K95 các lớp đắp trong ngày (mỗi lớp K >= 0,95 mới đắp lớp tiếp theo)", f"{ten} {p_.lower()}, ngày {d0:%d/%m}", TC,
+                cv_of(muc, p_)["so"], fmt(d0), fmt(d0), "Cùng ngày đắp")
+add(DAX, "Thí nghiệm đá (cường độ, độ hút nước...) theo chỉ dẫn kỹ thuật", "Đá xô chân tường chắn", TC, cv_of("07", PD[0])["so"], "Lấy mẫu trước khi đắp",
+    f"Chậm nhất {fmt(D(row_of('07', PD[0])[6]) - dt.timedelta(1))}", "Trước ngày đắp đá xô đầu tiên; đề xuất, cần xác nhận")
+add(NT, "Thí nghiệm nén tĩnh cọc hoặc PDA (nếu thiết kế yêu cầu)", "Cọc thử theo thiết kế", "TCVN 9393:2012", "GD 001", "Theo thiết kế", "Chưa có ngày: cần thiết kế/CĐT quy định", "Chỉ làm nếu thiết kế yêu cầu")
+
+# hồ sơ kèm theo (không phải thí nghiệm): chứng chỉ, cấp phối, phiếu giao hàng, kiểm định, nhật ký...
+H = []
+h = lambda *a_: H.append(a_)
+h("Cọc BT300x300", "Phiếu duyệt cấp phối bê tông cọc (trialmix)", VLC, f"Trước {fmt(d_bd)}")
+h("Cọc BT300x300", "Biên bản kiểm tra chế tạo cọc: kích thước, độ thẳng, mũi cọc, vết nứt", VLC, f"Trước {fmt(d_coc)}")
+h("Cốt thép", "CO/CQ và chứng chỉ xuất xưởng từng lô thép", VLT, f"Trước {fmt(d_thep)}")
+h("Bê tông M300", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật liệu của nhà máy bê tông", "CV đổ bê tông", f"Trước {fmt(min(D(row_of('09', p_)[6]) for p_ in PD))}")
+for p_ in PD:
+    r = row_of("09", p_)
+    h("Bê tông M300", f"Phiếu giao hàng từng xe, đổ bê tông {p_.lower()} (ngày {D(r[6]):%d/%m} - {D(r[7]):%d/%m})", cv_of("09", p_)["so"], f"{fmt(D(r[6]))} - {fmt(D(r[7]))}")
+h("Khe lún", "Chứng chỉ ống thoát nước, chi tiết thoát nước và vật tư khe lún", cv_of("14", PD[0])["so"], f"Trước {fmt(D(row_of('14', PD[0])[6]))}")
+h("Ép cọc", "Giấy kiểm định thiết bị ép (đồng hồ áp lực, kích) còn hiệu lực", "Nghiệm thu cọc", f"Trước {fmt(D(row_of('02', PD[0])[6]))}")
 for p_ in PD:
     c = cv_of("02+03", p_)
-    add(GF, p_, "Nhật ký ép từng cọc và bảng tổng hợp công tác ép cọc", "TCVN 9394:2012", c["so"], rng(dt.date.fromisoformat(c["ep_tu"]), dt.date.fromisoformat(c["ep_den"])), c["ngay"][8:] + "/" + c["ngay"][5:7] + "/" + c["ngay"][:4])
-add(GF, "Cọc toàn tuyến", "Thí nghiệm nén tĩnh cọc hoặc PDA (nếu thiết kế yêu cầu)", "TCVN 9393:2012", "GD 001", "Theo thiết kế", "Theo thiết kế")
-GG = "G. Trắc đạc, hoàn công"
-for p_ in PD:
-    c = cv_of("02+03", p_)
-    add(GG, p_, "Biên bản trắc đạc vị trí cọc, cao độ đầu cọc sau cắt", "-", c["so"], c["ngay"][8:] + "/" + c["ngay"][5:7] + "/" + c["ngay"][:4], "Cùng nghiệm thu cọc")
-add(GG, "Toàn tuyến", "Bản vẽ hoàn công, bảng khối lượng hoàn thành", "-", "Nghiệm thu hoàn thành", "Trước hoàn thành", "Trước 27/10/2026")
-tn_df = pd.DataFrame([{"STT": i, "Nhóm": a, "Đối tượng": b, "Kết quả thí nghiệm / hồ sơ cần có": c, "Tiêu chuẩn (tham khảo)": d, "Biên bản liên quan": e,
-                       "Ngày thực hiện / lấy mẫu": f, "Ngày cần có kết quả": g, "Phòng thí nghiệm": "", "Số phiếu kết quả": "", "Ngày phiếu": "",
-                       "Kết quả": "", "Đạt / Không đạt": "", "Ghi chú": ""} for i, (a, b, c, d, e, f, g) in enumerate(T, 1)])
+    h("Ép cọc", f"Nhật ký ép từng cọc và bảng tổng hợp công tác ép cọc, {p_.lower()}", c["so"], f"{fmt(dt.date.fromisoformat(c['ep_tu']))} - {fmt(dt.date.fromisoformat(c['ep_den']))}")
+    h("Trắc đạc", f"Biên bản trắc đạc vị trí cọc, cao độ đầu cọc sau cắt, {p_.lower()}", c["so"], fmt(dt.date.fromisoformat(c["ngay"])))
+h("Hoàn công", "Bản vẽ hoàn công, bảng khối lượng hoàn thành", "Nghiệm thu hoàn thành", "Trước 27/10/2026")
+
+tn_df = pd.DataFrame([{"STT": i, "Nhóm": a, "Thí nghiệm cần có": b, "Đối tượng": c, "Tiêu chuẩn": d, "Biên bản liên quan": e,
+                       "Ngày lấy mẫu / hiện trường": f, "Ngày thực hiện thí nghiệm": g, "Căn cứ ngày": h_,
+                       "Phòng thí nghiệm": "", "Số phiếu kết quả": "", "Ngày phiếu": "", "Kết quả": "", "Đạt / Không đạt": ""}
+                      for i, (a, b, c, d, e, f, g, h_) in enumerate(T, 1)])
+hs_df = pd.DataFrame([{"STT": i, "Nhóm": a, "Hồ sơ cần có": b, "Biên bản liên quan": c, "Cần có": d, "Số / ngày hồ sơ": "", "Ghi chú": ""}
+                      for i, (a, b, c, d) in enumerate(H, 1)])
 r7 = []
 nt_bt = {r["vi_tri"]: r["ngay"] for r in recs if r["type"] == "CV" and r.get("muc_hd") == "09"}
 for pd_ in PD:
@@ -270,23 +277,25 @@ for pd_ in PD:
     dap = D(row_of("06", pd_)[6])
     nt = dt.date.fromisoformat(nt_bt[pd_])
     c9 = cv_of("09", pd_)
-    r7.append({"Phân đoạn": pd_, "Biên bản (CV đổ BT / LM)": f"{c9['so']} / {c9['so_lm']}", "Ngày đổ (lấy mẫu)": rng(b0, b1),
-               "Ngày nén R7": rng(b0 + dt.timedelta(7), b1 + dt.timedelta(7)), "Ngày nén R28": rng(b0 + dt.timedelta(28), b1 + dt.timedelta(28)),
+    rg = lambda x, y: fmt(x) if x == y else f"{fmt(x)} - {fmt(y)}"
+    r7.append({"Phân đoạn": pd_, "Biên bản (CV đổ BT / LM)": f"{c9['so']} / {c9['so_lm']}", "Ngày đổ (lấy mẫu)": rg(b0, b1),
+               "Ngày nén R7": rg(b0 + dt.timedelta(7), b1 + dt.timedelta(7)), "Ngày nén R28": rg(b0 + dt.timedelta(28), b1 + dt.timedelta(28)),
                "Nghiệm thu kết cấu BT (theo lịch)": fmt(nt), "Ngày bắt đầu đắp hoàn trả": fmt(dap),
                "Nghiệm thu kết cấu sau R28?": "Có" if nt >= b1 + dt.timedelta(28) else "KHÔNG - sớm hơn R28",
                "Đắp trước khi có R28?": "Có - chỉ được đắp khi kết quả R7 đạt và TVGS chấp thuận" if dap < b1 + dt.timedelta(28) else "Không",
-               "Ghi chú": "Mỗi đợt đổ lấy mẫu riêng, nén R7 và R28"})
+               "Ghi chú": "Mỗi ngày đổ lấy mẫu riêng, nén R7 và R28"})
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.worksheet.properties import PageSetupProperties
 with pd.ExcelWriter(OUT / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", engine="openpyxl") as w:
     tn_df.to_excel(w, sheet_name="Danh_sach", index=False, startrow=3)
+    hs_df.to_excel(w, sheet_name="Ho_so_kem_theo", index=False, startrow=3)
     pd.DataFrame(r7).to_excel(w, sheet_name="Moc_R7_R28", index=False)
     pd.DataFrame([{"Số hiệu": a, "Tên": b, "Tình trạng tra cứu": c, "Nguồn": d} for a, b, c, d in tieu_chuan.TC_BANG]).to_excel(w, sheet_name="Tieu_chuan_da_dung", index=False)
     pd.DataFrame([{"Số hiệu / văn bản": a, "Tên": b, "Cần xác nhận": c, "Nguồn": d} for a, b, c, d in tieu_chuan.TC_CAN_XAC_NHAN]).to_excel(w, sheet_name="Tieu_chuan_can_xac_nhan", index=False)
     thin = Side(style="thin", color="9AA5B1")
     brd = Border(left=thin, right=thin, top=thin, bottom=thin)
     for ws_ in w.book.worksheets:
-        main = ws_.title == "Danh_sach"
+        main = ws_.title in ("Danh_sach", "Ho_so_kem_theo")
         hr = 4 if main else 1
         for c in ws_[hr]:
             c.font = Font(name="Times New Roman", size=11, bold=True, color="FFFFFF")
@@ -306,20 +315,24 @@ with pd.ExcelWriter(OUT / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", engine=
         ws_.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
         ws_.page_margins.left = ws_.page_margins.right = 0.4
         ws_.print_title_rows = f"{hr}:{hr}"
-    ws = w.book["Danh_sach"]
-    ws.merge_cells("A1:N1")
-    ws["A1"] = "DANH SÁCH KẾT QUẢ THÍ NGHIỆM, HỒ SƠ CẦN CÓ"
-    ws["A1"].font = Font(name="Times New Roman", size=16, bold=True, color="123E70")
-    ws["A1"].alignment = Alignment(horizontal="center")
-    ws.merge_cells("A2:N2")
-    ws["A2"] = f"{proj['goi_thau']} - Hợp đồng số {proj['so_hop_dong']} - {proj['nha_thau']}"
-    ws["A2"].font = Font(name="Times New Roman", size=11, italic=True)
-    ws["A2"].alignment = Alignment(horizontal="center")
-    ws.merge_cells("A3:N3")
-    ws["A3"] = "Các cột Phòng thí nghiệm đến Ghi chú để trống, điền khi có kết quả thực tế. Tiêu chuẩn chỉ để tham khảo, đối chiếu chỉ dẫn kỹ thuật."
-    ws["A3"].font = Font(name="Times New Roman", size=10, italic=True)
-    for col, wd in zip("ABCDEFGHIJKLMN", (5.5, 12, 20, 40, 20, 14, 18, 18, 12, 10, 10, 9, 8, 12)):
-        ws.column_dimensions[col].width = wd
+    for name, title, last in (("Danh_sach", "DANH SÁCH KẾT QUẢ THÍ NGHIỆM CẦN CÓ", "N"), ("Ho_so_kem_theo", "HỒ SƠ KÈM THEO CẦN CÓ (CHỨNG CHỈ, CẤP PHỐI, PHIẾU GIAO HÀNG, NHẬT KÝ)", "G")):
+        ws = w.book[name]
+        ws.merge_cells(f"A1:{last}1")
+        ws["A1"] = title
+        ws["A1"].font = Font(name="Times New Roman", size=16, bold=True, color="123E70")
+        ws["A1"].alignment = Alignment(horizontal="center")
+        ws.merge_cells(f"A2:{last}2")
+        ws["A2"] = f"{proj['goi_thau']} - Hợp đồng số {proj['so_hop_dong']} - {proj['nha_thau']}"
+        ws["A2"].font = Font(name="Times New Roman", size=11, italic=True)
+        ws["A2"].alignment = Alignment(horizontal="center")
+        ws.merge_cells(f"A3:{last}3")
+        ws["A3"] = ("Ngày thực hiện thí nghiệm tính theo ngày đổ/đắp trong lịch; 'Chậm nhất' là hạn chót. Các cột từ Phòng thí nghiệm trở đi để trống, điền khi có kết quả thực tế."
+                    if name == "Danh_sach" else "Không phải thí nghiệm. Các cột số / ngày hồ sơ để trống, điền khi có hồ sơ.")
+        ws["A3"].font = Font(name="Times New Roman", size=10, italic=True)
+    for col, wd in zip("ABCDEFGHIJKLMN", (5.5, 12, 34, 30, 17, 14, 15, 17, 30, 12, 10, 10, 9, 9)):
+        w.book["Danh_sach"].column_dimensions[col].width = wd
+    for col, wd in zip("ABCDEFG", (5.5, 14, 58, 18, 28, 16, 14)):
+        w.book["Ho_so_kem_theo"].column_dimensions[col].width = wd
     for name, widths in (("Moc_R7_R28", (14, 20, 22, 22, 22, 22, 20, 20, 42, 30)), ("Tieu_chuan_da_dung", (22, 55, 50, 60)),
                          ("Tieu_chuan_can_xac_nhan", (30, 30, 70, 50))):
         for col, wd in zip("ABCDEFGHIJ", widths):

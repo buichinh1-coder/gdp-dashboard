@@ -391,7 +391,7 @@ def main():
     docs["yc0"] = HS / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_cong_viec_toan_tuyen.docx"
     import openpyxl
     wb_tn = openpyxl.load_workbook(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx")
-    for n_ in wb_tn.sheetnames[1:]:
+    for n_ in wb_tn.sheetnames[2:]:
         del wb_tn[n_]
     tn_print = tmp / "07_Bang_theo_doi_ket_qua_thi_nghiem.xlsx"
     wb_tn.save(tn_print)
@@ -431,7 +431,7 @@ def main():
     plan += [("pdf", ("Phiếu yêu cầu nghiệm thu giai đoạn cọc", P["yc_gd"], "yc_gd")), ("pdf", ("Biên bản nghiệm thu giai đoạn cọc", P["gd"], "gd")),
              ("pdf", ("Bảng tổng hợp công tác thi công cọc", P["th"], "th"))]
     plan.append(("div", "D"))
-    plan.append(("pdf", ("Bảng theo dõi kết quả thí nghiệm cần có", P["tn"], "tn")))
+    plan.append(("pdf", ("Danh sách kết quả thí nghiệm và hồ sơ kèm theo cần có", P["tn"], "tn")))
 
     # --- số trang
     def build_rows(start_of, n_front):
@@ -472,10 +472,12 @@ def main():
         rows.append(("sec", "PHẦN D - TÀI LIỆU KÈM THEO (BỔ SUNG)"))
         tn = pd.read_excel(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", sheet_name="Danh_sach", header=3)
         rows.append(("item", (1, "-", "Bảng theo dõi kết quả thí nghiệm và hồ sơ cần có", "-", "-", "-", f"tr. {start_of['tn']}")))
-        full = {"A": "Cọc BT300x300 (vật liệu đầu vào)", "B": "Cốt thép", "C": "Bê tông M300 theo từng đợt đổ (R7, R28)",
-                "D": "Đắp đất - độ chặt K95", "E": "Đề xuất, cần xác nhận", "F": "Ép cọc, nghiệm thu cọc", "G": "Trắc đạc, hoàn công"}
+        full = {"A": "Cọc BT300x300 (vật liệu đầu vào)", "B": "Cốt thép", "C": "Bê tông M300 theo từng ngày đổ (R7, R28)",
+                "D": "Đắp đất - độ chặt K95", "E": "Đá xô (đề xuất)", "F": "Nén tĩnh cọc (nếu thiết kế yêu cầu)"}
         for j, (nhom, cnt) in enumerate(tn["Nhóm"].value_counts(sort=False).items(), 2):
-            rows.append(("item", (j, "-", f"{nhom[0]}. {full[nhom[0]]} ({cnt} mục)", "-", "-", "-", "Bổ sung")))
+            rows.append(("item", (j, "-", f"{nhom[0]}. {full[nhom[0]]} ({cnt} thí nghiệm)", "-", "-", "-", "Bổ sung")))
+        hs = pd.read_excel(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", sheet_name="Ho_so_kem_theo", header=3)
+        rows.append(("item", (len(tn["Nhóm"].unique()) + 2, "-", f"Hồ sơ kèm theo: chứng chỉ, cấp phối, phiếu giao hàng, nhật ký ({len(hs)} mục)", "-", "-", "-", "Bổ sung")[:7]))
         return rows
 
     # lượt 1: số trang giả để biết số trang mục lục
