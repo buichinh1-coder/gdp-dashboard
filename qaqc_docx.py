@@ -16,6 +16,7 @@ from pathlib import Path
 
 import docx
 from docx.oxml.ns import qn
+from docx.shared import Cm, Pt
 from docx.table import Table
 
 TEMPLATE = Path(__file__).parent / "data" / "qaqc" / "templates" / "mau_bien_ban.docx"
@@ -64,6 +65,32 @@ def _doi_tuong(rec):
     return f"{rec['hang_muc']}{vitri}{kl}"
 
 
+FONT = "Times New Roman"
+SIZE = Pt(13)
+
+
+def _chuan_font(el):
+    """Mọi chữ dùng Times New Roman, cỡ tối thiểu 13pt (tiêu đề lớn hơn thì giữ)."""
+    for r in el.iter(qn('w:r')):
+        rpr = r.find(qn('w:rPr'))
+        if rpr is None:
+            rpr = r.makeelement(qn('w:rPr'), {})
+            r.insert(0, rpr)
+        rf = rpr.find(qn('w:rFonts'))
+        if rf is None:
+            rf = rpr.makeelement(qn('w:rFonts'), {})
+            rpr.insert(0, rf)
+        for a in ("ascii", "hAnsi", "cs", "eastAsia"):
+            rf.set(qn(f"w:{a}"), FONT)
+        for tag in ("w:sz", "w:szCs"):
+            sz = rpr.find(qn(tag))
+            if sz is None:
+                sz = rpr.makeelement(qn(tag), {})
+                rpr.append(sz)
+            cur = int(sz.get(qn("w:val")) or 0)
+            sz.set(qn("w:val"), str(max(cur, 26)))  # 26 half-point = 13pt
+
+
 def _name_in_cell(cell, name, blanks=3):
     """Thêm tên in dưới ô ký (chừa chỗ ký phía trên)."""
     p = cell.paragraphs[0]
@@ -85,9 +112,9 @@ def _ten_nguoi_ky(els, doc, t, project):
         head = tb.rows[0].cells[0].text.strip()
         if t == "LM" and head.startswith("Đại diện TVGS"):
             if anh:
-                _name_in_cell(tb.rows[1].cells[0], anh)
+                _name_in_cell(tb.rows[1].cells[0], anh, 2)
             if tung:
-                _name_in_cell(tb.rows[1].cells[1], tung)
+                _name_in_cell(tb.rows[1].cells[1], tung, 2)
         elif t == "CV" and head.startswith("Đại diện TVGS"):
             if anh:
                 _name_in_cell(tb.rows[1].cells[0], anh)
@@ -118,11 +145,28 @@ def build_docx(records, project):
     sect = src[-1]
     for el in src[:-1]:
         body.remove(el)
+    sec = doc.sections[-1]
+    sec.top_margin, sec.bottom_margin = Cm(1.5), Cm(1.5)
+    sec.header_distance = sec.footer_distance = Cm(0.7)
 
     for rec in records:
         t = rec["type"]
         lo, hi = FORMS[t]
         els = [copy.deepcopy(src[i]) for i in range(lo, hi + 1)]
+        if t == "LM":  # gọn trong 1 trang A4: bỏ dòng trống, giãn dòng vừa phải, không tách hàng ký
+            els = [e for e in els if e.tag != qn('w:p') or _text(e).strip() or e.findall('.//' + qn('w:drawing'))]
+            for e in els:
+                sp = e.find(qn('w:pPr') + '/' + qn('w:spacing'))
+                if sp is not None and sp.get(qn('w:line')) and int(sp.get(qn('w:line'))) > 300:
+                    sp.set(qn('w:line'), '276')
+            for e in els:
+                if e.tag == qn('w:tbl'):
+                    for tr in e.iter(qn('w:tr')):
+                        trpr = tr.find(qn('w:trPr'))
+                        if trpr is None:
+                            trpr = tr.makeelement(qn('w:trPr'), {})
+                            tr.insert(0, trpr)
+                        trpr.append(trpr.makeelement(qn('w:cantSplit'), {}))
         for el in els:
             sect.addprevious(el)
         dd, mm, yy = _d(rec["ngay"])
@@ -192,6 +236,8 @@ def build_docx(records, project):
                     _set_text(els[k + 1], kl)
 
         _ten_nguoi_ky(els, doc, t, project)
+        for el in els:
+            _chuan_font(el)
 
         # Bảng khối lượng của form VL.
         if t == "VL":
@@ -204,6 +250,8 @@ def build_docx(records, project):
                         for c, v in zip(tb.rows[1].cells, vals):
                             if v:
                                 c.paragraphs[0].add_run(v)
+            for e2 in els:
+                _chuan_font(e2)
 
     buf = io.BytesIO()
     doc.save(buf)
