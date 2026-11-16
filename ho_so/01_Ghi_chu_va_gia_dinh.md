@@ -2,6 +2,13 @@
 
 Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là bản khung cần hoàn thiện.**
 
+## Quyển hồ sơ hoàn chỉnh
+- `00_HO_SO_HOAN_CHINH.pdf` (288 trang, có bookmark): bìa, trang xác nhận, danh mục hồ sơ có số trang, tờ phân cách các phần A-D,
+  phiếu yêu cầu, biên bản, checklist và bảng tổng hợp thi công cọc, đánh số trang "Trang x/288" ở chân trang.
+  Phần D là tờ phân cách để đặt chứng chỉ, kết quả thí nghiệm, bản vẽ hoàn công, nhật ký (chưa có nên chưa kèm).
+- `00_Bia_ho_so.docx`, `00_Muc_luc_ho_so.docx`, `00_Danh_muc_ho_so.xlsx`: bản sửa được của bìa và danh mục.
+- Dựng lại sau khi chỉnh các file: `python tools/assemble_ho_so.py ho_so` (số trang mục lục tự cập nhật).
+
 ## Đã điền / để trống
 - Đã điền: số biên bản, hạng mục, vị trí, khối lượng, ngày nghiệm thu.
 - **Ngày nghiệm thu** lấy theo ngày kế hoạch, theo xác nhận của người lập hồ sơ rằng đó là ngày thực tế.

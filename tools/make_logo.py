@@ -23,4 +23,5 @@ for text, y, n, col in [("GIANG LONG", 88, 15, navy), ("CÔNG TY TNHH", 108, 9, 
     d.text(((W - w) / 2, y * S - n * S // 2), text, font=F(n), fill=col)
 out = Path(__file__).parent.parent / "data/qaqc/templates/logo_giang_long.png"
 im.resize((136, 121), Image.LANCZOS).save(out)
+im.resize((136 * 3, 121 * 3), Image.LANCZOS).save(out.with_name("logo_giang_long_lg.png"))
 print(out)
