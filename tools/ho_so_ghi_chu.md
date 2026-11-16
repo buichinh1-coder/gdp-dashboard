@@ -41,7 +41,8 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 - Phòng thí nghiệm LAS-XD 1191 (điền vào biên bản lấy mẫu và danh sách thí nghiệm). Ngày phiếu kết quả chốt bằng ngày thực hiện
   thí nghiệm; số phiếu và kết quả để trống.
 - Thép chỉ thí nghiệm kéo (không uốn). Bê tông M300 chỉ nén R7 và R28 (không độ sụt, không thấm nước vì chỉ dẫn kỹ thuật không yêu cầu).
-- Bỏ thí nghiệm đầm nén tiêu chuẩn và nén tĩnh cọc (hiểu "đã" là "đầm"; cần xác nhận). Độ chặt K95 vẫn làm tại hiện trường theo từng ngày đắp.
+- Bỏ thí nghiệm đá (đá xô chỉ nghiệm thu vật liệu đầu vào) và nén tĩnh cọc. **Giữ** thí nghiệm đầm nén tiêu chuẩn của đất đắp (đê quai 17/08, hoàn trả 20/09)
+  làm cơ sở cho độ chặt K95, làm tại hiện trường theo từng ngày đắp.
 
 ## Giả định cần xác nhận
 1. Nghiệm thu vật liệu đầu vào (VL):

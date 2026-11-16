@@ -234,6 +234,10 @@ for p_ in PD:
         dd = f"Đổ bê tông {p_.lower()}, ngày {d0:%d/%m}"
         add(BTG, "Nén mẫu R7", dd, "TCVN 3118:2022", ref, fmt(d0), fmt(d0 + dt.timedelta(7)), "Ngày đổ + 7 ngày (căn cứ đắp đất lên tường chắn)")
         add(BTG, "Nén mẫu R28", dd, "TCVN 3118:2022", ref, fmt(d0), fmt(d0 + dt.timedelta(28)), "Ngày đổ + 28 ngày (căn cứ nghiệm thu kết cấu)")
+for muc, ten, dd_ in (("15", "đê quai", "Đất đắp đê quai"), ("06", "hoàn trả hố móng", "Đất đắp hoàn trả hố móng")):
+    d_dau = D(row_of(muc, PD[0])[6])  # đầm nén tiêu chuẩn làm trước ngày đắp đầu tiên 1 ngày (cơ sở xác định K95)
+    add(DAT, "Đầm nén tiêu chuẩn: dung trọng khô lớn nhất, độ ẩm tốt nhất", dd_, TC, cv_of(muc, PD[0])["so"], "Lấy mẫu trước khi đắp",
+        fmt(d_dau - dt.timedelta(1)), f"Ngày trước ngày đắp {ten} đầu tiên ({fmt(d_dau)})")
 for muc, ten in (("15", "Đắp đê quai"), ("06", "Đắp hoàn trả hố móng")):
     for p_ in PD:
         r = row_of(muc, p_)
