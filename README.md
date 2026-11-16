@@ -26,3 +26,7 @@ checklist, nhật ký thi công và xuất danh mục Excel. Dữ liệu lưu �
 ```
 $ streamlit run qaqc_app.py
 ```
+
+Mẫu checklist theo từng công việc (102 mẫu XD + MEP) nằm ở `data/qaqc/checklists.json`, trích từ
+`Checklist_XD.xlsx` / `Checklist_MEP.xlsx` bằng `tools/extract_checklists.py`. Biên bản VL và CV có thể
+xuất ra Word theo form mẫu `data/qaqc/templates/mau_bien_ban.docx`.

@@ -39,6 +39,12 @@ def load():
     return {"project": {"ten_cong_trinh": "", "so_hop_dong": "", "chu_dau_tu": "", "tu_van_giam_sat": "", "nha_thau": "", "dia_diem": "", "goi_thau": ""}, "records": []}
 
 
+@st.cache_data
+def load_checklists():
+    f = DATA_DIR / "checklists.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+
+
 def save(db):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(json.dumps(db, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -66,6 +72,11 @@ tab_new, tab_list, tab_log, tab_exp = st.tabs(["Lập biên bản", "Danh mục 
 
 with tab_new:
     t = st.selectbox("Loại biên bản", [k for k in TYPES if k != "NK"], format_func=lambda k: f"{k} - {TYPES[k]}")
+    cls = load_checklists()
+    mau = ""
+    if t in ("CV", "GD") and cls:
+        mau = st.selectbox("Mẫu checklist theo công việc (từ file mẫu XD / MEP)", [""] + sorted(cls, key=lambda k: (cls[k]["nhom_file"], cls[k]["doi_tuong"])),
+                           format_func=lambda k: "(checklist chung)" if not k else f"[{cls[k]['nhom_file']}] {cls[k]['doi_tuong'] or cls[k]['sheet']}")
     with st.form("new_record", clear_on_submit=True):
         c1, c2, c3 = st.columns(3)
         so = c1.text_input("Số biên bản", next_number(db, t))
@@ -76,7 +87,12 @@ with tab_new:
         dvt = c4.text_input("Đơn vị tính")
         kl = c5.number_input("Khối lượng", min_value=0.0, step=0.1)
         st.markdown("**Checklist kiểm tra** (chọn kết quả sau khi kiểm tra thực tế)")
-        cl = pd.DataFrame({"Nội dung": DEFAULT_CHECKLIST[t], "Kết quả": "Chưa kiểm tra", "Ghi chú": ""})
+        if mau:
+            rows = cls[mau]["muc"]
+            cl = pd.DataFrame({"Nhóm": [m["nhom"] for m in rows], "Nội dung": [m["noi_dung"] for m in rows],
+                               "Phương pháp": [m["phuong_phap"] for m in rows], "Kết quả": "Chưa kiểm tra", "Ghi chú": ""})
+        else:
+            cl = pd.DataFrame({"Nhóm": "", "Nội dung": DEFAULT_CHECKLIST[t], "Phương pháp": "", "Kết quả": "Chưa kiểm tra", "Ghi chú": ""})
         cl = st.data_editor(cl, num_rows="dynamic", use_container_width=True,
                             column_config={"Kết quả": st.column_config.SelectboxColumn(options=STATUS)})
         kl_chung = st.selectbox("Kết luận chung", ["Chưa có kết luận"] + STATUS[1:])
@@ -86,7 +102,7 @@ with tab_new:
             else:
                 db["records"].append({"type": t, "so": so, "ngay": str(ngay), "vi_tri": vitri, "hang_muc": hangmuc,
                                       "dvt": dvt, "khoi_luong": kl, "checklist": cl.fillna("").to_dict("records"),
-                                      "ket_luan": kl_chung})
+                                      "ket_luan": kl_chung, "mau_checklist": mau})
                 save(db)
                 st.success(f"Đã tạo {so}")
 
