@@ -109,7 +109,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "001/YC/CV",
+      "so_kt": "001/KT"
     },
     {
       "type": "CV",
@@ -200,7 +202,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "002/YC/CV",
+      "so_kt": "002/KT"
     },
     {
       "type": "VL",
@@ -235,7 +239,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 001",
+      "lm_ref": [
+        "001/LM"
+      ],
+      "so_yc": "001/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -333,7 +342,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "003/YC/CV",
+      "so_kt": "003/KT"
     },
     {
       "type": "CV",
@@ -424,7 +435,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "004/YC/CV",
+      "so_kt": "004/KT"
     },
     {
       "type": "CV",
@@ -522,7 +535,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "005/YC/CV",
+      "so_kt": "005/KT"
     },
     {
       "type": "CV",
@@ -613,7 +628,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "006/YC/CV",
+      "so_kt": "006/KT"
     },
     {
       "type": "CV",
@@ -725,7 +742,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "007/YC/CV",
+      "so_kt": "007/KT",
+      "vl_ref": [
+        "001/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "001/LM"
+      ]
     },
     {
       "type": "CV",
@@ -816,7 +841,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "008/YC/CV",
+      "so_kt": "008/KT"
     },
     {
       "type": "CV",
@@ -858,7 +885,8 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "009/YC/CV"
     },
     {
       "type": "CV",
@@ -970,7 +998,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "010/YC/CV",
+      "so_kt": "010/KT"
     },
     {
       "type": "CV",
@@ -1096,7 +1126,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "011/YC/CV",
+      "so_kt": "011/KT"
     },
     {
       "type": "VL",
@@ -1131,7 +1163,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 002",
+      "lm_ref": [
+        "002/LM"
+      ],
+      "so_yc": "002/YC/VL-TB"
     },
     {
       "type": "VL",
@@ -1166,7 +1203,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 003",
+      "lm_ref": [
+        "003/LM"
+      ],
+      "so_yc": "003/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -1306,7 +1348,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "012/YC/CV",
+      "so_kt": "012/KT",
+      "vl_ref": [
+        "003/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "003/LM"
+      ]
     },
     {
       "type": "CV",
@@ -1404,7 +1454,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "013/YC/CV",
+      "so_kt": "013/KT"
     },
     {
       "type": "CV",
@@ -1495,7 +1547,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "014/YC/CV",
+      "so_kt": "014/KT"
     },
     {
       "type": "CV",
@@ -1607,7 +1661,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "015/YC/CV",
+      "so_kt": "015/KT",
+      "vl_ref": [
+        "001/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "001/LM"
+      ]
     },
     {
       "type": "CV",
@@ -1698,7 +1760,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "016/YC/CV",
+      "so_kt": "016/KT"
     },
     {
       "type": "CV",
@@ -1740,7 +1804,8 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "017/YC/CV"
     },
     {
       "type": "CV",
@@ -1852,7 +1917,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "018/YC/CV",
+      "so_kt": "018/KT"
     },
     {
       "type": "CV",
@@ -1978,7 +2045,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "019/YC/CV",
+      "so_kt": "019/KT"
     },
     {
       "type": "VL",
@@ -2013,7 +2082,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 004",
+      "lm_ref": [
+        "004/LM"
+      ],
+      "so_yc": "004/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -2153,7 +2227,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "020/YC/CV",
+      "so_kt": "020/KT",
+      "vl_ref": [
+        "004/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "004/LM"
+      ]
     },
     {
       "type": "CV",
@@ -2279,7 +2361,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "021/YC/CV",
+      "so_kt": "021/KT",
+      "vl_ref": [
+        "002/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "002/LM"
+      ]
     },
     {
       "type": "CV",
@@ -2405,7 +2495,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "022/YC/CV",
+      "so_kt": "022/KT"
     },
     {
       "type": "CV",
@@ -2531,7 +2623,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "023/YC/CV",
+      "so_kt": "023/KT"
     },
     {
       "type": "CV",
@@ -2636,7 +2730,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "024/YC/CV",
+      "so_kt": "024/KT"
     },
     {
       "type": "VL",
@@ -2671,7 +2767,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 005",
+      "lm_ref": [
+        "005/LM"
+      ],
+      "so_yc": "005/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -2783,7 +2884,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "025/YC/CV",
+      "so_kt": "025/KT",
+      "vl_ref": [
+        "001/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "001/LM"
+      ]
     },
     {
       "type": "CV",
@@ -2874,7 +2983,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "026/YC/CV",
+      "so_kt": "026/KT"
     },
     {
       "type": "CV",
@@ -2916,7 +3027,8 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "027/YC/CV"
     },
     {
       "type": "CV",
@@ -3028,7 +3140,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "028/YC/CV",
+      "so_kt": "028/KT"
     },
     {
       "type": "CV",
@@ -3154,7 +3268,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "029/YC/CV",
+      "so_kt": "029/KT"
     },
     {
       "type": "VL",
@@ -3189,7 +3305,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 006",
+      "lm_ref": [
+        "006/LM"
+      ],
+      "so_yc": "006/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -3329,7 +3450,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "030/YC/CV",
+      "so_kt": "030/KT",
+      "vl_ref": [
+        "006/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "006/LM"
+      ]
     },
     {
       "type": "CV",
@@ -3455,7 +3584,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "031/YC/CV",
+      "so_kt": "031/KT",
+      "vl_ref": [
+        "002/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "002/LM"
+      ]
     },
     {
       "type": "CV",
@@ -3581,7 +3718,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "032/YC/CV",
+      "so_kt": "032/KT"
     },
     {
       "type": "CV",
@@ -3707,7 +3846,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "033/YC/CV",
+      "so_kt": "033/KT"
     },
     {
       "type": "CV",
@@ -3812,7 +3953,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "034/YC/CV",
+      "so_kt": "034/KT"
     },
     {
       "type": "VL",
@@ -3847,7 +3990,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 007",
+      "lm_ref": [
+        "007/LM"
+      ],
+      "so_yc": "007/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -3959,7 +4107,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "035/YC/CV",
+      "so_kt": "035/KT",
+      "vl_ref": [
+        "001/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "001/LM"
+      ]
     },
     {
       "type": "CV",
@@ -4050,7 +4206,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "036/YC/CV",
+      "so_kt": "036/KT"
     },
     {
       "type": "CV",
@@ -4092,7 +4250,8 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "037/YC/CV"
     },
     {
       "type": "CV",
@@ -4204,7 +4363,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "038/YC/CV",
+      "so_kt": "038/KT"
     },
     {
       "type": "CV",
@@ -4330,7 +4491,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "039/YC/CV",
+      "so_kt": "039/KT"
     },
     {
       "type": "VL",
@@ -4365,7 +4528,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 008",
+      "lm_ref": [
+        "008/LM"
+      ],
+      "so_yc": "008/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -4505,7 +4673,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "040/YC/CV",
+      "so_kt": "040/KT",
+      "vl_ref": [
+        "008/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "008/LM"
+      ]
     },
     {
       "type": "CV",
@@ -4631,7 +4807,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "041/YC/CV",
+      "so_kt": "041/KT",
+      "vl_ref": [
+        "002/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "002/LM"
+      ]
     },
     {
       "type": "CV",
@@ -4757,7 +4941,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "042/YC/CV",
+      "so_kt": "042/KT"
     },
     {
       "type": "CV",
@@ -4883,7 +5069,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "043/YC/CV",
+      "so_kt": "043/KT"
     },
     {
       "type": "CV",
@@ -4988,7 +5176,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "044/YC/CV",
+      "so_kt": "044/KT"
     },
     {
       "type": "CV",
@@ -5129,7 +5319,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "045/YC/CV",
+      "so_kt": "045/KT",
+      "vl_ref": [
+        "005/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "005/LM"
+      ]
     },
     {
       "type": "VL",
@@ -5164,7 +5362,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 009",
+      "lm_ref": [
+        "009/LM"
+      ],
+      "so_yc": "009/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -5290,7 +5493,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "046/YC/CV",
+      "so_kt": "046/KT",
+      "vl_ref": [
+        "002/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "002/LM"
+      ]
     },
     {
       "type": "CV",
@@ -5416,7 +5627,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "047/YC/CV",
+      "so_kt": "047/KT"
     },
     {
       "type": "CV",
@@ -5542,7 +5755,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "048/YC/CV",
+      "so_kt": "048/KT"
     },
     {
       "type": "CV",
@@ -5647,7 +5862,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "049/YC/CV",
+      "so_kt": "049/KT"
     },
     {
       "type": "CV",
@@ -5788,7 +6005,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "050/YC/CV",
+      "so_kt": "050/KT",
+      "vl_ref": [
+        "007/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "007/LM"
+      ]
     },
     {
       "type": "CV",
@@ -5886,7 +6111,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "051/YC/CV",
+      "so_kt": "051/KT"
     },
     {
       "type": "VL",
@@ -5921,7 +6148,12 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_lm": "LM 010",
+      "lm_ref": [
+        "010/LM"
+      ],
+      "so_yc": "010/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -6062,7 +6294,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "052/YC/CV",
+      "so_kt": "052/KT",
+      "vl_ref": [
+        "009/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "009/LM"
+      ]
     },
     {
       "type": "CV",
@@ -6160,7 +6400,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "053/YC/CV",
+      "so_kt": "053/KT"
     },
     {
       "type": "CV",
@@ -6258,7 +6500,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "054/YC/CV",
+      "so_kt": "054/KT"
     },
     {
       "type": "CV",
@@ -6349,7 +6593,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "055/YC/CV",
+      "so_kt": "055/KT"
     },
     {
       "type": "CV",
@@ -6490,7 +6736,15 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "056/YC/CV",
+      "so_kt": "056/KT",
+      "vl_ref": [
+        "010/CV/VL-TB"
+      ],
+      "lm_ref": [
+        "010/LM"
+      ]
     },
     {
       "type": "CV",
@@ -6588,7 +6842,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "057/YC/CV",
+      "so_kt": "057/KT"
     },
     {
       "type": "CV",
@@ -6686,7 +6942,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "058/YC/CV",
+      "so_kt": "058/KT"
     },
     {
       "type": "CV",
@@ -6777,7 +7035,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "059/YC/CV",
+      "so_kt": "059/KT"
     },
     {
       "type": "CV",
@@ -6875,7 +7135,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "060/YC/CV",
+      "so_kt": "060/KT"
     },
     {
       "type": "CV",
@@ -6973,7 +7235,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "061/YC/CV",
+      "so_kt": "061/KT"
     },
     {
       "type": "CV",
@@ -7064,7 +7328,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "062/YC/CV",
+      "so_kt": "062/KT"
     },
     {
       "type": "CV",
@@ -7162,7 +7428,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "063/YC/CV",
+      "so_kt": "063/KT"
     },
     {
       "type": "CV",
@@ -7253,7 +7521,9 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "064/YC/CV",
+      "so_kt": "064/KT"
     },
     {
       "type": "CV",
@@ -7295,7 +7565,8 @@
           "Ghi chú": ""
         }
       ],
-      "ket_luan": "Chưa có kết luận"
+      "ket_luan": "Chưa có kết luận",
+      "so_yc": "065/YC/CV"
     }
   ]
 }
