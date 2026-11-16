@@ -177,10 +177,12 @@ def _ten_nguoi_ky(els, doc, t, project):
                     p.paragraph_format.tab_stops.add_tab_stop(Cm(12.75), WD_TAB_ALIGNMENT.CENTER)
                     for r in list(p.runs):
                         r._r.getparent().remove(r._r)
-                r0 = ps[0].add_run("\t\tChỉ huy trưởng công trường")
-                r0.italic, r0.font.name = True, "Times New Roman"
+                # ps[0..2]: chừa chỗ ký; ps[3]: họ tên người ký, bên dưới tên nhà thầu là chức danh (theo mẫu bạn gửi)
                 r3 = ps[3].add_run(f"\t{anh}\t{tung}")
                 r3.bold, r3.font.name = True, "Times New Roman"
+                r3.add_break()
+                r4 = ps[3].add_run("\t\tChỉ huy trưởng công trường")
+                r4.italic, r4.font.name = True, "Times New Roman"
 
 
 def build_docx(records, project):
