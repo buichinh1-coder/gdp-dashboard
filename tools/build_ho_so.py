@@ -17,6 +17,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import qaqc_docx  # noqa: E402
 import qaqc_xlsx  # noqa: E402
+import tieu_chuan  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 OUT = Path(sys.argv[2])
@@ -57,9 +58,6 @@ vl = [  # ngày VL do người lập chọn: cọc = ngày đầu tiên trước
 bt = {"Cọc 88-98": ("2026-09-11", 136.94), "Cọc 98-108": ("2026-09-16", 136.94), "Cọc 108-118": ("2026-09-21", 136.94), "Cọc 118-126": ("2026-09-26", 136.96)}
 for pd_, (d, q) in bt.items():
     vl.append(("Bê tông thương phẩm M300 bền sunfat, phụ gia chống thấm (cấp phối đã duyệt)", pd_, "m3", q, d))
-for v in rows:  # bê tông lót M100 (thương phẩm, cấp phối đã duyệt): nghiệm thu VL mỗi đợt, ngày = ngày đổ
-    if str(v[1]) == "08":
-        vl.append(("Bê tông thương phẩm M100 (cấp phối đã duyệt) - bê tông lót móng", v[3], "m3", float(v[5]), iso(v[6])))
 for k, (hm, vt, dv, kl, d) in enumerate(vl):
     raw.append((d, k, {"type": "VL", "hang_muc": hm, "vi_tri": vt, "dvt": dv, "khoi_luong": kl, "ngay": d, "mau_checklist": "", "lay_mau": True}))
 for v in rows:
@@ -96,9 +94,9 @@ for i, r in enumerate(vls, 1):
 num = lambda r: r["so"].split()[-1]
 VLREF = {"02": lambda r: [x for x in vls if "Cọc bê tông" in x["hang_muc"]],
          "13": lambda r: [x for x in vls if "Cốt thép" in x["hang_muc"]],
-         "08": lambda r: [x for x in vls if "M100" in x["hang_muc"] and x["vi_tri"] == r["vi_tri"]],
          "09": lambda r: [x for x in vls if "M300" in x["hang_muc"] and x["vi_tri"] == r["vi_tri"]]}
 for r in db["records"]:
+    r["tieu_chuan"] = tieu_chuan.tieu_chuan_vl(r["hang_muc"]) if r["type"] == "VL" else tieu_chuan.tieu_chuan_cv(r.get("muc_hd", ""))
     if r["type"] == "VL":
         r["lm_ref"] = [num(r_) + "/LM" for r_ in [r]] and [f"{r['so_lm'].split()[-1]}/LM"]
         r["so_yc"] = f"{num(r)}/YC/VL-TB"
@@ -147,28 +145,22 @@ dap_rows = {v[3]: D(v[6]) for v in rows if str(v[1]) == "06"}
 vl_so = {r["hang_muc"][:12] + r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL"}
 so_vl = lambda k: next(r["so"] for r in recs if r["type"] == "VL" and k in r["hang_muc"])
 so_bt = {r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL" and "M300" in r["hang_muc"] and "Bê tông thương phẩm" in r["hang_muc"]}
-so_lot = {r["vi_tri"]: r["so"] for r in recs if r["type"] == "VL" and "M100" in r["hang_muc"]}
-lot_start = {r["vi_tri"]: r["ngay"] for r in recs if r["type"] == "VL" and "M100" in r["hang_muc"]}
 LM_SO = {r["so"]: f"LM {i:03d}" for i, r in enumerate([r for r in recs if r["type"] == "VL"], 1)}
 TC = "Theo chỉ dẫn kỹ thuật của hợp đồng"
 tn = [
     ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Phiếu duyệt cấp phối / trialmix bê tông cọc", TC, "Trước khi sản xuất cọc", so_vl("Cọc")),
     ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Chứng chỉ và kết quả thí nghiệm xi măng (bền sunfat), phụ gia", TC, "Trước 24/08/2026", so_vl("Cọc")),
-    ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Thí nghiệm cát, đá, nước trộn bê tông", "TCVN 7570:2006, TCVN 7572:2006, TCVN 4506:2012", "Trước 24/08/2026", so_vl("Cọc")),
-    ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Thí nghiệm kéo, uốn thép chế tạo cọc (nếu cọc có cốt thép)", "TCVN 1651-2:2018, TCVN 197-1:2014, TCVN 198:2008", "Trước 24/08/2026", so_vl("Cọc")),
+    ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Thí nghiệm cát, đá, nước trộn bê tông", "TCVN 7570:2006, TCVN 4506:2012", "Trước 24/08/2026", so_vl("Cọc")),
+    ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Thí nghiệm kéo, uốn thép chế tạo cọc (nếu cọc có cốt thép)", "TCVN 1651-2:2018, QCVN 07:2019/BKHCN", "Trước 24/08/2026", so_vl("Cọc")),
     ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Nén mẫu bê tông cọc R7 (căn cứ cho phép ép; phụ gia R7 đạt 100%)", "TCVN 3118:2022", "Trước 24/08/2026 (nghiệm thu VL 1 lần), đủ cho toàn bộ 3.372 m", so_vl("Cọc")),
     ("A. Cọc BT300x300 M300 bền sunfat (tự sản xuất)", "Biên bản kiểm tra chế tạo cọc: kích thước, độ thẳng, mũi cọc, vết nứt", TC, "Trước 24/08/2026", so_vl("Cọc")),
     ("B. Cốt thép", "CO/CQ và chứng chỉ xuất xưởng từng lô thép", "TCVN 1651-2:2018", "Trước 04/09/2026", so_vl("Cốt thép")),
-    ("B. Cốt thép", "Thí nghiệm kéo (giới hạn chảy, bền, độ giãn dài) và uốn nguội theo lô, đường kính", "TCVN 1651-2:2018, TCVN 197-1:2014, TCVN 198:2008", "Trước 04/09/2026 (nghiệm thu VL 1 lần)", so_vl("Cốt thép")),
+    ("B. Cốt thép", "Thí nghiệm kéo (giới hạn chảy, bền, độ giãn dài) và uốn nguội theo lô, đường kính", "TCVN 1651-2:2018, QCVN 07:2019/BKHCN", "Trước 04/09/2026 (nghiệm thu VL 1 lần)", so_vl("Cốt thép")),
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật liệu của nhà máy bê tông", TC, "Trước ngày đổ đợt đầu (11/09/2026)", ", ".join(so_bt.values())),
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Phiếu giao hàng từng xe (mác, độ sụt, giờ trộn)", "", "Mỗi đợt đổ", ", ".join(so_bt.values())),
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Đo độ sụt hiện trường", "TCVN 3106:2022", "Mỗi đợt đổ", ", ".join(so_bt.values())),
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Lấy mẫu và nén mẫu R7 (căn cứ đắp đất lên tường chắn)", "TCVN 3105:2022, TCVN 3118:2022", "R7 sau ngày lấy mẫu (xem sheet Moc_R7)", ", ".join(so_bt.values())),
     ("C. Bê tông thương phẩm M300 (mỗi đợt đổ)", "Nén mẫu R28 / thấm nước (nếu chỉ dẫn kỹ thuật hoặc CĐT yêu cầu)", "TCVN 3118:2022, TCVN 3116:2022", "Theo yêu cầu", ", ".join(so_bt.values())),
-    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Hồ sơ cấp phối đã duyệt, chứng chỉ vật liệu của nhà máy bê tông", TC, "Trước ngày đổ lót đợt đầu (04/09/2026)", ", ".join(so_lot.values())),
-    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Phiếu giao hàng từng xe (mác, độ sụt, giờ trộn)", "", "Mỗi đợt đổ lót", ", ".join(so_lot.values())),
-    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Đo độ sụt hiện trường", "TCVN 3106:2022", "Mỗi đợt đổ lót", ", ".join(so_lot.values())),
-    ("C2. Bê tông thương phẩm M100 - bê tông lót (mỗi đợt đổ)", "Lấy mẫu và nén mẫu bê tông lót (nếu chỉ dẫn kỹ thuật yêu cầu)", "TCVN 3105:2022, TCVN 3118:2022", "Mỗi đợt đổ lót", ", ".join(so_lot.values())),
     ("D. Đề xuất, cần xác nhận", "Ống thoát nước, chi tiết thoát nước khe lún: chứng chỉ chất lượng", TC, "Trước 08/09/2026", "CV khe lún"),
     ("D. Đề xuất, cần xác nhận", "Đất đắp hoàn trả (8.642 m3): thí nghiệm đầm nén tiêu chuẩn (dung trọng khô lớn nhất, độ ẩm tốt nhất)", TC, "Trước khi đắp phân đoạn 1 (21/09/2026)", "CV đắp hoàn trả"),
     ("D. Đề xuất, cần xác nhận", "Độ chặt K từng lớp đắp (hiện trường)", TC, "Từng lớp đắp", "CV đắp hoàn trả"),
@@ -194,6 +186,8 @@ for pd_ in PD:
 with pd.ExcelWriter(OUT / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", engine="openpyxl") as w:
     tn_df.to_excel(w, sheet_name="Danh_sach", index=False)
     pd.DataFrame(r7).to_excel(w, sheet_name="Moc_R7", index=False)
+    pd.DataFrame([{"Số hiệu": a, "Tên": b, "Tình trạng tra cứu": c, "Nguồn": d} for a, b, c, d in tieu_chuan.TC_BANG]).to_excel(w, sheet_name="Tieu_chuan_da_dung", index=False)
+    pd.DataFrame([{"Số hiệu / văn bản": a, "Tên": b, "Cần xác nhận": c, "Nguồn": d} for a, b, c, d in tieu_chuan.TC_CAN_XAC_NHAN]).to_excel(w, sheet_name="Tieu_chuan_can_xac_nhan", index=False)
     for ws_ in w.book.worksheets:
         for col in ws_.columns:
             ws_.column_dimensions[col[0].column_letter].width = min(60, max(12, max(len(str(c.value or "")) for c in col) * 0.9))

@@ -225,6 +225,10 @@ def build_docx(records, project):
             elif s2.startswith("Phiếu yêu cầu nghiệm thu của nhà thầu"):
                 so_yc = rec.get("so_yc") or f"{_num(rec)}/{'YC/VL-TB' if t == 'VL' else 'YC/CV'}"
                 _set_text(els[k], f"- Phiếu yêu cầu nghiệm thu của nhà thầu thi công xây dựng số: {so_yc}")
+            elif s2.startswith("Tiêu chuẩn, quy phạm xây dựng") and rec.get("tieu_chuan"):
+                _set_text(els[k], "- Tiêu chuẩn, quy phạm xây dựng được áp dụng: " + "; ".join(rec["tieu_chuan"]) + "; hồ sơ thiết kế, chỉ dẫn kỹ thuật của hợp đồng")
+            elif s.startswith("5. Tiêu chuẩn kỹ thuật áp dụng") and nxt is not None and rec.get("tieu_chuan"):
+                _set_text(nxt, "; ".join(rec["tieu_chuan"]))
             elif s2.startswith("Hồ sơ mời thầu") and project.get("so_hop_dong"):
                 _set_text(els[k], f"- Hồ sơ mời thầu, hồ sơ trúng thầu và hợp đồng xây dựng số: {project['so_hop_dong']}")
             elif s2.startswith("Biên bản lấy mẫu, giao nhận mẫu") and rec.get("lm_ref"):

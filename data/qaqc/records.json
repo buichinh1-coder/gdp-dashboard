@@ -110,6 +110,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "001/YC/CV",
       "so_kt": "001/KT"
     },
@@ -203,6 +206,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "002/YC/CV",
       "so_kt": "002/KT"
     },
@@ -241,6 +247,13 @@
       ],
       "ket_luan": "Chưa có kết luận",
       "so_lm": "LM 001",
+      "tieu_chuan": [
+        "TCVN 9394:2012",
+        "TCVN 3118:2022",
+        "TCVN 7570:2006",
+        "TCVN 4506:2012",
+        "TCVN 1651-2:2018"
+      ],
       "lm_ref": [
         "001/LM"
       ],
@@ -343,6 +356,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "003/YC/CV",
       "so_kt": "003/KT"
     },
@@ -436,6 +452,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "004/YC/CV",
       "so_kt": "004/KT"
     },
@@ -536,6 +555,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "005/YC/CV",
       "so_kt": "005/KT"
     },
@@ -629,6 +651,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "006/YC/CV",
       "so_kt": "006/KT"
     },
@@ -743,6 +768,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012"
+      ],
       "so_yc": "007/YC/CV",
       "so_kt": "007/KT",
       "vl_ref": [
@@ -842,6 +870,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "008/YC/CV",
       "so_kt": "008/KT"
     },
@@ -886,6 +918,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "009/YC/CV"
     },
     {
@@ -999,6 +1034,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "010/YC/CV",
       "so_kt": "010/KT"
     },
@@ -1127,6 +1166,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "011/YC/CV",
       "so_kt": "011/KT"
     },
@@ -1165,50 +1207,14 @@
       ],
       "ket_luan": "Chưa có kết luận",
       "so_lm": "LM 002",
+      "tieu_chuan": [
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
+      ],
       "lm_ref": [
         "002/LM"
       ],
       "so_yc": "002/YC/VL-TB"
-    },
-    {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M100 (cấp phối đã duyệt) - bê tông lót móng",
-      "vi_tri": "Cọc 88-98",
-      "dvt": "m3",
-      "khoi_luong": 21.34,
-      "ngay": "2026-09-04",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 003",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 003",
-      "lm_ref": [
-        "003/LM"
-      ],
-      "so_yc": "003/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -1349,14 +1355,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_yc": "012/YC/CV",
-      "so_kt": "012/KT",
-      "vl_ref": [
-        "003/CV/VL-TB"
+      "tieu_chuan": [
+        "TCVN 4453:1995"
       ],
-      "lm_ref": [
-        "003/LM"
-      ]
+      "so_yc": "012/YC/CV",
+      "so_kt": "012/KT"
     },
     {
       "type": "CV",
@@ -1455,6 +1458,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "013/YC/CV",
       "so_kt": "013/KT"
     },
@@ -1548,6 +1554,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "014/YC/CV",
       "so_kt": "014/KT"
     },
@@ -1662,6 +1671,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012"
+      ],
       "so_yc": "015/YC/CV",
       "so_kt": "015/KT",
       "vl_ref": [
@@ -1761,6 +1773,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "016/YC/CV",
       "so_kt": "016/KT"
     },
@@ -1805,6 +1821,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "017/YC/CV"
     },
     {
@@ -1918,6 +1937,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "018/YC/CV",
       "so_kt": "018/KT"
     },
@@ -2046,48 +2069,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "019/YC/CV",
       "so_kt": "019/KT"
-    },
-    {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M100 (cấp phối đã duyệt) - bê tông lót móng",
-      "vi_tri": "Cọc 98-108",
-      "dvt": "m3",
-      "khoi_luong": 21.34,
-      "ngay": "2026-09-09",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 004",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 004",
-      "lm_ref": [
-        "004/LM"
-      ],
-      "so_yc": "004/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -2228,14 +2214,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_yc": "020/YC/CV",
-      "so_kt": "020/KT",
-      "vl_ref": [
-        "004/CV/VL-TB"
+      "tieu_chuan": [
+        "TCVN 4453:1995"
       ],
-      "lm_ref": [
-        "004/LM"
-      ]
+      "so_yc": "020/YC/CV",
+      "so_kt": "020/KT"
     },
     {
       "type": "CV",
@@ -2362,6 +2345,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
+      ],
       "so_yc": "021/YC/CV",
       "so_kt": "021/KT",
       "vl_ref": [
@@ -2496,6 +2484,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "022/YC/CV",
       "so_kt": "022/KT"
     },
@@ -2624,6 +2615,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "023/YC/CV",
       "so_kt": "023/KT"
     },
@@ -2731,6 +2725,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "024/YC/CV",
       "so_kt": "024/KT"
     },
@@ -2743,7 +2740,7 @@
       "ngay": "2026-09-11",
       "mau_checklist": "",
       "lay_mau": true,
-      "so": "VL 005",
+      "so": "VL 003",
       "checklist": [
         {
           "Nhóm": "",
@@ -2768,11 +2765,19 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 005",
-      "lm_ref": [
-        "005/LM"
+      "so_lm": "LM 003",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 3116:2022",
+        "TCVN 8828:2011"
       ],
-      "so_yc": "005/YC/VL-TB"
+      "lm_ref": [
+        "003/LM"
+      ],
+      "so_yc": "003/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -2885,6 +2890,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012"
+      ],
       "so_yc": "025/YC/CV",
       "so_kt": "025/KT",
       "vl_ref": [
@@ -2984,6 +2992,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "026/YC/CV",
       "so_kt": "026/KT"
     },
@@ -3028,6 +3040,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "027/YC/CV"
     },
     {
@@ -3141,6 +3156,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "028/YC/CV",
       "so_kt": "028/KT"
     },
@@ -3269,48 +3288,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "029/YC/CV",
       "so_kt": "029/KT"
-    },
-    {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M100 (cấp phối đã duyệt) - bê tông lót móng",
-      "vi_tri": "Cọc 108-118",
-      "dvt": "m3",
-      "khoi_luong": 21.34,
-      "ngay": "2026-09-14",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 006",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 006",
-      "lm_ref": [
-        "006/LM"
-      ],
-      "so_yc": "006/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -3451,14 +3433,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_yc": "030/YC/CV",
-      "so_kt": "030/KT",
-      "vl_ref": [
-        "006/CV/VL-TB"
+      "tieu_chuan": [
+        "TCVN 4453:1995"
       ],
-      "lm_ref": [
-        "006/LM"
-      ]
+      "so_yc": "030/YC/CV",
+      "so_kt": "030/KT"
     },
     {
       "type": "CV",
@@ -3585,6 +3564,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
+      ],
       "so_yc": "031/YC/CV",
       "so_kt": "031/KT",
       "vl_ref": [
@@ -3719,6 +3703,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "032/YC/CV",
       "so_kt": "032/KT"
     },
@@ -3847,6 +3834,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "033/YC/CV",
       "so_kt": "033/KT"
     },
@@ -3954,6 +3944,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "034/YC/CV",
       "so_kt": "034/KT"
     },
@@ -3966,7 +3959,7 @@
       "ngay": "2026-09-16",
       "mau_checklist": "",
       "lay_mau": true,
-      "so": "VL 007",
+      "so": "VL 004",
       "checklist": [
         {
           "Nhóm": "",
@@ -3991,11 +3984,19 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 007",
-      "lm_ref": [
-        "007/LM"
+      "so_lm": "LM 004",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 3116:2022",
+        "TCVN 8828:2011"
       ],
-      "so_yc": "007/YC/VL-TB"
+      "lm_ref": [
+        "004/LM"
+      ],
+      "so_yc": "004/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -4108,6 +4109,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012"
+      ],
       "so_yc": "035/YC/CV",
       "so_kt": "035/KT",
       "vl_ref": [
@@ -4207,6 +4211,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "036/YC/CV",
       "so_kt": "036/KT"
     },
@@ -4251,6 +4259,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "037/YC/CV"
     },
     {
@@ -4364,6 +4375,10 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 9394:2012",
+        "TCVN 9361:2012"
+      ],
       "so_yc": "038/YC/CV",
       "so_kt": "038/KT"
     },
@@ -4492,48 +4507,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "039/YC/CV",
       "so_kt": "039/KT"
-    },
-    {
-      "type": "VL",
-      "hang_muc": "Bê tông thương phẩm M100 (cấp phối đã duyệt) - bê tông lót móng",
-      "vi_tri": "Cọc 118-126",
-      "dvt": "m3",
-      "khoi_luong": 21.32,
-      "ngay": "2026-09-19",
-      "mau_checklist": "",
-      "lay_mau": true,
-      "so": "VL 008",
-      "checklist": [
-        {
-          "Nhóm": "",
-          "Nội dung": "Có chứng chỉ xuất xưởng / CO-CQ",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Có kết quả thí nghiệm đầu vào",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        },
-        {
-          "Nhóm": "",
-          "Nội dung": "Đúng chủng loại, quy cách theo thiết kế",
-          "Phương pháp": "",
-          "Kết quả": "Chưa kiểm tra",
-          "Ghi chú": ""
-        }
-      ],
-      "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 008",
-      "lm_ref": [
-        "008/LM"
-      ],
-      "so_yc": "008/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -4674,14 +4652,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_yc": "040/YC/CV",
-      "so_kt": "040/KT",
-      "vl_ref": [
-        "008/CV/VL-TB"
+      "tieu_chuan": [
+        "TCVN 4453:1995"
       ],
-      "lm_ref": [
-        "008/LM"
-      ]
+      "so_yc": "040/YC/CV",
+      "so_kt": "040/KT"
     },
     {
       "type": "CV",
@@ -4808,6 +4783,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
+      ],
       "so_yc": "041/YC/CV",
       "so_kt": "041/KT",
       "vl_ref": [
@@ -4942,6 +4922,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "042/YC/CV",
       "so_kt": "042/KT"
     },
@@ -5070,6 +5053,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "043/YC/CV",
       "so_kt": "043/KT"
     },
@@ -5177,6 +5163,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "044/YC/CV",
       "so_kt": "044/KT"
     },
@@ -5320,13 +5309,20 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 8828:2011"
+      ],
       "so_yc": "045/YC/CV",
       "so_kt": "045/KT",
       "vl_ref": [
-        "005/CV/VL-TB"
+        "003/CV/VL-TB"
       ],
       "lm_ref": [
-        "005/LM"
+        "003/LM"
       ]
     },
     {
@@ -5338,7 +5334,7 @@
       "ngay": "2026-09-21",
       "mau_checklist": "",
       "lay_mau": true,
-      "so": "VL 009",
+      "so": "VL 005",
       "checklist": [
         {
           "Nhóm": "",
@@ -5363,11 +5359,19 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 009",
-      "lm_ref": [
-        "009/LM"
+      "so_lm": "LM 005",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 3116:2022",
+        "TCVN 8828:2011"
       ],
-      "so_yc": "009/YC/VL-TB"
+      "lm_ref": [
+        "005/LM"
+      ],
+      "so_yc": "005/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -5494,6 +5498,11 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 1651-2:2018",
+        "QCVN 07:2019/BKHCN"
+      ],
       "so_yc": "046/YC/CV",
       "so_kt": "046/KT",
       "vl_ref": [
@@ -5628,6 +5637,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "047/YC/CV",
       "so_kt": "047/KT"
     },
@@ -5756,6 +5768,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "048/YC/CV",
       "so_kt": "048/KT"
     },
@@ -5863,6 +5878,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995"
+      ],
       "so_yc": "049/YC/CV",
       "so_kt": "049/KT"
     },
@@ -6006,13 +6024,20 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 8828:2011"
+      ],
       "so_yc": "050/YC/CV",
       "so_kt": "050/KT",
       "vl_ref": [
-        "007/CV/VL-TB"
+        "004/CV/VL-TB"
       ],
       "lm_ref": [
-        "007/LM"
+        "004/LM"
       ]
     },
     {
@@ -6112,6 +6137,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "051/YC/CV",
       "so_kt": "051/KT"
     },
@@ -6124,7 +6152,7 @@
       "ngay": "2026-09-26",
       "mau_checklist": "",
       "lay_mau": true,
-      "so": "VL 010",
+      "so": "VL 006",
       "checklist": [
         {
           "Nhóm": "",
@@ -6149,11 +6177,19 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
-      "so_lm": "LM 010",
-      "lm_ref": [
-        "010/LM"
+      "so_lm": "LM 006",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 3116:2022",
+        "TCVN 8828:2011"
       ],
-      "so_yc": "010/YC/VL-TB"
+      "lm_ref": [
+        "006/LM"
+      ],
+      "so_yc": "006/YC/VL-TB"
     },
     {
       "type": "CV",
@@ -6295,13 +6331,20 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 8828:2011"
+      ],
       "so_yc": "052/YC/CV",
       "so_kt": "052/KT",
       "vl_ref": [
-        "009/CV/VL-TB"
+        "005/CV/VL-TB"
       ],
       "lm_ref": [
-        "009/LM"
+        "005/LM"
       ]
     },
     {
@@ -6401,6 +6444,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "053/YC/CV",
       "so_kt": "053/KT"
     },
@@ -6501,6 +6547,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "054/YC/CV",
       "so_kt": "054/KT"
     },
@@ -6594,6 +6643,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "055/YC/CV",
       "so_kt": "055/KT"
     },
@@ -6737,13 +6789,20 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4453:1995",
+        "TCVN 3105:2022",
+        "TCVN 3106:2022",
+        "TCVN 3118:2022",
+        "TCVN 8828:2011"
+      ],
       "so_yc": "056/YC/CV",
       "so_kt": "056/KT",
       "vl_ref": [
-        "010/CV/VL-TB"
+        "006/CV/VL-TB"
       ],
       "lm_ref": [
-        "010/LM"
+        "006/LM"
       ]
     },
     {
@@ -6843,6 +6902,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "057/YC/CV",
       "so_kt": "057/KT"
     },
@@ -6943,6 +7005,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "058/YC/CV",
       "so_kt": "058/KT"
     },
@@ -7036,6 +7101,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "059/YC/CV",
       "so_kt": "059/KT"
     },
@@ -7136,6 +7204,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "060/YC/CV",
       "so_kt": "060/KT"
     },
@@ -7236,6 +7307,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "061/YC/CV",
       "so_kt": "061/KT"
     },
@@ -7329,6 +7403,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "062/YC/CV",
       "so_kt": "062/KT"
     },
@@ -7429,6 +7506,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "063/YC/CV",
       "so_kt": "063/KT"
     },
@@ -7522,6 +7602,9 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [
+        "TCVN 4447:2012"
+      ],
       "so_yc": "064/YC/CV",
       "so_kt": "064/KT"
     },
@@ -7566,6 +7649,7 @@
         }
       ],
       "ket_luan": "Chưa có kết luận",
+      "tieu_chuan": [],
       "so_yc": "065/YC/CV"
     }
   ]

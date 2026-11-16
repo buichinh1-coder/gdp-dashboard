@@ -16,12 +16,20 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 - Giữ từ form mẫu: tên TVGS (Apave) và logo CĐT/TVGS trong checklist.
 - Logo nhà thầu trong checklist là logo tự tạo (`data/qaqc/templates/logo_giang_long.png`); thay bằng logo chính thức nếu có.
 
+## Tiêu chuẩn áp dụng (đã tra cứu trực tuyến)
+- Dòng "Tiêu chuẩn, quy phạm xây dựng được áp dụng" của biên bản nghiệm thu và mục 5 của biên bản lấy mẫu đã điền theo từng
+  loại công việc, chỉ gồm tiêu chuẩn xác nhận được số hiệu và tên (sheet `Tieu_chuan_da_dung` trong file 07).
+- Chưa đưa vào biên bản, cần bạn xác nhận (sheet `Tieu_chuan_can_xac_nhan`): TCVN 4453:1995 còn hiệu lực hay đã có bản thay thế,
+  tiêu chuẩn bê tông thương phẩm (TCVN 9340:2012 hay TCVN 14586:2025), xi măng bền sunfat, tiêu chuẩn sản xuất cọc BTCT 300x300,
+  và nghị định quản lý chất lượng hiện hành (có thông tin về Nghị định 207/2026/NĐ-CP).
+
 ## Giả định cần xác nhận
 1. Nghiệm thu vật liệu đầu vào (VL):
    - Cọc BT300x300: 1 lần cho cả 3.372 m (VL 001), ngày 24/08/2026, ngày trước khi ép cọc đầu tiên.
      Phải đủ toàn bộ cọc và đạt R7 trước ngày này. Nếu cọc phân đoạn 2–4 sản xuất sau thì cần tách thêm biên bản.
    - Thép: 1 lần cho 23,02 tấn, ngày 04/09/2026 (1 ngày trước ngày bắt đầu thép phân đoạn 1). Ngày này do người lập chọn, lịch không có.
-   - Bê tông thương phẩm M300 và M100 (bê tông lót): mỗi loại 1 biên bản cho mỗi đợt đổ (4 đợt), ngày = ngày bắt đầu đổ.
+   - Bê tông thương phẩm M300: 1 biên bản cho mỗi đợt đổ (4 đợt), ngày = ngày bắt đầu đổ.
+   - Bê tông lót M100: theo xác nhận, **không nghiệm thu vật liệu đầu vào, không lấy mẫu, không thí nghiệm**.
    - Chưa có VL cho đá xô, vật liệu đắp, vật tư khe lún và ống thoát nước.
 2. Các dòng "cung cấp cọc" theo phân đoạn trong lịch được gộp vào VL 001, nên không còn là biên bản công việc.
 3. Mẫu checklist là mẫu gần nhất trong file XD:
@@ -36,8 +44,7 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 
 ## Rà soát trình tự công việc (lần này)
 Đã áp dụng:
-1. Thêm 4 biên bản nghiệm thu vật liệu bê tông thương phẩm M100 (bê tông lót), mỗi phân đoạn một biên bản, ngày bằng ngày đổ lót.
-   Trước đây bộ hồ sơ chỉ có VL bê tông M300.
+1. Bê tông lót M100: bỏ qua nghiệm thu vật liệu, lấy mẫu và thí nghiệm (theo xác nhận). Bộ hồ sơ chỉ có VL bê tông M300.
 2. Ngày nghiệm thu kết cấu bê tông M300 (CV đổ bê tông) chuyển từ mốc R28 của lịch sang **ngày nén R7 + 1 ngày**
    (PĐ1 20/09, PĐ2 25/09, PĐ3 30/09, PĐ4 05/10). Lý do: theo xác nhận phụ gia R7 đạt 100%, và nghiệm thu kết cấu phải trước
    khi đắp đất lên tường chắn (21/09, 26/09, 01/10, 06/10). Ngày kế hoạch cũ ghi ở cột "Ngày kế hoạch ban đầu" trong
