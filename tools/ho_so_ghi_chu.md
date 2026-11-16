@@ -72,9 +72,12 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 - Cốt thép, ván khuôn cấu kiện, ván khuôn khóa đỉnh và khe lún: 1 biên bản "nghiệm thu trước khi đổ bê tông" cho mỗi phân đoạn (4 biên bản thay cho 16),
   vì cả 4 việc có cùng ngày nghiệm thu trong lịch (10/09, 15/09, 20/09, 25/09). Kèm 3 checklist `/KT-1` (cốt thép), `/KT-2` (ván khuôn, gồm cấu kiện và khóa đỉnh),
   `/KT-3` (khe lún).
-- Nghiệm thu cọc gộp ép cọc và cắt đầu cọc như đã nêu bên dưới. Tổng số biên bản nghiệm thu công việc giảm từ 61 xuống 41.
-- Số hiệu đã đánh lại liên tục theo ngày nghiệm thu và trình tự công nghệ: CV 001-041, VL 001-003, LM 001-006, GĐ 001. Phiếu yêu cầu cùng số với biên bản,
-  checklist theo số biên bản (`/KT`, `/KT-1`...).
+- Nghiệm thu cọc gộp ép cọc và cắt đầu cọc như đã nêu bên dưới. Tổng số biên bản nghiệm thu công việc giảm từ 61 xuống 40.
+- **Không lập nghiệm thu công việc "Biện pháp thi công trọn gói"** (không có loại nghiệm thu này), nên không còn file toàn tuyến.
+- Số hiệu đánh lại theo **phân đoạn rồi theo trình tự thi công**: PĐ1 = CV 001-010, PĐ2 = 011-020, PĐ3 = 021-030, PĐ4 = 031-040. Trong mỗi phân đoạn:
+  đê quai, nạo vét (70%), nghiệm thu cọc, đào móng + vận chuyển, ván khuôn + bê tông lót, thép + ván khuôn + khe lún, đổ bê tông M300, đắp hoàn trả,
+  đắp đá xô, nạo vét hoàn thiện (30%). Vật liệu VL 001-003, lấy mẫu LM 001-006, giai đoạn GĐ 001. Phiếu yêu cầu cùng số với biên bản,
+  checklist theo số biên bản (`/KT`, `/KT-1`...). Lưu ý: ngày nghiệm thu đổ bê tông (theo mốc R28) muộn hơn ngày đắp hoàn trả nên số hiệu và ngày không cùng thứ tự.
 
 ## Nghiệm thu cọc (gộp theo phân đoạn + giai đoạn toàn tuyến)
 - Mỗi phân đoạn có **1 biên bản nghiệm thu cọc** gộp ép cọc và cắt đầu cọc (4 biên bản thay cho 8), kèm 2 checklist `/KT-1` (ép cọc)
@@ -109,8 +112,8 @@ Còn để ngỏ: đào móng hoàn thành trước ngày bắt đầu ép cọc
   không phải thí nghiệm (cấp phối, phiếu giao hàng, kiểm định, nhật ký ép, trắc đạc, hoàn công). Các cột Phòng thí nghiệm đến Đạt/Không đạt để trống.
   Ngày nén tính theo ngày đổ trong lịch; nếu đổ lệch ngày thì tính lại.
 
-## Chưa có checklist (5 biên bản)
-Vận chuyển đất (4 biên bản) và biện pháp thi công (1 biên bản): file mẫu chưa có checklist cho các công việc này.
+## Checklist
+Mọi biên bản nghiệm thu công việc hiện đều có checklist (đào móng và vận chuyển đất đào dùng chung mẫu "Đào đất"; một số mẫu là mẫu gần nhất, xem phần giả định).
 
 ## Chưa lập (app chưa hỗ trợ form)
 Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, biên bản kiểm tra chế tạo cọc, trắc đạc cọc.

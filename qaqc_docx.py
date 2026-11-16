@@ -353,7 +353,7 @@ def expand(records, kinds=("bb",)):
     Phiếu yêu cầu dùng cùng số với biên bản; biên bản lấy mẫu đánh số riêng theo thứ tự.
     """
     out, lm_no = [], 0
-    for r in sorted(records, key=lambda r: (r["ngay"], r["so"])):
+    for r in sorted(records, key=lambda r: (r["so"].split()[0], int(re.sub(r"\D", "", r["so"].split()[-1]) or 0))):  # theo số hiệu
         if r["type"] not in ("VL", "CV", "GD"):
             continue
         if "yc" in kinds:

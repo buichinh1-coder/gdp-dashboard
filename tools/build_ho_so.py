@@ -47,7 +47,7 @@ iso = lambda x: x.date().isoformat()
 
 # Thứ tự công nghệ để xếp các biên bản cùng ngày: đê quai, nạo vét, ép cọc, đào móng, vận chuyển, cắt đầu cọc,
 # ván khuôn lót, BT lót, thép, ván khuôn, khe lún, đổ BT, đắp hoàn trả, đá xô, biện pháp thi công
-TECH = ["15", "16", "02+03", "04+05", "10+08", "13+11+12+14", "09", "06", "07", "17"]
+TECH = ["15", "16", "02+03", "04+05", "10+08", "13+11+12+14", "09", "06", "07"]
 raw = []  # (ngay, thứ tự, rec); VL (thứ tự < 100) xếp trước công việc cùng ngày
 vl = [  # ngày VL do người lập chọn: cọc = ngày đầu tiên trước ép; thép = trước ngày bắt đầu thép; BT = ngày bắt đầu đổ
     ("Cọc bê tông BT300x300 M300 bền sunfat (tự sản xuất)", "Toàn tuyến cọc 88-126", "m", 3372, "2026-08-24"),
@@ -97,7 +97,7 @@ for pd_ in ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]:
         "cl_suffix": ["_thep", "_van_khuon", "_khe_lun"]}))
 for v in rows:
     muc = str(v[1] or "")
-    if muc in ("01", "02", "03", "04", "05", "08", "10", "11", "12", "13", "14") or not muc:  # cung cấp cọc -> VL đầu vào 1 lần; hoàn thành/bàn giao -> form khác, chưa hỗ trợ
+    if muc in ("01", "02", "03", "04", "05", "08", "10", "11", "12", "13", "14", "17") or not muc:  # 17: biện pháp thi công không có nghiệm thu công việc  # cung cấp cọc -> VL đầu vào 1 lần; hoàn thành/bàn giao -> form khác, chưa hỗ trợ
         continue
     ngay, kh = iso(v[8]), None
     rec_ = {"type": "CV", "hang_muc": v[2], "vi_tri": v[3], "dvt": v[4], "khoi_luong": float(v[5] or 0),
@@ -120,7 +120,21 @@ db = {"project": {
     "chi_huy_truong": "Nguyễn Mạnh Tùng", "can_bo_tvgs": "Nguyễn Thế Anh", "giam_sat_truong": "Nguyễn Huy Hà",
     "logo": "logo_giang_long.png"}, "records": []}
 cnt = {"VL": 0, "CV": 0}
-for ngay, stt, rec in sorted(raw, key=lambda x: (x[0], x[1])):
+PDL = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
+
+
+def _key(x):
+    """Đánh số: vật liệu theo ngày; công việc theo phân đoạn rồi theo trình tự công nghệ, toàn tuyến cuối cùng."""
+    ngay, stt, rec = x
+    if rec["type"] != "CV":
+        return (-1, ngay, stt)
+    tp = TECH.index(rec["muc_hd"])
+    if rec["muc_hd"] == "16" and rec["hang_muc"].lstrip().lower().startswith("hoàn thiện"):
+        tp = TECH.index("07") + 0.5  # nạo vét hoàn thiện (30%) làm sau đắp đá xô
+    return (PDL.index(rec["vi_tri"]) if rec["vi_tri"] in PDL else 9, tp, ngay)
+
+
+for ngay, stt, rec in sorted(raw, key=_key):
     cnt[rec["type"]] += 1
     rec["so"] = f"{rec['type']} {cnt[rec['type']]:03d}"
     rec["checklist"] = checklist(rec["type"], rec["mau_checklist"])
@@ -177,8 +191,6 @@ PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
 for i, p in enumerate(PD, 1):
     sel = [r for r in recs if r["type"] == "CV" and r["vi_tri"] == p]
     (OUT / f"03_Nghiem_thu_cong_viec_PD{i}_{p.replace(' ', '_')}.docx").write_bytes(qaqc_docx.build_docx(sel, proj))
-sel = [r for r in recs if r["type"] == "CV" and r["vi_tri"] not in PD]
-(OUT / "03_Nghiem_thu_cong_viec_toan_tuyen.docx").write_bytes(qaqc_docx.build_docx(sel, proj))
 for r in recs:
     if r["type"] == "CV" and r["mau_checklist"]:
         sub = OUT / "04_Checklist" / (r["vi_tri"].replace(" ", "_") if r["vi_tri"] in PD else "Toan_tuyen")
@@ -228,8 +240,6 @@ wb_th.save(OUT / "03_Bang_tong_hop_thi_cong_coc.xlsx")
 for i, p in enumerate(PD, 1):
     sel = qaqc_docx.expand([r for r in recs if r["type"] == "CV" and r["vi_tri"] == p], ("yc",))
     (OUT / f"05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_cong_viec_PD{i}_{p.replace(' ', '_')}.docx").write_bytes(qaqc_docx.build_docx(sel, proj))
-sel = qaqc_docx.expand([r for r in recs if r["type"] == "CV" and r["vi_tri"] not in PD], ("yc",))
-(OUT / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_cong_viec_toan_tuyen.docx").write_bytes(qaqc_docx.build_docx(sel, proj))
 (OUT / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_giai_doan_coc.docx").write_bytes(qaqc_docx.build_docx(qaqc_docx.expand([gd], ("yc",)), proj))
 (OUT / "06_Bien_ban_lay_mau.docx").write_bytes(qaqc_docx.build_docx(qaqc_docx.expand([r for r in recs if r.get("lay_mau")], ("lm",)), proj))
 

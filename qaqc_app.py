@@ -175,7 +175,7 @@ with tab_exp:
         co_mau = [r for r in recs if r.get("mau_checklist")]
         sel2 = st.multiselect("Chọn biên bản xuất checklist", [r["so"] for r in co_mau])
         if sel2:
-            chon2 = sorted([r for r in co_mau if r["so"] in sel2], key=lambda r: (r["ngay"], r["so"]))
+            chon2 = sorted([r for r in co_mau if r["so"] in sel2], key=lambda r: (r["so"].split()[0], int(r["so"].split()[-1])))
             if len(chon2) == 1:
                 fn, data = qaqc_xlsx.build_checklist_xlsx(chon2[0], db["project"])
                 st.download_button(f"Tải {fn}", data, fn, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")

@@ -390,8 +390,6 @@ def main():
     for i, p in enumerate(PD, 1):
         docs[f"cv{i}"] = next(HS.glob(f"03_Nghiem_thu_cong_viec_PD{i}_*.docx"))
         docs[f"yc{i}"] = next((HS / "05_Phieu_yeu_cau_nghiem_thu").glob(f"YC_nghiem_thu_cong_viec_PD{i}_*.docx"))
-    docs["cv0"] = HS / "03_Nghiem_thu_cong_viec_toan_tuyen.docx"
-    docs["yc0"] = HS / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_cong_viec_toan_tuyen.docx"
     import openpyxl
     wb_tn = openpyxl.load_workbook(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx")
     for n_ in wb_tn.sheetnames[2:]:
@@ -405,10 +403,9 @@ def main():
     CL = {f.stem: pdfd / (f.stem + ".pdf") for f in cl_files}
 
     vl = sorted([r for r in RECS if r["type"] == "VL"], key=lambda r: (r["ngay"], r["so"]))
-    cv_all = sorted([r for r in RECS if r["type"] == "CV"], key=lambda r: (r["ngay"], r["so"]))
+    cv_all = sorted([r for r in RECS if r["type"] == "CV"], key=lambda r: int(r["so"].split()[-1]))
     gd = next(r for r in RECS if r["type"] == "GD")
     groups = [(f"Phân đoạn {i} - {p.replace('Cọc ', 'cọc ').replace('-', ' đến ')}", p, f"{i}") for i, p in enumerate(PD, 1)]
-    groups.append(("Toàn tuyến", None, "0"))
     cv_of = {key: [r for r in cv_all if (r["vi_tri"] == p if p else r["vi_tri"] not in PD)] for _, p, key in groups}
 
     # --- thứ tự các phần (parts), số trang tính sau
@@ -521,7 +518,7 @@ def main():
             letter = pl
             _, title, sub = next(s for s in secs if s[0] == letter)
             items = {"A": ["Phiếu yêu cầu nghiệm thu vật liệu", "Biên bản lấy mẫu thí nghiệm", "Biên bản nghiệm thu vật liệu đầu vào"],
-                     "B": ["Phân đoạn 1 - 4 và toàn tuyến", "Phiếu yêu cầu, biên bản nghiệm thu công việc, checklist"],
+                     "B": ["Phân đoạn 1 - 4", "Phiếu yêu cầu, biên bản nghiệm thu công việc, checklist"],
                      "C": ["Phiếu yêu cầu nghiệm thu giai đoạn", "Biên bản nghiệm thu giai đoạn", "Bảng tổng hợp thi công cọc"],
                      "D": ["Bảng theo dõi kết quả thí nghiệm cần có (trang sau)", "Đặt tại đây theo thứ tự bảng: chứng chỉ vật liệu, phiếu kết quả", "thí nghiệm, bản vẽ hoàn công, nhật ký thi công"]}[letter]
             w.add_page(divider(title, sub, items, f"PHẦN {letter}"))
