@@ -44,6 +44,13 @@ Bộ hồ sơ dựng từ `Lich_nghiem_thu_ke_BT_coc_88_126.xlsx`. **Đây là b
 - Bỏ thí nghiệm đá (đá xô chỉ nghiệm thu vật liệu đầu vào) và nén tĩnh cọc. **Giữ** thí nghiệm đầm nén tiêu chuẩn của đất đắp (đê quai 17/08, hoàn trả 20/09)
   làm cơ sở cho độ chặt K95, làm tại hiện trường theo từng ngày đắp.
 
+## Khối lượng và quy cách lấy mẫu bê tông (biên bản lấy mẫu)
+- Bê tông M300 mỗi đợt đổ: tần suất **1 tổ mẫu cho mỗi 20 m³** (TCVN 4453:1995, nhóm kết cấu khung, cột, dầm, sàn; làm tròn lên) = **7 lần lấy mẫu**
+  cho mỗi đợt 136,94 m³; mỗi lần đúc 2 tổ (1 tổ nén R7, 1 tổ nén R28), mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022): 14 tổ, 42 viên mỗi đợt.
+- Bê tông cọc (VL 001): lấy mẫu trong thời gian đúc cọc (14/08 - 24/08/2026), tổ 3 viên, nén R7; số tổ theo từng lô cọc để trống vì lịch không có số lô.
+- **Cần xác nhận:** không mở được toàn văn TCVN 4453:1995 và TCVN 3105:2022 (mạng của phiên làm việc không truy cập được các trang tiêu chuẩn), nên tần suất và kích thước viên mẫu
+  lấy qua tra cứu nguồn thứ cấp. Một số nguồn ghi móng lớn 100 m³/tổ; viên mẫu theo TCVN 3105:2022 phụ thuộc cỡ hạt cốt liệu. Đối chiếu chỉ dẫn kỹ thuật và Apave.
+
 ## Giả định cần xác nhận
 1. Nghiệm thu vật liệu đầu vào (VL):
    - Cọc BT300x300: 1 lần cho cả 3.372 m (VL 001), ngày 24/08/2026, ngày trước khi ép cọc đầu tiên.

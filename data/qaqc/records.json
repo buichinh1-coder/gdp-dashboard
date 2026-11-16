@@ -23,6 +23,15 @@
       "ngay": "2026-08-24",
       "mau_checklist": "",
       "lay_mau": true,
+      "ngay_lay_mau": "2026-08-14",
+      "ngay_lay_mau_den": "2026-08-24",
+      "lm_cong_viec": "Lấy mẫu bê tông cọc để thí nghiệm cường độ nén (R7), phục vụ nghiệm thu vật liệu đầu vào cọc",
+      "lm_doi_tuong": "Mẫu bê tông cọc BT300x300 M300 bền sunfat (tự sản xuất) - Toàn tuyến cọc 88-126",
+      "lm_tieu_chuan": [
+        "TCVN 3105:2022",
+        "TCVN 3118:2022"
+      ],
+      "lm_quy_cach": "Mẫu bê tông đúc cùng các lô cọc, tổ mẫu 3 viên lập phương 150x150x150 mm (TCVN 3105:2022), nén R7. Số lượng tổ mẫu theo từng lô cọc: ……………………",
       "so": "VL 001",
       "checklist": [
         {
@@ -1313,6 +1322,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-11",
       "ngay_lay_mau_den": "2026-09-12",
+      "lm_quy_cach": "Khối lượng bê tông đợt đổ 136,94 m3 (ngày 11/09 - 12/09/2026). Tần suất 1 tổ mẫu cho mỗi 20 m3 (TCVN 4453:1995): 7 lần lấy mẫu, mỗi lần đúc 2 tổ (1 tổ nén R7, 1 tổ nén R28), mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022); tổng 14 tổ (42 viên).",
       "so": "CV 007",
       "checklist": [
         {
@@ -2933,6 +2943,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-16",
       "ngay_lay_mau_den": "2026-09-17",
+      "lm_quy_cach": "Khối lượng bê tông đợt đổ 136,94 m3 (ngày 16/09 - 17/09/2026). Tần suất 1 tổ mẫu cho mỗi 20 m3 (TCVN 4453:1995): 7 lần lấy mẫu, mỗi lần đúc 2 tổ (1 tổ nén R7, 1 tổ nén R28), mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022); tổng 14 tổ (42 viên).",
       "so": "CV 017",
       "checklist": [
         {
@@ -4553,6 +4564,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-21",
       "ngay_lay_mau_den": "2026-09-22",
+      "lm_quy_cach": "Khối lượng bê tông đợt đổ 136,94 m3 (ngày 21/09 - 22/09/2026). Tần suất 1 tổ mẫu cho mỗi 20 m3 (TCVN 4453:1995): 7 lần lấy mẫu, mỗi lần đúc 2 tổ (1 tổ nén R7, 1 tổ nén R28), mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022); tổng 14 tổ (42 viên).",
       "so": "CV 027",
       "checklist": [
         {
@@ -6173,6 +6185,7 @@
       "lay_mau": true,
       "ngay_lay_mau": "2026-09-26",
       "ngay_lay_mau_den": "2026-09-27",
+      "lm_quy_cach": "Khối lượng bê tông đợt đổ 136,96 m3 (ngày 26/09 - 27/09/2026). Tần suất 1 tổ mẫu cho mỗi 20 m3 (TCVN 4453:1995): 7 lần lấy mẫu, mỗi lần đúc 2 tổ (1 tổ nén R7, 1 tổ nén R28), mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022); tổng 14 tổ (42 viên).",
       "so": "CV 037",
       "checklist": [
         {

@@ -60,7 +60,16 @@ _xo = [v for v in rows if str(v[1]) == "07"]
 vl.append(("Đá xô đắp chân tường chắn", "Toàn tuyến cọc 88-126", "m3", round(sum(float(v[5]) for v in _xo), 2),
            (min(v[6] for v in _xo) - dt.timedelta(days=1)).date().isoformat()))
 for k, (hm, vt, dv, kl, d) in enumerate(vl):
-    raw.append((d, k, {"type": "VL", "hang_muc": hm, "vi_tri": vt, "dvt": dv, "khoi_luong": kl, "ngay": d, "mau_checklist": "", "lay_mau": "Đá xô" not in hm}))
+    vl_rec = {"type": "VL", "hang_muc": hm, "vi_tri": vt, "dvt": dv, "khoi_luong": kl, "ngay": d, "mau_checklist": "", "lay_mau": "Đá xô" not in hm}
+    if "Cọc bê tông" in hm:  # lấy mẫu bê tông cọc để thí nghiệm cường độ (nén R7), lấy trong thời gian đúc cọc
+        d_bd_ = iso(next(v for v in rows if str(v[1]) == "01" and v[3] == "Cọc 88-98")[6])
+        vl_rec.update({"ngay_lay_mau": d_bd_, "ngay_lay_mau_den": d,
+                       "lm_cong_viec": "Lấy mẫu bê tông cọc để thí nghiệm cường độ nén (R7), phục vụ nghiệm thu vật liệu đầu vào cọc",
+                       "lm_doi_tuong": f"Mẫu bê tông cọc BT300x300 M300 bền sunfat (tự sản xuất) - {vt}",
+                       "lm_tieu_chuan": ["TCVN 3105:2022", "TCVN 3118:2022"],
+                       "lm_quy_cach": "Mẫu bê tông đúc cùng các lô cọc, tổ mẫu 3 viên lập phương 150x150x150 mm (TCVN 3105:2022), nén R7. "
+                                      "Số lượng tổ mẫu theo từng lô cọc: ……………………"})
+    raw.append((d, k, vl_rec))
 # B: gộp ép cọc (02) và cắt đầu cọc (03) thành một biên bản "nghiệm thu cọc" cho mỗi phân đoạn
 for pd_ in ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]:
     ep = next(v for v in rows if str(v[1]) == "02" and v[3] == pd_)
@@ -108,6 +117,11 @@ for v in rows:
         rec_["lay_mau"] = True
         rec_["ngay_lay_mau"] = iso(v[6])  # lấy mẫu = ngày đổ bê tông
         rec_["ngay_lay_mau_den"] = iso(v[7])
+        kl_, n_ = float(v[5]), -(-float(v[5]) // 20)  # tần suất 1 tổ / 20 m3 (kè: kết cấu thành, dầm theo TCVN 4453:1995), làm tròn lên
+        n_ = int(n_)
+        rec_["lm_quy_cach"] = (f"Khối lượng bê tông đợt đổ {f'{kl_:g}'.replace('.', ',')} m3 (ngày {v[6]:%d/%m} - {v[7]:%d/%m/%Y}). "
+                               f"Tần suất 1 tổ mẫu cho mỗi 20 m3 (TCVN 4453:1995): {n_} lần lấy mẫu, mỗi lần đúc 2 tổ (1 tổ nén R7, 1 tổ nén R28), "
+                               f"mỗi tổ 3 viên lập phương 150x150x150 mm (TCVN 3105:2022); tổng {2 * n_} tổ ({6 * n_} viên).")
     if muc in ("06", "15") and "K95" not in rec_["hang_muc"]:  # K95 chỉ áp dụng công tác đắp đất (hoàn trả hố móng, đê quai)
         rec_["hang_muc"] = rec_["hang_muc"].rstrip() + " (độ chặt K95)"
     if kh:
@@ -264,7 +278,7 @@ COC, THEP, BTG, DAT, DAX, NT = "A. Cọc BT300x300", "B. Cốt thép", "C. Bê t
 d_coc, d_thep = dt.date(2026, 8, 24), dt.date(2026, 9, 4)
 d_bd = D(next(v for v in rows if str(v[1]) == "01" and v[3] == PD[0])[6])  # bắt đầu cung cấp cọc
 VLC, VLT = f"{so_vl('Cọc')} / LM 001", f"{so_vl('Cốt thép')} / LM 002"
-add(COC, "Nén mẫu bê tông cọc R7 (đủ cho phép ép cọc)", "Toàn bộ lô cọc BT300x300 (3.372 m)", "TCVN 3118:2022", VLC, "Ngày đúc cọc", fmt(d_coc), "Ngày nghiệm thu VL cọc (1 lần), trước ép cọc")
+add(COC, "Nén mẫu bê tông cọc R7 (đủ cho phép ép cọc)", "Toàn bộ lô cọc BT300x300 (3.372 m)", "TCVN 3118:2022", VLC, f"{fmt(d_bd)} - {fmt(d_coc)} (lấy mẫu khi đúc cọc)", fmt(d_coc), "Ngày nghiệm thu VL cọc (1 lần), trước ép cọc")
 add(COC, "Thí nghiệm cát, đá (cốt liệu bê tông cọc)", "Cát, đá sản xuất cọc", "TCVN 7570:2006", VLC, "Trước khi đúc cọc", fmt(d_bd), "Ngày bắt đầu cung cấp cọc")
 add(COC, "Thí nghiệm nước trộn bê tông cọc", "Nước trộn", "TCVN 4506:2012", VLC, "Trước khi đúc cọc", fmt(d_bd), "Ngày bắt đầu cung cấp cọc")
 add(COC, "Thí nghiệm xi măng bền sunfat (hoặc chứng chỉ chất lượng)", "Xi măng sản xuất cọc", TC, VLC, "Trước khi đúc cọc", fmt(d_bd), "Ngày bắt đầu cung cấp cọc")

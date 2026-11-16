@@ -173,8 +173,10 @@ def _ten_nguoi_ky(els, doc, t, project):
                     p.alignment = 0
                     p.paragraph_format.left_indent = 0
                     p.paragraph_format.first_line_indent = 0
-                    p.paragraph_format.tab_stops.add_tab_stop(Cm(4.25), WD_TAB_ALIGNMENT.CENTER)
-                    p.paragraph_format.tab_stops.add_tab_stop(Cm(12.75), WD_TAB_ALIGNMENT.CENTER)
+                    # tâm tab = tâm hai cột tiêu đề của bảng mẫu (cột 1: 7,94 cm; cột 2: 9,15 cm; trừ lề ô 0,19 cm)
+                    w0, w1 = tb.columns[0].width.cm, tb.columns[1].width.cm
+                    p.paragraph_format.tab_stops.add_tab_stop(Cm(w0 / 2 - 0.19), WD_TAB_ALIGNMENT.CENTER)
+                    p.paragraph_format.tab_stops.add_tab_stop(Cm(w0 + w1 / 2 - 0.19), WD_TAB_ALIGNMENT.CENTER)
                     for r in list(p.runs):
                         r._r.getparent().remove(r._r)
                 # ps[0..2]: chừa chỗ ký; ps[3]: họ tên người ký, bên dưới tên nhà thầu là chức danh (theo mẫu bạn gửi)
@@ -291,6 +293,8 @@ def build_docx(records, project):
                 _set_text(els[k], f"- Biên bản kiểm tra công tác: Checklist kiểm tra, số {rec['so_kt']}")
             elif re.match(r"^Tại\s*(dự án)?\s*:?\s*(Dự án)?\s*[….]*$", s) and project.get("ten_cong_trinh") and t != "LM":
                 _set_text(els[k], f"Tại dự án: {project['ten_cong_trinh']}")
+            elif s.startswith("6. Khối lượng, quy cách lấy mẫu") and nxt is not None and rec.get("lm_quy_cach"):
+                _set_text(nxt, rec["lm_quy_cach"])
             elif s.startswith("6. Khối lượng, quy cách lấy mẫu") and nxt is not None and rec.get("khoi_luong"):
                 _set_text(nxt, f"Lô vật liệu khối lượng {_kl(rec['khoi_luong'])} {rec.get('dvt', '')}. Số lượng, quy cách mẫu: ……………………")
             elif s.startswith(("Biên bản số", "Phiếu yêu cầu số")):
@@ -309,7 +313,7 @@ def build_docx(records, project):
             elif s.startswith("1. Tên công việc nghiệm thu") and nxt is not None:
                 _set_text(nxt, rec.get("cong_viec") or f"Nghiệm thu {rec['hang_muc']}")
             elif s.startswith("2. Đối tượng kiểm tra"):
-                _set_text(els[k], f"2. Đối tượng kiểm tra : {_doi_tuong(rec)}")
+                _set_text(els[k], f"2. Đối tượng kiểm tra : {rec.get('lm_doi_tuong') or _doi_tuong(rec)}")
             elif s.startswith("1. Đối tượng nghiệm thu"):
                 if s.rstrip().endswith(":") and nxt is not None:  # phiếu yêu cầu: nội dung ở đoạn kế
                     _set_text(nxt, _doi_tuong(rec))
@@ -367,9 +371,10 @@ def expand(records, kinds=("bb",)):
             out.append(dict(r, type={"VL": "YCVL", "CV": "YCCV", "GD": "YCGD"}[r["type"]]))
         if "lm" in kinds and r.get("lay_mau") and r["type"] in ("VL", "CV"):
             lm_no += 1
-            cv_ = (f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}" if r["type"] == "VL"
+            cv_ = (r.get("lm_cong_viec") or f"Lấy mẫu thí nghiệm phục vụ nghiệm thu vật liệu đầu vào: {r['hang_muc']}" if r["type"] == "VL"
                    else f"Lấy mẫu bê tông thí nghiệm R7, R28 phục vụ nghiệm thu công việc: {r['hang_muc']}")
-            out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", ngay=r.get("ngay_lay_mau") or r["ngay"], ngay_den=r.get("ngay_lay_mau_den"), cong_viec=cv_))
+            out.append(dict(r, type="LM", so=r.get("so_lm") or f"LM {lm_no:03d}", ngay=r.get("ngay_lay_mau") or r["ngay"], ngay_den=r.get("ngay_lay_mau_den"),
+                            cong_viec=cv_, tieu_chuan=r.get("lm_tieu_chuan") or r.get("tieu_chuan")))
         if "bb" in kinds:
             out.append(r)
     if set(kinds) == {"lm"}:
