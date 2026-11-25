@@ -19,6 +19,10 @@ HOLIDAY = {dt.date(2026, 9, 1), dt.date(2026, 9, 2)}
 FD = "/usr/share/fonts/truetype/liberation/LiberationSerif-"
 for n, f in (("R", "Regular"), ("B", "Bold"), ("I", "Italic")):
     pdfmetrics.registerFont(TTFont("TNR-" + n, FD + f + ".ttf"))
+from reportlab.lib.colors import HexColor
+GC = ["#2E86C1", "#1E8449", "#D68910", "#7D3C98", "#566573"]  # màu theo nhóm A–E
+GL = ["#D6EAF8", "#D5F5E3", "#FCF3CF", "#E8DAEF", "#EAEDED"]
+RED, NAVY = "#C0392B", "#1F3A5F"
 PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
 
 # (tên, [mã công việc]) ; nhóm: ("#", tên nhóm)
@@ -95,37 +99,43 @@ def main(lich, out):
     c.setLineWidth(0.4)
     c.rect(9.5 * mm, 9.5 * mm, W - 19 * mm, H - 19 * mm)
     # tiêu đề
+    c.setFillColor(HexColor(NAVY))
     c.setFont("TNR-B", 22)
     c.drawCentredString(W / 2, H - 22 * mm, "TIẾN ĐỘ THI CÔNG")
+    c.setFillGray(0)
     c.setFont("TNR-B", 12.5)
     c.drawCentredString(W / 2, H - 29 * mm, PRJ["goi_thau"].upper())
     c.setFont("TNR-I", 9.5)
     c.drawCentredString(W / 2, H - 34.5 * mm, f"Hợp đồng {PRJ['so_hop_dong']}  |  Địa điểm: {PRJ['dia_diem']}  |  Thời gian: {START:%d/%m/%Y} – {END:%d/%m/%Y}  |  "
-                        "Thanh đen và mũi tên: đường găng  |  Số trong thanh: phân đoạn 1–4 (cọc 88–98, 98–108, 108–118, 118–126)")
+                        "Thanh và mũi tên màu đỏ: đường găng  |  Số trong thanh: phân đoạn 1–4 (cọc 88–98, 98–108, 108–118, 118–126)")
 
     # tiêu đề cột
     hh = (6.5, 5, 4.5)
     HT = sum(hh) * mm
-    c.setFillGray(0.82)
+    c.setFillColor(HexColor(NAVY))
     c.rect(X0, YT - HT, X1 - X0, HT, fill=1, stroke=0)
-    c.setFillGray(0)
     c.setLineWidth(0.6)
     for i, (t, _) in enumerate(cols):
-        c.rect(xs[i], YT - HT, xs[i + 1] - xs[i], HT, fill=0)
+        c.setFillColor(HexColor(NAVY))
+        c.rect(xs[i], YT - HT, xs[i + 1] - xs[i], HT, fill=1)
+        c.setFillGray(1)
         c.setFont("TNR-B", 10)
         c.drawCentredString((xs[i] + xs[i + 1]) / 2, YT - HT / 2 - 1.2 * mm, t)
+    c.setFillGray(0)
     k = 0
     while k < len(days):
         j = k
         while j + 1 < len(days) and days[j + 1].month == days[k].month:
             j += 1
-        c.rect(dx(k), YT - hh[0] * mm, dx(j + 1) - dx(k), hh[0] * mm)
+        c.setFillColor(HexColor(NAVY))
+        c.rect(dx(k), YT - hh[0] * mm, dx(j + 1) - dx(k), hh[0] * mm, fill=1)
+        c.setFillGray(1)
         c.setFont("TNR-B", 9.5)
         c.drawCentredString((dx(k) + dx(j + 1)) / 2, YT - hh[0] * mm + 1.8 * mm, f"Tháng {days[k].month}/{days[k].year}")
         k = j + 1
     for i, d in enumerate(days):
         y1, y2 = YT - hh[0] * mm, YT - (hh[0] + hh[1]) * mm
-        c.setFillGray(0.55 if d in HOLIDAY else (0.9 if d.weekday() == 6 else 1))
+        c.setFillColor(HexColor("#F5B041" if d in HOLIDAY else ("#D6DBDF" if d.weekday() == 6 else "#EBF5FB")))
         c.rect(dx(i), y2, dw, hh[1] * mm, fill=1)
         c.rect(dx(i), y2 - hh[2] * mm, dw, hh[2] * mm, fill=1)
         c.setFillGray(0)
@@ -139,13 +149,15 @@ def main(lich, out):
     y = YT - HT
     pos = {}  # tên -> (y_top, segs)
     stt = 0
+    g = -1
     body_top = y
     for name, codes in ROWS:
         if name == "#":
             y -= GH
-            c.setFillGray(0.88)
+            g += 1
+            c.setFillColor(HexColor(GL[g]))
             c.rect(X0, y, X1 - X0, GH, fill=1, stroke=1)
-            c.setFillGray(0)
+            c.setFillColor(HexColor(GC[g]))
             c.setFont("TNR-B", 10.5)
             c.drawString(xs[1] + 2 * mm, y + 2.1 * mm, codes)
             continue
@@ -163,6 +175,8 @@ def main(lich, out):
         s0, e0 = min(s[1] for s in segs), max(s[2] for s in segs)
         crit = name in CRIT_ROWS
         pos[name] = (y, segs)
+        c.setFillColor(HexColor("#FFFFFF"))
+        c.setFillGray(0)
         # nền hàng + cột bảng
         for i in range(len(cols)):
             c.rect(xs[i], y, xs[i + 1] - xs[i], RH, fill=0)
@@ -187,7 +201,7 @@ def main(lich, out):
             c.setStrokeGray(0.75 if d.weekday() else 0.45)
             c.line(dx(i), y, dx(i), y + RH)
             if d in HOLIDAY:
-                c.setFillGray(0.86)
+                c.setFillColor(HexColor("#FDEBD0"))
                 c.rect(dx(i), y, dw, RH, fill=1, stroke=0)
         c.setStrokeGray(0)
         c.setLineWidth(0.6)
@@ -200,22 +214,22 @@ def main(lich, out):
             cy = y + RH / 2
             if codes[0] in ("70", "71"):
                 cx, r_ = x_b - dw / 2, 3.1 * mm
-                c.setFillGray(0)
+                c.setFillColor(HexColor(RED))
                 p = c.beginPath()
                 p.moveTo(cx, cy + r_), p.lineTo(cx + r_, cy), p.lineTo(cx, cy - r_), p.lineTo(cx - r_, cy), p.close()
                 c.drawPath(p, fill=1, stroke=1)
                 continue
             if codes[0] == "17":
-                c.setFillGray(0.55)
+                c.setFillColor(HexColor(GC[g]))
                 c.rect(x_a, cy - 1.4 * mm, x_b - x_a, 2.8 * mm, fill=1, stroke=0)
                 c.setStrokeGray(0), c.setLineWidth(0.5)
                 c.rect(x_a, cy - 1.4 * mm, x_b - x_a, 2.8 * mm, fill=0)
                 continue
             is_c = pdn == 4 and crit
             c.setLineWidth(0.5 if not is_c else 1.0)
-            c.setFillGray(0 if is_c else 0.8)
+            c.setFillColor(HexColor(RED if is_c else GC[g]))
             c.rect(x_a, cy - bh / 2, x_b - x_a, bh, fill=1, stroke=1)
-            c.setFillGray(1 if is_c else 0)
+            c.setFillGray(1)
             c.setFont("TNR-B", 6.4)
             c.drawCentredString((x_a + x_b) / 2, cy - 0.9 * mm, str(pdn))
         c.setFillGray(0)
@@ -235,7 +249,7 @@ def main(lich, out):
             xa, xb = cx + 3.1 * mm, cx - 3.1 * mm
         return yy + RH / 2, xa, xb
 
-    c.setStrokeGray(0), c.setFillGray(0), c.setLineWidth(1.1)
+    c.setStrokeColor(HexColor(RED)), c.setFillColor(HexColor(RED)), c.setLineWidth(1.3)
     for a_, b_ in CRIT:
         ya, xa, _ = bar_ends(a_)
         yb, _, xb = bar_ends(b_)
@@ -265,14 +279,15 @@ def main(lich, out):
 
     # khối ký, đóng dấu (3 khối cân đối)
     blocks = [("ĐẠI DIỆN CHỦ ĐẦU TƯ", PRJ["chu_dau_tu"].upper()),
-              ("ĐẠI DIỆN TƯ VẤN QUẢN LÝ DỰ ÁN", "CÔNG TY TNHH APAVE CHÂU Á – THÁI BÌNH DƯƠNG"),
+              ("ĐẠI DIỆN TƯ VẤN QUẢN LÝ DỰ ÁN VÀ GIÁM SÁT", "CÔNG TY TNHH APAVE CHÂU Á – THÁI BÌNH DƯƠNG"),
               ("ĐẠI DIỆN NHÀ THẦU THI CÔNG", PRJ["nha_thau"].upper())]
     yy = y - 12 * mm
     for i, (a, b) in enumerate(blocks):
         cx = X0 + (X1 - X0) * (i * 2 + 1) / 6
-        c.setFillGray(0)
+        c.setFillColor(HexColor(NAVY))
         c.setFont("TNR-B", 12)
         c.drawCentredString(cx, yy, a)
+        c.setFillGray(0)
         c.setFont("TNR-B", 10.5)
         c.drawCentredString(cx, yy - 5.5 * mm, b)
         c.setFont("TNR-I", 10)
@@ -282,4 +297,5 @@ def main(lich, out):
     print("OK", out, "y_cuoi_bang_mm", round(y / mm, 1))
 
 
-main(sys.argv[1], sys.argv[2])
+if __name__ == "__main__":
+    main(sys.argv[1], sys.argv[2])
