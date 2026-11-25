@@ -150,3 +150,8 @@ Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, b
 - File MS Project mới kiểm tra đúng cấu trúc XML, chưa mở thử bằng MS Project; các công việc đặt ràng buộc "bắt đầu không sớm hơn" để giữ đúng ngày trong lịch.
 - Đường găng xác định theo chuỗi công việc phân đoạn 4 (cọc 118–126) đến nghiệm thu toàn gói và bàn giao theo trình tự logic của lịch; chưa tính thời gian dự trữ chính thức. Chưa có nhân lực, thiết bị. Chưa đưa vào PDF tổng hợp.
 - Excel: các đường găng là shape đường thẳng, không tự dịch khi sửa ngày; cần kéo lại bằng tay nếu đổi ngày.
+
+## Biện pháp thi công
+- `09_Thuyet_minh_bien_phap_thi_cong.docx` (11 trang): sinh bằng `python3 tools/build_bptc_thuyet_minh.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/09_Thuyet_minh_bien_phap_thi_cong.docx`. `09_Ban_ve_bien_phap_thi_cong.pdf`: 6 tờ A3 đen trắng BV-01…BV-06 (mặt bằng, mặt cắt, trình tự và điểm nghiệm thu, ép cọc, móng - ván khuôn - đổ bê tông, đắp hoàn trả - đá xô - an toàn), sinh bằng `python3 tools/build_ban_ve_bptc.py ho_so/09_Ban_ve_bien_phap_thi_cong.pdf`.
+- Chưa có bản vẽ thiết kế/chỉ dẫn kỹ thuật nên các bản vẽ là SƠ ĐỒ MINH HỌA KHÔNG TỈ LỆ, không ghi kích thước; lực ép, độ chối, chiều dày lớp đắp, quy cách… ghi "theo thiết kế". Hướng "phía trong/phía ngoài kè" lấy theo tên hạng mục trong lịch, cần đối chiếu bản vẽ.
+- Bảng nhân sự (ngoài các tên đã có), thiết bị và số lượng để trống "(nhà thầu bổ sung)". Tần suất lấy mẫu bê tông 1 tổ/20 m3 là giá trị tạm, cần xác nhận với chỉ dẫn kỹ thuật và TVGS. Các bản vẽ ghi "Người lập/Kiểm tra/Phê duyệt" để trống. Chưa đưa vào PDF tổng hợp.
