@@ -21,11 +21,14 @@ NAME = {"01": "Cung cấp, nghiệm thu đầu vào cọc BT300x300 M300 bền s
         "10": "Ván khuôn bê tông lót", "11": "Ván khuôn cấu kiện móng, thân", "12": "Ván khuôn khóa đỉnh", "13": "Gia công, lắp dựng cốt thép",
         "14": "Thi công khe lún, chi tiết thoát nước", "15": "Đắp đê quai, tạo sàn thi công, thoát nước tạm (K95)",
         "16": "Đào bùn, nạo vét lạch phía núi (đợt mở mặt bằng)", "17": "Biện pháp thi công trọn gói (duy trì đường công vụ, thoát nước...)"}
-COL = {"01": "7F7F7F", "02": "1F4E79", "03": "2E75B6", "04": "C55A11", "05": "ED7D31", "06": "7F6000", "07": "BF9000", "08": "A9A9A9",
-       "09": "C00000", "10": "548235", "11": "70AD47", "12": "548235", "13": "7030A0", "14": "00808A", "15": "9C6500", "16": "8E6F3E", "17": "595959"}
+STY = {"01": ("lightVertical", "000000"), "02": ("darkTrellis", "000000"), "03": ("solid", "BFBFBF"), "04": ("darkUp", "000000"),
+       "05": ("lightUp", "000000"), "06": ("darkDown", "000000"), "07": ("lightDown", "000000"), "08": ("lightGrid", "000000"),
+       "09": ("solid", "000000"), "10": ("lightHorizontal", "000000"), "11": ("darkHorizontal", "000000"), "12": ("lightTrellis", "000000"),
+       "13": ("darkVertical", "000000"), "14": ("gray125", "000000"), "15": ("solid", "A6A6A6"), "16": ("solid", "7F7F7F"), "17": ("solid", "404040"), "": ("solid", "000000")}
 thin = Side(style="thin", color="BFBFBF")
 BD = Border(left=thin, right=thin, top=thin, bottom=thin)
 fill = lambda c: PatternFill("solid", start_color=c, end_color=c)
+bar = lambda m: PatternFill(STY[m][0], fgColor=STY[m][1], bgColor="FFFFFF")
 F = lambda **k: Font(name="Times New Roman", **k)
 
 
@@ -65,7 +68,7 @@ def main(lich, out):
     for i, h in enumerate(heads, 1):
         ws.merge_cells(start_row=H, start_column=i, end_row=H + 2, end_column=i)
         c = ws.cell(H, i, h)
-        c.font, c.alignment, c.fill = F(size=10, bold=True), Alignment(horizontal="center", vertical="center", wrap_text=True), fill("D9E1F2")
+        c.font, c.alignment, c.fill = F(size=10, bold=True), Alignment(horizontal="center", vertical="center", wrap_text=True), fill("D9D9D9")
         for r in range(H, H + 3):
             ws.cell(r, i).border = BD
     # hàng tháng (gộp theo tháng)
@@ -76,7 +79,7 @@ def main(lich, out):
             j += 1
         ws.merge_cells(start_row=H, start_column=c0 + i, end_row=H, end_column=c0 + j)
         c = ws.cell(H, c0 + i, f"Tháng {days[i].month}/{days[i].year}")
-        c.font, c.alignment, c.fill = F(size=10, bold=True), Alignment(horizontal="center"), fill("D9E1F2")
+        c.font, c.alignment, c.fill = F(size=10, bold=True), Alignment(horizontal="center"), fill("D9D9D9")
         for k in range(i, j + 1):
             ws.cell(H, c0 + k).border = BD
         i = j + 1
@@ -84,7 +87,7 @@ def main(lich, out):
         for r, txt, sz in ((H + 1, d.day, 8), (H + 2, ["T2", "T3", "T4", "T5", "T6", "T7", "CN"][d.weekday()], 6.5)):
             c = ws.cell(r, c0 + k, txt)
             c.font, c.alignment, c.border = F(size=sz, bold=(r == H + 1)), Alignment(horizontal="center", vertical="center"), BD
-            c.fill = fill("F4B183" if d in HOLIDAY else ("EDEDED" if d.weekday() == 6 else "FFFFFF"))
+            c.fill = bar("17") if False else (PatternFill("darkGray", fgColor="808080", bgColor="FFFFFF") if d in HOLIDAY else fill("EDEDED") if d.weekday() == 6 else fill("FFFFFF"))
         ws.column_dimensions[L(c0 + k)].width = 2.6
     for col, w in zip("ABCDEFGH", (5, 58, 7, 11, 11, 11, 8, 12)):
         ws.column_dimensions[col].width = w
@@ -97,11 +100,11 @@ def main(lich, out):
         nonlocal r
         ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=nfix)
         c = ws.cell(r, 1, title)
-        c.font, c.fill = F(size=10.5, bold=True), fill("FFF2CC")
+        c.font, c.fill = F(size=10.5, bold=True), fill("EDEDED")
         for cc in range(1, last + 1):
             ws.cell(r, cc).border = BD
             if cc >= c0:
-                ws.cell(r, cc).fill = fill("FFF2CC")
+                ws.cell(r, cc).fill = fill("EDEDED")
         r += 1
 
     def line(v):
@@ -121,11 +124,13 @@ def main(lich, out):
             c = ws.cell(r, c0 + k)
             c.border = BD
             if d in HOLIDAY:
-                c.fill = fill("FBE5D6")
+                c.fill = PatternFill("lightGray", fgColor="808080", bgColor="FFFFFF")
             if v["s"] <= d <= v["e"] and d not in HOLIDAY:
-                c.fill = fill(COL.get(v["muc"], "2E75B6"))
+                c.fill = bar(v["muc"])
             if v["nt"] and d == v["nt"]:
-                c.value, c.font, c.alignment = "◆", F(size=8, bold=True, color="FFFFFF" if v["s"] <= d <= v["e"] else "000000"), Alignment(horizontal="center")
+                c.value, c.font, c.alignment = "◆", F(size=9, bold=True, color="000000"), Alignment(horizontal="center")
+                if v["s"] <= d <= v["e"]:
+                    c.fill = fill("FFFFFF")
         ws.row_dimensions[r].height = 24 if len(v["ten"]) > 55 else 15
         r += 1
 
@@ -137,18 +142,52 @@ def main(lich, out):
     for v in sorted([x for x in rows if x["vt"] not in PD], key=lambda x: (x["s"], x["e"])):
         line(v)
     r += 1
-    notes = ["Ghi chú:",
-             "- Thanh màu: thời gian thi công theo lịch nghiệm thu (bắt đầu – hoàn thành); ◆: ngày nghiệm thu theo kế hoạch; ô cam: nghỉ lễ 01–02/09 theo hợp đồng.",
-             "- Khối lượng từng phân đoạn là số phân bổ tạm trong lịch nghiệm thu, cần cập nhật theo bản vẽ triển khai.",
-             "- Các công việc bê tông M300 có lấy mẫu R7/R28 theo từng đợt đổ; thời gian bảo dưỡng và thí nghiệm R28 nằm ngoài khung thi công trên biểu đồ.",
-             "- Tiến độ lập theo ngày kế hoạch đã được xác nhận là ngày thực tế; chưa kèm nhân lực và thiết bị (không có dữ liệu)."]
-    for t in notes:
-        ws.cell(r, 1, t).font = F(size=9.5, bold=(t == "Ghi chú:"), italic=(t != "Ghi chú:"))
-        r += 1
+    # --- chú giải ký hiệu (3 mục/hàng, dùng các cột ngày)
+    ws.cell(r, 1, "CHÚ GIẢI KÝ HIỆU").font = F(size=10, bold=True)
+    leg = [(m, NAME[m].split(" (")[0]) for m in sorted(NAME)]
+    leg.append(("D", "Ngày nghiệm thu theo kế hoạch (◆)"))
+    leg.append(("H", "Nghỉ lễ 01–02/09 theo hợp đồng"))
+    per = 3
+    wid = len(days) // per
+    r0 = r
+    for k, (m, txt) in enumerate(leg):
+        rr, cc = r0 + k // per, c0 + (k % per) * wid
+        sc = ws.cell(rr, cc)
+        if m in STY:
+            sc.fill = bar(m)
+        elif m == "H":
+            sc.fill = PatternFill("lightGray", fgColor="808080", bgColor="FFFFFF")
+        else:
+            sc.value, sc.alignment, sc.font = "◆", Alignment(horizontal="center"), F(size=9, bold=True)
+        sc.border = BD
+        t = ws.cell(rr, cc + 1, txt)
+        t.font = F(size=9)
+        ws.merge_cells(start_row=rr, start_column=cc + 1, end_row=rr, end_column=cc + wid - 2)
+    nrow = (len(leg) + per - 1) // per
+    notes = ["- Thời gian thi công theo lịch nghiệm thu đã xác nhận; khối lượng phân đoạn là số phân bổ tạm, cần cập nhật theo bản vẽ triển khai.",
+             "- Bê tông M300 lấy mẫu R7/R28 theo từng đợt đổ; bảo dưỡng và thí nghiệm R28 nằm ngoài khung thi công của biểu đồ.",
+             "- Làm việc 7 ngày/tuần, nghỉ lễ 01–02/09. Tiến độ chưa kèm nhân lực và thiết bị."]
+    for k, t in enumerate(notes):
+        ws.cell(r0 + 1 + k, 1, t).font = F(size=9, italic=True)
+    r = r0 + max(nrow, 4) + 1
+    # --- ký, đóng dấu
+    blocks = [("ĐẠI DIỆN CHỦ ĐẦU TƯ", PRJ["chu_dau_tu"].upper(), (1, nfix)),
+              ("ĐẠI DIỆN TƯ VẤN QUẢN LÝ DỰ ÁN", "CÔNG TY TNHH APAVE CHÂU Á – THÁI BÌNH DƯƠNG", (c0 + 2, c0 + 27)),
+              ("ĐẠI DIỆN NHÀ THẦU THI CÔNG", PRJ["nha_thau"].upper(), (c0 + 44, c0 + 68))]
+    ws.cell(r, 1)
+    for a, b, (x, y) in blocks:
+        for k, (txt, st) in enumerate(((a, dict(size=11, bold=True)), (b, dict(size=10, bold=True)), ("(Ký, ghi rõ họ tên, đóng dấu)", dict(size=9, italic=True)))):
+            ws.merge_cells(start_row=r + k, start_column=x, end_row=r + k, end_column=y)
+            c = ws.cell(r + k, x, txt)
+            c.font, c.alignment = F(**st), Alignment(horizontal="center", wrap_text=True)
+    ws.row_dimensions[r + 1].height = 28
+    r += 3 + 6  # chỗ ký, đóng dấu
     ws.freeze_panes = ws.cell(H + 3, c0)
     ws.sheet_view.zoomScale = 90
     ws.page_setup.orientation, ws.page_setup.paperSize = "landscape", 8  # A3
     ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, 1
+    ws.page_setup.blackAndWhite = True
+    ws.print_options.horizontalCentered = True
     ws.sheet_properties.pageSetUpPr = openpyxl.worksheet.properties.PageSetupProperties(fitToPage=True)
     ws.page_margins.left, ws.page_margins.right, ws.page_margins.top, ws.page_margins.bottom = 0.4, 0.4, 0.5, 0.5
     ws.print_title_rows = f"{H}:{H + 2}"
@@ -160,7 +199,7 @@ def main(lich, out):
     m["A1"].font = F(size=14, bold=True)
     for i, h in enumerate(["Mốc", "Ngày"], 1):
         c = m.cell(3, i, h)
-        c.font, c.fill, c.border = F(bold=True), fill("D9E1F2"), BD
+        c.font, c.fill, c.border = F(bold=True), fill("D9D9D9"), BD
     first = lambda muc, p: min(x["s"] for x in rows if x["muc"] == muc and x["vt"] == p)
     lastd = lambda muc, p: max(x["e"] for x in rows if x["muc"] == muc and x["vt"] == p)
     ms = [("Khởi công theo hợp đồng", START)]

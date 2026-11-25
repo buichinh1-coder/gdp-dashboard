@@ -145,5 +145,5 @@ Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, b
 - Hiện sinh bằng lệnh riêng: `python3 tools/build_nhat_ky.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/01_Nhat_ky_thi_cong.docx` (chạy trước `assemble_ho_so.py`).
 
 ## Tiến độ thi công
-- `08_Tien_do_thi_cong.xlsx/.pdf`: biểu đồ Gantt theo ngày (12/08–27/10/2026), 71 dòng theo 4 phân đoạn + toàn tuyến, kèm sheet mốc chính. Sinh bằng `python3 tools/build_tien_do.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/08_Tien_do_thi_cong.xlsx`.
+- `08_Tien_do_thi_cong.xlsx/.pdf`: biểu đồ Gantt theo ngày, khổ A3 in đen trắng, có khối ký/đóng dấu CĐT – TVQLDA – nhà thầu (12/08–27/10/2026), 71 dòng theo 4 phân đoạn + toàn tuyến, kèm sheet mốc chính. Sinh bằng `python3 tools/build_tien_do.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/08_Tien_do_thi_cong.xlsx`.
 - Dùng đúng ngày bắt đầu/hoàn thành/nghiệm thu trong lịch nghiệm thu; khối lượng là số phân bổ tạm; chưa có nhân lực, thiết bị. Chưa đưa vào PDF tổng hợp.
