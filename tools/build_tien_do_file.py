@@ -85,11 +85,11 @@ def write_xlsx(tasks, out):
     fl = lambda c: PatternFill("solid", start_color=c.lstrip("#"), end_color=c.lstrip("#"))
     F = lambda **k: Font(name="Times New Roman", **k)
     ws["A1"] = "TIẾN ĐỘ THI CÔNG"
-    ws["A1"].font = F(size=18, bold=True, color="1F3A5F")
+    ws["A1"].font = F(size=18, bold=True, color="404040")
     ws["A2"] = PRJ["goi_thau"].upper()
     ws["A2"].font = F(size=12, bold=True)
     ws["A3"] = (f"Hợp đồng {PRJ['so_hop_dong']} | Chủ đầu tư: {PRJ['chu_dau_tu']} | Nhà thầu: {PRJ['nha_thau']} | "
-                f"Sửa ngày Bắt đầu/Kết thúc (cột D, E): thanh tiến độ và số ngày tự cập nhật. Thanh đỏ: đường găng.")
+                f"Sửa ngày Bắt đầu/Kết thúc (cột D, E): thanh tiến độ và số ngày tự cập nhật. Thanh đen và đường thẳng có mũi tên: đường găng.")
     ws["A3"].font = F(size=9.5, italic=True)
     H = 5
     heads = ["WBS", "Công việc", "Phân đoạn", "Bắt đầu", "Kết thúc", "Số ngày", "Tiền nhiệm (WBS)"]
@@ -117,7 +117,7 @@ def write_xlsx(tasks, out):
         b = ws.cell(H + 2, col, f'=CHOOSE(WEEKDAY({L(col)}{H + 1},2),"T2","T3","T4","T5","T6","T7","CN")')
         for x, sz in ((a, 8), (b, 6.5)):
             x.font, x.alignment, x.border = F(size=sz, bold=(x is a)), Alignment(horizontal="center", vertical="center"), BD
-            x.fill = fl("#F5B041" if d in HOLIDAY else ("#D6DBDF" if d.weekday() == 6 else "#EBF5FB"))
+            x.fill = fl("#9A9A9A" if d in HOLIDAY else ("#D9D9D9" if d.weekday() == 6 else "#F2F2F2"))
         ws.column_dimensions[L(col)].width = 2.7
     for col, w in zip("ABCDEFG", (8, 62, 14, 12, 12, 9, 14)):
         ws.column_dimensions[col].width = w
@@ -138,7 +138,7 @@ def write_xlsx(tasks, out):
         if t["summary"]:
             for cc in range(1, last + 1):
                 ws.cell(r, cc).fill = fl(T.GL[t["group"]])
-            ws.cell(r, 2).font = F(size=10, bold=True, color=T.GC[t["group"]][1:] if t["level"] == 1 else "000000")
+            ws.cell(r, 2).font = F(size=10, bold=True, color="000000")
             ws.cell(r, 1).font = F(size=9.5, bold=True)
             if t["level"] == 2:  # dòng tóm tắt: ngày = min/max của con
                 kids = [i for i, x in enumerate(tasks, 1) if x["wbs"].startswith(t["wbs"] + ".")]
@@ -156,7 +156,7 @@ def write_xlsx(tasks, out):
             for cc in (1, 3, 4, 5, 6, 7):
                 ws.cell(r, cc).font = F(size=9.5)
             rng = f"{L(c0)}{r}:{L(last)}{r}"
-            colr = "C0392B" if t.get("crit") else T.GC[t["group"]][1:]
+            colr = "000000" if t.get("crit") else T.GC[t["group"]][1:]
             ws.conditional_formatting.add(rng, FormulaRule(formula=[f"AND({L(c0)}${H + 1}>=$D{r},{L(c0)}${H + 1}<=$E{r})"],
                                                           fill=PatternFill("solid", start_color=colr, end_color=colr, bgColor=colr), stopIfTrue=True))
         ws.row_dimensions[r].height = 15
@@ -176,7 +176,7 @@ def write_xlsx(tasks, out):
               ("ĐẠI DIỆN TƯ VẤN QUẢN LÝ DỰ ÁN VÀ GIÁM SÁT", "CÔNG TY TNHH APAVE CHÂU Á – THÁI BÌNH DƯƠNG", (c0 + 2, c0 + 27)),
               ("ĐẠI DIỆN NHÀ THẦU THI CÔNG", PRJ["nha_thau"].upper(), (c0 + 46, c0 + 70))]
     for a, b, (x, y) in blocks:
-        for k, (txt, st) in enumerate(((a, dict(size=11, bold=True, color="1F3A5F")), (b, dict(size=10, bold=True)), ("(Ký, ghi rõ họ tên, đóng dấu)", dict(size=9, italic=True)))):
+        for k, (txt, st) in enumerate(((a, dict(size=11, bold=True, color="404040")), (b, dict(size=10, bold=True)), ("(Ký, ghi rõ họ tên, đóng dấu)", dict(size=9, italic=True)))):
             ws.merge_cells(start_row=r + k, start_column=x, end_row=r + k, end_column=y)
             c = ws.cell(r + k, x, txt)
             c.font, c.alignment = F(**st), Alignment(horizontal="center")
@@ -214,7 +214,7 @@ def add_lines(path, lines):
             f'<xdr:to><xdr:col>{cb}</xdr:col><xdr:colOff>0</xdr:colOff><xdr:row>{r2}</xdr:row><xdr:rowOff>{off}</xdr:rowOff></xdr:to>'
             f'<xdr:cxnSp macro=""><xdr:nvCxnSpPr><xdr:cNvPr id="{k + 1}" name="Duong gang {k}"/><xdr:cNvCxnSpPr/></xdr:nvCxnSpPr>'
             f'<xdr:spPr><a:xfrm{flip}><a:off x="0" y="0"/><a:ext cx="0" cy="0"/></a:xfrm><a:prstGeom prst="line"><a:avLst/></a:prstGeom>'
-            f'<a:ln w="25400"><a:solidFill><a:srgbClr val="C0392B"/></a:solidFill><a:tailEnd type="triangle" w="med" len="med"/></a:ln></xdr:spPr></xdr:cxnSp><xdr:clientData/></xdr:twoCellAnchor>')
+            f'<a:ln w="25400"><a:solidFill><a:srgbClr val="000000"/></a:solidFill><a:tailEnd type="triangle" w="med" len="med"/></a:ln></xdr:spPr></xdr:cxnSp><xdr:clientData/></xdr:twoCellAnchor>')
     drawing = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><xdr:wsDr xmlns:xdr="http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing" '
                'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">' + "".join(anchors) + "</xdr:wsDr>")
     zin = zipfile.ZipFile(path)

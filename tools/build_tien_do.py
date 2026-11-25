@@ -20,9 +20,9 @@ FD = "/usr/share/fonts/truetype/liberation/LiberationSerif-"
 for n, f in (("R", "Regular"), ("B", "Bold"), ("I", "Italic")):
     pdfmetrics.registerFont(TTFont("TNR-" + n, FD + f + ".ttf"))
 from reportlab.lib.colors import HexColor
-GC = ["#2E86C1", "#1E8449", "#D68910", "#7D3C98", "#566573"]  # màu theo nhóm A–E
-GL = ["#D6EAF8", "#D5F5E3", "#FCF3CF", "#E8DAEF", "#EAEDED"]
-RED, NAVY = "#C0392B", "#1F3A5F"
+GC = ["#8C8C8C"] * 5  # màu theo nhóm A–E
+GL = ["#E4E4E4"] * 5
+RED, NAVY = "#000000", "#404040"
 PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
 
 # (tên, [mã công việc]) ; nhóm: ("#", tên nhóm)
@@ -82,7 +82,7 @@ def main(lich, out):
     mm = 72 / 25.4
     c = canvas.Canvas(out, pagesize=(W, H))
     c.setTitle("Tiến độ thi công"), c.setAuthor(PRJ["nha_thau"])
-    X0, X1, YT = 14 * mm, W - 14 * mm, H - 40 * mm
+    X0, X1, YT = 14 * mm, W - 14 * mm, H - 43 * mm
     cols = [("STT", 11), ("Công việc chính", 88), ("Bắt đầu", 21), ("Kết thúc", 21), ("Số ngày", 15)]
     xs = [X0]
     for _, w in cols:
@@ -99,15 +99,15 @@ def main(lich, out):
     c.setLineWidth(0.4)
     c.rect(9.5 * mm, 9.5 * mm, W - 19 * mm, H - 19 * mm)
     # tiêu đề
-    c.setFillColor(HexColor(NAVY))
+    c.setFillGray(0)
     c.setFont("TNR-B", 22)
     c.drawCentredString(W / 2, H - 22 * mm, "TIẾN ĐỘ THI CÔNG")
     c.setFillGray(0)
     c.setFont("TNR-B", 12.5)
     c.drawCentredString(W / 2, H - 29 * mm, PRJ["goi_thau"].upper())
     c.setFont("TNR-I", 9.5)
-    c.drawCentredString(W / 2, H - 34.5 * mm, f"Hợp đồng {PRJ['so_hop_dong']}  |  Địa điểm: {PRJ['dia_diem']}  |  Thời gian: {START:%d/%m/%Y} – {END:%d/%m/%Y}  |  "
-                        "Thanh và mũi tên màu đỏ: đường găng  |  Số trong thanh: phân đoạn 1–4 (cọc 88–98, 98–108, 108–118, 118–126)")
+    c.drawCentredString(W / 2, H - 34 * mm, f"Hợp đồng {PRJ['so_hop_dong']}  |  Địa điểm: {PRJ['dia_diem']}  |  Thời gian: {START:%d/%m/%Y} – {END:%d/%m/%Y}")
+    c.drawCentredString(W / 2, H - 38.2 * mm, "Thanh đen và đường thẳng có mũi tên: đường găng  |  Số trong thanh: phân đoạn 1–4 (cọc 88–98, 98–108, 108–118, 118–126)")
 
     # tiêu đề cột
     hh = (6.5, 5, 4.5)
@@ -135,7 +135,7 @@ def main(lich, out):
         k = j + 1
     for i, d in enumerate(days):
         y1, y2 = YT - hh[0] * mm, YT - (hh[0] + hh[1]) * mm
-        c.setFillColor(HexColor("#F5B041" if d in HOLIDAY else ("#D6DBDF" if d.weekday() == 6 else "#EBF5FB")))
+        c.setFillColor(HexColor("#9A9A9A" if d in HOLIDAY else ("#D9D9D9" if d.weekday() == 6 else "#F2F2F2")))
         c.rect(dx(i), y2, dw, hh[1] * mm, fill=1)
         c.rect(dx(i), y2 - hh[2] * mm, dw, hh[2] * mm, fill=1)
         c.setFillGray(0)
@@ -157,7 +157,7 @@ def main(lich, out):
             g += 1
             c.setFillColor(HexColor(GL[g]))
             c.rect(X0, y, X1 - X0, GH, fill=1, stroke=1)
-            c.setFillColor(HexColor(GC[g]))
+            c.setFillGray(0)
             c.setFont("TNR-B", 10.5)
             c.drawString(xs[1] + 2 * mm, y + 2.1 * mm, codes)
             continue
@@ -201,7 +201,7 @@ def main(lich, out):
             c.setStrokeGray(0.75 if d.weekday() else 0.45)
             c.line(dx(i), y, dx(i), y + RH)
             if d in HOLIDAY:
-                c.setFillColor(HexColor("#FDEBD0"))
+                c.setFillColor(HexColor("#E0E0E0"))
                 c.rect(dx(i), y, dw, RH, fill=1, stroke=0)
         c.setStrokeGray(0)
         c.setLineWidth(0.6)
@@ -281,7 +281,7 @@ def main(lich, out):
     yy = y - 12 * mm
     for i, (a, b) in enumerate(blocks):
         cx = X0 + (X1 - X0) * (i * 2 + 1) / 6
-        c.setFillColor(HexColor(NAVY))
+        c.setFillGray(0)
         c.setFont("TNR-B", 12)
         c.drawCentredString(cx, yy, a)
         c.setFillGray(0)
