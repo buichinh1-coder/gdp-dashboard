@@ -145,7 +145,8 @@ Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, b
 - Hiện sinh bằng lệnh riêng: `python3 tools/build_nhat_ky.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/01_Nhat_ky_thi_cong.docx` (chạy trước `assemble_ho_so.py`).
 
 ## Tiến độ thi công
-- `08_Tien_do_thi_cong.pdf`: Gantt theo ngày, A3 ngang, có màu theo nhóm công việc, 14 công việc chính (mỗi thanh chia 4 phân đoạn), đường găng màu đỏ (thanh + mũi tên) và khối ký/đóng dấu CĐT – TVQLDA và giám sát – nhà thầu. Sinh bằng `python3 tools/build_tien_do.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/08_Tien_do_thi_cong.pdf`.
+- `08_Tien_do_thi_cong.pdf`: Gantt theo ngày, A3 ngang, có màu theo nhóm công việc, 14 công việc chính (mỗi thanh chia 4 phân đoạn), đường găng màu đỏ (thanh + đường thẳng có mũi tên nối các công việc găng, như Insert > Line) và khối ký/đóng dấu CĐT – TVQLDA và giám sát – nhà thầu. Sinh bằng `python3 tools/build_tien_do.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/08_Tien_do_thi_cong.pdf`.
 - `08_Tien_do_thi_cong.xlsx`: bản Excel chỉnh sửa được (sửa ngày bắt đầu/kết thúc thì thanh Gantt và số ngày tự cập nhật) và `08_Tien_do_thi_cong_MSProject.xml`: file MS Project (định dạng MSPDI, mở bằng File > Open), có liên kết tiền nhiệm kiểu kết thúc-bắt đầu theo từng phân đoạn, lịch làm việc 7 ngày/tuần nghỉ 01–02/09. Sinh bằng `python3 tools/build_tien_do_file.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so`.
 - File MS Project mới kiểm tra đúng cấu trúc XML, chưa mở thử bằng MS Project; các công việc đặt ràng buộc "bắt đầu không sớm hơn" để giữ đúng ngày trong lịch.
 - Đường găng xác định theo chuỗi công việc phân đoạn 4 (cọc 118–126) đến nghiệm thu toàn gói và bàn giao theo trình tự logic của lịch; chưa tính thời gian dự trữ chính thức. Chưa có nhân lực, thiết bị. Chưa đưa vào PDF tổng hợp.
+- Excel: các đường găng là shape đường thẳng, không tự dịch khi sửa ngày; cần kéo lại bằng tay nếu đổi ngày.

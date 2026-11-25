@@ -249,7 +249,7 @@ def main(lich, out):
             xa, xb = cx + 3.1 * mm, cx - 3.1 * mm
         return yy + RH / 2, xa, xb
 
-    c.setStrokeColor(HexColor(RED)), c.setFillColor(HexColor(RED)), c.setLineWidth(1.3)
+    c.setStrokeColor(HexColor(RED)), c.setFillColor(HexColor(RED)), c.setLineWidth(1.8)
     for a_, b_ in CRIT:
         ya, xa, _ = bar_ends(a_)
         yb, _, xb = bar_ends(b_)
@@ -261,20 +261,17 @@ def main(lich, out):
             ah.moveTo(cx, yb + 3.1 * mm), ah.lineTo(cx - 1.0 * mm, yb + 5.1 * mm), ah.lineTo(cx + 1.0 * mm, yb + 5.1 * mm), ah.close()
             c.drawPath(ah, fill=1, stroke=0)
             continue
-        if xs >= xe:
-            pts = [(xa, ya), (xs, ya), (xs, yb), (xb, yb)]
-        else:
-            ym = ya - RH / 2
-            pts = [(xa, ya), (xe, ya), (xe, ym), (xs, ym), (xs, yb), (xb, yb)]
-        p = c.beginPath()
-        p.moveTo(*pts[0])
-        for q in pts[1:-1]:
-            p.lineTo(*q)
-        p.lineTo(pts[-1][0] - 1.6 * mm, pts[-1][1])
-        c.setLineJoin(1)
-        c.drawPath(p, fill=0, stroke=1)
+        # đường thẳng (kiểu Insert > Line) từ cuối thanh trước đến đầu thanh sau, có mũi tên
+        import math
+        ang = math.atan2(yb - ya, xb - xa)
+        ex, ey = xb - 0.4 * mm * math.cos(ang), yb - 0.4 * mm * math.sin(ang)
+        c.line(xa, ya, ex, ey)
+        al = 3.0 * mm
         ah = c.beginPath()
-        ah.moveTo(xb, yb), ah.lineTo(xb - 2.0 * mm, yb + 1.0 * mm), ah.lineTo(xb - 2.0 * mm, yb - 1.0 * mm), ah.close()
+        ah.moveTo(xb, yb)
+        ah.lineTo(xb - al * math.cos(ang - 0.35), yb - al * math.sin(ang - 0.35))
+        ah.lineTo(xb - al * math.cos(ang + 0.35), yb - al * math.sin(ang + 0.35))
+        ah.close()
         c.drawPath(ah, fill=1, stroke=0)
 
     # khối ký, đóng dấu (3 khối cân đối)

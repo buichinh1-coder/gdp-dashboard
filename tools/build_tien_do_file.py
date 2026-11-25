@@ -188,6 +188,59 @@ def write_xlsx(tasks, out):
     ws.print_title_rows = f"{H}:{H + 2}"
     ws.print_area = f"A1:{L(last)}{r + 9}"
     wb.save(out)
+    lines = []
+    for t_idx, t in enumerate(tasks, 1):
+        if not t.get("crit") or t["summary"]:
+            continue
+        for p_ in t["preds"]:
+            q = tasks[p_ - 1]
+            if q.get("crit"):
+                # từ cuối thanh trước (mép phải ô ngày kết thúc) đến đầu thanh sau (mép trái ô ngày bắt đầu), giữa dòng
+                lines.append(((c0 - 1) + (q["e"] - START).days + 1, row_of[p_] - 1, (c0 - 1) + (t["s"] - START).days, row_of[t_idx] - 1))
+    add_lines(out, lines)
+
+
+def add_lines(path, lines):
+    """Chèn các đường thẳng đỏ có mũi tên (Insert > Line) vào sheet 1 của file xlsx."""
+    import re
+    import zipfile
+    anchors = []
+    for k, (c1, r1, c2, r2) in enumerate(lines, 1):
+        off = 95250  # nửa chiều cao dòng 15pt (EMU)
+        flip = ' flipH="1"' if c2 < c1 else ""
+        ca, cb = min(c1, c2), max(c1, c2)
+        anchors.append(
+            f'<xdr:twoCellAnchor editAs="oneCell"><xdr:from><xdr:col>{ca}</xdr:col><xdr:colOff>0</xdr:colOff><xdr:row>{r1}</xdr:row><xdr:rowOff>{off}</xdr:rowOff></xdr:from>'
+            f'<xdr:to><xdr:col>{cb}</xdr:col><xdr:colOff>0</xdr:colOff><xdr:row>{r2}</xdr:row><xdr:rowOff>{off}</xdr:rowOff></xdr:to>'
+            f'<xdr:cxnSp macro=""><xdr:nvCxnSpPr><xdr:cNvPr id="{k + 1}" name="Duong gang {k}"/><xdr:cNvCxnSpPr/></xdr:nvCxnSpPr>'
+            f'<xdr:spPr><a:xfrm{flip}><a:off x="0" y="0"/><a:ext cx="0" cy="0"/></a:xfrm><a:prstGeom prst="line"><a:avLst/></a:prstGeom>'
+            f'<a:ln w="25400"><a:solidFill><a:srgbClr val="C0392B"/></a:solidFill><a:tailEnd type="triangle" w="med" len="med"/></a:ln></xdr:spPr></xdr:cxnSp><xdr:clientData/></xdr:twoCellAnchor>')
+    drawing = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><xdr:wsDr xmlns:xdr="http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing" '
+               'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">' + "".join(anchors) + "</xdr:wsDr>")
+    zin = zipfile.ZipFile(path)
+    items = {n: zin.read(n) for n in zin.namelist()}
+    zin.close()
+    sheet = items["xl/worksheets/sheet1.xml"].decode("utf-8")
+    if "xmlns:r=" not in sheet.split(">", 2)[1] + sheet.split(">", 1)[0]:
+        sheet = sheet.replace("<worksheet ", '<worksheet xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" ', 1)
+    # <drawing> phải đứng sau pageSetup/headerFooter và trước legacyDrawing/tableParts
+    m = re.search(r"<(legacyDrawing|tableParts|extLst)\b", sheet)
+    tag = '<drawing r:id="rIdDr1"/>'
+    sheet = sheet[:m.start()] + tag + sheet[m.start():] if m else sheet.replace("</worksheet>", tag + "</worksheet>")
+    items["xl/worksheets/sheet1.xml"] = sheet.encode("utf-8")
+    rels_name = "xl/worksheets/_rels/sheet1.xml.rels"
+    rel = '<Relationship Id="rIdDr1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/drawing" Target="../drawings/drawing1.xml"/>'
+    if rels_name in items:
+        items[rels_name] = items[rels_name].decode("utf-8").replace("</Relationships>", rel + "</Relationships>").encode("utf-8")
+    else:
+        items[rels_name] = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' + rel + "</Relationships>").encode("utf-8")
+    items["xl/drawings/drawing1.xml"] = drawing.encode("utf-8")
+    ct = items["[Content_Types].xml"].decode("utf-8")
+    ct = ct.replace("</Types>", '<Override PartName="/xl/drawings/drawing1.xml" ContentType="application/vnd.openxmlformats-officedocument.drawing+xml"/></Types>')
+    items["[Content_Types].xml"] = ct.encode("utf-8")
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
+        for n, b in items.items():
+            z.writestr(n, b)
 
 
 def write_msp(tasks, out):
