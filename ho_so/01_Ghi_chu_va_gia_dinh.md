@@ -143,3 +143,7 @@ Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, b
 - KHÔNG có dữ liệu nên để trống: thời tiết, nhân lực, máy thi công, khối lượng, chữ ký đội trưởng, nhận xét chất lượng, giá thành dự toán, cơ quan duyệt, nhà thầu thiết kế/phụ. Nhà thầu ghi theo thực tế công trường.
 - Thời gian tham gia của Chỉ huy trưởng lấy theo thời gian hợp đồng – cần xác nhận.
 - Hiện sinh bằng lệnh riêng: `python3 tools/build_nhat_ky.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/01_Nhat_ky_thi_cong.docx` (chạy trước `assemble_ho_so.py`).
+
+## Tiến độ thi công
+- `08_Tien_do_thi_cong.xlsx/.pdf`: biểu đồ Gantt theo ngày (12/08–27/10/2026), 71 dòng theo 4 phân đoạn + toàn tuyến, kèm sheet mốc chính. Sinh bằng `python3 tools/build_tien_do.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/08_Tien_do_thi_cong.xlsx`.
+- Dùng đúng ngày bắt đầu/hoàn thành/nghiệm thu trong lịch nghiệm thu; khối lượng là số phân bổ tạm; chưa có nhân lực, thiết bị. Chưa đưa vào PDF tổng hợp.
