@@ -38,7 +38,7 @@ ROWS = [("#", "A. CHUẨN BỊ MẶT BẰNG"),
         ("Đắp đá xô chân tường chắn", ["07"]),
         ("Hoàn thiện nạo vét lạch phía núi", ["16b"]),
         ("#", "E. CHUNG TOÀN TUYẾN"),
-        ("Biện pháp thi công trọn gói (đường công vụ, thoát nước)", ["17"]),
+        ("Biện pháp thi công trọn gói", ["17"]),
         ("Nghiệm thu hoàn thành toàn gói", ["70"]),
         ("Bàn giao công trình và hồ sơ", ["71"])]
 # đường găng: các công việc ở phân đoạn 4 (cọc 118–126) rồi các mốc toàn gói
@@ -135,7 +135,7 @@ def main(lich, out):
         c.drawCentredString(dx(i) + dw / 2, y2 - 3.1 * mm, ["T2", "T3", "T4", "T5", "T6", "T7", "CN"][d.weekday()])
 
     # dòng
-    RH, GH = 11 * mm, 7.5 * mm
+    RH, GH = 8.6 * mm, 6.2 * mm
     y = YT - HT
     pos = {}  # tên -> (y_top, segs)
     stt = 0
@@ -194,7 +194,7 @@ def main(lich, out):
         c.line(GX, y, X1, y)
         c.line(X1, y, X1, y + RH)
         # thanh
-        bh = 5.4 * mm
+        bh = 4.8 * mm
         for pdn, a, b in segs:
             x_a, x_b = dx(ix(a)), dx(ix(b) + 1)
             cy = y + RH / 2
@@ -225,38 +225,49 @@ def main(lich, out):
     c.setLineWidth(1.0)
     c.line(GX, YT, GX, y)
 
-    # đường găng: mũi tên nối các công việc ở phân đoạn 4 / mốc toàn gói
-    def end_seg(n):
+    # đường găng: liên kết kết thúc - bắt đầu (kiểu MS Project): ra từ cuối thanh, vào đầu thanh kế tiếp từ bên trái
+    def bar_ends(n):
         yy, sg = pos[n]
-        s = sg[-1]
-        return yy, dx(ix(s[2]) + 1)
+        s_, e_ = sg[-1][1], sg[-1][2]
+        xa, xb = dx(ix(e_) + 1), dx(ix(s_))
+        if n in ("Nghiệm thu hoàn thành toàn gói", "Bàn giao công trình và hồ sơ"):
+            cx = dx(ix(e_) + 1) - dw / 2
+            xa, xb = cx + 3.1 * mm, cx - 3.1 * mm
+        return yy + RH / 2, xa, xb
 
-    def start_seg(n):
-        yy, sg = pos[n]
-        return yy, dx(ix(sg[-1][1]))
-    c.setStrokeGray(0), c.setFillGray(0), c.setLineWidth(1.5)
-    for a, b in CRIT:
-        ya, xa = end_seg(a)
-        yb, xb = start_seg(b)
-        ya_c, yb_t = ya + RH / 2, yb + RH / 2 + 2.3 * mm
-        if b in ("Nghiệm thu hoàn thành toàn gói", "Bàn giao công trình và hồ sơ"):
-            xv = dx(ix(pos[b][1][-1][2])) + dw / 2
-            yb_t = yb + RH / 2 + 3.1 * mm
+    c.setStrokeGray(0), c.setFillGray(0), c.setLineWidth(1.1)
+    for a_, b_ in CRIT:
+        ya, xa, _ = bar_ends(a_)
+        yb, _, xb = bar_ends(b_)
+        xe, xs = xa + 1.6 * mm, xb - 1.6 * mm
+        if a_.startswith("Nghiệm thu hoàn thành"):  # mốc nối mốc: đường thẳng đứng
+            cx = xa - 3.1 * mm
+            c.line(cx, ya - 3.1 * mm, cx, yb + 3.1 * mm + 0.2 * mm)
+            ah = c.beginPath()
+            ah.moveTo(cx, yb + 3.1 * mm), ah.lineTo(cx - 1.0 * mm, yb + 5.1 * mm), ah.lineTo(cx + 1.0 * mm, yb + 5.1 * mm), ah.close()
+            c.drawPath(ah, fill=1, stroke=0)
+            continue
+        if xs >= xe:
+            pts = [(xa, ya), (xs, ya), (xs, yb), (xb, yb)]
         else:
-            xv = xb + dw * 0.45
-        if a in ("Nghiệm thu hoàn thành toàn gói",):
-            xa = dx(ix(pos[a][1][-1][2])) + dw / 2 + 3.1 * mm
-        c.line(xa, ya_c, xv, ya_c)
-        c.line(xv, ya_c, xv, yb_t + 0.2 * mm)
+            ym = ya - RH / 2
+            pts = [(xa, ya), (xe, ya), (xe, ym), (xs, ym), (xs, yb), (xb, yb)]
         p = c.beginPath()
-        p.moveTo(xv, yb_t), p.lineTo(xv - 1.1 * mm, yb_t + 2.2 * mm), p.lineTo(xv + 1.1 * mm, yb_t + 2.2 * mm), p.close()
-        c.drawPath(p, fill=1, stroke=0)
+        p.moveTo(*pts[0])
+        for q in pts[1:-1]:
+            p.lineTo(*q)
+        p.lineTo(pts[-1][0] - 1.6 * mm, pts[-1][1])
+        c.setLineJoin(1)
+        c.drawPath(p, fill=0, stroke=1)
+        ah = c.beginPath()
+        ah.moveTo(xb, yb), ah.lineTo(xb - 2.0 * mm, yb + 1.0 * mm), ah.lineTo(xb - 2.0 * mm, yb - 1.0 * mm), ah.close()
+        c.drawPath(ah, fill=1, stroke=0)
 
     # khối ký, đóng dấu (3 khối cân đối)
     blocks = [("ĐẠI DIỆN CHỦ ĐẦU TƯ", PRJ["chu_dau_tu"].upper()),
               ("ĐẠI DIỆN TƯ VẤN QUẢN LÝ DỰ ÁN", "CÔNG TY TNHH APAVE CHÂU Á – THÁI BÌNH DƯƠNG"),
               ("ĐẠI DIỆN NHÀ THẦU THI CÔNG", PRJ["nha_thau"].upper())]
-    yy = y - 16 * mm
+    yy = y - 12 * mm
     for i, (a, b) in enumerate(blocks):
         cx = X0 + (X1 - X0) * (i * 2 + 1) / 6
         c.setFillGray(0)
