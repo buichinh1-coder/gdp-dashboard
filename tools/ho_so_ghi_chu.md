@@ -136,3 +136,10 @@ Nghiệm thu hoàn thành toàn gói (CV/CT), bàn giao, nhật ký thi công, b
 - 7 mốc nghiệm thu rơi vào Chủ nhật.
 - Hàm lượng thép khoảng 42 kg/m³ bê tông.
 - Cuối gói: nghiệm thu hoàn thành, bàn giao và hoàn công cùng ngày 27/10.
+
+## Nhật ký thi công (Phần D)
+- File `01_Nhat_ky_thi_cong.docx` lập từ mẫu sổ nhật ký trong Biên bản.docx (bìa, thông tin chung, Bảng 1–5), sinh bằng `tools/build_nhat_ky.py`.
+- Mô tả công việc từng ngày (12/08–27/10/2026, 77 ngày) lấy theo ngày bắt đầu – hoàn thành trong lịch nghiệm thu (đã xác nhận là ngày thực tế) và các ngày nghiệm thu/lấy mẫu trong hồ sơ. 01–02/09 ghi nghỉ lễ theo hợp đồng.
+- KHÔNG có dữ liệu nên để trống: thời tiết, nhân lực, máy thi công, khối lượng, chữ ký đội trưởng, nhận xét chất lượng, giá thành dự toán, cơ quan duyệt, nhà thầu thiết kế/phụ. Nhà thầu ghi theo thực tế công trường.
+- Thời gian tham gia của Chỉ huy trưởng lấy theo thời gian hợp đồng – cần xác nhận.
+- Hiện sinh bằng lệnh riêng: `python3 tools/build_nhat_ky.py data/qaqc/input/lich_nghiem_thu.xlsx ho_so/01_Nhat_ky_thi_cong.docx` (chạy trước `assemble_ho_so.py`).

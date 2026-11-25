@@ -384,7 +384,7 @@ def main():
     docs = {"vl": HS / "02_Nghiem_thu_vat_lieu_dau_vao.docx", "lm": HS / "06_Bien_ban_lay_mau.docx",
             "yc_vl": HS / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_vat_lieu.docx",
             "gd": HS / "03_Nghiem_thu_giai_doan_coc.docx", "yc_gd": HS / "05_Phieu_yeu_cau_nghiem_thu/YC_nghiem_thu_giai_doan_coc.docx",
-            "th": HS / "03_Bang_tong_hop_thi_cong_coc.xlsx"}
+            "th": HS / "03_Bang_tong_hop_thi_cong_coc.xlsx", "nk": HS / "01_Nhat_ky_thi_cong.docx"}
     for i, p in enumerate(PD, 1):
         docs[f"cv{i}"] = next(HS.glob(f"03_Nghiem_thu_cong_viec_PD{i}_*.docx"))
         docs[f"yc{i}"] = next((HS / "05_Phieu_yeu_cau_nghiem_thu").glob(f"YC_nghiem_thu_cong_viec_PD{i}_*.docx"))
@@ -411,7 +411,8 @@ def main():
     secs = [("A", ["NGHIỆM THU", "VẬT LIỆU ĐẦU VÀO"], "Phiếu yêu cầu, biên bản lấy mẫu và biên bản nghiệm thu vật liệu"),
             ("B", ["NGHIỆM THU", "CÔNG VIỆC XÂY DỰNG"], "Theo từng phân đoạn: phiếu yêu cầu, biên bản và checklist kiểm tra"),
             ("C", ["NGHIỆM THU GIAI ĐOẠN", "THI CÔNG CỌC"], "Phiếu yêu cầu, biên bản nghiệm thu giai đoạn và bảng tổng hợp thi công cọc"),
-            ("D", ["TÀI LIỆU KÈM THEO"], "Chứng chỉ vật liệu, kết quả thí nghiệm, bản vẽ hoàn công, nhật ký thi công")]
+            ("D", ["NHẬT KÝ", "THI CÔNG"], "Nhật ký thi công xây dựng công trình (bìa, thông tin chung, bản kê biên bản nghiệm thu, tình hình thi công hàng ngày)"),
+            ("E", ["TÀI LIỆU KÈM THEO"], "Chứng chỉ vật liệu, kết quả thí nghiệm, bản vẽ hoàn công")]
     plan = []  # list of (kind, payload)
     plan.append(("div", "A"))
     plan += [("pdf", ("Phiếu yêu cầu nghiệm thu vật liệu", P["yc_vl"], "yc_vl")), ("pdf", ("Biên bản lấy mẫu thí nghiệm", P["lm"], "lm")),
@@ -429,6 +430,8 @@ def main():
     plan += [("pdf", ("Phiếu yêu cầu nghiệm thu giai đoạn cọc", P["yc_gd"], "yc_gd")), ("pdf", ("Biên bản nghiệm thu giai đoạn cọc", P["gd"], "gd")),
              ("pdf", ("Bảng tổng hợp công tác thi công cọc", P["th"], "th"))]
     plan.append(("div", "D"))
+    plan.append(("pdf", ("Nhật ký thi công xây dựng công trình", P["nk"], "nk")))
+    plan.append(("div", "E"))
     plan.append(("pdf", ("Danh sách kết quả thí nghiệm và hồ sơ kèm theo cần có", P["tn"], "tn")))
 
     # --- số trang
@@ -467,7 +470,9 @@ def main():
         bbg = find_pages(P["gd"], lambda r: rf"Biên bản số {num(r)}/CV/GĐ", [gd])
         rows.append(("item", (1, gd["so"], "Nghiệm thu hoàn thành giai đoạn thi công cọc toàn tuyến", dmy(gd["ngay"]), start_of["yc_gd"] + ycg[gd["so"]],
                               start_of["gd"] + bbg[gd["so"]], f"Bảng tổng hợp tr. {start_of['th']}")))
-        rows.append(("sec", "PHẦN D - TÀI LIỆU KÈM THEO (BỔ SUNG)"))
+        rows.append(("sec", "PHẦN D - NHẬT KÝ THI CÔNG"))
+        rows.append(("item", (1, "-", "Nhật ký thi công xây dựng công trình (12/08/2026 - 27/10/2026)", "-", "-", "-", f"tr. {start_of['nk']}")))
+        rows.append(("sec", "PHẦN E - TÀI LIỆU KÈM THEO (BỔ SUNG)"))
         tn = pd.read_excel(HS / "07_Danh_sach_ket_qua_thi_nghiem_can_co.xlsx", sheet_name="Danh_sach", header=3)
         rows.append(("item", (1, "-", "Bảng theo dõi kết quả thí nghiệm và hồ sơ cần có", "-", "-", "-", f"tr. {start_of['tn']}")))
         full = {"A": "Cọc BT300x300 (vật liệu đầu vào)", "B": "Cốt thép", "C": "Bê tông M300 theo từng ngày đổ (R7, R28)",
@@ -518,7 +523,8 @@ def main():
             items = {"A": ["Phiếu yêu cầu nghiệm thu vật liệu", "Biên bản lấy mẫu thí nghiệm", "Biên bản nghiệm thu vật liệu đầu vào"],
                      "B": ["Phân đoạn 1 - 4", "Phiếu yêu cầu, biên bản nghiệm thu công việc, checklist"],
                      "C": ["Phiếu yêu cầu nghiệm thu giai đoạn", "Biên bản nghiệm thu giai đoạn", "Bảng tổng hợp thi công cọc"],
-                     "D": ["Bảng theo dõi kết quả thí nghiệm cần có (trang sau)", "Đặt tại đây theo thứ tự bảng: chứng chỉ vật liệu, phiếu kết quả", "thí nghiệm, bản vẽ hoàn công, nhật ký thi công"]}[letter]
+                     "D": ["Bìa, thông tin chung, danh sách cán bộ kỹ thuật", "Bản kê biên bản nghiệm thu", "Tình hình thi công hàng ngày"],
+                     "E": ["Bảng theo dõi kết quả thí nghiệm cần có (trang sau)", "Đặt tại đây theo thứ tự bảng: chứng chỉ vật liệu, phiếu kết quả", "thí nghiệm, bản vẽ hoàn công"]}[letter]
             w.add_page(divider(title, sub, items, f"PHẦN {letter}"))
             cur_parent = w.add_outline_item(f"Phần {letter} - {' '.join(title).title() if False else ' '.join(title)}", len(w.pages) - 1)
         else:
