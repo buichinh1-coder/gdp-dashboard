@@ -1,5 +1,5 @@
-"""Lập tiến độ thi công (biểu đồ Gantt theo ngày) từ lịch nghiệm thu.
-Dùng: python tools/build_tien_do.py <lich.xlsx> <file_ra.xlsx>
+"""Lập tiến độ thi công (Gantt theo ngày, A3 ngang, in đen trắng) từ lịch nghiệm thu, có đường găng.
+Dùng: python tools/build_tien_do.py <lich.xlsx> <file_ra.pdf>
 """
 import datetime as dt
 import json
@@ -7,29 +7,54 @@ import sys
 from pathlib import Path
 
 import openpyxl
-from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
-from openpyxl.utils import get_column_letter as L
+from reportlab.lib.pagesizes import A3, landscape
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas
 
 ROOT = Path(__file__).parent.parent
 PRJ = json.loads((ROOT / "data/qaqc/records.json").read_text(encoding="utf-8"))["project"]
 START, END = dt.date(2026, 8, 12), dt.date(2026, 10, 27)
 HOLIDAY = {dt.date(2026, 9, 1), dt.date(2026, 9, 2)}
+FD = "/usr/share/fonts/truetype/liberation/LiberationSerif-"
+for n, f in (("R", "Regular"), ("B", "Bold"), ("I", "Italic")):
+    pdfmetrics.registerFont(TTFont("TNR-" + n, FD + f + ".ttf"))
 PD = ["Cọc 88-98", "Cọc 98-108", "Cọc 108-118", "Cọc 118-126"]
-NAME = {"01": "Cung cấp, nghiệm thu đầu vào cọc BT300x300 M300 bền sunfat R7", "02": "Ép cọc BT300x300", "03": "Cắt, đập đầu cọc",
-        "04": "Đào móng bằng máy (đất cấp II)", "05": "Vận chuyển đất đào", "06": "Đắp hoàn trả hố móng, lu nền (K95)",
-        "07": "Đắp đá xô chân tường chắn", "08": "Đổ bê tông lót M100", "09": "Đổ bê tông M300 bền sunfat (móng, thân, khóa đỉnh)",
-        "10": "Ván khuôn bê tông lót", "11": "Ván khuôn cấu kiện móng, thân", "12": "Ván khuôn khóa đỉnh", "13": "Gia công, lắp dựng cốt thép",
-        "14": "Thi công khe lún, chi tiết thoát nước", "15": "Đắp đê quai, tạo sàn thi công, thoát nước tạm (K95)",
-        "16": "Đào bùn, nạo vét lạch phía núi (đợt mở mặt bằng)", "17": "Biện pháp thi công trọn gói (duy trì đường công vụ, thoát nước...)"}
-STY = {"01": ("lightVertical", "000000"), "02": ("darkTrellis", "000000"), "03": ("solid", "BFBFBF"), "04": ("darkUp", "000000"),
-       "05": ("lightUp", "000000"), "06": ("darkDown", "000000"), "07": ("lightDown", "000000"), "08": ("lightGrid", "000000"),
-       "09": ("solid", "000000"), "10": ("lightHorizontal", "000000"), "11": ("darkHorizontal", "000000"), "12": ("lightTrellis", "000000"),
-       "13": ("darkVertical", "000000"), "14": ("gray125", "000000"), "15": ("solid", "A6A6A6"), "16": ("solid", "7F7F7F"), "17": ("solid", "404040"), "": ("solid", "000000")}
-thin = Side(style="thin", color="BFBFBF")
-BD = Border(left=thin, right=thin, top=thin, bottom=thin)
-fill = lambda c: PatternFill("solid", start_color=c, end_color=c)
-bar = lambda m: PatternFill(STY[m][0], fgColor=STY[m][1], bgColor="FFFFFF")
-F = lambda **k: Font(name="Times New Roman", **k)
+
+# (tên, [mã công việc]) ; nhóm: ("#", tên nhóm)
+ROWS = [("#", "A. CHUẨN BỊ MẶT BẰNG"),
+        ("Đắp đê quai, tạo sàn thi công, thoát nước tạm", ["15"]),
+        ("Đào bùn, nạo vét lạch phía núi (mở mặt bằng)", ["16a"]),
+        ("#", "B. THI CÔNG CỌC"),
+        ("Cung cấp, nghiệm thu đầu vào cọc BT300x300", ["01"]),
+        ("Đào móng, vận chuyển đất đào", ["04", "05"]),
+        ("Ép cọc, cắt đầu cọc", ["02", "03"]),
+        ("#", "C. KẾT CẤU KÈ BÊ TÔNG"),
+        ("Ván khuôn, đổ bê tông lót M100", ["10", "08"]),
+        ("Cốt thép, ván khuôn, khe lún", ["13", "11", "12", "14"]),
+        ("Đổ bê tông M300 bền sunfat", ["09"]),
+        ("#", "D. HOÀN TRẢ, HOÀN THIỆN"),
+        ("Đắp hoàn trả hố móng, lu nền", ["06"]),
+        ("Đắp đá xô chân tường chắn", ["07"]),
+        ("Hoàn thiện nạo vét lạch phía núi", ["16b"]),
+        ("#", "E. CHUNG TOÀN TUYẾN"),
+        ("Biện pháp thi công trọn gói (đường công vụ, thoát nước)", ["17"]),
+        ("Nghiệm thu hoàn thành toàn gói", ["70"]),
+        ("Bàn giao công trình và hồ sơ", ["71"])]
+# đường găng: các công việc ở phân đoạn 4 (cọc 118–126) rồi các mốc toàn gói
+CRIT = [("Đắp đê quai, tạo sàn thi công, thoát nước tạm", "Đào bùn, nạo vét lạch phía núi (mở mặt bằng)"),
+        ("Đào bùn, nạo vét lạch phía núi (mở mặt bằng)", "Đào móng, vận chuyển đất đào"),
+        ("Đào móng, vận chuyển đất đào", "Ép cọc, cắt đầu cọc"),
+        ("Cung cấp, nghiệm thu đầu vào cọc BT300x300", "Ép cọc, cắt đầu cọc"),
+        ("Ép cọc, cắt đầu cọc", "Ván khuôn, đổ bê tông lót M100"),
+        ("Ván khuôn, đổ bê tông lót M100", "Cốt thép, ván khuôn, khe lún"),
+        ("Cốt thép, ván khuôn, khe lún", "Đổ bê tông M300 bền sunfat"),
+        ("Đổ bê tông M300 bền sunfat", "Đắp hoàn trả hố móng, lu nền"),
+        ("Đắp hoàn trả hố móng, lu nền", "Đắp đá xô chân tường chắn"),
+        ("Đắp đá xô chân tường chắn", "Hoàn thiện nạo vét lạch phía núi"),
+        ("Hoàn thiện nạo vét lạch phía núi", "Nghiệm thu hoàn thành toàn gói"),
+        ("Nghiệm thu hoàn thành toàn gói", "Bàn giao công trình và hồ sơ")]
+CRIT_ROWS = {a for a, _ in CRIT} | {b for _, b in CRIT}
 
 
 def load(path):
@@ -39,187 +64,211 @@ def load(path):
         if r[0] is None or r[6] is None:
             continue
         muc = str(r[1] or "")
-        ten = NAME.get(muc) or str(r[2])
-        if muc == "16" and str(r[2]).lower().startswith("hoàn thiện"):
-            ten = "Hoàn thiện nạo vét lạch phía núi (30% khối lượng còn lại)"
-        out.append(dict(muc=muc, ten=ten, vt=r[3], dvt=r[4], kl=r[5], s=r[6].date(), e=r[7].date(), nt=r[8].date() if r[8] else None))
+        if not muc:
+            muc = "70" if str(r[2]).startswith("Nghiệm thu") else "71"
+        elif muc == "16":
+            muc = "16b" if str(r[2]).lower().startswith("hoàn thiện") else "16a"
+        out.append((muc, r[3], r[6].date(), r[7].date()))
     return out
 
 
 def main(lich, out):
-    rows = load(lich)
+    data = load(lich)
+    W, H = landscape(A3)
+    mm = 72 / 25.4
+    c = canvas.Canvas(out, pagesize=(W, H))
+    c.setTitle("Tiến độ thi công"), c.setAuthor(PRJ["nha_thau"])
+    X0, X1, YT = 14 * mm, W - 14 * mm, H - 40 * mm
+    cols = [("STT", 11), ("Công việc chính", 88), ("Bắt đầu", 21), ("Kết thúc", 21), ("Số ngày", 15)]
+    xs = [X0]
+    for _, w in cols:
+        xs.append(xs[-1] + w * mm)
+    GX = xs[-1]
     days = [START + dt.timedelta(i) for i in range((END - START).days + 1)]
-    wb = openpyxl.Workbook()
-    ws = wb.active
-    ws.title = "Tien_do_thi_cong"
-    nfix = 8  # STT, công việc, ĐVT, KL, bắt đầu, kết thúc, số ngày, ghi chú
-    c0 = nfix + 1
-    last = c0 + len(days) - 1
-    ws["A1"] = "TIẾN ĐỘ THI CÔNG"
-    ws["A2"] = PRJ["goi_thau"]
-    ws["A3"] = (f"Hợp đồng {PRJ['so_hop_dong']} | Chủ đầu tư: {PRJ['chu_dau_tu']} | Nhà thầu: {PRJ['nha_thau']} | "
-                f"Thời gian: {START:%d/%m/%Y} – {END:%d/%m/%Y} (làm 7 ngày/tuần, nghỉ lễ 01–02/09)")
-    ws["A1"].font, ws["A2"].font, ws["A3"].font = F(size=16, bold=True), F(size=12, bold=True), F(size=10, italic=True)
-    for r in (1, 2, 3):
-        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=last)
-        ws.cell(r, 1).alignment = Alignment(horizontal="center")
-    H = 5  # hàng tiêu đề (tháng ở H-1... dùng 3 hàng: tháng, ngày, thứ)
-    heads = ["STT", "Công việc", "ĐVT", "Khối lượng", "Bắt đầu", "Kết thúc", "Số ngày", "Nghiệm thu (KH)"]
-    for i, h in enumerate(heads, 1):
-        ws.merge_cells(start_row=H, start_column=i, end_row=H + 2, end_column=i)
-        c = ws.cell(H, i, h)
-        c.font, c.alignment, c.fill = F(size=10, bold=True), Alignment(horizontal="center", vertical="center", wrap_text=True), fill("D9D9D9")
-        for r in range(H, H + 3):
-            ws.cell(r, i).border = BD
-    # hàng tháng (gộp theo tháng)
-    i = 0
-    while i < len(days):
-        j = i
-        while j + 1 < len(days) and days[j + 1].month == days[i].month:
+    dw = (X1 - GX) / len(days)
+    dx = lambda i: GX + i * dw  # i: chỉ số ngày (0 = 12/08)
+    ix = lambda d: (d - START).days
+
+    # khung trang
+    c.setLineWidth(1.2)
+    c.rect(8 * mm, 8 * mm, W - 16 * mm, H - 16 * mm)
+    c.setLineWidth(0.4)
+    c.rect(9.5 * mm, 9.5 * mm, W - 19 * mm, H - 19 * mm)
+    # tiêu đề
+    c.setFont("TNR-B", 22)
+    c.drawCentredString(W / 2, H - 22 * mm, "TIẾN ĐỘ THI CÔNG")
+    c.setFont("TNR-B", 12.5)
+    c.drawCentredString(W / 2, H - 29 * mm, PRJ["goi_thau"].upper())
+    c.setFont("TNR-I", 9.5)
+    c.drawCentredString(W / 2, H - 34.5 * mm, f"Hợp đồng {PRJ['so_hop_dong']}  |  Địa điểm: {PRJ['dia_diem']}  |  Thời gian: {START:%d/%m/%Y} – {END:%d/%m/%Y}  |  "
+                        "Thanh đen và mũi tên: đường găng  |  Số trong thanh: phân đoạn 1–4 (cọc 88–98, 98–108, 108–118, 118–126)")
+
+    # tiêu đề cột
+    hh = (6.5, 5, 4.5)
+    HT = sum(hh) * mm
+    c.setFillGray(0.82)
+    c.rect(X0, YT - HT, X1 - X0, HT, fill=1, stroke=0)
+    c.setFillGray(0)
+    c.setLineWidth(0.6)
+    for i, (t, _) in enumerate(cols):
+        c.rect(xs[i], YT - HT, xs[i + 1] - xs[i], HT, fill=0)
+        c.setFont("TNR-B", 10)
+        c.drawCentredString((xs[i] + xs[i + 1]) / 2, YT - HT / 2 - 1.2 * mm, t)
+    k = 0
+    while k < len(days):
+        j = k
+        while j + 1 < len(days) and days[j + 1].month == days[k].month:
             j += 1
-        ws.merge_cells(start_row=H, start_column=c0 + i, end_row=H, end_column=c0 + j)
-        c = ws.cell(H, c0 + i, f"Tháng {days[i].month}/{days[i].year}")
-        c.font, c.alignment, c.fill = F(size=10, bold=True), Alignment(horizontal="center"), fill("D9D9D9")
-        for k in range(i, j + 1):
-            ws.cell(H, c0 + k).border = BD
-        i = j + 1
-    for k, d in enumerate(days):
-        for r, txt, sz in ((H + 1, d.day, 8), (H + 2, ["T2", "T3", "T4", "T5", "T6", "T7", "CN"][d.weekday()], 6.5)):
-            c = ws.cell(r, c0 + k, txt)
-            c.font, c.alignment, c.border = F(size=sz, bold=(r == H + 1)), Alignment(horizontal="center", vertical="center"), BD
-            c.fill = bar("17") if False else (PatternFill("darkGray", fgColor="808080", bgColor="FFFFFF") if d in HOLIDAY else fill("EDEDED") if d.weekday() == 6 else fill("FFFFFF"))
-        ws.column_dimensions[L(c0 + k)].width = 2.6
-    for col, w in zip("ABCDEFGH", (5, 58, 7, 11, 11, 11, 8, 12)):
-        ws.column_dimensions[col].width = w
-    ws.row_dimensions[H + 2].height = 12
+        c.rect(dx(k), YT - hh[0] * mm, dx(j + 1) - dx(k), hh[0] * mm)
+        c.setFont("TNR-B", 9.5)
+        c.drawCentredString((dx(k) + dx(j + 1)) / 2, YT - hh[0] * mm + 1.8 * mm, f"Tháng {days[k].month}/{days[k].year}")
+        k = j + 1
+    for i, d in enumerate(days):
+        y1, y2 = YT - hh[0] * mm, YT - (hh[0] + hh[1]) * mm
+        c.setFillGray(0.55 if d in HOLIDAY else (0.9 if d.weekday() == 6 else 1))
+        c.rect(dx(i), y2, dw, hh[1] * mm, fill=1)
+        c.rect(dx(i), y2 - hh[2] * mm, dw, hh[2] * mm, fill=1)
+        c.setFillGray(0)
+        c.setFont("TNR-B", 6.3)
+        c.drawCentredString(dx(i) + dw / 2, y2 + 1.4 * mm, str(d.day))
+        c.setFont("TNR-R", 5.2)
+        c.drawCentredString(dx(i) + dw / 2, y2 - 3.1 * mm, ["T2", "T3", "T4", "T5", "T6", "T7", "CN"][d.weekday()])
 
-    r = H + 3
+    # dòng
+    RH, GH = 11 * mm, 7.5 * mm
+    y = YT - HT
+    pos = {}  # tên -> (y_top, segs)
     stt = 0
-
-    def group(title):
-        nonlocal r
-        ws.merge_cells(start_row=r, start_column=1, end_row=r, end_column=nfix)
-        c = ws.cell(r, 1, title)
-        c.font, c.fill = F(size=10.5, bold=True), fill("EDEDED")
-        for cc in range(1, last + 1):
-            ws.cell(r, cc).border = BD
-            if cc >= c0:
-                ws.cell(r, cc).fill = fill("EDEDED")
-        r += 1
-
-    def line(v):
-        nonlocal r, stt
+    body_top = y
+    for name, codes in ROWS:
+        if name == "#":
+            y -= GH
+            c.setFillGray(0.88)
+            c.rect(X0, y, X1 - X0, GH, fill=1, stroke=1)
+            c.setFillGray(0)
+            c.setFont("TNR-B", 10.5)
+            c.drawString(xs[1] + 2 * mm, y + 2.1 * mm, codes)
+            continue
+        y -= RH
         stt += 1
-        n = (v["e"] - v["s"]).days + 1 - sum(1 for h in HOLIDAY if v["s"] <= h <= v["e"])
-        vals = [stt, v["ten"], v["dvt"], v["kl"], v["s"], v["e"], n, v["nt"]]
-        for i, x in enumerate(vals, 1):
-            c = ws.cell(r, i, x)
-            c.font, c.border = F(size=9.5), BD
-            c.alignment = Alignment(horizontal="left" if i == 2 else "center", vertical="center", wrap_text=(i == 2))
-            if i in (5, 6, 8) and x:
-                c.number_format = "dd/mm/yyyy"
-            if i == 4 and x is not None:
-                c.number_format = "#,##0.00"
-        for k, d in enumerate(days):
-            c = ws.cell(r, c0 + k)
-            c.border = BD
-            if d in HOLIDAY:
-                c.fill = PatternFill("lightGray", fgColor="808080", bgColor="FFFFFF")
-            if v["s"] <= d <= v["e"] and d not in HOLIDAY:
-                c.fill = bar(v["muc"])
-            if v["nt"] and d == v["nt"]:
-                c.value, c.font, c.alignment = "◆", F(size=9, bold=True, color="000000"), Alignment(horizontal="center")
-                if v["s"] <= d <= v["e"]:
-                    c.fill = fill("FFFFFF")
-        ws.row_dimensions[r].height = 24 if len(v["ten"]) > 55 else 15
-        r += 1
-
-    for p in PD:
-        group(f"PHÂN ĐOẠN {PD.index(p) + 1}: {p.replace('Cọc ', 'cọc ').replace('-', ' – ')}")
-        for v in sorted([x for x in rows if x["vt"] == p], key=lambda x: (x["s"], x["e"], x["muc"])):
-            line(v)
-    group("TOÀN TUYẾN: cọc 88 – 126")
-    for v in sorted([x for x in rows if x["vt"] not in PD], key=lambda x: (x["s"], x["e"])):
-        line(v)
-    r += 1
-    # --- chú giải ký hiệu (3 mục/hàng, dùng các cột ngày)
-    ws.cell(r, 1, "CHÚ GIẢI KÝ HIỆU").font = F(size=10, bold=True)
-    leg = [(m, NAME[m].split(" (")[0]) for m in sorted(NAME)]
-    leg.append(("D", "Ngày nghiệm thu theo kế hoạch (◆)"))
-    leg.append(("H", "Nghỉ lễ 01–02/09 theo hợp đồng"))
-    per = 3
-    wid = len(days) // per
-    r0 = r
-    for k, (m, txt) in enumerate(leg):
-        rr, cc = r0 + k // per, c0 + (k % per) * wid
-        sc = ws.cell(rr, cc)
-        if m in STY:
-            sc.fill = bar(m)
-        elif m == "H":
-            sc.fill = PatternFill("lightGray", fgColor="808080", bgColor="FFFFFF")
+        segs = []
+        if codes[0] in ("17", "70", "71"):
+            ds = [x for x in data if x[0] == codes[0]]
+            segs = [(None, min(x[2] for x in ds), max(x[3] for x in ds))]
         else:
-            sc.value, sc.alignment, sc.font = "◆", Alignment(horizontal="center"), F(size=9, bold=True)
-        sc.border = BD
-        t = ws.cell(rr, cc + 1, txt)
-        t.font = F(size=9)
-        ws.merge_cells(start_row=rr, start_column=cc + 1, end_row=rr, end_column=cc + wid - 2)
-    nrow = (len(leg) + per - 1) // per
-    notes = ["- Thời gian thi công theo lịch nghiệm thu đã xác nhận; khối lượng phân đoạn là số phân bổ tạm, cần cập nhật theo bản vẽ triển khai.",
-             "- Bê tông M300 lấy mẫu R7/R28 theo từng đợt đổ; bảo dưỡng và thí nghiệm R28 nằm ngoài khung thi công của biểu đồ.",
-             "- Làm việc 7 ngày/tuần, nghỉ lễ 01–02/09. Tiến độ chưa kèm nhân lực và thiết bị."]
-    for k, t in enumerate(notes):
-        ws.cell(r0 + 1 + k, 1, t).font = F(size=9, italic=True)
-    r = r0 + max(nrow, 4) + 1
-    # --- ký, đóng dấu
-    blocks = [("ĐẠI DIỆN CHỦ ĐẦU TƯ", PRJ["chu_dau_tu"].upper(), (1, nfix)),
-              ("ĐẠI DIỆN TƯ VẤN QUẢN LÝ DỰ ÁN", "CÔNG TY TNHH APAVE CHÂU Á – THÁI BÌNH DƯƠNG", (c0 + 2, c0 + 27)),
-              ("ĐẠI DIỆN NHÀ THẦU THI CÔNG", PRJ["nha_thau"].upper(), (c0 + 44, c0 + 68))]
-    ws.cell(r, 1)
-    for a, b, (x, y) in blocks:
-        for k, (txt, st) in enumerate(((a, dict(size=11, bold=True)), (b, dict(size=10, bold=True)), ("(Ký, ghi rõ họ tên, đóng dấu)", dict(size=9, italic=True)))):
-            ws.merge_cells(start_row=r + k, start_column=x, end_row=r + k, end_column=y)
-            c = ws.cell(r + k, x, txt)
-            c.font, c.alignment = F(**st), Alignment(horizontal="center", wrap_text=True)
-    ws.row_dimensions[r + 1].height = 28
-    r += 3 + 6  # chỗ ký, đóng dấu
-    ws.freeze_panes = ws.cell(H + 3, c0)
-    ws.sheet_view.zoomScale = 90
-    ws.page_setup.orientation, ws.page_setup.paperSize = "landscape", 8  # A3
-    ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, 1
-    ws.page_setup.blackAndWhite = True
-    ws.print_options.horizontalCentered = True
-    ws.sheet_properties.pageSetUpPr = openpyxl.worksheet.properties.PageSetupProperties(fitToPage=True)
-    ws.page_margins.left, ws.page_margins.right, ws.page_margins.top, ws.page_margins.bottom = 0.4, 0.4, 0.5, 0.5
-    ws.print_title_rows = f"{H}:{H + 2}"
-    ws.print_area = f"A1:{L(last)}{r}"
+            for p in PD:
+                ds = [x for x in data if x[0] in codes and x[1] == p]
+                if ds:
+                    segs.append((PD.index(p) + 1, min(x[2] for x in ds), max(x[3] for x in ds)))
+        s0, e0 = min(s[1] for s in segs), max(s[2] for s in segs)
+        crit = name in CRIT_ROWS
+        pos[name] = (y, segs)
+        # nền hàng + cột bảng
+        for i in range(len(cols)):
+            c.rect(xs[i], y, xs[i + 1] - xs[i], RH, fill=0)
+        c.setFont("TNR-R", 10)
+        c.drawCentredString((xs[0] + xs[1]) / 2, y + RH / 2 - 1.3 * mm, str(stt))
+        c.setFont("TNR-B" if crit else "TNR-R", 9.6)
+        words, line1, lines = name.split(), "", []
+        for w_ in words:
+            if pdfmetrics.stringWidth(line1 + " " + w_, "TNR-R", 9.6) > (cols[1][1] - 4) * mm:
+                lines.append(line1.strip())
+                line1 = ""
+            line1 += " " + w_
+        lines.append(line1.strip())
+        for li, t in enumerate(lines):
+            c.drawString(xs[1] + 2 * mm, y + RH / 2 + (len(lines) - 1) * 2.1 * mm - li * 4.2 * mm - 1.2 * mm, t)
+        c.setFont("TNR-R", 9.5)
+        for i, t in ((2, f"{s0:%d/%m/%Y}"), (3, f"{e0:%d/%m/%Y}"), (4, str((e0 - s0).days + 1 - sum(1 for h in HOLIDAY if s0 <= h <= e0)))):
+            c.drawCentredString((xs[i] + xs[i + 1]) / 2, y + RH / 2 - 1.3 * mm, t)
+        # lưới ngày
+        for i, d in enumerate(days):
+            c.setLineWidth(0.15 if d.weekday() else 0.5)
+            c.setStrokeGray(0.75 if d.weekday() else 0.45)
+            c.line(dx(i), y, dx(i), y + RH)
+            if d in HOLIDAY:
+                c.setFillGray(0.86)
+                c.rect(dx(i), y, dw, RH, fill=1, stroke=0)
+        c.setStrokeGray(0)
+        c.setLineWidth(0.6)
+        c.line(GX, y, X1, y)
+        c.line(X1, y, X1, y + RH)
+        # thanh
+        bh = 5.4 * mm
+        for pdn, a, b in segs:
+            x_a, x_b = dx(ix(a)), dx(ix(b) + 1)
+            cy = y + RH / 2
+            if codes[0] in ("70", "71"):
+                cx, r_ = x_b - dw / 2, 3.1 * mm
+                c.setFillGray(0)
+                p = c.beginPath()
+                p.moveTo(cx, cy + r_), p.lineTo(cx + r_, cy), p.lineTo(cx, cy - r_), p.lineTo(cx - r_, cy), p.close()
+                c.drawPath(p, fill=1, stroke=1)
+                continue
+            if codes[0] == "17":
+                c.setFillGray(0.55)
+                c.rect(x_a, cy - 1.4 * mm, x_b - x_a, 2.8 * mm, fill=1, stroke=0)
+                c.setStrokeGray(0), c.setLineWidth(0.5)
+                c.rect(x_a, cy - 1.4 * mm, x_b - x_a, 2.8 * mm, fill=0)
+                continue
+            is_c = pdn == 4 and crit
+            c.setLineWidth(0.5 if not is_c else 1.0)
+            c.setFillGray(0 if is_c else 0.8)
+            c.rect(x_a, cy - bh / 2, x_b - x_a, bh, fill=1, stroke=1)
+            c.setFillGray(1 if is_c else 0)
+            c.setFont("TNR-B", 6.4)
+            c.drawCentredString((x_a + x_b) / 2, cy - 0.9 * mm, str(pdn))
+        c.setFillGray(0)
+    # khung ngoài bảng
+    c.setLineWidth(1.2)
+    c.rect(X0, y, X1 - X0, YT - y, fill=0)
+    c.setLineWidth(1.0)
+    c.line(GX, YT, GX, y)
 
-    # --- bảng mốc chính
-    m = wb.create_sheet("Moc_chinh")
-    m["A1"] = "CÁC MỐC TIẾN ĐỘ CHÍNH"
-    m["A1"].font = F(size=14, bold=True)
-    for i, h in enumerate(["Mốc", "Ngày"], 1):
-        c = m.cell(3, i, h)
-        c.font, c.fill, c.border = F(bold=True), fill("D9D9D9"), BD
-    first = lambda muc, p: min(x["s"] for x in rows if x["muc"] == muc and x["vt"] == p)
-    lastd = lambda muc, p: max(x["e"] for x in rows if x["muc"] == muc and x["vt"] == p)
-    ms = [("Khởi công theo hợp đồng", START)]
-    for p in PD:
-        ms.append((f"{p}: hoàn thành ép cọc", lastd("02", p)))
-    for p in PD:
-        ms.append((f"{p}: đổ bê tông M300", f"{first('09', p):%d/%m/%Y} – {lastd('09', p):%d/%m/%Y}"))
-    for p in PD:
-        ms.append((f"{p}: hoàn thành đắp đá xô chân tường chắn", lastd("07", p)))
-    ms += [("Nghiệm thu hoàn thành toàn gói", dt.date(2026, 10, 26)), ("Bàn giao công trình và hồ sơ; kết thúc hợp đồng", END)]
-    for k, (a, b) in enumerate(ms, 4):
-        m.cell(k, 1, a).font = F()
-        c = m.cell(k, 2, b)
-        c.font, c.alignment = F(), Alignment(horizontal="center")
-        if isinstance(b, dt.date):
-            c.number_format = "dd/mm/yyyy"
-        m.cell(k, 1).border = m.cell(k, 2).border = BD
-    m.column_dimensions["A"].width, m.column_dimensions["B"].width = 55, 25
-    wb.save(out)
-    print("OK", len(rows), "công việc")
+    # đường găng: mũi tên nối các công việc ở phân đoạn 4 / mốc toàn gói
+    def end_seg(n):
+        yy, sg = pos[n]
+        s = sg[-1]
+        return yy, dx(ix(s[2]) + 1)
+
+    def start_seg(n):
+        yy, sg = pos[n]
+        return yy, dx(ix(sg[-1][1]))
+    c.setStrokeGray(0), c.setFillGray(0), c.setLineWidth(1.5)
+    for a, b in CRIT:
+        ya, xa = end_seg(a)
+        yb, xb = start_seg(b)
+        ya_c, yb_t = ya + RH / 2, yb + RH / 2 + 2.3 * mm
+        if b in ("Nghiệm thu hoàn thành toàn gói", "Bàn giao công trình và hồ sơ"):
+            xv = dx(ix(pos[b][1][-1][2])) + dw / 2
+            yb_t = yb + RH / 2 + 3.1 * mm
+        else:
+            xv = xb + dw * 0.45
+        if a in ("Nghiệm thu hoàn thành toàn gói",):
+            xa = dx(ix(pos[a][1][-1][2])) + dw / 2 + 3.1 * mm
+        c.line(xa, ya_c, xv, ya_c)
+        c.line(xv, ya_c, xv, yb_t + 0.2 * mm)
+        p = c.beginPath()
+        p.moveTo(xv, yb_t), p.lineTo(xv - 1.1 * mm, yb_t + 2.2 * mm), p.lineTo(xv + 1.1 * mm, yb_t + 2.2 * mm), p.close()
+        c.drawPath(p, fill=1, stroke=0)
+
+    # khối ký, đóng dấu (3 khối cân đối)
+    blocks = [("ĐẠI DIỆN CHỦ ĐẦU TƯ", PRJ["chu_dau_tu"].upper()),
+              ("ĐẠI DIỆN TƯ VẤN QUẢN LÝ DỰ ÁN", "CÔNG TY TNHH APAVE CHÂU Á – THÁI BÌNH DƯƠNG"),
+              ("ĐẠI DIỆN NHÀ THẦU THI CÔNG", PRJ["nha_thau"].upper())]
+    yy = y - 16 * mm
+    for i, (a, b) in enumerate(blocks):
+        cx = X0 + (X1 - X0) * (i * 2 + 1) / 6
+        c.setFillGray(0)
+        c.setFont("TNR-B", 12)
+        c.drawCentredString(cx, yy, a)
+        c.setFont("TNR-B", 10.5)
+        c.drawCentredString(cx, yy - 5.5 * mm, b)
+        c.setFont("TNR-I", 10)
+        c.drawCentredString(cx, yy - 11 * mm, "(Ký, ghi rõ họ tên, đóng dấu)")
+    c.showPage()
+    c.save()
+    print("OK", out, "y_cuoi_bang_mm", round(y / mm, 1))
 
 
 main(sys.argv[1], sys.argv[2])
